@@ -158,7 +158,7 @@ Hooks.once('init', function() {
 
   game.settings.register('sta-ng', 'threatPermissionLevel', {
     name: 'Threat Tracker User Role:',
-    hint: 'Who should be allowed to amend the threat tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
+    hint: 'Who should be allowed to amend the threat tracker?',
     scope: 'world',
     type: String,
     default: 'ASSISTANT',
@@ -173,7 +173,7 @@ Hooks.once('init', function() {
 
   game.settings.register('sta-ng', 'momentumPermissionLevel', {
     name: 'Momentum Tracker User Role:',
-    hint: 'Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
+    hint: 'Who should be allowed to amend the momentum tracker?',
     scope: 'world',
     type: String,
     default: 'PLAYER',
@@ -195,15 +195,6 @@ Hooks.once('init', function() {
     config: true
   });
 
-  game.settings.register('sta-ng', 'trackerRefreshRate', {
-    name: 'Refresh Rate of Threat & Momentum:',
-    hint: 'In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.',
-    scope: 'world',
-    type: Number,
-    default: 5,
-    config: true
-  });
-    
   game.settings.register('sta-ng', 'threat', {
     scope: 'world',
     type: Number,
@@ -223,22 +214,6 @@ Hooks.once('init', function() {
   );
 
   Hooks.on('ready', function() {
-    let i;
-    let error = false;
-    if (isNewerVersion(versionInfo,"0.8.-1")) {
-      i = foundry.CONST.USER_ROLES[game.settings.get("sta-ng", "momentumPermissionLevel")];
-    } else {
-      i = USER_ROLES[game.settings.get("sta-ng", "momentumPermissionLevel")];
-    }
-    for (i; i <= 4; i++) {
-      if (!game.permissions.SETTINGS_MODIFY.includes(i)) {
-        error = true;
-      }
-    }
-    if (error) {
-      console.error('The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.');
-      ui.notifications.error('The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.');
-    }
     const t = new STATracker();
     renderTemplate('systems/sta-ng/templates/apps/tracker.html').then((html) => {
       t.render(true);
