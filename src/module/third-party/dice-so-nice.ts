@@ -1,4 +1,4 @@
-export function register_dsn_ufp_themes(dice3d) {
+export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
   [
     {
       "background": "#00a3d1",
@@ -7,7 +7,7 @@ export function register_dsn_ufp_themes(dice3d) {
       "edge": "#006f8f",
       "font": "FoundryVTT",
       "foreground": "#000000",
-      "material": "plastic",
+      "material": DiceSoNice.Material.Plastic,
       "name": "sta-ufp-blue",
       "outline": "none"
     },
@@ -18,7 +18,7 @@ export function register_dsn_ufp_themes(dice3d) {
       "edge": "#755400",
       "font": "FoundryVTT",
       "foreground": "#000000",
-      "material": "plastic",
+      "material": DiceSoNice.Material.Plastic,
       "name": "sta-ufp-gold",
       "outline": "none"
     },
@@ -29,13 +29,13 @@ export function register_dsn_ufp_themes(dice3d) {
       "edge": "#941700",
       "font": "FoundryVTT",
       "foreground": "#000000",
-      "material": "plastic",
+      "material": DiceSoNice.Material.Plastic,
       "name": "sta-ufp-red",
       "outline": "none"
     }
-  ].forEach(colorset => dice3d.addColorset(colorset))
+  ].forEach(colorset => dice3d.addColorset(colorset, DiceSoNice.Mode.Default))
 
-  dice3d.addSystem({ id: "sta-ng-black", name: "Star Trek Adventures UFP (Black)" }, "preferred");
+  dice3d.addSystem({ id: "sta-ng-black", name: "Star Trek Adventures UFP (Black)" }, DiceSoNice.Mode.Preferred);
   dice3d.addDicePreset({
     type: "d6",
     labels: [
@@ -58,7 +58,7 @@ export function register_dsn_ufp_themes(dice3d) {
     system: "sta-ng-black",
   });
 
-  dice3d.addSystem({ id: "sta-ng-white", name: "Star Trek Adventures UFP (White)" }, "default");
+  dice3d.addSystem({ id: "sta-ng-white", name: "Star Trek Adventures UFP (White)" });
   dice3d.addDicePreset({
     type: "d6",
     labels: [

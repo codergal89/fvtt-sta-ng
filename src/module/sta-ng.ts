@@ -189,6 +189,6 @@ Hooks.on("ready", () => {
   });
 });
 
-Hooks.once("diceSoNiceReady", (dice3d: Dice3d) => {
+Hooks.once("diceSoNiceReady", (dice3d: DiceSoNice.Dice3D) => {
   register_dsn_ufp_themes(dice3d);
 });
