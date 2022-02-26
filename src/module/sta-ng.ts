@@ -12,7 +12,7 @@ import { STAGenericSheet } from "./items/generic-sheet.js";
 import { STASmallCraftContainerSheet } from "./items/smallcraftcontainer-sheet.js";
 import { STATracker } from "./apps/tracker.js";
 import { STAItem } from "./items/item.js";
-import { register_dsn_ufp_themes } from "./dice/dice-so-nice.js";
+import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
