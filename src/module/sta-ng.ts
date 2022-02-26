@@ -128,14 +128,14 @@ function _register_game_settings(): void {
     name: "Threat Tracker User Role:",
     hint: "Who should be allowed to amend the threat tracker?",
     scope: "world",
-    type: String,
-    default: "ASSISTANT",
+    type: Number,
+    default: 3,
     config: true,
     choices: {
-      "PLAYER": "Players",
-      "TRUSTED": "Trusted Players",
-      "ASSISTANT": "Assistant Gamemaster",
-      "GAMEMASTER": "Gamemasters",
+      [CONST.USER_ROLES.PLAYER]: "Players",
+      [CONST.USER_ROLES.TRUSTED]: "Trusted Players",
+      [CONST.USER_ROLES.ASSISTANT]: "Assistant Gamemaster",
+      [CONST.USER_ROLES.GAMEMASTER]: "Gamemasters",
     }
   });
 
@@ -143,14 +143,14 @@ function _register_game_settings(): void {
     name: "Momentum Tracker User Role:",
     hint: "Who should be allowed to amend the momentum tracker?",
     scope: "world",
-    type: String,
-    default: "PLAYER",
+    type: Number,
+    default: 1,
     config: true,
     choices: {
-      "PLAYER": "Players",
-      "TRUSTED": "Trusted Players",
-      "ASSISTANT": "Assistant Gamemaster",
-      "GAMEMASTER": "Gamemasters",
+      [CONST.USER_ROLES.PLAYER]: "Players",
+      [CONST.USER_ROLES.TRUSTED]: "Trusted Players",
+      [CONST.USER_ROLES.ASSISTANT]: "Assistant Gamemaster",
+      [CONST.USER_ROLES.GAMEMASTER]: "Gamemasters",
     }
   });
 

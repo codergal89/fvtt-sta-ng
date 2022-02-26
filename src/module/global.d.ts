@@ -12,8 +12,8 @@ interface Game {
 declare namespace ClientSettings {
   interface Values {
     "sta-ng.multipleComplications": boolean
-    "sta-ng.momentumPermissionLevel": string
-    "sta-ng.threatPermissionLevel": string
+    "sta-ng.momentumPermissionLevel": number
+    "sta-ng.threatPermissionLevel": number
     "sta-ng.maxNumberOfReputation": number
     "sta-ng.threat": number
     "sta-ng.momentum": number
