@@ -28,6 +28,9 @@ Hooks.once("init", () => {
   _register_game_settings();
 });
 
+/**
+ * Register our system's classes with the Foundry infrastructure.
+ */
 function _register_system_classes(): void {
   game["sta-ng"] = {
     applications: {
@@ -53,6 +56,9 @@ function _register_system_classes(): void {
   CONFIG.Item.documentClass = STAItem;
 }
 
+/**
+ * Register out system's actor applications (sheets) with the Foundry infrastructure
+ */
 function _register_actor_applications(): void {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("sta-ng", STACharacterSheet, {
@@ -70,7 +76,10 @@ function _register_actor_applications(): void {
   });
 }
 
-function _register_item_applications(): void {
+/**
+ * Register out system's item applications (sheets) with the Foundry infrastructure
+ */
+ function _register_item_applications(): void {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("sta-ng", STAItemSheet, {
     types: ["item"],
@@ -102,6 +111,9 @@ function _register_item_applications(): void {
   });
 }
 
+/**
+ * Register out system's settings with the Foundry infrastructure
+ */
 function _register_game_settings(): void {
   game.settings.register("sta-ng", "multipleComplications", {
     name: "Multiple Complications:",
