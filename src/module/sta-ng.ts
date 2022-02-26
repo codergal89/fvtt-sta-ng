@@ -159,7 +159,7 @@ function _register_game_settings(): void {
     hint: "Max number of reputation that can be given to a character. 10 is default.",
     scope: "world",
     type: Number,
-    default: 20,
+    default: 10,
     config: true
   });
 
