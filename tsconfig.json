@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "module": "CommonJS",
+        "rootDir": "./src",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "types": ["@league-of-foundry-developers/foundry-vtt-types"],
+        "allowJs": true,
+        "strictNullChecks": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictPropertyInitialization": true,
+        "noUnusedLocals": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitOverride": true
+    },
+    "include": [ "src/**/*.ts" ]
+}

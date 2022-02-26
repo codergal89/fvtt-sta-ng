@@ -1,30 +1,22 @@
 {
-	"name": "sta",
-	"scripts": {
-		"package": "gulp package",
-		"transpile": "gulp build",
-		"build": "gulp build && gulp copy",
-		"build:watch": "gulp watch",
-		"clean": "gulp clean && gulp copy --clean",
-		"lint": "eslint"
-	},
-	"devDependencies": {
-		"archiver": "^5.1.0",
-		"chalk": "^4.1.0",
-		"eslint": "^7.16.0",
-		"eslint-config-google": "^0.14.0",
-		"eslint-config-prettier": "^7.1.0",
-		"eslint-plugin-prettier": "^3.3.0",
-		"fs-extra": "^9.0.1",
-		"gulp": "^4.0.2",
-		"gulp-eslint": "^6.0.0",
-		"gulp-git": "^2.10.1",
-		"gulp-sass": "^4.1.0",
-		"json-stringify-pretty-compact": "^2.0.0",
-		"node-gyp": "^3.8.0",
-		"node-sass": "^4.14.1",
-		"prettier": "^2.2.1",
-		"yargs": "^16.2.0"
-	},
-	"version": "1.1.5"
+  "name": "sta-ng",
+  "description": " Next-generation implementation of the \"Star Trek Adventures\" system for FoundryVTT",
+  "author": {
+    "name": "Sophia Pearson",
+    "email": "codergal89@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codergal89/fvtt-sta-ng.git"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.249.4",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "sass": "^1.49.9",
+    "typescript": "^4.5.5"
+  }
 }
