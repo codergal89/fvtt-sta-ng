@@ -52,7 +52,7 @@ export class STARoll {
     }
 
     // Check if we allow multiple complications, or if only one complication ever happens.
-    const multipleComplicationsAllowed = game.settings.get('sta', 'multipleComplications');
+    const multipleComplicationsAllowed = game.settings.get('sta-ng', 'multipleComplications');
 
     // If there is any complications, we want to crate a string for this. If we allow multiple complications and they exist, we want to pluralise this also.
     // If no complications exist then we don't even show this box.
