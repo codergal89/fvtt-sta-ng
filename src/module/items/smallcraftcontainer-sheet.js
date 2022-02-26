@@ -21,8 +21,8 @@ export class STASmallCraftContainerSheet extends ItemSheet {
       ui.notifications.warn('You do not have permission to view this item!');
       return;
     }
-    if (!isNewerVersion(versionInfo,"0.8.-1")) return "systems/sta/templates/items/smallcraftcontainer-sheet-legacy.html";
-    return `systems/sta/templates/items/smallcraftcontainer-sheet.html`;
+    if (!isNewerVersion(versionInfo,"0.8.-1")) return "systems/sta-ng/templates/items/smallcraftcontainer-sheet-legacy.html";
+    return `systems/sta-ng/templates/items/smallcraftcontainer-sheet.html`;
   }
 
   /* -------------------------------------------- */

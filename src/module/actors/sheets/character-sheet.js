@@ -22,9 +22,9 @@ export class STACharacterSheet extends ActorSheet {
     let versionInfo;
     if (game.world.data) versionInfo = game.world.data.coreVersion;
     else game.world.coreVersion;
-    if ( !game.user.isGM && this.actor.limited) return 'systems/sta/templates/actors/limited-sheet.html';
-    if (!isNewerVersion(versionInfo,"0.8.-1")) return "systems/sta/templates/actors/character-sheet-legacy.html";
-    return `systems/sta/templates/actors/character-sheet.html`;
+    if ( !game.user.isGM && this.actor.limited) return 'systems/sta-ng/templates/actors/limited-sheet.html';
+    if (!isNewerVersion(versionInfo,"0.8.-1")) return "systems/sta-ng/templates/actors/character-sheet-legacy.html";
+    return `systems/sta-ng/templates/actors/character-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -77,7 +77,7 @@ export class STACharacterSheet extends ActorSheet {
     // Checks if items for this actor have default images. Something with Foundry 0.7.9 broke this functionality operating normally.
     // Stopgap until a better solution can be found.
     $.each(sheetData.data.items, (key, item) => {
-      if (!item.img) item.img = '/systems/sta/assets/icons/voyagercombadgeicon.svg';
+      if (!item.img) item.img = '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg';
     })
 
     return sheetData.data;
@@ -154,7 +154,7 @@ export class STACharacterSheet extends ActorSheet {
 
     // This creates a dynamic Reputation tracker. For this it uses a max value of 30. This can be configured here. 
     // It creates a new div for each and places it under a child called "bar-rep-renderer"
-    const repPointsMax = game.settings.get('sta', 'maxNumberOfReputation');
+    const repPointsMax = game.settings.get('sta-ng', 'maxNumberOfReputation');
     for (let i = 1; i <= repPointsMax; i++) {
       const repDiv = document.createElement('DIV');
       repDiv.className = 'box';
@@ -183,13 +183,13 @@ export class STACharacterSheet extends ActorSheet {
         html.find('.check-button')[i].style.display = 'none';
       }
       // This hides all toggle, add, and delete item images.
-      for (i = 0; i < html.find('.control.create').length; i++) {
+      for (i = 0; i < html.find('.control .create').length; i++) {
         html.find('.control.create')[i].style.display = 'none';
       }
       for (i = 0; i < html.find('.control .delete').length; i++) {
         html.find('.control .delete')[i].style.display = 'none';
       }
-      for (i = 0; i < html.find('.control.toggle').length; i++) {
+      for (i = 0; i < html.find('.control .toggle').length; i++) {
         html.find('.control.delete')[i].style.display = 'none';
       }
       // This hides all attribute and discipline check boxes (and titles)
@@ -259,7 +259,7 @@ export class STACharacterSheet extends ActorSheet {
         name: name,
         type: type,
         data: data,
-        img: '/systems/sta/assets/icons/voyagercombadgeicon.svg'
+        img: '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg'
       };
       delete itemData.data['type'];
       if (isNewerVersion(versionInfo,"0.8.-1")) return this.actor.createEmbeddedDocuments("Item",[(itemData)]);

@@ -142,23 +142,23 @@ export class STARoll {
             
       switch (result) {
       case 1:
-        diceString += '<li class="roll die d6"><img src="systems/sta/assets/icons/ChallengeDie_Success1_small.png" /></li>';
+        diceString += '<li class="roll die d6"><img src="systems/sta-ng/assets/icons/ChallengeDie_Success1_small.png" /></li>';
         success += 1;
         break;
       case 2:
-        diceString += '<li class="roll die d6"><img src="systems/sta/assets/icons/ChallengeDie_Success2_small.png" /></li>';
+        diceString += '<li class="roll die d6"><img src="systems/sta-ng/assets/icons/ChallengeDie_Success2_small.png" /></li>';
         success += 2;
         break;
       case 5:
       case 6:
-        diceString += '<li class="roll die d6"><img src="systems/sta/assets/icons/ChallengeDie_Effect_small.png" /></li>';
+        diceString += '<li class="roll die d6"><img src="systems/sta-ng/assets/icons/ChallengeDie_Effect_small.png" /></li>';
         success += 1;
         effect += 1;
         break;
       case 3:
       case 4:
       default:
-        diceString += '<li class="roll die d6"><img src="systems/sta/assets/icons/ChallengeDie_Success0_small.png" /></li>';
+        diceString += '<li class="roll die d6"><img src="systems/sta-ng/assets/icons/ChallengeDie_Success0_small.png" /></li>';
         break;
       }
     }

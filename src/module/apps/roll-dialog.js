@@ -3,9 +3,9 @@ export class STARollDialog {
     let html = '';
     if (isAttribute) {
       // Grab the RollDialog HTML file/
-      html = await renderTemplate('systems/sta/templates/apps/dicepool-attribute.html', {'defaultValue': defaultValue});
+      html = await renderTemplate('systems/sta-ng/templates/apps/dicepool-attribute.html', {'defaultValue': defaultValue});
     } else {
-      html = await renderTemplate('systems/sta/templates/apps/dicepool-challenge.html', {'defaultValue': defaultValue});
+      html = await renderTemplate('systems/sta-ng/templates/apps/dicepool-challenge.html', {'defaultValue': defaultValue});
     }
 
     // Create a new promise for the HTML above.

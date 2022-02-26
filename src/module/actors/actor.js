@@ -7,7 +7,7 @@ import {
 
 export class STAActor extends Actor {
   prepareData() {
-    if (!this.data.img) this.data.img = '/systems/sta/assets/icons/voyagercombadgeicon.svg';
+    if (!this.data.img) this.data.img = '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg';
 
     super.prepareData();
   }
