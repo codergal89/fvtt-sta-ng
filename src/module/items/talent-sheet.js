@@ -16,7 +16,7 @@ export class STATalentSheet extends ItemSheet {
   get template() {
     if ( !game.user.isGM && this.item.limited) {
       ui.notifications.warn('You do not have permission to view this item!');
-      return;
+      return "";
     }
     return 'systems/sta-ng/templates/items/talent-sheet.html';
   }

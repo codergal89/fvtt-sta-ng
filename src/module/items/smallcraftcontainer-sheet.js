@@ -19,7 +19,7 @@ export class STASmallCraftContainerSheet extends ItemSheet {
     else game.world.coreVersion;
     if ( !game.user.isGM && this.item.limited) {
       ui.notifications.warn('You do not have permission to view this item!');
-      return;
+      return "";
     }
     if (!isNewerVersion(versionInfo,"0.8.-1")) return "systems/sta-ng/templates/items/smallcraftcontainer-sheet-legacy.html";
     return `systems/sta-ng/templates/items/smallcraftcontainer-sheet.html`;

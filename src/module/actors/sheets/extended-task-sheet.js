@@ -18,7 +18,7 @@ export class STAExtendedTaskSheet extends ActorSheet {
   get template() {
     if ( !game.user.isGM && this.actor.limited) {
       ui.notifications.warn('You do not have permission to view this sheet!');
-      return false;
+      return "";
     }
     return `systems/sta-ng/templates/actors/extended-task-sheet.html`;
   }
