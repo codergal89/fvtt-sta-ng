@@ -10,7 +10,7 @@ import { STAArmorSheet } from "./items/armor-sheet.js";
 import { STATalentSheet } from "./items/talent-sheet.js";
 import { STAGenericSheet } from "./items/generic-sheet.js";
 import { STASmallCraftContainerSheet } from "./items/smallcraftcontainer-sheet.js";
-import { STATracker } from "./apps/tracker.js";
+import { StaNg } from "./apps/tracker.js";
 import { STAItem } from "./items/item.js";
 import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 
@@ -183,7 +183,7 @@ Hooks.on("renderChatLog", (_app: ChatLog, html: any) =>
 );
 
 Hooks.on("ready", () => {
-  const tracker = new STATracker();
+  const tracker = new  StaNg.Apps.Tracker();
   renderTemplate("systems/sta-ng/templates/apps/tracker.html", {}).then(() => {
     tracker.render(true);
   });

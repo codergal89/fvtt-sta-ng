@@ -1,5 +1,6 @@
 interface LenientGlobalVariableTypes {
-  game: never; // the type doesn't matter
+  game: never;
+  ui: never;
 }
 
 interface Game {
@@ -12,8 +13,8 @@ interface Game {
 declare namespace ClientSettings {
   interface Values {
     "sta-ng.multipleComplications": boolean
-    "sta-ng.momentumPermissionLevel": number
-    "sta-ng.threatPermissionLevel": number
+    "sta-ng.momentumPermissionLevel": 0 | 1 | 2 | 3 | 4
+    "sta-ng.threatPermissionLevel": 0 | 1 | 2 | 3 | 4
     "sta-ng.maxNumberOfReputation": number
     "sta-ng.threat": number
     "sta-ng.momentum": number
