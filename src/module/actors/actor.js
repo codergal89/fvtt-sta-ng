@@ -1,6 +1,4 @@
-import {
-  STARollDialog
-} from '../apps/roll-dialog.js';
+import { RollDialog } from '../apps/roll-dialog.js';
 import {
   STARoll
 } from '../roll.js';
@@ -105,7 +103,7 @@ export class STASharedActorFunctions {
     event.preventDefault();
     if (!defaultValue) defaultValue = 2;
     // This creates a dialog to gather details regarding the roll and waits for a response
-    const rolldialog = await STARollDialog.create(true, defaultValue);
+    const rolldialog = await RollDialog.create(true, defaultValue);
     if (rolldialog) {
       const dicePool = rolldialog.get('dicePoolSlider');
       const usingFocus = rolldialog.get('usingFocus') == null ? false : true;
@@ -123,7 +121,7 @@ export class STASharedActorFunctions {
   async rollChallengeRoll(event, weaponName, defaultValue, speaker) {
     event.preventDefault();
     // This creates a dialog to gather details regarding the roll and waits for a response
-    const rolldialog = await STARollDialog.create(false, defaultValue);
+    const rolldialog = await RollDialog.create(false, defaultValue);
     if (rolldialog) {
       const dicePool = rolldialog.get('dicePoolValue');
       // Once the response has been collected it then sends it to be rolled.
