@@ -11,7 +11,7 @@ import { STATalentSheet } from "./items/talent-sheet.js";
 import { STAGenericSheet } from "./items/generic-sheet.js";
 import { STASmallCraftContainerSheet } from "./items/smallcraftcontainer-sheet.js";
 import { ResourceTracker } from "./apps/ResourceTracker.js";
-import { STAItem } from "./items/item.js";
+import { ItemStaNg } from "./items/Item.js";
 import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 import { registerSystemSettings } from "./settings.js";
 import { registerApplications } from "./applications.js";
@@ -46,19 +46,19 @@ function registerSystemClasses(): void {
       STATalentSheet,
       STAGenericSheet,
       STASmallCraftContainerSheet,
-      STAItem,
     },
     entities: {
+      ItemStaNg,
       ActorStaNg,
     }
   };
 
   CONFIG.Actor.documentClass = ActorStaNg;
-  CONFIG.Item.documentClass = STAItem;
+  CONFIG.Item.documentClass = ItemStaNg;
 }
 
 Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) =>
-  STAItem.chatListeners(html)
+  ItemStaNg.chatListeners(html)
 );
 
 Hooks.on("ready", () => {

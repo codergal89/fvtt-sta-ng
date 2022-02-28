@@ -110,7 +110,7 @@ export class STASharedActorFunctions {
   }
 
   // This handles performing an attribute test using the "Perform Check" button.
-  async rollAttributeTest(event: Event, selectedAttribute:string, selectedAttributeValue:string,
+  async rollAttributeTest(event: JQuery.Event, selectedAttribute:string, selectedAttributeValue:string,
     selectedDiscipline:string, selectedDisciplineValue:string, defaultValue:number, speaker: ActorStaNg) {
     event.preventDefault();
     if (!defaultValue) defaultValue = 2;
@@ -130,7 +130,7 @@ export class STASharedActorFunctions {
   }
 	
   // This handles performing an challenge roll using the "Perform Challenge Roll" button.
-  async rollChallengeRoll(event: Event, weaponName:string, defaultValue: number, speaker: ActorStaNg) {
+  async rollChallengeRoll(event: JQuery.Event, weaponName:string, defaultValue: number, speaker: ActorStaNg) {
     event.preventDefault();
     // This creates a dialog to gather details regarding the roll and waits for a response
     const rolldialog = await RollDialog.create(false, defaultValue);
