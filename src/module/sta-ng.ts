@@ -49,7 +49,7 @@ function registerSystemClasses(): void {
       STAItem,
     },
     entities: {
-      ActorStaNg: STAActor,
+      ActorStaNg,
     }
   };
 
