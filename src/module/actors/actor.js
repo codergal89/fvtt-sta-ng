@@ -1,4 +1,4 @@
-import { RollDialog } from '../apps/roll-dialog.js';
+import { RollDialog } from '../apps/RollDialog.js';
 import {
   STARoll
 } from '../roll.js';
