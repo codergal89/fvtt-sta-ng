@@ -1,7 +1,3 @@
-import {
-  STASharedActorFunctions
-} from '../actor.js';
-
 export class STAExtendedTaskSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
@@ -44,9 +40,6 @@ export class STAExtendedTaskSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
     
-    // Opens the class STASharedActorFunctions for access at various stages.
-    const staActor = new STASharedActorFunctions();
-
     // If the player has limited access to the actor, there is nothing to see here. Return.
     if ( !game.user.isGM && this.actor.limited) return;
 

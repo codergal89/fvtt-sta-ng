@@ -183,7 +183,7 @@ export class STASmallCraftSheet extends ActorSheet {
         html.find('.rollable')[i].classList.add('unset-clickables');
       }
       return;
-    };
+    }
 
     html.find('.chat').click((ev) =>{
       const itemType = $(ev.currentTarget).parents('.entry')[0].getAttribute('data-item-type');

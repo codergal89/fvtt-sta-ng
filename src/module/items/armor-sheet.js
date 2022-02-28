@@ -15,7 +15,7 @@ export class STAArmorSheet extends ItemSheet {
   /** @override */
   get template() {
     if ( !game.user.isGM && this.item.limited) {
-	        ui.notifications.warn('You do not have permission to view this item!');
+          ui.notifications.warn('You do not have permission to view this item!');
       return "";
     }
     return `systems/sta-ng/templates/items/armor-sheet.html`;

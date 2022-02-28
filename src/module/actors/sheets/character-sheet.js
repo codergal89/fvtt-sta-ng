@@ -208,7 +208,7 @@ export class STACharacterSheet extends ActorSheet {
       }
 
       return;
-    };
+    }
 
     // This toggles whether the value is used or not.
     html.find('.control.toggle').click((ev) => {

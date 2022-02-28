@@ -15,8 +15,8 @@ export class STAFocusSheet extends ItemSheet {
   /** @override */
   get template() {
     if ( !game.user.isGM && this.item.limited) {
-	        ui.notifications.warn('You do not have permission to view this item!');
-      return;
+          ui.notifications.warn('You do not have permission to view this item!');
+      return "";
     }
     return `systems/sta-ng/templates/items/focus-sheet.html`;
   }

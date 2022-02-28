@@ -10,6 +10,7 @@ gulp.task("compile-module", () => {
     .src()
     .pipe(eslint())
     .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
     .pipe(tsProject())
     .js
     .pipe(gulp.dest("dist"));

@@ -26,7 +26,6 @@ export class STARollDialog {
           }
         },
         default: 'roll',
-        close: () => {}
       });
       
       // Render the dialog

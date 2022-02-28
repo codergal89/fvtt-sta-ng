@@ -5,22 +5,11 @@ import {
 export class STAItem extends Item {
   // Augment basic Item data model with additional dynamic data.
   prepareData() {
-    const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
-    
     if (!this.data.img) this.data.img = '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg';
 
     super.prepareData();
   }
   
-  /**
-   * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  async roll() {}
-
   static chatListeners(html) {
     html.on('click', '.reroll-result.attribute', this._onChatAttributeRerollResult.bind(this));
     html.on('click', '.reroll-result.challenge', this._onChatChallengeRerollResult.bind(this));

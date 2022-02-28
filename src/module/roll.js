@@ -116,12 +116,12 @@ export class STARoll {
 
     // Check if the dice3d module exists (Dice So Nice). If it does, post a roll in that and then send to chat after the roll has finished. If not just send to chat.
     if (game.dice3d) {
-      game.dice3d.showForRoll(r).then((displayed) => {
+      game.dice3d.showForRoll(r).then(() => {
         this.sendToChat(speaker, html, r, flavor);
       });
     } else {
       this.sendToChat(speaker, html, r, flavor);
-    };
+    }
   }
 
   async performChallengeRoll(dicePool, weaponName, speaker) {
@@ -216,12 +216,12 @@ export class STARoll {
     
     // Check if the dice3d module exists (Dice So Nice). If it does, post a roll in that and then send to chat after the roll has finished. If not just send to chat.
     if (game.dice3d) {
-      game.dice3d.showForRoll(r).then((displayed) => {
+      game.dice3d.showForRoll(r).then(() => {
         this.sendToChat(speaker, html, r, flavor);
       });
     } else {
       this.sendToChat(speaker, html, r, flavor);
-    };
+    }
   }
 
   async performItemRoll(item, speaker) {
