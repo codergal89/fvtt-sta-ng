@@ -10,6 +10,16 @@ interface Game {
   }
 }
 
+interface SourceConfig {
+  Actor: CharacterDataSource | ExtendedTaskDataSource | SmallCraftDataSource | StarshipDataSource
+  Item: ArmorDataSource | CharacterWeaponDataSource | FocusDataSource | InjuryDataSource | ItemDataSource | SmallCraftContainerDataSource | StarshipWeaponDataSource | TalentDataSource | ValueDataSource
+}
+
+interface DataConfig {
+  Actor: CharacterDataProperties | ExtendedTaskDataProperties | SmallCraftDataProperties | StarshipDataProperties
+  Item: ArmorDataProperties | CharacterWeaponDataProperties | FocusDataProperties | InjuryDataProperties | ItemDataProperties | SmallCraftContainerDataProperties | StarshipWeaponDataProperties | TalentDataProperties | ValueDataProperties
+}
+
 declare namespace ClientSettings {
   interface Values {
     "sta-ng.multipleComplications": boolean
@@ -60,7 +70,7 @@ declare namespace DiceSoNice {
     labels: string[],
     system: string,
     type: string,
-    value?: {min: number, max: number},
+    value?: { min: number, max: number },
   }
 
   interface Dice3D {

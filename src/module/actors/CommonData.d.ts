@@ -1,0 +1,3 @@
+interface ActorCommonDataSourceData {
+  notes: string
+}
