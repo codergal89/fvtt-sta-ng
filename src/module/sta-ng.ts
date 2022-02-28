@@ -1,5 +1,5 @@
 import { STAActor } from "./actors/actor.js";
-import { STACharacterSheet } from "./apps/character-sheet.js";
+import { STACharacterSheet } from "./apps/CharacterSheet.js";
 import { STAStarshipSheet } from "./actors/sheets/starship-sheet.js";
 import { STASmallCraftSheet } from "./actors/sheets/smallcraft-sheet.js";
 import { STAExtendedTaskSheet } from "./actors/sheets/extended-task-sheet.js";
