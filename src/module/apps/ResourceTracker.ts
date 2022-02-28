@@ -50,7 +50,7 @@ class UpdateResourceMessage implements Message {
   }
 }
 
-export class Tracker extends Application {
+export class ResourceTracker extends Application {
   /**
    * The name of the communication socket used to update the tracker information.
    */
@@ -100,24 +100,24 @@ export class Tracker extends Application {
    * @param value The value to set for the given resource.
    */
   private async updateResource(resource: Resource, value: number): Promise<void> {
-    if (!Tracker.userHasPermissionFor(resource)) {
+    if (!ResourceTracker.userHasPermissionFor(resource)) {
       ui.notifications.error(game.i18n.localize(`sta.notifications.${resource}InvalidPermissions`));
       return;
     } else if (value < 0) {
       ui.notifications.warn(game.i18n.localize(`sta.notifications.${resource}Negative`));
       return;
-    } else if (value > Tracker.getLimit(resource)) {
+    } else if (value > ResourceTracker.getLimit(resource)) {
       ui.notifications.warn(game.i18n.localize(`sta.notifications.${resource}TooGreat`));
       return;
     }
 
     if (game.user?.isGM) {
       await game.settings.set('sta-ng', resource, value);
-      game.socket?.emit(Tracker.SOCKET, new UpdateResourceMessage(resource));
+      game.socket?.emit(ResourceTracker.SOCKET, new UpdateResourceMessage(resource));
       this.update();
     }
     else {
-      game.socket?.emit(Tracker.SOCKET, new SetResourceMessage(resource, value));
+      game.socket?.emit(ResourceTracker.SOCKET, new SetResourceMessage(resource, value));
     }
   }
 
@@ -128,7 +128,7 @@ export class Tracker extends Application {
    * @param delta The delta applied to the given resource.
    */
   private async onAdjust(resource: Resource, delta: -1 | 1): Promise<void> {
-    await this.updateResource(resource, Tracker.getValue(resource) + delta);
+    await this.updateResource(resource, ResourceTracker.getValue(resource) + delta);
   }
 
   /**
@@ -147,20 +147,20 @@ export class Tracker extends Application {
    * Update the displayed tracker values.
    */
   private update() {
-    this.momentumInputField?.setAttribute("value", Tracker.getValue(Resource.Momentum).toString());
-    this.threatInputField?.setAttribute("value", Tracker.getValue(Resource.Threat).toString());
+    this.momentumInputField?.setAttribute("value", ResourceTracker.getValue(Resource.Momentum).toString());
+    this.threatInputField?.setAttribute("value", ResourceTracker.getValue(Resource.Threat).toString());
   }
 
   /**
    * Enable/Disable the momentum and threat +/- buttons and input fields depending on the current user's permissions.
    */
   private configureInterface() {
-    if (!Tracker.userHasPermissionFor(Resource.Momentum)) {
+    if (!ResourceTracker.userHasPermissionFor(Resource.Momentum)) {
       this.momentumButtons.forEach(b => b.style.display = "none");
       this.momentumInputField?.setAttribute("disabled", "true");
     }
 
-    if (!Tracker.userHasPermissionFor(Resource.Threat)) {
+    if (!ResourceTracker.userHasPermissionFor(Resource.Threat)) {
       this.threatButtons.forEach(b => b.style.display = "none");
       this.threatInputField?.setAttribute("disabled", "true");
     }
@@ -229,7 +229,7 @@ export class Tracker extends Application {
         const message = rawMessage as SetResourceMessage;
         if (game.user?.isGM) {
           await game.settings.set("sta-ng", message.resource, message.value);
-          game.socket?.emit(Tracker.SOCKET, new UpdateResourceMessage(message.resource));
+          game.socket?.emit(ResourceTracker.SOCKET, new UpdateResourceMessage(message.resource));
           this.update();
         }
       }
@@ -267,7 +267,7 @@ export class Tracker extends Application {
     )
     this.threatInputField = html.find('#sta-track-threat')[0] as HTMLInputElement;
 
-    game.socket?.on(Tracker.SOCKET, this.onMessage.bind(this));
+    game.socket?.on(ResourceTracker.SOCKET, this.onMessage.bind(this));
 
     this.configureInterface();
     this.configureButtons();

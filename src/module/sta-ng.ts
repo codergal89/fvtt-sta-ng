@@ -10,7 +10,7 @@ import { STAArmorSheet } from "./items/armor-sheet.js";
 import { STATalentSheet } from "./items/talent-sheet.js";
 import { STAGenericSheet } from "./items/generic-sheet.js";
 import { STASmallCraftContainerSheet } from "./items/smallcraftcontainer-sheet.js";
-import { Tracker } from "./apps/tracker.js";
+import { ResourceTracker } from "./apps/ResourceTracker.js";
 import { STAItem } from "./items/item.js";
 import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 import { registerSystemSettings } from "./settings.js";
@@ -62,7 +62,7 @@ Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) =>
 );
 
 Hooks.on("ready", () => {
-  const tracker = new  Tracker();
+  const tracker = new  ResourceTracker();
   renderTemplate("systems/sta-ng/templates/apps/tracker.html", {}).then(() => {
     tracker.render(true);
   });
