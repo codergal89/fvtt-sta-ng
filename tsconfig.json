@@ -16,5 +16,8 @@
         "noImplicitThis": true,
         "noImplicitOverride": true
     },
-    "include": [ "src/**/*.ts" ]
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.js"
+    ]
 }

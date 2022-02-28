@@ -3,7 +3,7 @@ const sass = require("gulp-sass")(require("sass"))
 const ts = require("gulp-typescript")
 const tsProject = ts.createProject("tsconfig.json")
 
-gulp.task("compile-ts", () => {
+gulp.task("compile-module", () => {
   return ts
     .createProject("tsconfig.json")
     .src()
@@ -12,16 +12,10 @@ gulp.task("compile-ts", () => {
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task("compile-sass", () => {
+gulp.task("compile-styles", () => {
   return gulp
     .src("src/**/*.scss")
     .pipe(sass().on("error", sass.logError))
-    .pipe(gulp.dest("dist"));
-});
-
-gulp.task("copy-js", () => {
-  return gulp
-    .src("src/**/*.js")
     .pipe(gulp.dest("dist"));
 });
 
@@ -43,9 +37,8 @@ gulp.task("copy-static-files", () => {
 });
 
 gulp.task("default", gulp.parallel([
-  "compile-ts",
-  "compile-sass",
-  "copy-js",
+  "compile-module",
+  "compile-styles",
   "copy-static-files",
 ]));
 
