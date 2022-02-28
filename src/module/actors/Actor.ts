@@ -3,11 +3,11 @@ import { STARoll } from '../roll.js';
 
 declare global {
   interface DocumentClassConfig {
-    Actor: typeof STAActor
+    Actor: typeof ActorStaNg
   }
 }
 
-export class STAActor extends Actor {
+export class ActorStaNg extends Actor {
   override prepareData() {
     super.prepareData();
     if (!this.data.img || this.data.img == "icons/svg/mystery-man.svg") {
@@ -111,7 +111,7 @@ export class STASharedActorFunctions {
 
   // This handles performing an attribute test using the "Perform Check" button.
   async rollAttributeTest(event: Event, selectedAttribute:string, selectedAttributeValue:string,
-    selectedDiscipline:string, selectedDisciplineValue:string, defaultValue:number, speaker: STAActor) {
+    selectedDiscipline:string, selectedDisciplineValue:string, defaultValue:number, speaker: ActorStaNg) {
     event.preventDefault();
     if (!defaultValue) defaultValue = 2;
     // This creates a dialog to gather details regarding the roll and waits for a response
@@ -130,7 +130,7 @@ export class STASharedActorFunctions {
   }
 	
   // This handles performing an challenge roll using the "Perform Challenge Roll" button.
-  async rollChallengeRoll(event: Event, weaponName:string, defaultValue: number, speaker: STAActor) {
+  async rollChallengeRoll(event: Event, weaponName:string, defaultValue: number, speaker: ActorStaNg) {
     event.preventDefault();
     // This creates a dialog to gather details regarding the roll and waits for a response
     const rolldialog = await RollDialog.create(false, defaultValue);
@@ -143,7 +143,7 @@ export class STASharedActorFunctions {
   }
 
   // This handles performing an "item" roll by clicking the item's image.
-  async rollGenericItem(event: Event, type: string, id: string, speaker: STAActor) {
+  async rollGenericItem(event: Event, type: string, id: string, speaker: ActorStaNg) {
     event.preventDefault();
     const item = speaker.items.get(id);
     const staRoll = new STARoll();

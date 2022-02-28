@@ -1,4 +1,4 @@
-import { STAActor } from "./actors/actor.js";
+import { ActorStaNg } from "./actors/Actor.js";
 import { STACharacterSheet } from "./apps/CharacterSheet.js";
 import { STAStarshipSheet } from "./apps/StarshipSheet.js";
 import { STASmallCraftSheet } from "./apps/SmallCraftSheet.js";
@@ -49,11 +49,11 @@ function registerSystemClasses(): void {
       STAItem,
     },
     entities: {
-      STAActor,
+      ActorStaNg: STAActor,
     }
   };
 
-  CONFIG.Actor.documentClass = STAActor;
+  CONFIG.Actor.documentClass = ActorStaNg;
   CONFIG.Item.documentClass = STAItem;
 }
 

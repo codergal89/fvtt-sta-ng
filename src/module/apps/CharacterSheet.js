@@ -1,4 +1,4 @@
-import {STASharedActorFunctions} from '../actors/actor.js';
+import {STASharedActorFunctions} from '../actors/Actor.js';
 
 export class STACharacterSheet extends ActorSheet {
   /** @override */

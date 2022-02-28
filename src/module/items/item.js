@@ -1,6 +1,6 @@
 import {
   STASharedActorFunctions
-} from '../actors/actor.js';
+} from '../actors/Actor.js';
 
 export class STAItem extends Item {
   // Augment basic Item data model with additional dynamic data.
