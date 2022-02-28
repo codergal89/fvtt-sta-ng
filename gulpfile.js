@@ -1,12 +1,15 @@
-const gulp = require("gulp")
-const sass = require("gulp-sass")(require("sass"))
-const ts = require("gulp-typescript")
-const tsProject = ts.createProject("tsconfig.json")
+const gulp = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
+const ts = require("gulp-typescript");
+const eslint = require("gulp-eslint");
+const tsProject = ts.createProject("tsconfig.json");
 
 gulp.task("compile-module", () => {
   return ts
     .createProject("tsconfig.json")
     .src()
+    .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(tsProject())
     .js
     .pipe(gulp.dest("dist"));

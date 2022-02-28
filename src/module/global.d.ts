@@ -5,8 +5,8 @@ interface LenientGlobalVariableTypes {
 
 interface Game {
   "sta-ng": {
-    applications: {}
-    entities: {}
+    applications: Record<string, unknown>
+    entities: Record<string, unknown>
   }
 }
 
