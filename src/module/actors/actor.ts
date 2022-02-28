@@ -1,27 +1,34 @@
 import { RollDialog } from '../apps/RollDialog.js';
-import {
-  STARoll
-} from '../roll.js';
+import { STARoll } from '../roll.js';
 
-export class STAActor extends Actor {
-  prepareData() {
-    if (!this.data.img) this.data.img = '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg';
-
-    super.prepareData();
+declare global {
+  interface DocumentClassConfig {
+    Actor: typeof STAActor
   }
 }
+
+export class STAActor extends Actor {
+  override prepareData() {
+    super.prepareData();
+    if (!this.data.img || this.data.img == "icons/svg/mystery-man.svg") {
+      this.data.img = "/systems/sta-ng/assets/icons/voyagercombadgeicon.svg"
+    }
+  }
+}
+
 
 /** Shared functions for actors **/
 export class STASharedActorFunctions {
   // This function renders all the tracks. This will be used every time the character sheet is loaded. It is a vital element as such it runs before most other code!
-  staRenderTracks(html, stressTrackMax, determinationPointsMax,
-    repPointsMax, shieldsTrackMax, powerTrackMax, crewTrackMax) {
+  staRenderTracks(html: JQuery<HTMLElement>, stressTrackMax: number, determinationPointsMax: number,
+    repPointsMax: number, shieldsTrackMax: number, powerTrackMax: number, crewTrackMax: number) {
     let i;
     // Checks if details for the Stress Track was included, this should happen for all Characters!
     if (stressTrackMax) {
       for (i = 0; i < stressTrackMax; i++) {
         html.find('[id^="stress"]')[i].classList.add('stress');
-        if (i + 1 <= html.find('#total-stress')[0].value) {
+        const totalStress = html.find<HTMLInputElement>('#total-stress')[0].value
+        if (i + 1 <= parseInt(totalStress)) {
           html.find('[id^="stress"]')[i].setAttribute('data-selected', 'true');
           html.find('[id^="stress"]')[i].classList.add('selected');
         } else {
@@ -34,7 +41,8 @@ export class STASharedActorFunctions {
     if (determinationPointsMax) {
       for (i = 0; i < determinationPointsMax; i++) {
         html.find('[id^="determination"]')[i].classList.add('determination');
-        if (i + 1 <= html.find('#total-determination')[0].value) {
+        const totalDetermination = html.find<HTMLInputElement>('#total-determination')[0].value
+        if (i + 1 <= parseInt(totalDetermination)) {
           html.find('[id^="determination"]')[i].setAttribute('data-selected', 'true');
           html.find('[id^="determination"]')[i].classList.add('selected');
         } else {
@@ -47,7 +55,8 @@ export class STASharedActorFunctions {
     if (repPointsMax) {
       for (i = 0; i < repPointsMax; i++) {
         html.find('[id^="rep"]')[i].classList.add('rep');
-        if (i + 1 <= html.find('#total-rep')[0].value) {
+        const totalReputation =  html.find<HTMLInputElement>('#total-rep')[0].value;
+        if (i + 1 <= parseInt(totalReputation)) {
           html.find('[id^="rep"]')[i].setAttribute('data-selected', 'true');
           html.find('[id^="rep"]')[i].classList.add('selected');
         } else {
@@ -60,7 +69,8 @@ export class STASharedActorFunctions {
     if (shieldsTrackMax) {
       for (i = 0; i < shieldsTrackMax; i++) {
         html.find('[id^="shields"]')[i].classList.add('shields');
-        if (i + 1 <= html.find('#total-shields').val()) {
+        const totalShields = html.find<HTMLInputElement>('#total-shields')[0].value;
+        if (i + 1 <= parseInt(totalShields)) {
           html.find('[id^="shields"]')[i].setAttribute('data-selected', 'true');
           html.find('[id^="shields"]')[i].classList.add('selected');
         } else {
@@ -73,7 +83,8 @@ export class STASharedActorFunctions {
     if (powerTrackMax) {
       for (i = 0; i < powerTrackMax; i++) {
         html.find('[id^="power"]')[i].classList.add('power');
-        if (i + 1 <= html.find('#total-power').val()) {
+        const totalPower = html.find<HTMLInputElement>('#total-power')[0].value;
+        if (i + 1 <= parseInt(totalPower)) {
           html.find('[id^="power"]')[i].setAttribute('data-selected', 'true');
           html.find('[id^="power"]')[i].classList.add('selected');
         } else {
@@ -86,7 +97,8 @@ export class STASharedActorFunctions {
     if (crewTrackMax) {
       for (i = 0; i < crewTrackMax; i++) {
         html.find('[id^="crew"]')[i].classList.add('crew');
-        if (i + 1 <= html.find('#total-crew').val()) {
+        const totalCrew = html.find<HTMLInputElement>('#total-crew')[0].value;
+        if (i + 1 <= parseInt(totalCrew)) {
           html.find('[id^="crew"]')[i].setAttribute('data-selected', 'true');
           html.find('[id^="crew"]')[i].classList.add('selected');
         } else {
@@ -98,8 +110,8 @@ export class STASharedActorFunctions {
   }
 
   // This handles performing an attribute test using the "Perform Check" button.
-  async rollAttributeTest(event, selectedAttribute, selectedAttributeValue,
-    selectedDiscipline, selectedDisciplineValue, defaultValue, speaker) {
+  async rollAttributeTest(event: Event, selectedAttribute:string, selectedAttributeValue:string,
+    selectedDiscipline:string, selectedDisciplineValue:string, defaultValue:number, speaker: STAActor) {
     event.preventDefault();
     if (!defaultValue) defaultValue = 2;
     // This creates a dialog to gather details regarding the roll and waits for a response
@@ -108,7 +120,7 @@ export class STASharedActorFunctions {
       const dicePool = rolldialog.get('dicePoolSlider');
       const usingFocus = rolldialog.get('usingFocus') == null ? false : true;
       const usingDetermination = rolldialog.get('usingDetermination') == null ? false : true;
-      const complicationRange = parseInt(rolldialog.get('complicationRange'));
+      const complicationRange = parseInt(rolldialog.get('complicationRange')?.toString() ?? "0");
       // Once the response has been collected it then sends it to be rolled.
       const staRoll = new STARoll();
       staRoll.performAttributeTest(dicePool, usingFocus, usingDetermination,
@@ -118,7 +130,7 @@ export class STASharedActorFunctions {
   }
 	
   // This handles performing an challenge roll using the "Perform Challenge Roll" button.
-  async rollChallengeRoll(event, weaponName, defaultValue, speaker) {
+  async rollChallengeRoll(event: Event, weaponName:string, defaultValue: number, speaker: STAActor) {
     event.preventDefault();
     // This creates a dialog to gather details regarding the roll and waits for a response
     const rolldialog = await RollDialog.create(false, defaultValue);
@@ -131,7 +143,7 @@ export class STASharedActorFunctions {
   }
 
   // This handles performing an "item" roll by clicking the item's image.
-  async rollGenericItem(event, type, id, speaker) {
+  async rollGenericItem(event: Event, type: string, id: string, speaker: STAActor) {
     event.preventDefault();
     const item = speaker.items.get(id);
     const staRoll = new STARoll();
