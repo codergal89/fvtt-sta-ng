@@ -1,8 +1,8 @@
 import { STAActor } from "./actors/actor.js";
 import { STACharacterSheet } from "./apps/CharacterSheet.js";
-import { STAStarshipSheet } from "./actors/sheets/starship-sheet.js";
-import { STASmallCraftSheet } from "./actors/sheets/smallcraft-sheet.js";
-import { STAExtendedTaskSheet } from "./actors/sheets/extended-task-sheet.js";
+import { STAStarshipSheet } from "./apps/starship-sheet.js";
+import { STASmallCraftSheet } from "./apps/smallcraft-sheet.js";
+import { STAExtendedTaskSheet } from "./apps/extended-task-sheet.js";
 import { STAItemSheet } from "./items/item-sheet.js";
 import { STACharacterWeaponSheet } from "./items/character-weapon-sheet.js";
 import { STAStarshipWeaponSheet } from "./items/starship-weapon-sheet.js";

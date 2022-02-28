@@ -1,6 +1,6 @@
 import {
   STASharedActorFunctions
-} from '../actor.js';
+} from '../actors/actor.js';
 
 export class STAStarshipSheet extends ActorSheet {
   /** @override */
