@@ -1,3 +1,4 @@
+import { sendItemToChat } from "../chat/Item.js";
 import { ItemStaNg } from "../items/Item.js";
 import { CharacterSheetData } from "./CharacterSheetData.js";
 
@@ -173,21 +174,9 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
   private async onClickChat(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     const [, item] = this.getEventItem(event);
-
-    if (!item) {
-      return;
+    if (item) {
+      sendItemToChat(item, this.actor);
     }
-
-    const content = await renderTemplate("systems/sta-ng/templates/chat/item.hbs", {
-      actor: this.actor,
-      item: item,
-      type: game.i18n.localize(`sta.chat.item.type.${item.data.type}`)
-    });
-    return ChatMessage.create({
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      content: content,
-    });
   }
 
   private onClickTalentTooltip(event: JQuery.TriggeredEvent) {
