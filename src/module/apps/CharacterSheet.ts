@@ -1,7 +1,7 @@
 import { ItemStaNg } from "../items/Item.js";
 import { CharacterSheetData } from "./CharacterSheetData.js";
 
-export class STACharacterSheet extends ActorSheet<ActorSheet.Options, CharacterSheetData> {
+export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, CharacterSheetData> {
 
   public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {

@@ -1,5 +1,5 @@
 import { ActorStaNg } from "./actors/Actor.js";
-import { STACharacterSheet } from "./apps/CharacterSheet.js";
+import { CharacterSheetStaNg } from "./apps/CharacterSheet.js";
 import { STAStarshipSheet } from "./apps/StarshipSheet.js";
 import { STASmallCraftSheet } from "./apps/SmallCraftSheet.js";
 import { STAExtendedTaskSheet } from "./apps/ExtendedTaskSheet.js";
@@ -36,7 +36,7 @@ Hooks.once("init", () => {
 function registerSystemClasses(): void {
   game["sta-ng"] = {
     applications: {
-      STACharacterSheet,
+      CharacterSheetStaNg,
       STAStarshipSheet,
       STASmallCraftSheet,
       STAExtendedTaskSheet,

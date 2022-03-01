@@ -1,4 +1,4 @@
-import { STACharacterSheet } from "./apps/CharacterSheet.js";
+import { CharacterSheetStaNg } from "./apps/CharacterSheet.js";
 import { STAExtendedTaskSheet } from "./apps/ExtendedTaskSheet.js";
 import { STASmallCraftSheet } from "./apps/SmallCraftSheet.js";
 import { STAStarshipSheet } from "./apps/StarshipSheet.js";
@@ -20,7 +20,7 @@ export function registerApplications() : void {
  */
  function registerActorApplications(): void {
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("sta-ng", STACharacterSheet, {
+  Actors.registerSheet("sta-ng", CharacterSheetStaNg, {
     types: ["character"],
     makeDefault: true
   });
