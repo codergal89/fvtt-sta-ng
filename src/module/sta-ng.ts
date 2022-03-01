@@ -15,6 +15,7 @@ import { ItemStaNg } from "./items/Item.js";
 import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 import { registerSystemSettings } from "./settings.js";
 import { registerApplications } from "./applications.js";
+import { attachChatListeners } from "./ChatListeners.js";
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
@@ -57,9 +58,7 @@ function registerSystemClasses(): void {
   CONFIG.Item.documentClass = ItemStaNg;
 }
 
-Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) =>
-  ItemStaNg.chatListeners(html)
-);
+Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));
 
 Hooks.on("ready", () => {
   const tracker = new  ResourceTracker();

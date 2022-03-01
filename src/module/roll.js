@@ -15,7 +15,7 @@ export class STARoll {
 
     // Define r as our dice roll we want to perform (1d20, 2d20, 3d20, 4d20 or 5d20). We will then roll it.
     const r = new Roll(dicePool+'d20');
-    r.roll();
+    await r.roll({async: true});
     // Now for each dice in the dice pool we want to check what the individual result was.
     for (i = 0; i < dicePool; i++) {
       result = r.terms[0].results[i].result;

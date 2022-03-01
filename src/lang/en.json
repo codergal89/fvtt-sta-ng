@@ -158,7 +158,7 @@
   "sta.roll.success": "Success",
   "sta.roll.successPlural": "Successes",
   "sta.roll.task.name": "Task",
-  "sta.roll.complicationrange": "Complication range is ",
+  "sta.roll.complicationrange": "Complication range is |#|",
   "sta.roll.complication": "There was a complication!",
   "sta.roll.complicationPlural": "There were |#| complications!",
   "sta.roll.effect": "There was an effect!",
@@ -183,5 +183,15 @@
   "sta.dice.dsn.ufp.gold": "UFP Gold",
   "sta.dice.dsn.ufp.red": "UFP Red",
   "sta.dice.dsn.ufp.theme.black": "Star Trek Adventures UFP (Black)",
-  "sta.dice.dsn.ufp.theme.white": "Star Trek Adventures UFP (White)"
+  "sta.dice.dsn.ufp.theme.white": "Star Trek Adventures UFP (White)",
+
+  "sta.confirm.item.delete": "Are you sure you want to delete {item}?",
+
+  "sta.placeholder.item.new": "New {item}",
+
+  "sta.chat.item.type.armor": "Armor",
+  "sta.chat.item.type.focus": "Focus",
+  "sta.chat.item.type.item": "Other",
+  "sta.chat.item.type.talent": "Talent",
+  "sta.chat.item.type.value": "Value"
 }
