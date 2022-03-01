@@ -84,7 +84,15 @@ interface CharacterDataSource {
   data: CharacterDataSourceData
 }
 
+interface CharacterDataPropertiesData extends CharacterDataSourceData {
+  focuses: Item[]
+  stress: {
+    value: number
+    max: number
+  }
+}
+
 interface CharacterDataProperties {
   type: "character"
-  data: CharacterDataSourceData
+  data: CharacterDataPropertiesData
 }
