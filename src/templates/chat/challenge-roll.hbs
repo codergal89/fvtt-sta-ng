@@ -1,0 +1,34 @@
+<div class="sta roll attribute">
+  <div class="dice-roll">
+    <div class="dice-result">
+      <div class="dice-formula">
+        <table class="aim">
+          <tr>
+            <td> {{pool}}d6 </td>
+          </tr>
+        </table>
+      </div>
+      <div class="dice-tooltip">
+        <section class="tooltip-part">
+          <div class="dice">
+            <ol class="dice-rolls">
+              {{#each images}}
+              <li class="roll die d6"><img src="systems/sta-ng/assets/icons/{{this}}"/></li>
+              {{/each}}
+            </ol>
+          </div>
+        </section>
+      </div>
+      {{#if effect.count}}
+      <h4 class="dice-total effect">{{effect.message}}</h4>
+      {{/if}}
+      {{#if success.count}}
+      <h4 class="dice-total">{{success.message}}</h4>
+      {{/if}}
+    </div>
+  </div>
+  <div class="reroll-result challenge">
+    <span>{{localize "sta.roll.rerollresults"}}</span>
+    <input id="speakerId" type="hidden" value="{{speaker.id}}">
+  </div>
+</div>

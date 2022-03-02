@@ -1,4 +1,5 @@
 import { sendItemToChat } from "../chat/Item.js";
+import { challengeRoll } from "../dice/ChallengeRoll.js";
 import { ItemStaNg } from "../items/Item.js";
 import { CharacterSheetData } from "./CharacterSheetData.js";
 
@@ -168,7 +169,9 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
   private async onClickRoll(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     const [, item] = this.getEventItem(event);
-    ui.notifications.warn(`Implement Click-to-Roll! requested item: ${item?.id}`);
+    if (item) {
+      challengeRoll(this.actor, item);
+    }
   }
 
   private async onClickChat(event: JQuery.TriggeredEvent) {

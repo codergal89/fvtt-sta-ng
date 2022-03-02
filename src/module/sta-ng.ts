@@ -16,6 +16,7 @@ import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 import { registerSystemSettings } from "./settings.js";
 import { registerApplications } from "./applications.js";
 import { attachChatListeners } from "./ChatListeners.js";
+import { ChallengeRoll } from "./dice/ChallengeRoll.js";
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
@@ -56,6 +57,7 @@ function registerSystemClasses(): void {
 
   CONFIG.Actor.documentClass = ActorStaNg;
   CONFIG.Item.documentClass = ItemStaNg;
+  CONFIG.Dice.rolls.push(ChallengeRoll)
 }
 
 Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));

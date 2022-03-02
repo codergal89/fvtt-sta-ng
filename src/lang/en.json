@@ -155,14 +155,14 @@
   "sta.apps.pool": "Number of Dice in Pool",
   "sta.apps.rolldice": "Roll Dice",
 
-  "sta.roll.success": "Success",
-  "sta.roll.successPlural": "Successes",
+  "sta.roll.success": "1 Success",
+  "sta.roll.successPlural": "{count} Successes",
   "sta.roll.task.name": "Task",
   "sta.roll.complicationrange": "Complication range is |#|",
   "sta.roll.complication": "There was a complication!",
   "sta.roll.complicationPlural": "There were |#| complications!",
   "sta.roll.effect": "There was an effect!",
-  "sta.roll.effectPlural": "There were |#| effects!",
+  "sta.roll.effectPlural": "There were {count} effects!",
   "sta.roll.rerollresults": "Reroll results?",
 
   "sta.roll.weapon.damage": "<b>|#|</b> Damage",
