@@ -79,6 +79,7 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
 
     this.activateItemControls(html);
     this.activateTrackControls(html);
+    this.activateButtons(html);
   }
 
   private activateItemControls(html: JQuery<HTMLElement>): void {
@@ -95,6 +96,10 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
     html.find("[id^='reputation-'").on("click", this.onClickTrack.bind(this));
     html.find("[id^='stress-'").on("click", this.onClickTrack.bind(this));
     html.find("[id^='determination-'").on("click", this.onClickTrack.bind(this));
+  }
+
+  private activateButtons(html: JQuery<HTMLElement>): void {
+    html.find(".check-button.challenge").on("click", this.onPerformChallenge.bind(this));
   }
 
   private async onCreateItem(event: JQuery.TriggeredEvent) {
@@ -199,6 +204,11 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
       talentTipContainer.height(talentTipContainer[0].scrollHeight + 5);
     }
     talentTipContainer.toggleClass("hide")
+  }
+
+  private onPerformChallenge(event: JQuery.TriggeredEvent)  {
+    event.preventDefault();
+    challengeRoll(this.actor);
   }
 
   private getEventItem(event: JQuery.TriggeredEvent): [JQuery<HTMLElement>, ItemStaNg | undefined] {

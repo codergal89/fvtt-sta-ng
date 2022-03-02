@@ -159,6 +159,7 @@
   "sta.roll.successPlural": "{count} Successes",
   "sta.roll.task.name": "Task",
   "sta.roll.challenge.attack": "{weapon} Attack",
+  "sta.roll.challenge.generic": "Challenge",
   "sta.roll.complicationrange": "Complication range is |#|",
   "sta.roll.complication": "There was a complication!",
   "sta.roll.complicationPlural": "There were |#| complications!",
