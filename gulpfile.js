@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const clean = require("gulp-clean")
 const sass = require("gulp-sass")(require("sass"));
 const ts = require("gulp-typescript");
 const eslint = require("gulp-eslint");
@@ -40,9 +41,15 @@ gulp.task("copy-static-files", () => {
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task("default", gulp.parallel([
+gulp.task("clean", () => {
+  return gulp
+    .src("dist", {read: false})
+    .pipe(clean());
+})
+
+gulp.task("default", gulp.series(["clean", gulp.parallel([
   "compile-module",
   "compile-styles",
   "copy-static-files",
-]));
+])]));
 
