@@ -25,7 +25,7 @@ export async function challengeRoll(actor: ActorStaNg, item?: ItemStaNg, options
   if (!item) {
     return genericChallengeRoll(actor, options);
   } else if (actor.data.type === "character" && item?.data.type === "characterweapon") {
-    return characterChallengeRoll(actor as CharacterActor, item as CharacterWeapon, options)
+    return characterWeaponChallengeRoll(actor as CharacterActor, item as CharacterWeapon, options)
   }
   return Promise.reject();
 }
@@ -57,7 +57,7 @@ async function genericChallengeRoll(actor: ActorStaNg, options?: Options) {
   });
 }
 
-async function characterChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options?: Options) {
+async function characterWeaponChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options?: Options) {
   let pool = options?.defaultPool ?? weapon.data.data.damage + actor.data.data.disciplines.security.value;
   if (!options?.fastForward) {
     const formData = await RollDialog.create(false, pool);
