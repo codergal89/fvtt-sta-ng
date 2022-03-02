@@ -40,14 +40,14 @@ export default class ChallengeRoll<D extends object = Record<string, unknown>> e
     return this.results.map(x => {
       switch (x.result) {
         case 1:
-          return "ChallengeDie_Success1_small.png";
+          return "die_challenge_success_1.png";
         case 2:
-          return "ChallengeDie_Success2_small.png";
+          return "die_challenge_success_2.png";
         case 5:
         case 6:
-          return "ChallengeDie_Effect_small.png";
+          return "die_challenge_success_1effect.png";
         default:
-          return "ChallengeDie_Success0_small.png";
+          return "die_challenge_success_0.png";
       }
     });
   }

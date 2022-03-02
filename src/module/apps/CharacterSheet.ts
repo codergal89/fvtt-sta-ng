@@ -109,7 +109,7 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
       name: game.i18n.format("sta.placeholder.item.new", { item: dataType.capitalize() }),
       type: dataType,
       data: {},
-      img: "systems/sta-ng/assets/icons/voyagercombadgeicon.svg",
+      img: "systems/sta-ng/assets/icons/svg/combadge_voyager.svg",
     }]);
     if (!event.shiftKey) {
       this.actor.items.find(x => x.id === item[0].id)?.sheet?.render(true);

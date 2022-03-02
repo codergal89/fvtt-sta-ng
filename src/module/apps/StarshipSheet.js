@@ -78,7 +78,7 @@ export class STAStarshipSheet extends ActorSheet {
     // Checks if items for this actor have default images. Something with Foundry 0.7.9 broke this functionality operating normally.
     // Stopgap until a better solution can be found.
     $.each(sheetData.data.items, (key, item) => {
-      if (!item.img) item.img = '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg';
+      if (!item.img) item.img = 'systems/sta-ng/assets/icons/svg/combadge_voyager.svg';
     })
 
     return sheetData.data;
@@ -234,7 +234,7 @@ export class STAStarshipSheet extends ActorSheet {
         name: name,
         type: type,
         data: data,
-        img: '/systems/sta-ng/assets/icons/voyagercombadgeicon.svg'
+        img: 'systems/sta-ng/assets/icons/svg/combadge_voyager.svg'
       };
       delete itemData.data['type'];
       if (isNewerVersion(versionInfo,"0.8.-1")) return this.actor.createEmbeddedDocuments("Item",[(itemData)]); 

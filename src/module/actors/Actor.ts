@@ -11,7 +11,7 @@ export class ActorStaNg extends Actor {
 
   public override prepareBaseData(): void {
     if (!this.data.img || this.data.img == "icons/svg/mystery-man.svg") {
-      this.data.img = "systems/sta-ng/assets/icons/voyagercombadgeicon.svg"
+      this.data.img = "systems/sta-ng/assets/icons/svg/combadge_voyager.svg"
     }
 
     this.prepareCharacterBaseData();
