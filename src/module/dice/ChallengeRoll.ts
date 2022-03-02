@@ -1,7 +1,12 @@
+interface ChallengeRollOptions {
+  item?: string | null
+  speaker?: string | null
+}
+
 export default class ChallengeRoll<D extends object = Record<string, unknown>> extends Roll {
-  constructor(pool: number, data?: D, options?: Roll['options']);
-  constructor(formula: string, data?: D, options?: Roll['options']);
-  constructor(poolOrFormula: string | number, data?: D, options?: Roll['options']) {
+  constructor(pool: number, data?: D, options?: Roll['options'] & ChallengeRollOptions);
+  constructor(formula: string, data?: D, options?: Roll['options'] & ChallengeRollOptions);
+  constructor(poolOrFormula: string | number, data?: D, options?: Roll['options'] & ChallengeRollOptions) {
     if (typeof (poolOrFormula) === "number") {
       super(`${poolOrFormula}d6`, data, options)
     } else {
@@ -14,6 +19,8 @@ export default class ChallengeRoll<D extends object = Record<string, unknown>> e
     const successes = this.successes;
     const effects = this.effects;
     const data = {
+      speaker: this.extendedOptions.speaker,
+      item: this.extendedOptions.item,
       pool: this.results.length,
       images: this.resultImages,
       effect: {
@@ -26,6 +33,10 @@ export default class ChallengeRoll<D extends object = Record<string, unknown>> e
       }
     }
     return renderTemplate(options?.template ?? ChallengeRoll.CHAT_TEMPLATE, data);
+  }
+
+  private get extendedOptions() {
+    return this.options as Roll["options"] & ChallengeRollOptions
   }
 
   private get effects() {
