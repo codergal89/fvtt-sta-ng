@@ -1,19 +1,35 @@
-import { ActorStaNg } from "../actors/Actor.js";
-import { ItemStaNg } from "../items/Item.js";
-
-type Options = Roll["options"] & {flavor: string};
-
-export class ChallengeRoll extends Roll {
-
-  constructor(pool: number, data?: Record<string, unknown>, options?: Options);
-  constructor(formula: string, data?: Record<string, unknown>, options?: Options);
-  constructor(poolOrFormula: string | number, data?: Record<string, unknown>, options?: Options) {
+export default class ChallengeRoll<D extends object = Record<string, unknown>> extends Roll {
+  constructor(pool: number, data?: D, options?: Roll['options']);
+  constructor(formula: string, data?: D, options?: Roll['options']);
+  constructor(poolOrFormula: string | number, data?: D, options?: Roll['options']) {
     if (typeof (poolOrFormula) === "number") {
       super(`${poolOrFormula}d6`, data, options)
     } else {
       super(poolOrFormula, data, options);
     }
     ChallengeRoll.CHAT_TEMPLATE = "systems/sta-ng/templates/chat/challenge-roll.hbs";
+  }
+
+  public override render(options?: { flavor?: string, template?: string, isPrivate?: boolean }): Promise<string> {
+    const successes = this.successes;
+    const effects = this.effects;
+    const data = {
+      pool: this.results.length,
+      images: this.resultImages,
+      effect: {
+        count: effects,
+        message: effects > 1 ? game.i18n.format("sta.roll.effectPlural", { count: effects }) : game.i18n.localize("sta.roll.effect")
+      },
+      success: {
+        count: successes,
+        message: successes > 1 ? game.i18n.format("sta.roll.successPlural", { count: successes }) : game.i18n.localize("sta.roll.success")
+      }
+    }
+    return renderTemplate(options?.template ?? ChallengeRoll.CHAT_TEMPLATE, data);
+  }
+
+  private get effects() {
+    return this.results.filter(x => [5, 6].includes(x.result)).length;
   }
 
   private get results() {
@@ -50,55 +66,4 @@ export class ChallengeRoll extends Roll {
       }
     }, 0);
   }
-
-  private get effects() {
-    return this.results.filter(x => [5, 6].includes(x.result)).length;
-  }
-
-  override render(options?: { flavor?: string | undefined; template?: string | undefined; isPrivate?: boolean | undefined; }): Promise<string> {
-    const successes = this.successes;
-    const effects = this.effects;
-    const data = {
-      pool: this.results.length,
-      images: this.resultImages,
-      effect: {
-        count: effects,
-        message: effects > 1 ? game.i18n.format("sta.roll.effectPlural", { count: effects }) : game.i18n.localize("sta.roll.effect")
-      },
-      success: {
-        count: successes,
-        message: successes > 1 ? game.i18n.format("sta.roll.successPlural", { count: successes }) : game.i18n.localize("sta.roll.success")
-      }
-    }
-    return renderTemplate(options?.template ?? ChallengeRoll.CHAT_TEMPLATE, data);
-  }
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-nocheck
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  override toMessage(messageData?: any, options?: any) {
-    if (messageData) {
-      messageData.flavor = (this.options as Options).flavor;
-    } else {
-      messageData = { flavor: (this.options as Options).flavor };
-    }
-    return super.toMessage(messageData, options);
-  }
-
-}
-
-type CharacterActor = ActorStaNg & { data: { type: "character" } };
-type CharacterWeapon = ItemStaNg & { data: { type: "characterweapon" } };
-
-export async function challengeRoll(actor: ActorStaNg, weapon: ItemStaNg) {
-  if (actor.data.type === "character" && weapon.data.type === "characterweapon") {
-    return characterChallengeRoll(actor as CharacterActor, weapon as CharacterWeapon)
-  }
-  return Promise.reject();
-}
-
-async function characterChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon) {
-  const pool = weapon.data.data.damage + actor.data.data.disciplines.security.value;
-  const roll = new ChallengeRoll(pool, {} , {flavor: weapon.name ?? ""});
-  return roll.toMessage();
 }

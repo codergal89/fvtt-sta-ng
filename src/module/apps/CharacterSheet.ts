@@ -1,5 +1,5 @@
 import { sendItemToChat } from "../chat/Item.js";
-import { challengeRoll } from "../dice/ChallengeRoll.js";
+import { challengeRoll } from "../dice/Rolls.js";
 import { ItemStaNg } from "../items/Item.js";
 import { CharacterSheetData } from "./CharacterSheetData.js";
 
