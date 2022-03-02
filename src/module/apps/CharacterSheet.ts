@@ -170,7 +170,7 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
     event.preventDefault();
     const [, item] = this.getEventItem(event);
     if (item) {
-      challengeRoll(this.actor, item);
+      challengeRoll(this.actor, item, event.shiftKey);
     }
   }
 
