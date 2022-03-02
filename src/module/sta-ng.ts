@@ -17,6 +17,8 @@ import { registerSystemSettings } from "./settings.js";
 import { registerApplications } from "./applications.js";
 import { attachChatListeners } from "./ChatListeners.js";
 import { ChallengeRoll } from "./dice/Rolls.js";
+import { ChallengeDie } from "./dice/ChallengeDie.js";
+import { TaskDie } from "./dice/TaskDie.js";
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
@@ -57,7 +59,9 @@ function registerSystemClasses(): void {
 
   CONFIG.Actor.documentClass = ActorStaNg;
   CONFIG.Item.documentClass = ItemStaNg;
-  CONFIG.Dice.rolls.push(ChallengeRoll)
+  CONFIG.Dice.rolls.push(ChallengeRoll);
+  CONFIG.Dice.terms[ChallengeDie.DENOMINATION] = ChallengeDie;
+  CONFIG.Dice.terms[TaskDie.DENOMINATION] = TaskDie;
 }
 
 Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));

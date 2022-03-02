@@ -1,3 +1,5 @@
+import { ChallengeDie } from "./ChallengeDie.js";
+
 interface ChallengeRollOptions {
   item?: string | null
   speaker?: string | null
@@ -8,31 +10,24 @@ export default class ChallengeRoll<D extends object = Record<string, unknown>> e
   constructor(formula: string, data?: D, options?: Roll['options'] & ChallengeRollOptions);
   constructor(poolOrFormula: string | number, data?: D, options?: Roll['options'] & ChallengeRollOptions) {
     if (typeof (poolOrFormula) === "number") {
-      super(`${poolOrFormula}d6`, data, options)
+      super(`${poolOrFormula}dq`, data, options)
     } else {
       super(poolOrFormula, data, options);
     }
     ChallengeRoll.CHAT_TEMPLATE = "systems/sta-ng/templates/chat/challenge-roll.hbs";
+    ChallengeRoll.TOOLTIP_TEMPLATE = "systems/sta-ng/templates/chat/challenge-tooltip.hbs";
   }
 
-  public override render(options?: { flavor?: string, template?: string, isPrivate?: boolean }): Promise<string> {
-    const successes = this.successes;
+  public override async render(): Promise<string> {
     const effects = this.effects;
-    const data = {
-      speaker: this.extendedOptions.speaker,
-      item: this.extendedOptions.item,
+    const data = mergeObject({
       pool: this.results.length,
-      images: this.resultImages,
-      effect: {
-        count: effects,
-        message: effects > 1 ? game.i18n.format("sta.roll.effectPlural", { count: effects }) : game.i18n.localize("sta.roll.effect")
-      },
-      success: {
-        count: successes,
-        message: successes > 1 ? game.i18n.format("sta.roll.successPlural", { count: successes }) : game.i18n.localize("sta.roll.success")
-      }
-    }
-    return renderTemplate(options?.template ?? ChallengeRoll.CHAT_TEMPLATE, data);
+      formula: this.formula,
+      tooltip: await this.getTooltip(),
+      effects: effects,
+      successes: this.total,
+    }, this.extendedOptions);
+    return renderTemplate(ChallengeRoll.CHAT_TEMPLATE, data);
   }
 
   private get extendedOptions() {
@@ -44,37 +39,6 @@ export default class ChallengeRoll<D extends object = Record<string, unknown>> e
   }
 
   private get results() {
-    return (this.terms[0] as Die).results;
-  }
-
-  private get resultImages() {
-    return this.results.map(x => {
-      switch (x.result) {
-        case 1:
-          return "die_challenge_success_1.png";
-        case 2:
-          return "die_challenge_success_2.png";
-        case 5:
-        case 6:
-          return "die_challenge_success_1effect.png";
-        default:
-          return "die_challenge_success_0.png";
-      }
-    });
-  }
-
-  private get successes() {
-    return this.results.reduce((acc: number, x: DiceTerm.Result) => {
-      switch (x.result) {
-        case 1:
-        case 5:
-        case 6:
-          return acc + 1;
-        case 2:
-          return acc + 2;
-        default:
-          return acc;
-      }
-    }, 0);
+    return (this.terms[0] as ChallengeDie).results;
   }
 }
