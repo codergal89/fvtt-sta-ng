@@ -4,7 +4,7 @@ export class ChallengeDie extends Die {
     super(termData);
   }
 
-  public static override DENOMINATION = "q";
+  public static override DENOMINATION = "c";
 
   public override getResultLabel(result: DiceTerm.Result): string {
     return {

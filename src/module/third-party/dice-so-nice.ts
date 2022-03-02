@@ -1,3 +1,6 @@
+import { ChallengeDie } from "../dice/ChallengeDie.js";
+import { TaskDie } from "../dice/TaskDie.js";
+
 export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
   [
     {
@@ -37,7 +40,7 @@ export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
 
   dice3d.addSystem({ id: "sta-ng-black", name: "Star Trek Adventures UFP (Black)" }, DiceSoNice.Mode.Preferred);
   dice3d.addDicePreset({
-    type: "dq",
+    type: `d${ChallengeDie.DENOMINATION}`,
     labels: [
       "systems/sta-ng/assets/icons/dice-so-nice/challenge_die_one_success_black.png",
       "systems/sta-ng/assets/icons/dice-so-nice/challenge_die_two_successes_black.png",
@@ -49,7 +52,7 @@ export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
     system: "sta-ng-black",
   });
   dice3d.addDicePreset({
-    type: "dt",
+    type: `d${TaskDie.DENOMINATION}`,
     labels: [
       "systems/sta-ng/assets/icons/dice-so-nice/d20_critical_black.png",
       "2", "3", "4", "5", "6", "7", "8", "9", "10",
@@ -60,7 +63,7 @@ export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
 
   dice3d.addSystem({ id: "sta-ng-white", name: "Star Trek Adventures UFP (White)" });
   dice3d.addDicePreset({
-    type: "dq",
+    type: `d${ChallengeDie.DENOMINATION}`,
     labels: [
       "systems/sta-ng/assets/icons/dice-so-nice/challenge_die_one_success_white.png",
       "systems/sta-ng/assets/icons/dice-so-nice/challenge_die_two_successes_white.png",
@@ -72,7 +75,7 @@ export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
     system: "sta-ng-white",    
   });
   dice3d.addDicePreset({
-    type: "dt",
+    type: `d${TaskDie.DENOMINATION}`,
     labels: [
       "systems/sta-ng/assets/icons/dice-so-nice/d20_critical_white.png",
       "2", "3", "4", "5", "6", "7", "8", "9", "10",

@@ -10,7 +10,7 @@ export default class ChallengeRoll<D extends object = Record<string, unknown>> e
   constructor(formula: string, data?: D, options?: Roll['options'] & ChallengeRollOptions);
   constructor(poolOrFormula: string | number, data?: D, options?: Roll['options'] & ChallengeRollOptions) {
     if (typeof (poolOrFormula) === "number") {
-      super(`${poolOrFormula}dq`, data, options)
+      super(`${poolOrFormula}d${ChallengeDie.DENOMINATION}`, data, options)
     } else {
       super(poolOrFormula, data, options);
     }
