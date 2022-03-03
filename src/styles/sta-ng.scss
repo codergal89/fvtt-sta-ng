@@ -1057,7 +1057,7 @@ $trackColors: (
 }
 
 .sta.roll{
-  .dice-roll .dice-result .dice-tooltip {
+  .dice-roll .dice-result {
     display: block;
   }
 
@@ -1070,6 +1070,38 @@ $trackColors: (
           border: 0;
         }
   
+        .dice-tooltip .dice .dice-rolls {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+
+      .dice-total.effect {
+        color: $labelColor
+      }
+    }
+  }
+
+  &.task {
+    .dice-roll {
+      .dice-result {
+        .dice-formula .aim {
+          margin: 0;
+          background: unset;
+          border: 0;
+        }
+
+        .dice-formula table td.aim-label {
+          text-align: start;
+          padding-inline-start: 5px;
+        }
+
+        table td.aim-value {
+          text-align: end;
+          padding-inline-end: 5px;
+        }
+
         .dice-tooltip .dice .dice-rolls {
           display: flex;
           justify-content: center;

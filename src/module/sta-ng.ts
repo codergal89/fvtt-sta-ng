@@ -16,7 +16,7 @@ import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
 import { registerSystemSettings } from "./settings.js";
 import { registerApplications } from "./applications.js";
 import { attachChatListeners } from "./ChatListeners.js";
-import { ChallengeRoll } from "./dice/Rolls.js";
+import { ChallengeRoll, TaskRoll } from "./dice/Rolls.js";
 import { ChallengeDie } from "./dice/ChallengeDie.js";
 import { TaskDie } from "./dice/TaskDie.js";
 
@@ -60,6 +60,7 @@ function registerSystemClasses(): void {
   CONFIG.Actor.documentClass = ActorStaNg;
   CONFIG.Item.documentClass = ItemStaNg;
   CONFIG.Dice.rolls.push(ChallengeRoll);
+  CONFIG.Dice.rolls.push(TaskRoll)
   CONFIG.Dice.terms[ChallengeDie.DENOMINATION] = ChallengeDie;
   CONFIG.Dice.terms[TaskDie.DENOMINATION] = TaskDie;
 }

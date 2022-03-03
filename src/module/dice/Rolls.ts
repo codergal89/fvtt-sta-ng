@@ -2,13 +2,20 @@ import { ActorStaNg } from "../actors/Actor.js";
 import { RollDialog } from "../apps/RollDialog.js";
 import { ItemStaNg } from "../items/Item.js";
 import ChallengeRoll from "./ChallengeRoll.js";
+import { TaskRoll } from "./TaskRoll.js";
 
 export { default as ChallengeRoll } from "./ChallengeRoll.js";
+export { TaskRoll } from "./TaskRoll.js"
 
 type CharacterActor = ActorStaNg & { data: { type: "character" } };
 type CharacterWeapon = ItemStaNg & { data: { type: "characterweapon" } };
 
-interface Options {
+interface ChallengeRollOptions {
+  fastForward?: boolean
+  defaultPool?: number
+}
+
+interface TaskRollOptions extends TaskRoll.Options {
   fastForward?: boolean
   defaultPool?: number
 }
@@ -21,7 +28,7 @@ interface Options {
  * @param options Additional options for the roll
  * @returns 
  */
-export async function challengeRoll(actor: ActorStaNg, item?: ItemStaNg, options?: Options) {
+export async function challengeRoll(actor: ActorStaNg, item?: ItemStaNg, options?: ChallengeRollOptions) {
   if (!item) {
     return genericChallengeRoll(actor, options);
   } else if (actor.data.type === "character" && item?.data.type === "characterweapon") {
@@ -30,7 +37,7 @@ export async function challengeRoll(actor: ActorStaNg, item?: ItemStaNg, options
   return Promise.reject();
 }
 
-async function genericChallengeRoll(actor: ActorStaNg, options?: Options) {
+async function genericChallengeRoll(actor: ActorStaNg, options?: ChallengeRollOptions) {
   if (options?.fastForward && options.defaultPool !== undefined) {
     const roll = new ChallengeRoll(options.defaultPool, actor.getRollData(), { speaker: actor.id });
     return roll.toMessage({
@@ -57,7 +64,7 @@ async function genericChallengeRoll(actor: ActorStaNg, options?: Options) {
   });
 }
 
-async function characterWeaponChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options?: Options) {
+async function characterWeaponChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options?: ChallengeRollOptions) {
   let pool = options?.defaultPool ?? weapon.data.data.damage + actor.data.data.disciplines.security.value;
   if (!options?.fastForward) {
     const formData = await RollDialog.create(false, pool);
@@ -72,4 +79,14 @@ async function characterWeaponChallengeRoll(actor: CharacterActor, weapon: Chara
     flavor: game.i18n.format("sta.roll.challenge.attack", { weapon: weapon.name }),
     speaker: ChatMessage.getSpeaker({ actor: actor }),
   });
+}
+
+export async function taskRoll(actor: ActorStaNg, options?: TaskRollOptions) {
+  if (options) {
+    const roll = new TaskRoll(options.defaultPool ?? 2, actor.getRollData(), options);
+    return roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: actor }),
+    });
+  }
+  return Promise.reject();
 }

@@ -1,5 +1,5 @@
 import { sendItemToChat } from "../chat/Item.js";
-import { challengeRoll } from "../dice/Rolls.js";
+import { challengeRoll, taskRoll } from "../dice/Rolls.js";
 import { ItemStaNg } from "../items/Item.js";
 import { CharacterSheetData } from "./CharacterSheetData.js";
 
@@ -100,6 +100,7 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
 
   private activateButtons(html: JQuery<HTMLElement>): void {
     html.find(".check-button.challenge").on("click", this.onPerformChallenge.bind(this));
+    html.find(".check-button.attribute").on("click", this.onPerformTask.bind(this));
   }
 
   private async onCreateItem(event: JQuery.TriggeredEvent) {
@@ -175,7 +176,7 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
     event.preventDefault();
     const [, item] = this.getEventItem(event);
     if (item) {
-      challengeRoll(this.actor, item, {fastForward: event.shiftKey});
+      challengeRoll(this.actor, item, { fastForward: event.shiftKey });
     }
   }
 
@@ -206,9 +207,19 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
     talentTipContainer.toggleClass("hide")
   }
 
-  private onPerformChallenge(event: JQuery.TriggeredEvent)  {
+  private onPerformChallenge(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     challengeRoll(this.actor);
+  }
+
+  private onPerformTask(event: JQuery.TriggeredEvent) {
+    event.preventDefault();
+    taskRoll(this.actor, mergeObject({
+      complicationLimit: 20,
+      type: this.actor.data.type,
+      hasFocus: true,
+      usesDetermination: true,
+    }, this.actor.taskConfiguration("daring", "security")));
   }
 
   private getEventItem(event: JQuery.TriggeredEvent): [JQuery<HTMLElement>, ItemStaNg | undefined] {

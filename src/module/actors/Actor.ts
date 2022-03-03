@@ -7,6 +7,24 @@ declare global {
   }
 }
 
+
+type FirstScore = keyof CharacterDataSourceData["attributes"] | keyof CommonCraftDataSourceData["departments"];
+type SecondScore = keyof CharacterDataSourceData["disciplines"] | keyof CommonCraftDataSourceData["systems"];
+
+// eslint-disable-next-line @typescript-eslint/no-namespace
+export namespace ActorStaNg {
+  export interface TaskConfiguration {
+    firstScore: {
+      name: string
+      value: number
+    }
+    secondScore: {
+      name: string
+      value: number
+    }
+  }
+}
+
 export class ActorStaNg extends Actor {
 
   public override prepareBaseData(): void {
@@ -19,6 +37,33 @@ export class ActorStaNg extends Actor {
 
   public override prepareDerivedData(): void {
     this.prepareCharacterDerivedData();
+  }
+
+  public taskConfiguration(firstScore: FirstScore, secondScore: SecondScore): ActorStaNg.TaskConfiguration | undefined {
+    if(this.data.type === "character") {
+      return {
+        firstScore: {
+          name: firstScore.titleCase(),
+          value: this.data.data.attributes[firstScore as keyof CharacterDataSourceData["attributes"]].value
+        },
+        secondScore: {
+          name: secondScore.titleCase(),
+          value: this.data.data.disciplines[secondScore as keyof CharacterDataSourceData["disciplines"]].value
+        }
+      }
+    } else if (this.data.type === "smallcraft" || this.data.type === "starship") {
+      return {
+        firstScore: {
+          name: firstScore.titleCase(),
+          value: this.data.data.departments[firstScore as keyof CommonCraftDataSourceData["departments"]].value
+        },
+        secondScore: {
+          name: secondScore.titleCase(),
+          value: this.data.data.systems[secondScore as keyof CommonCraftDataSourceData["systems"]].value
+        }
+      }
+    }
+    return;
   }
 
   /**

@@ -1,13 +1,16 @@
 <div class="dice-tooltip">
-    {{#each parts}}
-    <section class="tooltip-part">
-        <div class="dice">
-            <ol class="dice-rolls">
-            {{#each this.rolls}}
-                <li class="roll {{this.classes}}">{{{this.result}}}</li>
-            {{/each}}
-            </ol>
-        </div>
-    </section>
-    {{/each}}
+  {{#each parts}}
+  <section class="tooltip-part">
+    <div class="dice">
+      <header class="part-header flexrow">
+        <span class="part-formula">{{this.formula}}</span>
+      </header>
+      <ol class="dice-rolls">
+        {{#each this.rolls}}
+        <li class="roll {{this.classes}}">{{{this.result}}}</li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+  {{/each}}
 </div>

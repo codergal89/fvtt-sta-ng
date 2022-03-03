@@ -1,0 +1,47 @@
+<div class="sta roll task">
+  <div class="dice-roll">
+    <div class="dice-result">
+      <div class="dice-formula">
+        <table class="aim">
+          <tr>
+            <td class="aim-label"> {{firstScore.name}} </td>
+            <td class="aim-value"> {{firstScore.value}} </td>
+          </tr>
+          <tr>
+            <td class="aim-label"> {{secondScore.name}} </td>
+            <td class="aim-value"> {{secondScore.value}} </td>
+          </tr>
+          <tr>
+            <td class="aim-label"> {{localize 'sta.roll.complicationRange'}} </td>
+            <td class="aim-value"> {{complicationLimit}} </td>
+          </tr>
+        </table>
+      </div>
+      {{{tooltip}}}
+      {{#if complications}}
+      {{#if (eq complications 1)}}
+      <h4 class="dice-total complication">{{localize "sta.roll.complication"}}</h4>
+      {{else}}
+      <h4 class="dice-total complication">{{localize "sta.roll.complicationPlural" count=complications}}</h4>
+      {{/if}}
+      {{/if}}
+      {{#if successes}}
+      {{#if (eq successes 1)}}
+      <h4 class="dice-total success">{{localize "sta.roll.success"}}</h4>
+      {{else}}
+      <h4 class="dice-total success">{{localize "sta.roll.successPlural" count=successes}}</h4>
+      {{/if}}
+      {{else}}
+      <h4 class="dice-total success">{{localize "sta.roll.successNone"}}</h4>
+      {{/if}}
+    </div>
+  </div>
+  <div class="reroll-result attribute">
+    <span> {{localize "sta.roll.rerollresults"}}</span>
+    <input id="selectedAttribute" type="hidden" value="{{firstComponent.name}}">
+    <input id="selectedAttributeValue" type="hidden" value="{{firstComponent.value}}">
+    <input id="selectedDiscipline" type="hidden" value="{{secondComponent.name}}">
+    <input id="selectedDisciplineValue" type="hidden" value="{{secondComponent.value}}">
+    <input id="speaker" type="hidden" value="{{speaker}}">
+  </div>
+</div>
