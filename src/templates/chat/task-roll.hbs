@@ -4,16 +4,24 @@
       <div class="dice-formula">
         <table class="aim">
           <tr>
-            <td class="aim-label"> {{firstScore.name}} </td>
-            <td class="aim-value"> {{firstScore.value}} </td>
+            <td class="aim-label"> {{localize scores.[0].label}} </td>
+            <td class="aim-value"> {{scores.[0].value}} </td>
           </tr>
           <tr>
-            <td class="aim-label"> {{secondScore.name}} </td>
-            <td class="aim-value"> {{secondScore.value}} </td>
+            <td class="aim-label"> {{localize scores.[1].label}} </td>
+            <td class="aim-value"> {{scores.[1].value}} </td>
           </tr>
           <tr>
-            <td class="aim-label"> {{localize 'sta.roll.complicationRange'}} </td>
-            <td class="aim-value"> {{complicationLimit}} </td>
+            <td class="aim-label"> {{localize "sta.roll.complicationRange"}} </td>
+            <td class="aim-value"> {{complicationRange}} </td>
+          </tr>
+          <tr>
+            <td class="aim-label"> {{localize "sta.apps.focus"}} </td>
+            <td class="aim-value"> {{#if hasFocus}}{{localize "sta.yes"}}{{else}}{{localize "sta.no"}}{{/if}} </td>
+          </tr>
+          <tr>
+            <td class="aim-label"> {{localize "sta.apps.determination"}} </td>
+            <td class="aim-value"> {{#if usesDetermination}}{{localize "sta.yes"}}{{else}}{{localize "sta.no"}}{{/if}} </td>
           </tr>
         </table>
       </div>
@@ -36,12 +44,18 @@
       {{/if}}
     </div>
   </div>
-  <div class="reroll-result attribute">
+  <div class="reroll-result task">
     <span> {{localize "sta.roll.rerollresults"}}</span>
-    <input id="selectedAttribute" type="hidden" value="{{firstComponent.name}}">
-    <input id="selectedAttributeValue" type="hidden" value="{{firstComponent.value}}">
-    <input id="selectedDiscipline" type="hidden" value="{{secondComponent.name}}">
-    <input id="selectedDisciplineValue" type="hidden" value="{{secondComponent.value}}">
-    <input id="speaker" type="hidden" value="{{speaker}}">
+    <input id="actor" type="hidden" value="{{actor}}">
+    <input id="complicationRange" type="hidden" value="{{complicationRange}}">
+    <input id="hasFocus" type="hidden" value="{{hasFocus}}">
+    <input id="pool" type="hidden" value="{{pool}}">
+    <input id="score0Key" type="hidden" value="{{scores.[0].key}}">
+    <input id="score0Label" type="hidden" value="{{scores.[0].label}}">
+    <input id="score0Value" type="hidden" value="{{scores.[0].value}}">
+    <input id="score1Key" type="hidden" value="{{scores.[1].key}}">
+    <input id="score1Label" type="hidden" value="{{scores.[1].label}}">
+    <input id="score1Value" type="hidden" value="{{scores.[1].value}}">
+    <input id="usesDetermination" type="hidden" value="{{usesDetermination}}">
   </div>
 </div>

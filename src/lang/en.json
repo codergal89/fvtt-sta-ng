@@ -5,6 +5,11 @@
   "sta.counting.four": "4",
   "sta.counting.five": "5",
 
+  "sta.no": "No",
+  "sta.yes": "Yes",
+
+  "sta.error.actorNotFound": "Could not find the relevant actor!",
+
   "sta.actor.character.reputation": "Reputation Track",
   "sta.actor.character.name": "Name",
   "sta.actor.character.rank": "Rank",
@@ -18,6 +23,7 @@
   "sta.actor.attdis.mod": "Mod",
   "sta.actor.attdis.task": "Perform Task",
   "sta.actor.challenge.roll": "Perform Challenge",
+  "sta.actor.character.attribute.label": "Attribute",
   "sta.actor.character.attribute.title": "Attributes",
   "sta.actor.character.attribute.name": "Attribute Name",
   "sta.actor.character.attribute.control": "Control",
@@ -26,6 +32,7 @@
   "sta.actor.character.attribute.insight": "Insight",
   "sta.actor.character.attribute.presence": "Presence",
   "sta.actor.character.attribute.reason": "Reason",
+  "sta.actor.character.discipline.label": "Discipline",
   "sta.actor.character.discipline.title": "Disciplines",
   "sta.actor.character.discipline.name": "Discipline Name",
   "sta.actor.character.discipline.command": "Command",
@@ -148,10 +155,11 @@
   "sta.item.house.legacy.scientists": "Scientists",
   "sta.item.house.legacy.physicians": "Physicians",
 
+  "sta.apps.task.title": "Task Roll",
   "sta.apps.dicepoolwindow": "Dice Pool",
   "sta.apps.focus": "Using focus?",
-  "sta.apps.determination": "Using determination/value?",
-  "sta.apps.complicationrange": "Complication range (1 is default)?",
+  "sta.apps.determination": "Using determination?",
+  "sta.apps.complicationrange": "Complication range?",
   "sta.apps.pool": "Number of Dice in Pool",
   "sta.apps.rolldice": "Roll Dice",
 
@@ -168,6 +176,7 @@
   "sta.roll.effectPlural": "There were {count} effects!",
   "sta.roll.effectNone": "There were no effects!",
   "sta.roll.rerollresults": "Reroll results?",
+  "sta.roll.task.flavor.character": "Character Task",
 
   "sta.roll.weapon.damage": "<b>|#|</b> Damage",
   "sta.roll.armor.protect": "<b>|#|</b> Resistance",

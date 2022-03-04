@@ -1,7 +1,4 @@
 import { CharacterSheetStaNg } from "./apps/CharacterSheet.js";
-import { STAExtendedTaskSheet } from "./apps/ExtendedTaskSheet.js";
-import { STASmallCraftSheet } from "./apps/SmallCraftSheet.js";
-import { STAStarshipSheet } from "./apps/StarshipSheet.js";
 import { STAArmorSheet } from "./items/armor-sheet.js";
 import { STACharacterWeaponSheet } from "./items/character-weapon-sheet.js";
 import { STAGenericSheet } from "./items/generic-sheet.js";
@@ -23,15 +20,6 @@ export function registerApplications() : void {
   Actors.registerSheet("sta-ng", CharacterSheetStaNg, {
     types: ["character"],
     makeDefault: true
-  });
-  Actors.registerSheet("sta-ng", STAStarshipSheet, {
-    types: ["starship"]
-  });
-  Actors.registerSheet("sta-ng", STASmallCraftSheet, {
-    types: ["smallcraft"],
-  });
-  Actors.registerSheet("sta-ng", STAExtendedTaskSheet, {
-    types: ["extendedtask"]
   });
 }
 

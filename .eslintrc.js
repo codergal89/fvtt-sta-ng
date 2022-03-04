@@ -14,6 +14,7 @@ module.exports = {
     "jquery": true,
   },
   rules: {
-    "no-undef": "off"
-  }
+    "no-undef": "off",
+    "@typescript-eslint/no-namespace": "off",
+  },
 };

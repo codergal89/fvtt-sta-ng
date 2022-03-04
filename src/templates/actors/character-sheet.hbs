@@ -94,16 +94,11 @@
               {{localize 'sta.actor.character.attribute.title'}}
             </div>
             <div class="stat header row">
-              <div class="selector-space"></div>
               <div class="text secondary-title">{{localize 'sta.actor.character.attribute.name'}}</div>
               <div class="field secondary-title">{{localize 'sta.actor.attdis.mod'}}</div>
             </div>
             {{#each data.data.attributes as |attribute key|}}
             <div class="stat row">
-              {{#if ../options.editable}}
-              <input class="selector attribute" id="{{key}}.selector" type="checkbox"
-                name="data.attributes.{{key}}.selected" data-dtype="Boolean" {{checked attribute.selected}}>
-              {{/if}}
               <div class="text list-entry"> {{localize attribute.label}} </div>
               <input class="field numeric-entry" id="{{key}}" name="data.attributes.{{key}}.value" type="number"
                 value="{{attribute.value}}" placeholder="7" data-dtype="Number" />
@@ -159,17 +154,12 @@
             <div class="stat header row">
               <div class="field secondary-title">{{localize 'sta.actor.attdis.mod'}}</div>
               <div class="text secondary-title">{{localize 'sta.actor.character.discipline.name'}}</div>
-              <div class="selector-space"></div>
             </div>
             {{#each data.data.disciplines as |discipline key|}}
             <div class="stat row">
               <input class="field numeric-entry" id="{{key}}" name="data.disciplines.{{key}}.value" type="number"
                 value="{{discipline.value}}" placeholder="0" data-dtype="Number" />
               <div class="text list-entry"> {{localize discipline.label}} </div>
-              {{#if ../options.editable}}
-              <input class="selector discipline" id="{{key}}.selector" type="checkbox"
-                name="data.disciplines.{{key}}.selected" data-dtype="Boolean" {{checked discipline.selected}}>
-              {{/if}}
             </div>
             {{/each}}
             {{#if options.editable}}

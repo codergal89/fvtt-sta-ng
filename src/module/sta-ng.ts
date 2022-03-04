@@ -1,8 +1,5 @@
 import { ActorStaNg } from "./actors/Actor.js";
 import { CharacterSheetStaNg } from "./apps/CharacterSheet.js";
-import { STAStarshipSheet } from "./apps/StarshipSheet.js";
-import { STASmallCraftSheet } from "./apps/SmallCraftSheet.js";
-import { STAExtendedTaskSheet } from "./apps/ExtendedTaskSheet.js";
 import { STAItemSheet } from "./items/item-sheet.js";
 import { STACharacterWeaponSheet } from "./items/character-weapon-sheet.js";
 import { STAStarshipWeaponSheet } from "./items/starship-weapon-sheet.js";
@@ -19,6 +16,12 @@ import { attachChatListeners } from "./ChatListeners.js";
 import { ChallengeRoll, TaskRoll } from "./dice/Rolls.js";
 import { ChallengeDie } from "./dice/ChallengeDie.js";
 import { TaskDie } from "./dice/TaskDie.js";
+
+declare global {
+  interface DocumentClassConfig {
+    Actor: typeof ActorStaNg
+  }
+}
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
@@ -40,9 +43,6 @@ function registerSystemClasses(): void {
   game["sta-ng"] = {
     applications: {
       CharacterSheetStaNg,
-      STAStarshipSheet,
-      STASmallCraftSheet,
-      STAExtendedTaskSheet,
       STAItemSheet,
       STACharacterWeaponSheet,
       STAStarshipWeaponSheet,

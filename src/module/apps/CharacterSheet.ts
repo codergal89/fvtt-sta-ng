@@ -2,6 +2,8 @@ import { sendItemToChat } from "../chat/Item.js";
 import { challengeRoll, taskRoll } from "../dice/Rolls.js";
 import { ItemStaNg } from "../items/Item.js";
 import { CharacterSheetData } from "./CharacterSheetData.js";
+import { CharacterTaskRollDialog } from "./CharacterTaskRollDialog.js";
+import { RollDialog } from "./RollDialog.js";
 
 export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, CharacterSheetData> {
 
@@ -175,8 +177,10 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
   private async onClickRoll(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     const [, item] = this.getEventItem(event);
-    if (item) {
-      challengeRoll(this.actor, item, { fastForward: event.shiftKey });
+    if (this.actor.data.type == "character" && item?.data.type === "characterweapon") {
+      challengeRoll(this.actor, item, {
+        pool: item.data.data.damage + this.actor.data.data.disciplines.security.value
+      });
     }
   }
 
@@ -207,24 +211,26 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
     talentTipContainer.toggleClass("hide")
   }
 
-  private onPerformChallenge(event: JQuery.TriggeredEvent) {
+  private async onPerformChallenge(event: JQuery.TriggeredEvent) {
     event.preventDefault();
-    challengeRoll(this.actor);
+    const data = await RollDialog.create(RollDialog.Type.Challenge, 0);
+    if (data) {
+      challengeRoll(this.actor, null, data);
+    }
   }
 
-  private onPerformTask(event: JQuery.TriggeredEvent) {
+  private async onPerformTask(event: JQuery.TriggeredEvent) {
     event.preventDefault();
-    taskRoll(this.actor, mergeObject({
-      complicationLimit: 20,
-      type: this.actor.data.type,
-      hasFocus: true,
-      usesDetermination: true,
-    }, this.actor.taskConfiguration("daring", "security")));
+    if (this.actor.data.type == "character") {
+      const options = await CharacterTaskRollDialog.create(this.actor);
+      if (options) {
+        taskRoll(this.actor, options)
+      }
+    }
   }
 
   private getEventItem(event: JQuery.TriggeredEvent): [JQuery<HTMLElement>, ItemStaNg | undefined] {
     const entry = $(event.currentTarget).parents(".entry");
     return [entry, this.actor.items.get(entry.data("itemId"))];
   }
-
 }

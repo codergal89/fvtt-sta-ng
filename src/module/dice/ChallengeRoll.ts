@@ -1,44 +1,48 @@
 import { ChallengeDie } from "./ChallengeDie.js";
 
-interface ChallengeRollOptions {
-  item?: string | null
-  speaker?: string | null
+export namespace ChallengeRoll {
+  export interface Options {
+    item?: string
+    pool: number
+    actor?: string
+  }
 }
 
-export default class ChallengeRoll<D extends object = Record<string, unknown>> extends Roll {
-  constructor(pool: number, data?: D, options?: Roll['options'] & ChallengeRollOptions);
-  constructor(formula: string, data?: D, options?: Roll['options'] & ChallengeRollOptions);
-  constructor(poolOrFormula: string | number, data?: D, options?: Roll['options'] & ChallengeRollOptions) {
+export class ChallengeRoll<D extends object = Record<string, unknown>> extends Roll {
+  constructor(pool: number, data: D | undefined, options: Roll['options'] & ChallengeRoll.Options);
+  constructor(formula: string, data: D | undefined, options: Roll['options'] & ChallengeRoll.Options);
+  constructor(poolOrFormula: string | number, data: D | undefined, options: Roll['options'] & ChallengeRoll.Options) {
     if (typeof (poolOrFormula) === "number") {
       super(`${poolOrFormula}d${ChallengeDie.DENOMINATION}`, data, options)
     } else {
       super(poolOrFormula, data, options);
     }
+    this.options = options;
     ChallengeRoll.CHAT_TEMPLATE = "systems/sta-ng/templates/chat/challenge-roll.hbs";
     ChallengeRoll.TOOLTIP_TEMPLATE = "systems/sta-ng/templates/chat/challenge-tooltip.hbs";
   }
 
-  public override async render(): Promise<string> {
-    const effects = this.effects;
-    const data = mergeObject({
-      pool: this.results.length,
-      formula: this.formula,
-      tooltip: await this.getTooltip(),
-      effects: effects,
-      successes: this.total,
-    }, this.extendedOptions);
-    return renderTemplate(ChallengeRoll.CHAT_TEMPLATE, data);
-  }
-
-  private get extendedOptions() {
-    return this.options as Roll["options"] & ChallengeRollOptions
-  }
-
-  private get effects() {
+  public get effects() {
     return this.results.filter(x => [5, 6].includes(x.result)).length;
   }
 
-  private get results() {
-    return (this.terms[0] as ChallengeDie).results;
+  public override options: Roll["options"] & ChallengeRoll.Options;
+
+  public get pool() {
+    return this.options.pool;
+  }
+
+  public get results() {
+    return this.terms.flatMap(t => (t as Die).results)
+  }
+
+  public override async render(): Promise<string> {
+    const data = mergeObject({
+      formula: this.formula,
+      tooltip: await this.getTooltip(),
+      effects: this.effects,
+      successes: this.total,
+    }, this.options);
+    return renderTemplate(ChallengeRoll.CHAT_TEMPLATE, data);
   }
 }

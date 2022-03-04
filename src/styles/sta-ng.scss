@@ -864,6 +864,14 @@ $trackColors: (
   .numeric-entry {
     color: $inputColor;
   }
+
+  select {
+    color: $inputColor;
+  }
+
+  select option {
+    background: $background;
+  }
 }
 
 .app.dialog .window-content {

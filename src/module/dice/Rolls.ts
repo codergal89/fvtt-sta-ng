@@ -1,92 +1,73 @@
 import { ActorStaNg } from "../actors/Actor.js";
-import { RollDialog } from "../apps/RollDialog.js";
 import { ItemStaNg } from "../items/Item.js";
-import ChallengeRoll from "./ChallengeRoll.js";
+import { ChallengeRoll } from "./ChallengeRoll.js";
 import { TaskRoll } from "./TaskRoll.js";
 
-export { default as ChallengeRoll } from "./ChallengeRoll.js";
+export { ChallengeRoll } from "./ChallengeRoll.js";
 export { TaskRoll } from "./TaskRoll.js"
 
 type CharacterActor = ActorStaNg & { data: { type: "character" } };
 type CharacterWeapon = ItemStaNg & { data: { type: "characterweapon" } };
 
-interface ChallengeRollOptions {
-  fastForward?: boolean
-  defaultPool?: number
-}
-
-interface TaskRollOptions extends TaskRoll.Options {
-  fastForward?: boolean
-  defaultPool?: number
-}
-
 /**
  * Perform a challenge roll (d6).
  * 
- * @param actor The actor who is performing the roll
+ * @param actor The actor performing the roll
  * @param item The item to roll a challenge for
  * @param options Additional options for the roll
  * @returns 
  */
-export async function challengeRoll(actor: ActorStaNg, item?: ItemStaNg, options?: ChallengeRollOptions) {
+export async function challengeRoll(actor: ActorStaNg, item: ItemStaNg | null, options: ChallengeRoll.Options) {
+  mergeObject(options, { actor: actor.id, item: item?.id }, { overwrite: false });
   if (!item) {
     return genericChallengeRoll(actor, options);
-  } else if (actor.data.type === "character" && item?.data.type === "characterweapon") {
+  } else if (actor.data.type === "character" && item.data.type == "characterweapon") {
     return characterWeaponChallengeRoll(actor as CharacterActor, item as CharacterWeapon, options)
   }
   return Promise.reject();
 }
 
-async function genericChallengeRoll(actor: ActorStaNg, options?: ChallengeRollOptions) {
-  if (options?.fastForward && options.defaultPool !== undefined) {
-    const roll = new ChallengeRoll(options.defaultPool, actor.getRollData(), { speaker: actor.id });
-    return roll.toMessage({
-      flavor: game.i18n.localize("sta.roll.challenge.generic"),
-      speaker: ChatMessage.getSpeaker({ actor: actor })
+/**
+ * Perform a task roll (d20).
+ * 
+ * @param actor The actor performing the roll
+ * @param options The configuration for the roll
+ * @returns 
+ */
+export async function taskRoll(actor: ActorStaNg, options: TaskRoll.Options) {
+  mergeObject(options, { actor: actor.id }, { overwrite: false });
+  const roll = new TaskRoll(options.pool, actor.getRollData(), options);
+
+  if (options.usesDetermination && actor.data.type === "character") {
+    await actor.update({
+      data: {
+        determination: {
+          value: actor.data.data.determination.value - 1,
+        }
+      }
     });
   }
 
-  const formData = await RollDialog.create(false, 0);
-  const poolValue = formData?.get("dicePoolValue");
-  if (!poolValue) {
-    return;
-  }
+  return roll.toMessage({
+    flavor: game.i18n.localize(`sta.roll.task.flavor.${actor.data.type}`),
+    speaker: ChatMessage.getSpeaker({ actor: actor }),
+  });
+}
 
-  const pool = parseInt(poolValue.toString());
-  if (!pool) {
-    return;
-  }
-
-  const roll = new ChallengeRoll(pool, actor.getRollData(), { speaker: actor.id });
+function genericChallengeRoll(actor: ActorStaNg, options: ChallengeRoll.Options) {
+  const roll = new ChallengeRoll(options.pool, actor.getRollData(), options);
   return roll.toMessage({
     flavor: game.i18n.localize("sta.roll.challenge.generic"),
     speaker: ChatMessage.getSpeaker({ actor: actor })
   });
 }
 
-async function characterWeaponChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options?: ChallengeRollOptions) {
-  let pool = options?.defaultPool ?? weapon.data.data.damage + actor.data.data.disciplines.security.value;
-  if (!options?.fastForward) {
-    const formData = await RollDialog.create(false, pool);
-    if (!formData) {
-      return;
-    }
-    pool = parseInt(formData?.get("dicePoolValue")?.toString() ?? `${pool}`);
-  }
-
-  const roll = new ChallengeRoll(pool, actor.getRollData(), { speaker: actor.id, item: weapon.id });
+function characterWeaponChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options: ChallengeRoll.Options) {
+  const roll = new ChallengeRoll(options.pool, actor.getRollData(), options);
   return roll.toMessage({
     flavor: game.i18n.format("sta.roll.challenge.attack", { weapon: weapon.name }),
     speaker: ChatMessage.getSpeaker({ actor: actor }),
   });
 }
 
-export async function taskRoll(actor: ActorStaNg, options?: TaskRollOptions) {
-  if (options) {
-    const roll = new TaskRoll(options.defaultPool ?? 2, actor.getRollData(), options);
-    return roll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: actor }),
-    });
-  }
-  return Promise.reject();
-}
+

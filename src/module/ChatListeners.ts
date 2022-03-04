@@ -1,32 +1,93 @@
 import { ActorStaNg } from "./actors/Actor.js";
-import { challengeRoll } from "./dice/Rolls.js";
+import { CharacterTaskRollDialog } from "./apps/CharacterTaskRollDialog.js";
+import { RollDialog } from "./apps/RollDialog.js";
+import { challengeRoll, taskRoll } from "./dice/Rolls.js";
 import { ItemStaNg } from "./items/Item.js";
 
 export function attachChatListeners(html: JQuery<HTMLElement>) {
   html.on('click', '.reroll-result.challenge', onRerollChallenge);
+  html.on('click', '.reroll-result.task', onRerollTask);
 }
 
 async function onRerollChallenge(event: JQuery.TriggeredEvent) {
   event.preventDefault();
-  const speaker = getSpeaker(event);
-  console.log(getPool(event));
-  !speaker || challengeRoll(speaker,
-    getItem(event, speaker),
-    { fastForward: event.shiftKey, defaultPool: getPool(event) }
-  );
+  const actor = getActor(event);
+  let pool = getPool(event);
+  if (!event.shiftKey) {
+    const data = await RollDialog.create(RollDialog.Type.Challenge, pool);
+    if (!data) {
+      return Promise.reject();
+    }
+    pool = data.pool;
+  }
+
+  return challengeRoll(actor, getItem(event, actor), { pool });
 }
 
-function getSpeaker(event: JQuery.TriggeredEvent): ActorStaNg | undefined {
-  const speaker = $(event.currentTarget).find<HTMLInputElement>("#speaker")[0]?.value;
-  return game.actors?.get(speaker);
+async function onRerollTask(event: JQuery.TriggeredEvent) {
+  event.preventDefault();
+  const actor = getActor(event);
+  const config = getTaskConfiguration(event);
+
+  if (!event.shiftKey) {
+    if (actor.data.type === "character") {
+      const data = await CharacterTaskRollDialog.create(actor, config);
+      if (!data) {
+        return Promise.reject();
+      }
+      mergeObject(config, data, {overwrite: true});
+    }
+  }
+
+  return taskRoll(actor, config);
 }
 
-function getItem(event: JQuery.TriggeredEvent, actor: ActorStaNg): ItemStaNg | undefined {
+function getActor(event: JQuery.TriggeredEvent): ActorStaNg {
+  const actorId = $(event.currentTarget).find<HTMLInputElement>("#actor")[0]?.value;
+  const actor = game.actors?.get(actorId);
+  if (!actor) {
+    throw new Error(game.i18n.localize("sta.error.actorNotFound"));
+  }
+  return actor;
+}
+
+function getItem(event: JQuery.TriggeredEvent, actor: ActorStaNg): ItemStaNg | null {
   const item = $(event.currentTarget).find<HTMLInputElement>("#item")[0]?.value;
-  return actor.items.get(item);
+  return actor.items.get(item) ?? null;
 }
 
-function getPool(event: JQuery.TriggeredEvent): number | undefined {
-  const pool = $(event.currentTarget).find<HTMLInputElement>("#pool")[0]?.value;
-  return parseInt(pool);
+function getPool(event: JQuery.TriggeredEvent): number {
+  return parseInt($(event.currentTarget).find<HTMLInputElement>("#pool")[0]?.value);
+}
+
+function getTaskConfiguration(event: JQuery.TriggeredEvent) {
+  const html = $(event.currentTarget) as JQuery<HTMLDivElement>;
+
+  const actor = html.find<HTMLInputElement>("#actor").val() as string;
+  const complicationRange = parseInt(html.find<HTMLInputElement>("#complicationRange").val() as string);
+  const hasFocus = html.find<HTMLInputElement>("#hasFocus").val() === "true";
+  const score0Key = html.find<HTMLInputElement>("#score0Key").val() as string;
+  const score0Label = html.find<HTMLInputElement>("#score0Label").val() as string;
+  const score0Value = parseInt(html.find<HTMLInputElement>("#score0Value").val() as string);
+  const score1Key = html.find<HTMLInputElement>("#score1Key").val() as string;
+  const score1Label = html.find<HTMLInputElement>("#score1Label").val() as string;
+  const score1Value = parseInt(html.find<HTMLInputElement>("#score1Value").val() as string);
+  const usesDetermination = html.find<HTMLInputElement>("#usesDetermination").val() === "true";
+
+  return {
+    actor,
+    complicationRange,
+    hasFocus,
+    pool: getPool(event),
+    scores: [{
+      key: score0Key,
+      label: score0Label,
+      value: score0Value,
+    }, {
+      key: score1Key,
+      label: score1Label,
+      value: score1Value,
+    }],
+    usesDetermination
+  }
 }
