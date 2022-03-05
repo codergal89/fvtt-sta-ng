@@ -17,12 +17,6 @@ import { ChallengeRoll, TaskRoll } from "./dice/Rolls.js";
 import { ChallengeDie } from "./dice/ChallengeDie.js";
 import { TaskDie } from "./dice/TaskDie.js";
 
-declare global {
-  interface DocumentClassConfig {
-    Actor: typeof ActorStaNg
-  }
-}
-
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
 
