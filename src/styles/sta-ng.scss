@@ -58,13 +58,6 @@ $trackColors: (
     padding: 5px;
   }
 }
-
-// .window-app {
-//   .window-content {
-//     background: $background !important;
-//     padding: 0;
-//   }
-// }
 /*#endregion*/
 
 /* Globals *//*#region*/
@@ -74,8 +67,6 @@ $trackColors: (
 }
 
 .sta {
-  text-align: center;
-
   .row {
     display: flex;
     flex-direction: row;
@@ -124,8 +115,66 @@ $trackColors: (
 }
 /*#endregion*/
 
+.sta.sheet{
+  .editor {
+    height: 100%;
+  }
+
+  .window-content .tab {
+    height: 100%;
+    align-content: flex-start;
+  }
+
+  .sheet-header {
+    flex: 0 0 64px;
+
+    .header-details {
+      background-color: map-get($lcarsColors, "lcarsheader");
+
+      input[type="text"] {
+        text-align: center;
+        border: none;
+      }
+    }
+
+    .summary {
+      flex: 0 0 100%;
+      list-style: none;
+
+      li {
+        margin: 2px 0;
+      }
+
+      input[type="number"] {
+        text-align: center;
+        width: 30px;
+        // margin-left: 5px;
+        // margin-right: 5px;
+      }
+    }
+  }
+
+  .sheet-navigation {
+    flex: 0 0 30px;
+    font-size: 16px;
+
+    &.tabs{
+      .item {
+        color: $headerColor;
+      }
+    }
+  }
+
+  .sheet-body {
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
 /* LCARS Layout *//*#region*/
 .sta.sheet.actor {
+  text-align: center;
+
   .header {
     display: flex;
   }
@@ -731,6 +780,13 @@ $trackColors: (
 
 /* Item Sheet  *//*#region*/
 .sta.sheet.item {
+  .sheet-header {
+    img.profile {
+      border: 2px solid map-get($lcarsColors, "lightblue");
+    }
+  }
+
+
   .label {
     color: $labelColor;
   }
@@ -788,12 +844,7 @@ $trackColors: (
     background-color: $background;
   }
 
-  input[type="number"] {
-    text-align: center;
-    width: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+
 
   .editor-edit {
     display: block;

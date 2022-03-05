@@ -4,7 +4,7 @@ import { STAItemSheet } from "./items/item-sheet.js";
 import { STACharacterWeaponSheet } from "./items/character-weapon-sheet.js";
 import { STAStarshipWeaponSheet } from "./items/starship-weapon-sheet.js";
 import { STAArmorSheet } from "./items/armor-sheet.js";
-import { STATalentSheet } from "./items/talent-sheet.js";
+import { TalentSheetStaNg } from "./apps/sheets/TalentSheet.js";
 import { STAGenericSheet } from "./items/generic-sheet.js";
 import { STASmallCraftContainerSheet } from "./items/smallcraftcontainer-sheet.js";
 import { ResourceTracker } from "./apps/ResourceTracker.js";
@@ -41,7 +41,7 @@ function registerSystemClasses(): void {
       STACharacterWeaponSheet,
       STAStarshipWeaponSheet,
       STAArmorSheet,
-      STATalentSheet,
+      TalentSheetStaNg,
       STAGenericSheet,
       STASmallCraftContainerSheet,
     },

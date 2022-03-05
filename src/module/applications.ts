@@ -5,7 +5,7 @@ import { STAGenericSheet } from "./items/generic-sheet.js";
 import { STAItemSheet } from "./items/item-sheet.js";
 import { STASmallCraftContainerSheet } from "./items/smallcraftcontainer-sheet.js";
 import { STAStarshipWeaponSheet } from "./items/starship-weapon-sheet.js";
-import { STATalentSheet } from "./items/talent-sheet.js";
+import { TalentSheetStaNg } from "./apps/sheets/TalentSheet.js";
 
 export function registerApplications() : void {
   registerActorApplications();
@@ -41,7 +41,7 @@ export function registerApplications() : void {
   Items.registerSheet("sta-ng", STAArmorSheet, {
     types: ["armor"],
   });
-  Items.registerSheet("sta-ng", STATalentSheet, {
+  Items.registerSheet("sta-ng", TalentSheetStaNg, {
     types: ["talent"],
   });
   Items.registerSheet("sta-ng", STAGenericSheet, {
