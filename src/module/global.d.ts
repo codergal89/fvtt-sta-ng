@@ -1,5 +1,6 @@
 import { ActorStaNg } from "./actors/Actor.js"
 import { ItemStaNg } from "./items/Item.js";
+import { ItemDataSource as ItemDataSourceFoundry } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
 
 declare global {
   interface LenientGlobalVariableTypes {
@@ -23,6 +24,8 @@ declare global {
     Actor: CharacterDataProperties | ExtendedTaskDataProperties | SmallCraftDataProperties | StarshipDataProperties
     Item: ArmorDataProperties | CharacterWeaponDataProperties | FocusDataProperties | InjuryDataProperties | ItemDataProperties | SmallCraftContainerDataProperties | StarshipWeaponDataProperties | TalentDataProperties | ValueDataProperties
   }
+
+  type ItemDataStaNg = ItemDataSourceFoundry
 
   interface DocumentClassConfig {
     Actor: typeof ActorStaNg

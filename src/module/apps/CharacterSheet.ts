@@ -84,6 +84,17 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
     this.activateButtons(html);
   }
 
+  protected override _onDropItemCreate(itemData: ItemDataStaNg | ItemDataStaNg[]): Promise<ItemStaNg[]> {
+    if(this.actor.data.type === "character") {
+      const {accepted, reason} = this.actor.accept(itemData);
+      if(!accepted) {
+        ui.notifications.error(reason ?? "");
+        return Promise.resolve([]);
+      }
+    }
+    return super._onDropItemCreate(itemData);
+  }
+
   private activateItemControls(html: JQuery<HTMLElement>): void {
     html.find(".control .edit").on("click", this.onEditItem.bind(this));
     html.find(".control .delete").on("click", this.onDeleteItem.bind(this));

@@ -12,6 +12,21 @@ export class ActorStaNg extends Actor {
     this.prepareCharacterDerivedData();
   }
 
+  public accept(itemData: ItemDataStaNg | ItemDataStaNg[]): {accepted: boolean, reason?: string} {
+    if(Array.isArray(itemData)) {
+      return itemData.reduce((acc, i) => {
+        const itemResult = this.accept(i);
+        return itemResult.accepted ? acc : itemResult;
+      }, {accepted: true} as {accepted: boolean, reason?: string});
+    }
+    if(itemData.type === "talent" && itemData.data.talenttype.typeenum === "species" && this.data.type === "character") {
+      const species = itemData.data.talenttype.description
+      const isSameSpecies = species === this.data.data.species;
+      return {accepted: isSameSpecies, reason: isSameSpecies ? undefined : game.i18n.format("sta.actor.character.rejectedItem.talent.species", {species})};
+    }
+    return {accepted: true};
+  }
+
   /**
    * Prepare the base data for "character" actors
    */

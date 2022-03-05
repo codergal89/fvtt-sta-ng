@@ -9,6 +9,7 @@
   "sta.yes": "Yes",
 
   "sta.error.actorNotFound": "Could not find the relevant actor!",
+  "sta.warning.actor.rejectedItem": "Failed to add item: {reason}",
 
   "sta.actor.character.reputation": "Reputation Track",
   "sta.actor.character.name": "Name",
@@ -41,6 +42,7 @@
   "sta.actor.character.discipline.medicine": "Medicine",
   "sta.actor.character.discipline.science": "Science",
   "sta.actor.character.discipline.security": "Security",
+  "sta.actor.character.rejectedItem.talent.species": "This talent is only applicable to {species} characters.",
   "sta.actor.focus.title": "Focuses",
   "sta.actor.value.title": "Values",
   "sta.actor.value.used": "Chal?",
@@ -134,6 +136,12 @@
   "sta.actor.extendedtask.breakthroughs": "Breakthroughs",
   "sta.actor.extendedtask.completed": "Extended Task Completed!",
 
+  "sta.item.type.armor": "Armor",
+  "sta.item.type.focus": "Focus",
+  "sta.item.type.item": "Other",
+  "sta.item.type.talent": "Talent",
+  "sta.item.type.value": "Value",
+
   "sta.item.genericitem.name": "Name",
   "sta.item.genericitem.description": "Description",
   "sta.item.genericitem.opportunity": "Opportunity",
@@ -200,11 +208,5 @@
 
   "sta.confirm.item.delete": "Are you sure you want to delete {item}?",
 
-  "sta.placeholder.item.new": "New {item}",
-
-  "sta.chat.item.type.armor": "Armor",
-  "sta.chat.item.type.focus": "Focus",
-  "sta.chat.item.type.item": "Other",
-  "sta.chat.item.type.talent": "Talent",
-  "sta.chat.item.type.value": "Value"
+  "sta.placeholder.item.new": "New {item}"
 }
