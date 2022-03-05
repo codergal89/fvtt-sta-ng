@@ -23,7 +23,7 @@ export class ActorStaNg extends Actor {
     const attributeData = characterData.attributes;
     const disciplineData = characterData.disciplines;
 
-    Object.entries(characterData.attributes).forEach(([, value]) => ActorStaNg.limitValue(value, 7, 12));
+    Object.entries(characterData.attributes).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 12));
     Object.entries(characterData.disciplines).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 5));
     ActorStaNg.limitValue(characterData.determination, 0, characterData.determination.max);
     characterData.reputation = Math.min(Math.max(characterData.reputation, 0), game.settings.get("sta-ng", "maxNumberOfReputation"))
