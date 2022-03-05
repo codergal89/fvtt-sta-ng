@@ -28,6 +28,7 @@ Hooks.once("init", () => {
   registerSystemClasses();
   registerApplications();
   registerSystemSettings();
+  loadHandlebarsTemplates();
 });
 
 /**
@@ -57,6 +58,13 @@ function registerSystemClasses(): void {
   CONFIG.Dice.rolls.push(TaskRoll)
   CONFIG.Dice.terms[ChallengeDie.DENOMINATION] = ChallengeDie;
   CONFIG.Dice.terms[TaskDie.DENOMINATION] = TaskDie;
+}
+
+async function loadHandlebarsTemplates() {
+  const templates = [
+    "systems/sta-ng/templates/apps/parts/tab-effects.hbs",
+  ]
+  return loadTemplates(templates);
 }
 
 Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));

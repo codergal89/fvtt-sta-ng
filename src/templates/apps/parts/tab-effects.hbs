@@ -1,0 +1,31 @@
+<div class="tab effects" data-group="primary" data-tab="effects">
+  <ol class="items-list effects-list">
+    <li class="items-header flexrow">
+      <div class="item-name effect-name left-column flexcolumn">Effect</div>
+      <div class="item-controls effect-controls">
+        <a class="effect-control" data-action="create" title="Create">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+    </li>
+  </ol>
+
+  <ol class="items-list">
+    {{#each data.effects}}
+    <li class="item effect flexrow" data-effect-id="{{this._id}}">
+      <div class="item-name effect-name flexrow">
+        <img class="item-image" src="{{this.icon}}"/>
+        {{this.label}}
+      </div>
+      <div class="item-controls effect-controls">
+        <a class="effect-control" data-action="edit" title="Edit">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a class="effect-control delete" data-action="delete" title="Delete">
+          <i class="fas fa-trash"></i>
+        </a>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+</div>

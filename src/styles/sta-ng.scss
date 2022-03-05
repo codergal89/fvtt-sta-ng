@@ -115,7 +115,7 @@ $trackColors: (
 }
 /*#endregion*/
 
-.sta.sheet{
+.sta.sheet.item{
   .editor {
     height: 100%;
   }
@@ -129,11 +129,21 @@ $trackColors: (
     flex: 0 0 64px;
 
     .header-details {
-      background-color: map-get($lcarsColors, "lcarsheader");
+      background-color: map-get($lcarsColors, "red");
+
+      img.profile {
+        margin: 0;
+      }
 
       input[type="text"] {
         text-align: center;
         border: none;
+      }
+
+      .item-name {
+        input[type="text"] {
+          color: $inlaidText;
+        }
       }
     }
 
@@ -148,8 +158,6 @@ $trackColors: (
       input[type="number"] {
         text-align: center;
         width: 30px;
-        // margin-left: 5px;
-        // margin-right: 5px;
       }
     }
   }
@@ -168,6 +176,60 @@ $trackColors: (
   .sheet-body {
     flex: 1;
     overflow: hidden;
+  }
+
+  .items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .left-column {
+      border-right: 2px solid $background;
+    }
+
+    .items-header {
+      background-color: map-get($lcarsColors, "lcarsheader");
+      color: $inlaidText;
+      height: 24px;
+      align-items: center;
+      margin-bottom: 4px;
+
+      .item-controls {
+        flex: unset;
+        width: 40px;
+        color: $buttonColor;
+        text-align: center;
+      }
+
+      .item-name {
+        text-align: center;
+      }
+    }
+
+    .item {
+      .item-name {
+        color: map-get($lcarsColors, "lightblue");
+        align-items: center;
+
+        .item-image {
+          flex: 0 0 24px;
+          height: 24px;
+          background-size: 24px;
+          margin-right: 5px;
+        }
+      }
+
+      .item-controls {
+        flex: unset;
+        width: 40px;
+        color: $buttonColor;
+        text-align: center;
+
+        .delete {
+          color: $buttonColor2;
+        }
+      }
+    }
   }
 }
 
@@ -780,55 +842,8 @@ $trackColors: (
 
 /* Item Sheet  *//*#region*/
 .sta.sheet.item {
-  .sheet-header {
-    img.profile {
-      border: 2px solid map-get($lcarsColors, "lightblue");
-    }
-  }
-
-
   .label {
     color: $labelColor;
-  }
-
-  .header-fields {
-    font-size: 12pt;
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      
-      .img {
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-        object-position: 50% 0;
-        margin-right: 10px;
-      }
-
-      .column-x1 {
-        flex: 1;
-        margin-right: 10px;
-      }
-
-      .column-x3-img {
-        flex: 3 60px;
-        margin-right: 10px;
-      }
-
-      .column-x3 {
-        flex: 3;
-      }
-
-      .column-x2 {
-        flex: 2;
-        margin-right: 10px;
-      }
-
-      .one-column-with-roll {
-        width: calc(100% - 60px);
-      }
-    }
   }
 
   input[type="text"],
