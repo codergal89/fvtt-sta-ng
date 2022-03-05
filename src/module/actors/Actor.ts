@@ -20,11 +20,14 @@ export class ActorStaNg extends Actor {
       return;
     }
     const characterData = this.data.data;
+    const attributeData = characterData.attributes;
+    const disciplineData = characterData.disciplines;
 
     Object.entries(characterData.attributes).forEach(([, value]) => ActorStaNg.limitValue(value, 7, 12));
     Object.entries(characterData.disciplines).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 5));
     ActorStaNg.limitValue(characterData.determination, 0, 3);
     characterData.reputation = Math.min(Math.max(characterData.reputation, 0), game.settings.get("sta-ng", "maxNumberOfReputation"))
+    characterData.stress.max = attributeData.fitness.value + disciplineData.security.value;
   }
 
   /**
@@ -37,13 +40,8 @@ export class ActorStaNg extends Actor {
       return;
     }
     const characterData = this.data.data;
-    const attributeData = characterData.attributes;
-    const disciplineData = characterData.disciplines;
 
     characterData.focuses = this.data.items.filter(x => x.type === "focus");
-    characterData.stress.max = attributeData.fitness.value + disciplineData.security.value;
-
-    ActorStaNg.limitValue(characterData.stress, 0, characterData.stress.max);
   }
 
   private static limitValue(value: { value: number }, min: number, max: number): void {
