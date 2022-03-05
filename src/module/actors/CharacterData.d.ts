@@ -4,32 +4,26 @@ interface CharacterDataSourceData extends ActorCommonDataSourceData {
     control: {
       label: string
       value: number
-      selected: boolean
     }
     daring: {
       label: string
       value: number
-      selected: boolean
     }
     fitness: {
       label: string
       value: number
-      selected: boolean
     }
     insight: {
       label: string
       value: number
-      selected: boolean
     }
     presence: {
       label: string
       value: number
-      selected: boolean
     }
     reason: {
       label: string
       value: number
-      selected: boolean
     }
   }
   determination: {
@@ -40,32 +34,26 @@ interface CharacterDataSourceData extends ActorCommonDataSourceData {
     command: {
       label: string
       value: number
-      selected: boolean
     }
     conn: {
       label: string
       value: number
-      selected: boolean
     }
     engineering: {
       label: string
       value: number
-      selected: boolean
     }
     medicine: {
       label: string
       value: number
-      selected: boolean
     }
     science: {
       label: string
       value: number
-      selected: boolean
     }
     security: {
       label: string
       value: number
-      selected: boolean
     }
   },
   environment: string

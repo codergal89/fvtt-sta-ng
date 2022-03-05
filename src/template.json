@@ -12,69 +12,57 @@
             "attributes": {
                 "control": {
                     "label": "sta.actor.character.attribute.control",
-                    "value": 7,
-                    "selected": true
+                    "value": 7
                 },
                 "daring": {
                     "label": "sta.actor.character.attribute.daring",
-                    "value": 7,
-                    "selected": false
+                    "value": 7
                 },
                 "fitness": {
                     "label": "sta.actor.character.attribute.fitness",
-                    "value": 7,
-                    "selected": false
+                    "value": 7
                 },
                 "insight": {
                     "label": "sta.actor.character.attribute.insight",
-                    "value": 7,
-                    "selected": false
+                    "value": 7
                 },
                 "presence": {
                     "label": "sta.actor.character.attribute.presence",
-                    "value": 7,
-                    "selected": false
+                    "value": 7
                 },
                 "reason": {
                     "label": "sta.actor.character.attribute.reason",
-                    "value": 7,
-                    "selected": false
+                    "value": 7
                 }
             },
             "determination": {
-                "value": 3,
+                "value": 1,
                 "max": 3
             },
             "disciplines": {
                 "command": {
                     "label": "sta.actor.character.discipline.command",
-                    "value": 0,
-                    "selected": true
+                    "value": 0
                 },
                 "conn": {
                     "label": "sta.actor.character.discipline.conn",
-                    "value": 0,
-                    "selected": false
+                    "value": 0
                 },
                 "engineering": {
                     "label": "sta.actor.character.discipline.engineering",
-                    "value": 0,
-                    "selected": false
+                    "value": 0
                 },
                 "medicine": {
                     "label": "sta.actor.character.discipline.medicine",
-                    "value": 0,
-                    "selected": false
+                    "value": 0
                 },
                 "science": {
                     "label": "sta.actor.character.discipline.science",
-                    "value": 0,
-                    "selected": false
+                    "value": 0
                 },
                 "security": {
                     "label": "sta.actor.character.discipline.security",
-                    "value": 0,
-                    "selected": false
+                    "value": 0
                 }
             },
             "environment": "",
