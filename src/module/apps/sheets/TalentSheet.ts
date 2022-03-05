@@ -19,14 +19,6 @@ export class TalentSheetStaNg extends ItemSheet<ItemSheet.Options, TalentSheetDa
     }
   }
 
-  // public override async getData(options?: Partial<DocumentSheetOptions>): Promise<TalentSheetData> {
-  //   const data = await super.getData(options);
-
-  //   data.data.effects = this.item.effects;
-
-  //   return data;
-  // }
-
   private async onClickEffectControl(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     const target = $(event.currentTarget);

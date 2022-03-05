@@ -1,6 +1,6 @@
 import { ActorStaNg } from "./actors/Actor.js";
-import { CharacterTaskRollDialog } from "./apps/CharacterTaskRollDialog.js";
-import { RollDialog } from "./apps/RollDialog.js";
+import { CharacterTaskRollDialog } from "./apps/dialogs/CharacterTaskRollDialog.js";
+import { RollDialog } from "./apps/dialogs/RollDialog.js";
 import { challengeRoll, taskRoll } from "./dice/Rolls.js";
 import { ItemStaNg } from "./items/Item.js";
 

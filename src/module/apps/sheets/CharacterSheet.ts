@@ -1,9 +1,8 @@
-import { sendItemToChat } from "../chat/Item.js";
-import { challengeRoll, taskRoll } from "../dice/Rolls.js";
-import { ItemStaNg } from "../items/Item.js";
-import { CharacterSheetData } from "./CharacterSheetData.js";
-import { CharacterTaskRollDialog } from "./CharacterTaskRollDialog.js";
-import { RollDialog } from "./RollDialog.js";
+import { sendItemToChat } from "../../chat/Item.js";
+import { challengeRoll, taskRoll } from "../../dice/Rolls.js";
+import { ItemStaNg } from "../../items/Item.js";
+import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog.js";
+import { RollDialog } from "../dialogs/RollDialog.js";
 
 export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, CharacterSheetData> {
 

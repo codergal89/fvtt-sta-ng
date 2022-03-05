@@ -1,5 +1,5 @@
-import { ActorStaNg } from "../actors/Actor.js";
-import { TaskRoll } from "../dice/TaskRoll.js";
+import { ActorStaNg } from "../../actors/Actor.js";
+import { TaskRoll } from "../../dice/TaskRoll.js";
 
 export class CharacterTaskRollDialog {
   private static readonly TEMPLATE = "systems/sta-ng/templates/apps/dialog-character-task-roll.hbs";

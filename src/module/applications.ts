@@ -1,4 +1,4 @@
-import { CharacterSheetStaNg } from "./apps/CharacterSheet.js";
+import { CharacterSheetStaNg } from "./apps/sheets/CharacterSheet.js";
 import { STAArmorSheet } from "./items/armor-sheet.js";
 import { STACharacterWeaponSheet } from "./items/character-weapon-sheet.js";
 import { STAGenericSheet } from "./items/generic-sheet.js";

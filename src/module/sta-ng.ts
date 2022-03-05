@@ -1,5 +1,5 @@
 import { ActorStaNg } from "./actors/Actor.js";
-import { CharacterSheetStaNg } from "./apps/CharacterSheet.js";
+import { CharacterSheetStaNg } from "./apps/sheets/CharacterSheet.js";
 import { STAItemSheet } from "./items/item-sheet.js";
 import { STACharacterWeaponSheet } from "./items/character-weapon-sheet.js";
 import { STAStarshipWeaponSheet } from "./items/starship-weapon-sheet.js";
