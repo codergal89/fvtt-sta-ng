@@ -1,0 +1,122 @@
+#sidebar {
+  &:not(.collapsed) {
+    background: linear-gradient(to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) 50px,
+    $background 50px,
+    $background),
+    linear-gradient(to bottom,
+      map-get($lcarsColors, "tan"),
+      map-get($lcarsColors, "tan") 14%,
+      $background 14%,
+      $background calc(14% + 5px),
+      map-get($lcarsColors, "lightblue") calc(14% + 5px),
+      map-get($lcarsColors, "lightblue") 39%,
+      $background 39%,
+      $background calc(39% + 5px),
+      map-get($lcarsColors, "tan") calc(39% + 5px),
+      map-get($lcarsColors, "tan") 59%,
+      $background calc(59%),
+      $background calc(59% + 5px),
+      map-get($lcarsColors, "orange") calc(59% + 5px),
+      map-get($lcarsColors, "orange") 80%,
+      $background calc(80%),
+      $background calc(80% + 5px),
+      map-get($lcarsColors, "tan") calc(80% + 5px)
+    );
+    border:none;
+    width: 350px;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 0;
+
+    & > #sidebar-tabs {
+      margin-left: 50px;
+
+      & > .collapse {
+        border-left: 4px solid $background;
+        border-right: 4px solid $background;
+      }
+
+      &  > .item {
+        border-left: 4px solid $background;
+        &.active {
+          border-left: 4px solid $background;
+        }
+      }
+    }
+  }
+
+  & > #sidebar-tabs {
+    color: $inlaidText;
+    margin-bottom: 0;
+    border-bottom: none;
+    box-shadow: none;
+
+    & > .collapse {
+      background-color: map-get($lcarsColors, "bluepurple");
+      border-top: none;
+      border-bottom: none;
+      border-radius: 0;
+      color: $inlaidText;
+    }
+
+    & > .item {
+      background-color: map-get($lcarsColors, "tan");
+      border-top: none;
+      border-bottom: none;
+      border-radius: 0;
+      color: $inlaidText;
+
+      &:hover {
+        text-shadow: none;
+        background-color: map-get($lcarsColors, "lighttan");
+      }
+
+      &:nth-child(odd) {
+        background-color: map-get($lcarsColors, "bluepurple");
+
+        &:hover {
+          background-color: map-get($lcarsColors, "lightpurple");
+        }
+      }
+      
+      &.active {
+        box-shadow: none;
+        background-color: $buttonColor2;
+        border-bottom: none;
+        border-top: none;
+        color: $inlaidText;
+
+        &:hover {
+          background-color: map-get($lcarsColors, "lightred");
+        }
+      }
+    }
+  }
+
+  .sidebar-tab {
+    background: $background;
+    border-top: 5px solid $background;
+    width: 300px;
+    margin-left: 50px;
+
+    .directory-header {
+      .create-entity,
+      .create-folder {
+        font-weight: bold;
+        background-color: $buttonColor;
+        color: $inlaidText;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: none;
+          background-color: $buttonHover;
+        }
+
+      }
+    }
+  }
+
+}
