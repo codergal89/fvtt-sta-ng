@@ -1,32 +1,31 @@
+$sidebarBorderWidth: 50px;
+
 #sidebar {
   &:not(.collapsed) {
-    background: linear-gradient(to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0) 50px,
-    $background 50px,
-    $background),
-    linear-gradient(to bottom,
-      map-get($lcarsColors, "tan"),
-      map-get($lcarsColors, "tan") 14%,
-      $background 14%,
-      $background calc(14% + 5px),
-      map-get($lcarsColors, "lightblue") calc(14% + 5px),
-      map-get($lcarsColors, "lightblue") 39%,
-      $background 39%,
-      $background calc(39% + 5px),
-      map-get($lcarsColors, "tan") calc(39% + 5px),
-      map-get($lcarsColors, "tan") 59%,
-      $background calc(59%),
-      $background calc(59% + 5px),
-      map-get($lcarsColors, "orange") calc(59% + 5px),
-      map-get($lcarsColors, "orange") 80%,
-      $background calc(80%),
-      $background calc(80% + 5px),
-      map-get($lcarsColors, "tan") calc(80% + 5px)
-    );
-    border:none;
-    width: 350px;
-    border-top-left-radius: 35px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50px, $background 50px, $background),
+      linear-gradient(
+        to bottom,
+        map-get($lcarsColors, "tan"),
+        map-get($lcarsColors, "tan") 14%,
+        $background 14%,
+        $background calc(14% + 4px),
+        map-get($lcarsColors, "lightblue") calc(14% + 4px),
+        map-get($lcarsColors, "lightblue") 39%,
+        $background 39%,
+        $background calc(39% + 4px),
+        map-get($lcarsColors, "tan") calc(39% + 4px),
+        map-get($lcarsColors, "tan") 59%,
+        $background calc(59%),
+        $background calc(59% + 4px),
+        map-get($lcarsColors, "orange") calc(59% + 4px),
+        map-get($lcarsColors, "orange") 80%,
+        $background calc(80%),
+        $background calc(80% + 4px),
+        map-get($lcarsColors, "tan") calc(80% + 4px)
+      );
+    border: none;
+    width: calc(var(--sidebar-width) + $sidebarBorderWidth);
+    border-top-left-radius: var(--sidebar-header-height);
     border-bottom-left-radius: 0;
 
     & > #sidebar-tabs {
@@ -34,10 +33,10 @@
 
       & > .collapse {
         border-left: 4px solid $background;
-        border-right: 4px solid $background;
+        border-right: none;
       }
 
-      &  > .item {
+      & > .item {
         border-left: 4px solid $background;
         &.active {
           border-left: 4px solid $background;
@@ -46,40 +45,52 @@
     }
   }
 
-  & > #sidebar-tabs {
-    color: $inlaidText;
-    margin-bottom: 0;
-    border-bottom: none;
-    box-shadow: none;
+  &.collapsed {
+    & > #sidebar-tabs {
+      & > :nth-child(n) {
+        border-radius: 4px;
+        border-bottom: 2px solid $background;
+        border-top: 2px solid $background;
 
-    & > .collapse {
-      background-color: map-get($lcarsColors, "bluepurple");
-      border-top: none;
-      border-bottom: none;
-      border-radius: 0;
-      color: $inlaidText;
-    }
+        &.active {
+          box-shadow: none;
+          border-radius: 4px;
+          border-bottom: 2px solid $background;
+          border-top: 2px solid $background;
+          background-color: $buttonColor2;
 
-    & > .item {
-      background-color: map-get($lcarsColors, "tan");
-      border-top: none;
-      border-bottom: none;
-      border-radius: 0;
-      color: $inlaidText;
-
-      &:hover {
-        text-shadow: none;
-        background-color: map-get($lcarsColors, "lighttan");
-      }
-
-      &:nth-child(odd) {
-        background-color: map-get($lcarsColors, "bluepurple");
-
-        &:hover {
-          background-color: map-get($lcarsColors, "lightpurple");
+          &:hover {
+            background-color: map-get($lcarsColors, "lightred");
+          }
         }
       }
-      
+    }
+  }
+
+  & > #sidebar-tabs {
+    color: $inlaidText;
+    border: none;
+    box-shadow: none;
+
+    & > :nth-child(odd) {
+      background-color: map-get($lcarsColors, "bluepurple");
+      &:hover {
+        background-color: map-get($lcarsColors, "lightpurple");
+      }
+    }
+
+    & > :nth-child(even) {
+      background-color: map-get($lcarsColors, "tan");
+      &:hover {
+        background-color: map-get($lcarsColors, "lighttan");
+      }
+    }
+
+    & > :nth-child(n) {
+      border: none;
+      border-radius: 0;
+      color: $inlaidText;
+
       &.active {
         box-shadow: none;
         background-color: $buttonColor2;
@@ -96,27 +107,23 @@
 
   .sidebar-tab {
     background: $background;
-    border-top: 5px solid $background;
-    width: 300px;
-    margin-left: 50px;
+    width: var(--sidebar-width);
+    margin-left: $sidebarBorderWidth;
 
+    &#settings,
     .directory-header {
-      .create-entity,
-      .create-folder {
+      button {
         font-weight: bold;
         background-color: $buttonColor;
         color: $inlaidText;
         border: none;
         border-radius: 20px;
-        cursor: pointer;
 
         &:hover {
           box-shadow: none;
           background-color: $buttonHover;
         }
-
       }
     }
   }
-
 }
