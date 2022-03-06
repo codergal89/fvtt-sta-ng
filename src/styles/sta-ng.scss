@@ -905,6 +905,10 @@
     input,
     select {
       color: $inputColor;
+
+      option {
+        background-color: $background;
+      }
     }
   }
 
@@ -915,7 +919,6 @@
     }
   }
 }
-
 .dialog > .window-content {
   padding: 0px;
 
