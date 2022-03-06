@@ -3,8 +3,9 @@ import { challengeRoll, taskRoll } from "../../dice/Index.js";
 import { ItemStaNg } from "../../items/Entity.js";
 import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog.js";
 import { RollDialog } from "../dialogs/RollDialog.js";
+import { ActorSheetStaNg } from "./ActorSheet.js";
 
-export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, CharacterSheetData> {
+export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, CharacterSheetData> {
 
   public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -161,27 +162,6 @@ export class CharacterSheetStaNg extends ActorSheet<ActorSheet.Options, Characte
       target.parents(".entry")[0].style.textDecoration = currentlyUsed ? "line-through" : "none";
       await item.update({ ["data.used"]: !currentlyUsed });
     }
-  }
-
-  private onClickTrack(event: JQuery.TriggeredEvent) {
-    event.preventDefault();
-    const target = $(event.currentTarget);
-    const allBoxes = target.parent().children(".box");
-    const selected = target.parent().children(".selected").length;
-    const isSelected = target.hasClass("selected");
-    const id = parseInt(target.data("id"));
-
-    if (selected < id + 1) {
-      allBoxes.slice(selected, id + 1).each((_, e: HTMLElement) => { $(e).addClass("selected"); });
-    } else if (isSelected && id + 1 === selected) {
-      target.removeClass("selected");
-    } else {
-      allBoxes.slice(id + 1, allBoxes.length).each((_, e: HTMLElement) => { $(e).removeClass("selected"); });
-    }
-
-    const totalReputation = target.parent().find<HTMLInputElement>(".total");
-    totalReputation.val(target.parent().children(".selected").length);
-    this.submit();
   }
 
   private async onClickRoll(event: JQuery.TriggeredEvent) {

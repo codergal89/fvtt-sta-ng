@@ -1,4 +1,6 @@
-export class ExtendedTaskSheetStaNg extends ActorSheet<ActorSheet.Options, ExtendedTaskSheetData> {
+import { ActorSheetStaNg } from "./ActorSheet.js";
+
+export class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, ExtendedTaskSheetData> {
   static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['sta', 'sheet', 'actor', 'extendedtask'],
@@ -35,30 +37,7 @@ export class ExtendedTaskSheetStaNg extends ActorSheet<ActorSheet.Options, Exten
 
   override activateListeners(html: JQuery<HTMLFormElement>) {
     super.activateListeners(html);
-
     html.find("[id^='progress-'").on("click", this.onClickTrack.bind(this));
   }
 
-  private onClickTrack(event: JQuery.TriggeredEvent) {
-    event.preventDefault();
-    const target = $(event.currentTarget);
-    const trackParent = target.parents(".bar");
-    const allBoxes = trackParent.find(".box");
-    const selected = trackParent.find(".selected").length;
-    const isSelected = target.hasClass("selected");
-    const id = parseInt(target.data("id"));
-
-    if (selected < id + 1) {
-      allBoxes.slice(selected, id + 1).each((_, e: HTMLElement) => { $(e).addClass("selected"); });
-    } else if (isSelected && id + 1 === selected) {
-      target.removeClass("selected");
-    } else {
-      allBoxes.slice(id + 1, allBoxes.length).each((_, e: HTMLElement) => { $(e).removeClass("selected"); });
-    }
-
-    const total = trackParent.find<HTMLInputElement>(".total");
-    const newValue = trackParent.find(".selected").length;
-    total.val(newValue);
-    this.submit();
-  }
 }
