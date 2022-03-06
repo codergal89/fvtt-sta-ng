@@ -1,6 +1,6 @@
 import { sendItemToChat } from "../../chat/Item.js";
-import { challengeRoll, taskRoll } from "../../dice/Rolls.js";
-import { ItemStaNg } from "../../items/Item.js";
+import { challengeRoll, taskRoll } from "../../dice/Index.js";
+import { ItemStaNg } from "../../items/Entity.js";
 import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog.js";
 import { RollDialog } from "../dialogs/RollDialog.js";
 

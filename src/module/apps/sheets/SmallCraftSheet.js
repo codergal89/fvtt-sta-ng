@@ -1,6 +1,6 @@
 import {
   STASharedActorFunctions
-} from '../actors/Actor.js';
+} from '../../actors/Entity.js';
 
 export class STASmallCraftSheet extends ActorSheet {
   /** @override */

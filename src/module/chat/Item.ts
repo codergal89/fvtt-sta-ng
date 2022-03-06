@@ -1,5 +1,5 @@
-import { ActorStaNg } from "../actors/Actor";
-import { ItemStaNg } from "../items/Item";
+import { ActorStaNg } from "../actors/Entity.js";
+import { ItemStaNg } from "../items/Entity.js";
 
 export async function sendItemToChat(item: ItemStaNg, actor?: ActorStaNg) {
   const content = await renderTemplate("systems/sta-ng/templates/chat/item.hbs", {

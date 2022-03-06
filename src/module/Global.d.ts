@@ -1,5 +1,5 @@
-import { ActorStaNg } from "./actors/Actor.js"
-import { ItemStaNg } from "./items/Item.js";
+import { ActorStaNg } from "./actors/Entity"
+import { ItemStaNg } from "./items/Entity";
 import { ItemDataSource as ItemDataSourceFoundry } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
 
 declare global {

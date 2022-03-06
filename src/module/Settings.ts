@@ -1,7 +1,7 @@
 /**
  * Register out system's settings with the Foundry infrastructure
  */
-export function registerSystemSettings(): void {
+export function register(): void {
   game.settings.register("sta-ng", "multipleComplications", {
     name: "Multiple Complications:",
     hint: "The rulebook states \"Any die which rolled 20 causes a complication\". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display \"There were x Complications\" if multiple 20s are rolled. Disabling will just state a single complication.",

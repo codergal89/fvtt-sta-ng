@@ -1,10 +1,16 @@
-import { ActorStaNg } from "../actors/Actor.js";
-import { ItemStaNg } from "../items/Item.js";
+import { ActorStaNg } from "../actors/Entity.js";
+import { ItemStaNg } from "../items/Entity.js";
+import { ChallengeDie } from "./ChallengeDie.js";
 import { ChallengeRoll } from "./ChallengeRoll.js";
+import { TaskDie } from "./TaskDie.js";
 import { TaskRoll } from "./TaskRoll.js";
 
-export { ChallengeRoll } from "./ChallengeRoll.js";
-export { TaskRoll } from "./TaskRoll.js"
+export {
+  ChallengeDie,
+  ChallengeRoll,
+  TaskDie,
+  TaskRoll,
+};
 
 type CharacterActor = ActorStaNg & { data: { type: "character" } };
 type CharacterWeapon = ItemStaNg & { data: { type: "characterweapon" } };

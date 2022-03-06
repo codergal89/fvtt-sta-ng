@@ -1,4 +1,4 @@
-import { ActorStaNg } from "../../actors/Actor.js";
+import { ActorStaNg } from "../../actors/Entity.js";
 import { TaskRoll } from "../../dice/TaskRoll.js";
 
 export class CharacterTaskRollDialog {

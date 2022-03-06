@@ -1,4 +1,4 @@
-import { ItemStaNg } from "../../items/Item";
+import { ItemStaNg } from "../../items/Entity";
 
 declare global {
   interface TrackMixIn {

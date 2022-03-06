@@ -1,8 +1,8 @@
-import { ActorStaNg } from "./actors/Actor.js";
+import { ActorStaNg } from "./actors/Entity.js";
 import { CharacterTaskRollDialog } from "./apps/dialogs/CharacterTaskRollDialog.js";
 import { RollDialog } from "./apps/dialogs/RollDialog.js";
-import { challengeRoll, taskRoll } from "./dice/Rolls.js";
-import { ItemStaNg } from "./items/Item.js";
+import { challengeRoll, taskRoll } from "./dice/Index.js";
+import { ItemStaNg } from "./items/Entity.js";
 
 export function attachChatListeners(html: JQuery<HTMLElement>) {
   html.on('click', '.reroll-result.challenge', onRerollChallenge);
