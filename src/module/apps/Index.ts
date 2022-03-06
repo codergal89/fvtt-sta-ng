@@ -1,4 +1,5 @@
 import { CharacterSheetStaNg } from "./sheets/CharacterSheet.js";
+import { ExtendedTaskSheetStaNg } from "./sheets/ExtendedTaskSheet.js"
 import { STAArmorSheet } from "./sheets/armor-sheet.js";
 import { STACharacterWeaponSheet } from "./sheets/character-weapon-sheet.js";
 import { STAGenericSheet } from "./sheets/generic-sheet.js";
@@ -9,6 +10,7 @@ import { TalentSheetStaNg } from "./sheets/TalentSheet.js";
 
 export {
   CharacterSheetStaNg,
+  ExtendedTaskSheetStaNg,
   STAArmorSheet,
   STACharacterWeaponSheet,
   STAGenericSheet,
@@ -30,8 +32,12 @@ function registerActorSheets(): void {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("sta-ng", CharacterSheetStaNg, {
     types: ["character"],
-    makeDefault: true
+    makeDefault: true,
   });
+  Actors.registerSheet("sta-ng", ExtendedTaskSheetStaNg, {
+    types: ["extendedtask"],
+    makeDefault: true,
+  })
 }
 
 /**

@@ -6,15 +6,18 @@
       </div>
       <div class="column-headerfields1-name-extendedtasks">
         <label class="label">{{localize 'sta.item.genericitem.name'}}</label>
-        <input name="name" type="text" class="text-entry" value="{{name}}" placeholder="{{localize 'sta.item.genericitem.name'}}" />
+        <input name="name" type="text" class="text-entry" value="{{data.name}}"
+          placeholder="{{localize 'sta.item.genericitem.name'}}" />
       </div>
       <div class="column-headerfields1-other-extendedtasks">
         <label class="label">{{localize 'sta.actor.extendedtask.work'}}</label>
-        <input name="data.work" type="number" id="work" class="numeric-entry" value="{{data.work}}" min="0" data-dtype="Number" />
+        <input name="data.work" type="number" id="work" class="numeric-entry" value="{{data.data.work}}" min="0"
+          data-dtype="Number" />
       </div>
       <div class="column-headerfields1-other-extendedtasks">
         <label class="label">{{localize 'sta.actor.extendedtask.difficulty'}}</label>
-        <input name="data.difficulty" type="number" id="difficulty" class="numeric-entry" value="{{data.difficulty}}" min="0" data-dtype="Number" />
+        <input name="data.difficulty" type="number" id="difficulty" class="numeric-entry"
+          value="{{data.data.difficulty}}" min="0" data-dtype="Number" />
       </div>
     </div>
     <div class="row">
@@ -23,15 +26,18 @@
       </div>
       <div class="column-headerfields2-extendedtasks">
         <label class="label">{{localize 'sta.actor.extendedtask.breakthroughs'}}</label>
-        <input name="data.breaches" type="number" id="breaches" class="numeric-entry" value="{{data.breaches}}" min="0" data-dtype="Number" />
+        <input name="data.breaches" type="number" id="breaches" class="numeric-entry" value="{{data.data.breaches}}"
+          min="0" data-dtype="Number" />
       </div>
       <div class="column-headerfields2-extendedtasks">
         <label class="label">{{localize 'sta.actor.extendedtask.magnitude'}}</label>
-        <input name="data.magnitude" type="number" id="magnitude" class="numeric-entry" value="{{data.magnitude}}" min="0" data-dtype="Number" />
+        <input name="data.magnitude" type="number" id="magnitude" class="numeric-entry" value="{{data.data.magnitude}}"
+          min="0" data-dtype="Number" />
       </div>
       <div class="column-headerfields2-extendedtasks">
         <label class="label">{{localize 'sta.actor.extendedtask.resistance'}}</label>
-        <input name="data.resistance" type="number" id="resistance" class="numeric-entry" value="{{data.resistance}}" min="0" data-dtype="Number" />
+        <input name="data.resistance" type="number" id="resistance" class="numeric-entry"
+          value="{{data.data.resistance}}" min="0" data-dtype="Number" />
       </div>
     </div>
     <div class="row">
@@ -50,8 +56,22 @@
         <div class="lcars-body-extendedtask2"></div>
       </div>
       <div class="extendedtask track">
-        <input type="hidden" id="work-progress" name="data.workprogress" value="{{data.workprogress}}" data-dtype="Number" />
-        <div id="extendedtask-renderer" style="width: 100%" class="extendedtask track"></div>
+        <div id="extendedtask-renderer" style="width: 100%;" class="extendedtask track">
+          <div class="bar extendedtask" style="width: 100%;">
+            <input type="hidden" class="total" name="data.workprogress" value="{{data.data.workprogress}}"
+              data-dtype="Number" />
+            {{#each progress.rows}}
+            <div class="extendedtask-divider"></div>
+            <div class="row" style="width: 100%;">
+              {{#each this}}
+              <div id="progress-{{id}}" data-id="{{id}}" class="box extendedtask {{#if selected}}selected{{/if}}" style="width: calc(20%);">
+                {{this.label}}</div>
+              {{/each}}
+            </div>
+            {{/each}}
+
+          </div>
+        </div>
       </div>
     </div>
 </form>

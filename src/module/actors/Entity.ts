@@ -6,6 +6,7 @@ export class ActorStaNg extends Actor {
     }
 
     this.prepareCharacterBaseData();
+    this.prepareExtendedTaskBaseData();
   }
 
   public override prepareDerivedData(): void {
@@ -43,6 +44,19 @@ export class ActorStaNg extends Actor {
     ActorStaNg.limitValue(characterData.determination, 0, characterData.determination.max);
     characterData.reputation = Math.min(Math.max(characterData.reputation, 0), game.settings.get("sta-ng", "maxNumberOfReputation"))
     characterData.stress.max = attributeData.fitness.value + disciplineData.security.value;
+  }
+
+  private prepareExtendedTaskBaseData(): void {
+    if (this.data.type !== "extendedtask") {
+      return;
+    }
+
+    const taskData = this.data.data;
+
+    taskData.magnitude = (taskData.magnitude < 0) ? 0 : taskData.magnitude;
+    taskData.work = (taskData.work < 0) ? 0 : taskData.work;
+    taskData.difficulty = (taskData.difficulty < 0) ? 0 : taskData.difficulty;
+    taskData.resistance = (taskData.resistance < 0) ? 0 : taskData.resistance;
   }
 
   /**
