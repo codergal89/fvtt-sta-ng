@@ -1,0 +1,168 @@
+.sta.sheet.item {
+  $lcarsLeftBorderWidth: 50px;
+
+  .editor {
+    height: 100%;
+  }
+
+  .window-content {
+    padding: 5px;
+
+    .tab {
+      height: 100%;
+      align-content: flex-start;
+    }
+  }
+
+  .sheet-header {
+    flex: 0 0 $lcarsLeftBorderWidth;
+
+    .header-details {
+      border-left: $lcarsLeftBorderWidth solid map-get($lcarsColors, "purple");
+      margin-bottom: 4px;
+
+      img.profile {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+      }
+
+      input[type="text"] {
+        text-align: center;
+        border: none;
+      }
+
+      .item-name {
+        input[type="text"] {
+          color: $headerColor;
+        }
+      }
+    }
+
+    .summary {
+      flex: 0 0 100%;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 4px;
+      border-left: $lcarsLeftBorderWidth solid map-get($lcarsColors, "tan");
+
+      input[type="number"] {
+        text-align: right;
+        width: 30px;
+      }
+
+      div {
+        padding-left: 4px;
+        flex-basis: fit-content;
+        text-align: center;
+      }
+    }
+  }
+
+  .sheet-navigation {
+    flex: 0;
+    font-size: 18pt;
+    border-bottom-left-radius: $lcarsLeftBorderWidth;
+    border-left: $lcarsLeftBorderWidth solid map-get($lcarsColors, "blue");
+
+    &.tabs {
+      .item {
+        color: $headerColor;
+      }
+    }
+  }
+
+  .sheet-spacer {
+    flex: 0 0 30px;
+    border-top-left-radius: $lcarsLeftBorderWidth;
+    border-left: $lcarsLeftBorderWidth solid map-get($lcarsColors, "lcarsheader");
+    margin-top: 4px;
+    background-color: map-get($lcarsColors, "lcarsheader");
+  }
+
+  .sheet-body {
+    flex: 1;
+    overflow: hidden;
+    margin-top: 4px;
+
+    .tab {
+      padding-left: calc($lcarsLeftBorderWidth + 4px);
+
+      background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) $lcarsLeftBorderWidth, $background $lcarsLeftBorderWidth, $background),
+        linear-gradient(
+          to bottom,
+          map-get($lcarsColors, "red"),
+          map-get($lcarsColors, "red") 80px,
+          $background 80px,
+          $background calc(80px + 4px),
+          map-get($lcarsColors, "lighttan") calc(80px + 4px),
+          map-get($lcarsColors, "lighttan") 170px,
+          $background 170px,
+          $background calc(170px + 4px),
+          map-get($lcarsColors, "tan") calc(170px + 4px),
+          map-get($lcarsColors, "tan") calc(170px + 30%),
+          $background calc(170px + 30%),
+          $background calc(170px + 30% + 4px),
+          map-get($lcarsColors, "brightpurple") calc(170px + 30% + 4px),
+          map-get($lcarsColors, "brightpurple") 80%,
+          $background calc(80%),
+          $background calc(80% + 4px),
+          map-get($lcarsColors, "lightblue") calc(80% + 4px)
+        );
+    }
+  }
+
+  .items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .left-column {
+      border-right: 2px solid $background;
+    }
+
+    .items-header {
+      background-color: map-get($lcarsColors, "lcarsheader");
+      color: $inlaidText;
+      height: 24px;
+      align-items: center;
+      margin-bottom: 4px;
+
+      .item-controls {
+        flex: unset;
+        width: 40px;
+        color: $buttonColor;
+        text-align: center;
+      }
+
+      .item-name {
+        text-align: center;
+      }
+    }
+
+    .item {
+      .item-name {
+        color: map-get($lcarsColors, "lightblue");
+        align-items: center;
+
+        .item-image {
+          flex: 0 0 24px;
+          height: 24px;
+          background-size: 24px;
+          margin-right: 5px;
+        }
+      }
+
+      .item-controls {
+        flex: unset;
+        width: 40px;
+        color: $buttonColor;
+        text-align: center;
+
+        .delete {
+          color: $buttonColor2;
+        }
+      }
+    }
+  }
+}

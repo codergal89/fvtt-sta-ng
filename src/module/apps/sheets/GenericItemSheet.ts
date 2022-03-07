@@ -3,7 +3,7 @@ export class GenericItemSheetStaNg extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["sta", "sheet", "item"],
       width: 500,
-      height: 256,
+      height: 400,
     });
   }
 

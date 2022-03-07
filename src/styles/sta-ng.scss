@@ -1,8 +1,9 @@
-@import 'colors';
-@import 'sidebar';
-@import 'tracker';
+@import "colors";
+@import "sidebar";
+@import "tracker";
+@import "itemsheet";
 
-/* Window Content Overrides *//*#region*/
+/* Window Content Overrides */ /*#region*/
 .sta {
   .window-content {
     background: $background !important;
@@ -16,7 +17,7 @@
 }
 /*#endregion*/
 
-/* Globals *//*#region*/
+/* Globals */ /*#region*/
 .sta .title {
   text-align: center;
   font-size: 14pt;
@@ -34,21 +35,21 @@
 }
 
 .sta .unset-clickables:hover {
-  box-shadow:unset !important;
-  text-shadow:unset !important;
-  cursor:unset !important;
-  content:unset !important;
+  box-shadow: unset !important;
+  text-shadow: unset !important;
+  cursor: unset !important;
+  content: unset !important;
 }
 /*#endregion*/
 
-/* Button Definitions *//*#region*/
+/* Button Definitions */ /*#region*/
 .sta {
   .btn {
     background-color: $buttonColor;
     color: $inlaidText;
     border-radius: 20px;
     font-weight: bold;
-  
+
     &:hover {
       box-shadow: none;
       background-color: $buttonHover;
@@ -61,7 +62,7 @@
     color: $inlaidText;
     border-radius: 20px;
     font-weight: bold;
-  
+
     &:hover {
       box-shadow: none;
       background-color: $buttonHover2;
@@ -71,126 +72,7 @@
 }
 /*#endregion*/
 
-.sta.sheet.item{
-  .editor {
-    height: 100%;
-  }
-
-  .window-content .tab {
-    height: 100%;
-    align-content: flex-start;
-  }
-
-  .sheet-header {
-    flex: 0 0 64px;
-
-    .header-details {
-      background-color: map-get($lcarsColors, "red");
-
-      img.profile {
-        margin: 0;
-      }
-
-      input[type="text"] {
-        text-align: center;
-        border: none;
-      }
-
-      .item-name {
-        input[type="text"] {
-          color: $inlaidText;
-        }
-      }
-    }
-
-    .summary {
-      flex: 0 0 100%;
-      list-style: none;
-
-      li {
-        margin: 2px 0;
-      }
-
-      input[type="number"] {
-        text-align: center;
-        width: 30px;
-      }
-    }
-  }
-
-  .sheet-navigation {
-    flex: 0 0 30px;
-    font-size: 16px;
-    margin-top: 4px;
-
-    &.tabs{
-      .item {
-        color: $headerColor;
-      }
-    }
-  }
-
-  .sheet-body {
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .items-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    .left-column {
-      border-right: 2px solid $background;
-    }
-
-    .items-header {
-      background-color: map-get($lcarsColors, "lcarsheader");
-      color: $inlaidText;
-      height: 24px;
-      align-items: center;
-      margin-bottom: 4px;
-
-      .item-controls {
-        flex: unset;
-        width: 40px;
-        color: $buttonColor;
-        text-align: center;
-      }
-
-      .item-name {
-        text-align: center;
-      }
-    }
-
-    .item {
-      .item-name {
-        color: map-get($lcarsColors, "lightblue");
-        align-items: center;
-
-        .item-image {
-          flex: 0 0 24px;
-          height: 24px;
-          background-size: 24px;
-          margin-right: 5px;
-        }
-      }
-
-      .item-controls {
-        flex: unset;
-        width: 40px;
-        color: $buttonColor;
-        text-align: center;
-
-        .delete {
-          color: $buttonColor2;
-        }
-      }
-    }
-  }
-}
-
-/* LCARS Layout *//*#region*/
+/* LCARS Layout */ /*#region*/
 .sta.sheet.actor {
   text-align: center;
 
@@ -200,7 +82,7 @@
 
   .lcars-column {
     flex: 10%;
-    display:flex;
+    display: flex;
     flex-flow: column;
 
     .lcars-header-block1 {
@@ -208,7 +90,7 @@
       background-color: map-get($lcarsColors, "purple");
       border-bottom: 4px solid $background;
     }
-  
+
     .lcars-header-block2 {
       flex: 7;
       background-color: map-get($lcarsColors, "blue");
@@ -305,7 +187,7 @@
       border-bottom: 5px solid $background;
       border-bottom-left-radius: 40px;
     }
-    
+
     .lcars-body-extendedtask1 {
       background-color: $background;
       flex: 0 1 33px;
@@ -322,7 +204,7 @@
 }
 /*#endregion*/
 
-/* Actor Sheet *//*#region*/
+/* Actor Sheet */ /*#region*/
 .sta.sheet.actor {
   /* Colors */
   .title {
@@ -337,7 +219,7 @@
   }
 
   .editor .editor-edit {
-    color: $editorText
+    color: $editorText;
   }
 
   .tox.tox-tinymce .tox-edit-area__iframe {
@@ -357,7 +239,7 @@
   .track {
     display: flex;
     flex-direction: row;
-    
+
     .bar:not(.extendedtask) {
       width: 100%;
       display: flex;
@@ -453,7 +335,7 @@
       }
     }
   }
-  
+
   /* Layout - Main/Attributes */
   .header-fields {
     flex: 90%;
@@ -520,7 +402,7 @@
           .injury {
             height: 200px;
             text-align: left;
-            
+
             .editor {
               height: 100%;
               padding: 5px;
@@ -529,7 +411,7 @@
 
           /* Attributes/Disciplines */
 
-          .stat.row{
+          .stat.row {
             .field {
               width: 20%;
             }
@@ -564,7 +446,7 @@
           }
         }
 
-        .section.scale, 
+        .section.scale,
         .section.resistance {
           display: flex;
           background-color: map-get($lcarsColors, "purple");
@@ -585,14 +467,14 @@
             background-color: $background;
           }
         }
-        
+
         .section.scale .title {
           border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
           margin-left: 10%;
         }
 
-        .section.resistance .field.numeric-entry{
+        .section.resistance .field.numeric-entry {
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
           margin-right: 10%;
@@ -652,10 +534,10 @@
               width: 40px;
               padding-right: 2px;
             }
-            
+
             .delete {
               color: $buttonColor2;
-              
+
               &:hover {
                 color: $buttonHover;
                 text-shadow: none;
@@ -677,23 +559,23 @@
             .one-column-no-roll {
               width: calc(100% - 32px);
             }
-            
+
             .two-column-with-roll-primary {
-              width: calc((100% - 58px)*0.75);
+              width: calc((100% - 58px) * 0.75);
             }
 
             .two-column-with-roll-secondary {
-              width: calc((100% - 58px)*0.25);
+              width: calc((100% - 58px) * 0.25);
             }
 
             .column-x2 {
               width: 90%;
               padding-left: 10%;
             }
-            
+
             .small input {
               height: 17px;
-              color:$inputColor;
+              color: $inputColor;
             }
 
             .small.disabled input {
@@ -721,21 +603,21 @@
         /*  Actor - Talent Tooltips */
         .entry.row.talent-tooltip-container {
           overflow-y: hidden;
-          border:.5px dashed $separatorBorders;
+          border: 0.5px dashed $separatorBorders;
           height: 200px;
           -webkit-transition: height 0.5s linear, border-width 0.5s linear;
-            -moz-transition: height 0.5s linear, border-width 0.5s linear;
-              -ms-transition: height 0.5s linear, border-width 0.5s linear;
-                -o-transition: height 0.5s linear, border-width 0.5s linear;
-                  transition: height 0.5s linear, border-width 0.5s linear;
+          -moz-transition: height 0.5s linear, border-width 0.5s linear;
+          -ms-transition: height 0.5s linear, border-width 0.5s linear;
+          -o-transition: height 0.5s linear, border-width 0.5s linear;
+          transition: height 0.5s linear, border-width 0.5s linear;
           &.hide {
             border: 0px dashed $separatorBorders;
             height: 0px;
             -webkit-transition: height 0.5s linear, border-width 0.5s linear;
-              -moz-transition: height 0.5s linear, border-width 0.5s linear;
-                -ms-transition: height 0.5s linear, border-width 0.5s linear;
-                  -o-transition: height 0.5s linear, border-width 0.5s linear;
-                    transition: height 0.5s linear, border-width 0.5s linear;
+            -moz-transition: height 0.5s linear, border-width 0.5s linear;
+            -ms-transition: height 0.5s linear, border-width 0.5s linear;
+            -o-transition: height 0.5s linear, border-width 0.5s linear;
+            transition: height 0.5s linear, border-width 0.5s linear;
           }
         }
       }
@@ -748,7 +630,7 @@
       width: 60%;
       padding-left: 5%;
       padding-right: 5%;
-      
+
       .numeric-entry {
         width: 50%;
         margin-right: 25%;
@@ -759,7 +641,7 @@
     .column-headerfields1-other-extendedtasks {
       width: 15%;
 
-      .numeric-entry{
+      .numeric-entry {
         width: 50%;
         margin-right: 25%;
         margin-left: 25%;
@@ -780,24 +662,24 @@
     }
 
     .extendedtask.track {
-      width:90%;
+      width: 90%;
     }
   }
 
   .extendedtask-divider {
-    background-color:map-get($lcarsColors, "lcarsheader");
+    background-color: map-get($lcarsColors, "lcarsheader");
     height: 17px;
-    width:100%; 
-    color: $background; 
-    text-align:center; 
-    margin-top:5px; 
-    margin-bottom:5px; 
-    font-weight:bold;
+    width: 100%;
+    color: $background;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
   }
 }
 /*#endregion*/
 
-/* Item Sheet  *//*#region*/
+/* Item Sheet  */ /*#region*/
 .sta.sheet.item {
   .label {
     color: $labelColor;
@@ -815,8 +697,6 @@
   option {
     background-color: $background;
   }
-
-
 
   .editor-edit {
     display: block;
@@ -843,7 +723,6 @@
 
   &.characterweapon,
   &.starshipweapon {
-
     .header-fields .row {
       font-size: 14px;
 
@@ -851,7 +730,7 @@
         width: 25%;
         display: flex;
         text-align: left;
-      
+
         .label {
           line-height: 26px;
         }
@@ -861,7 +740,7 @@
         width: 25%;
         flex-direction: column;
         text-align: center;
-  
+
         input {
           margin-left: auto;
           margin-right: auto;
@@ -877,13 +756,13 @@
 }
 /*#endregion*/
 
-/* Forms and Dialogs *//*#region*/
+/* Forms and Dialogs */ /*#region*/
 
 .sta-form {
   .label {
     color: $headerColor;
   }
-  
+
   .numeric-entry {
     color: $inputColor;
   }
@@ -932,17 +811,17 @@
     background-color: $background;
   }
 
-  .dialog-button.roll.default, 
-  .dialog-button.ok.default, 
-  .dialog-button.yes, 
-  .dialog-button.no { 
+  .dialog-button.roll.default,
+  .dialog-button.ok.default,
+  .dialog-button.yes,
+  .dialog-button.no {
     background-color: $buttonColor;
     color: $inlaidText;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    
+
     &:hover {
       box-shadow: none;
       background-color: $buttonHover;
@@ -955,15 +834,15 @@
   .window-content {
     background: $background;
     color: $labelColor;
-    
+
     form {
       background-color: $background;
-      
+
       input {
         color: $inputColor;
       }
 
-      button { 
+      button {
         background-color: $buttonColor;
         color: $inlaidText;
         border: none;
@@ -977,13 +856,12 @@
         }
       }
     }
-    
   }
 }
 
 /* Chat Log */
 
-.app .chat-message.message{
+.app .chat-message.message {
   background: $background;
 
   .message-header,
@@ -1009,13 +887,13 @@
   }
 }
 
-.chat-message.message .reroll-result { 
+.chat-message.message .reroll-result {
   background-color: $buttonColor;
   color: $inlaidText;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  
+
   &:hover {
     box-shadow: none;
     background-color: $buttonHover;
@@ -1035,7 +913,7 @@
       flex: 0 0 36px;
       margin-right: 5px;
     }
-  
+
     h3 {
       flex: 1;
       margin: 0;
@@ -1082,7 +960,6 @@
       }
     }
   }
-
 }
 
 /* Dice Pools Dialog and Chat Messages */
@@ -1090,7 +967,7 @@
   padding: 4px 5px;
 }
 
-.sta.roll{
+.sta.roll {
   .dice-roll .dice-result {
     display: block;
   }
@@ -1103,7 +980,7 @@
           background: unset;
           border: 0;
         }
-  
+
         .dice-tooltip .dice .dice-rolls {
           display: flex;
           justify-content: center;
@@ -1112,7 +989,7 @@
       }
 
       .dice-total.effect {
-        color: $labelColor
+        color: $labelColor;
       }
     }
   }
@@ -1144,7 +1021,7 @@
       }
 
       .dice-total.effect {
-        color: $labelColor
+        color: $labelColor;
       }
     }
   }
@@ -1157,7 +1034,7 @@
           line-height: normal;
           cursor: pointer;
           word-break: normal;
-  
+
           &.title {
             display: flex;
             flex-direction: row;
@@ -1165,20 +1042,20 @@
             border: none;
             text-align: left;
           }
-  
+
           .img {
             height: 45px;
           }
         }
-        
+
         .tags {
           display: flex;
           flex-direction: row;
           text-align: center;
           flex-wrap: wrap;
-  
+
           .tag {
-            width: calc(100%/3);
+            width: calc(100% / 3);
             font-size: 12px;
             flex-grow: 1;
             border: 0.5px solid $background;
@@ -1189,11 +1066,11 @@
       }
 
       .dice-total.effect {
-        color: $labelColor
+        color: $labelColor;
       }
-    } 
+    }
   }
-} 
+}
 
 .message-content {
   .table-draw {

@@ -8,8 +8,8 @@
       </h1>
     </div>
 
-    <ul class="summary flexrow">
-      <li style="text-align: start;">
+    <div class="summary flexrow">
+      <div>
         <label class="label">{{localize 'sta.item.talent.type.title'}}</label>
         <select name="data.talenttype.typeenum">
           {{#select data.data.talenttype.typeenum}}
@@ -19,9 +19,9 @@
           <option value="house">{{localize 'sta.item.talent.houselegacy'}}</option>
           {{/select}}
         </select>
-      </li>
+      </div>
       {{#if (eq data.data.talenttype.typeenum "discipline")}}
-      <li style="text-align: end;">
+      <div>
         <label class="label">{{localize 'sta.item.talent.requires'}}</label>
         <select name="data.talenttype.description">
           {{#select data.data.talenttype.description}}
@@ -35,18 +35,16 @@
         </select>
         <input type="number" name="data.talenttype.minimum" value="{{data.data.talenttype.minimum}}" />
         <label class="label">+</label>
-      </li>
-      {{!-- <li>
-      </li> --}}
+      </div>
       {{else if (eq data.data.talenttype.typeenum "species")}}
-      <li style="text-align: end;">
+      <div>
         <label class="label">{{localize 'sta.item.talent.requires'}} {{localize 'sta.actor.character.species'}}
         </label>
         <input style="width:100px;" type="text" name="data.talenttype.description"
           value="{{data.data.talenttype.description}}" />
-      </li>
+      </div>
       {{else if (eq data.data.talenttype.typeenum "house")}}
-      <li style="text-align: end;">
+      <div>
         <label class="label">{{localize 'sta.item.talent.requires'}} {{localize 'sta.item.talent.houserequired'}}
         </label>
         <select name="data.talenttype.description">
@@ -59,15 +57,17 @@
           <option value="physicians">{{localize 'sta.item.house.legacy.physicians'}}</option>
           {{/select}}
         </select>
-      </li>
+      </div>
       {{/if}}
-    </ul>
+    </div>
   </header>
 
   <nav class="sheet-navigation tabs" data-group="primary">
     <a class="item active" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
     <a class="item" data-tab="effects">{{localize 'sta.sheet.tab.effects'}}</a>
   </nav>
+
+  <section class="sheet-spacer"></section>
 
   <section class="sheet-body">
     <div class="tab flexrow active" data-group="primary" data-tab="description">

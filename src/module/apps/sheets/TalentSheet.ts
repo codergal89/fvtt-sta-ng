@@ -3,7 +3,7 @@ export class TalentSheetStaNg extends ItemSheet<ItemSheet.Options, TalentSheetDa
     return mergeObject(super.defaultOptions, {
       classes: ['sta', 'sheet', 'item', 'talent'],
       width: 550,
-      height: 300,
+      height: 500,
       tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }]
     });
   }
