@@ -1,0 +1,22 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  <header class="sheet-header focus-header flexrow">
+    <div class="header-details flexrow">
+      <img class="profile" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+      <h1 class="item-name">
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'sta.item.genericitem.name'}}" />
+      </h1>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item active" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="flexcol tab active">
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+    </div>
+  </section>
+
+</form>

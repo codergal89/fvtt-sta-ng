@@ -1,5 +1,6 @@
 import { CharacterSheetStaNg } from "./sheets/CharacterSheet.js";
 import { ExtendedTaskSheetStaNg } from "./sheets/ExtendedTaskSheet.js"
+import { FocusSheetStaNg } from "./sheets/FocusSheet.js";
 import { STAArmorSheet } from "./sheets/armor-sheet.js";
 import { STACharacterWeaponSheet } from "./sheets/character-weapon-sheet.js";
 import { STAGenericSheet } from "./sheets/generic-sheet.js";
@@ -11,6 +12,7 @@ import { TalentSheetStaNg } from "./sheets/TalentSheet.js";
 export {
   CharacterSheetStaNg,
   ExtendedTaskSheetStaNg,
+  FocusSheetStaNg,
   STAArmorSheet,
   STACharacterWeaponSheet,
   STAGenericSheet,
@@ -45,6 +47,10 @@ function registerActorSheets(): void {
  */
 function registerItemSheets(): void {
   Items.unregisterSheet("core", ItemSheet);
+  Items.registerSheet("sta-ng", FocusSheetStaNg, {
+    types: ["focus"],
+    makeDefault: true
+  })
   Items.registerSheet("sta-ng", STAItemSheet, {
     types: ["item"],
     makeDefault: true
