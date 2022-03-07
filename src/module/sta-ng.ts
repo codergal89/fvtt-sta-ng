@@ -28,12 +28,11 @@ function registerSystemClasses(): void {
   game["sta-ng"] = {
     applications: {
       CharacterSheet: Apps.CharacterSheetStaNg,
-      ItemSheet: Apps.STAItemSheet,
+      ItemSheet: Apps.GenericItemSheetStaNg,
       CharacterWeaponSheet: Apps.STACharacterWeaponSheet,
       StarshipWeaponSheet: Apps.STAStarshipWeaponSheet,
       ArmorSheet: Apps.STAArmorSheet,
       TalentSheet: Apps.TalentSheetStaNg,
-      GenericSheet: Apps.STAGenericSheet,
       SmallCraftContainerSheet: Apps.STASmallCraftContainerSheet,
     },
     entities: {

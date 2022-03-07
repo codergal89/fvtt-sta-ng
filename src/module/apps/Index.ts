@@ -1,10 +1,8 @@
 import { CharacterSheetStaNg } from "./sheets/CharacterSheet.js";
 import { ExtendedTaskSheetStaNg } from "./sheets/ExtendedTaskSheet.js"
-import { FocusSheetStaNg } from "./sheets/FocusSheet.js";
+import { GenericItemSheetStaNg } from "./sheets/GenericItemSheet.js";
 import { STAArmorSheet } from "./sheets/armor-sheet.js";
 import { STACharacterWeaponSheet } from "./sheets/character-weapon-sheet.js";
-import { STAGenericSheet } from "./sheets/generic-sheet.js";
-import { STAItemSheet } from "./sheets/item-sheet.js";
 import { STASmallCraftContainerSheet } from "./sheets/smallcraftcontainer-sheet.js";
 import { STAStarshipWeaponSheet } from "./sheets/starship-weapon-sheet.js";
 import { TalentSheetStaNg } from "./sheets/TalentSheet.js";
@@ -12,11 +10,9 @@ import { TalentSheetStaNg } from "./sheets/TalentSheet.js";
 export {
   CharacterSheetStaNg,
   ExtendedTaskSheetStaNg,
-  FocusSheetStaNg,
+  GenericItemSheetStaNg,
   STAArmorSheet,
   STACharacterWeaponSheet,
-  STAGenericSheet,
-  STAItemSheet,
   STASmallCraftContainerSheet,
   STAStarshipWeaponSheet,
   TalentSheetStaNg
@@ -47,14 +43,10 @@ function registerActorSheets(): void {
  */
 function registerItemSheets(): void {
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("sta-ng", FocusSheetStaNg, {
-    types: ["focus"],
+  Items.registerSheet("sta-ng", GenericItemSheetStaNg, {
+    types: ["focus", "injury", "item", "milestone", "value"],
     makeDefault: true
   })
-  Items.registerSheet("sta-ng", STAItemSheet, {
-    types: ["item"],
-    makeDefault: true
-  });
   Items.registerSheet("sta-ng", STACharacterWeaponSheet, {
     types: ["characterweapon"],
   });
@@ -66,15 +58,6 @@ function registerItemSheets(): void {
   });
   Items.registerSheet("sta-ng", TalentSheetStaNg, {
     types: ["talent"],
-  });
-  Items.registerSheet("sta-ng", STAGenericSheet, {
-    types: ["value"],
-  });
-  Items.registerSheet("sta-ng", STAGenericSheet, {
-    types: ["focus"],
-  });
-  Items.registerSheet("sta-ng", STAGenericSheet, {
-    types: ["injury"],
   });
   Items.registerSheet("sta-ng", STASmallCraftContainerSheet, {
     types: ["smallcraftcontainer"],
