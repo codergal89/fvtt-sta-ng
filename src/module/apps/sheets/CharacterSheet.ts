@@ -20,8 +20,7 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
   }
 
   public override get template(): string {
-    const sheet = !game.user?.isGM && this.actor.limited ? "limited" : "character";
-    return `systems/sta-ng/templates/actors/${sheet}-sheet.hbs`;
+    return "systems/sta-ng/templates/apps/sheets/character-sheet.hbs";
   }
 
   public override async getData(options?: Partial<ActorSheet.Options>): Promise<CharacterSheetData> {
