@@ -1,0 +1,38 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  <header class="sheet-header armor-header flexrow">
+    <div class="header-details flexrow">
+      <img class="profile" src="{{data.img}}" data-edit="img" title="{{name}}" />
+      <h1 class="item-name">
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'sta.item.genericitem.name'}}" />
+      </h1>
+    </div>
+
+    <div class="summary flexrow">
+      <div>
+        <label class="label">{{localize 'sta.actor.belonging.armor.protection'}}</label>
+        <input type="number" name="data.protection" value="{{data.data.protection}}"/>
+      </div>
+      <div>
+        <label class="label">{{localize 'sta.item.genericitem.opportunity'}}</label>
+        <input type="number" name="data.opportunity" value="{{data.data.opportunity}}"/>
+      </div>
+      <div>
+        <label class="label">{{localize 'sta.item.genericitem.escalation'}}</label>
+        <input type="number" name="data.escalation" value="{{data.data.escalation}}"/>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item active" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
+  </nav>
+
+  <section class="sheet-spacer"></section>
+
+  <section class="sheet-body">
+    <div class="tab flexrow active" data-group="primary" data-tab="description">
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+    </div>
+  </section>
+</form>

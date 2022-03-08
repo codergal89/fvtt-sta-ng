@@ -27,13 +27,13 @@ Hooks.once("init", () => {
 function registerSystemClasses(): void {
   game["sta-ng"] = {
     applications: {
+      ArmorSheet: Apps.ArmorSheetStaNg,
       CharacterSheet: Apps.CharacterSheetStaNg,
-      ItemSheet: Apps.GenericItemSheetStaNg,
       CharacterWeaponSheet: Apps.STACharacterWeaponSheet,
-      StarshipWeaponSheet: Apps.STAStarshipWeaponSheet,
-      ArmorSheet: Apps.STAArmorSheet,
-      TalentSheet: Apps.TalentSheetStaNg,
+      ItemSheet: Apps.GenericItemSheetStaNg,
       SmallCraftContainerSheet: Apps.STASmallCraftContainerSheet,
+      StarshipWeaponSheet: Apps.STAStarshipWeaponSheet,
+      TalentSheet: Apps.TalentSheetStaNg,
     },
     entities: {
       ItemStaNg,

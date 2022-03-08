@@ -1,17 +1,17 @@
-import { CharacterSheetStaNg } from "./sheets/CharacterSheet.js";
-import { ExtendedTaskSheetStaNg } from "./sheets/ExtendedTaskSheet.js"
-import { GenericItemSheetStaNg } from "./sheets/GenericItemSheet.js";
-import { STAArmorSheet } from "./sheets/armor-sheet.js";
+import { ArmorSheetStaNg } from "./sheets/ArmorSheet.js";
 import { STACharacterWeaponSheet } from "./sheets/character-weapon-sheet.js";
+import { CharacterSheetStaNg } from "./sheets/CharacterSheet.js";
+import { ExtendedTaskSheetStaNg } from "./sheets/ExtendedTaskSheet.js";
+import { GenericItemSheetStaNg } from "./sheets/GenericItemSheet.js";
 import { STASmallCraftContainerSheet } from "./sheets/smallcraftcontainer-sheet.js";
 import { STAStarshipWeaponSheet } from "./sheets/starship-weapon-sheet.js";
 import { TalentSheetStaNg } from "./sheets/TalentSheet.js";
 
 export {
+  ArmorSheetStaNg,
   CharacterSheetStaNg,
   ExtendedTaskSheetStaNg,
   GenericItemSheetStaNg,
-  STAArmorSheet,
   STACharacterWeaponSheet,
   STASmallCraftContainerSheet,
   STAStarshipWeaponSheet,
@@ -39,10 +39,14 @@ function registerActorSheets(): void {
 }
 
 /**
- * Register out system's item applications (sheets) with the Foundry infrastructure
+ * Register our system's item applications (sheets) with the Foundry infrastructure
  */
 function registerItemSheets(): void {
   Items.unregisterSheet("core", ItemSheet);
+  Items.registerSheet("sta-ng", ArmorSheetStaNg, {
+    types: ["armor"],
+    makeDefault: true
+  })
   Items.registerSheet("sta-ng", GenericItemSheetStaNg, {
     types: ["focus", "injury", "item", "milestone", "value"],
     makeDefault: true
@@ -52,9 +56,6 @@ function registerItemSheets(): void {
   });
   Items.registerSheet("sta-ng", STAStarshipWeaponSheet, {
     types: ["starshipweapon"],
-  });
-  Items.registerSheet("sta-ng", STAArmorSheet, {
-    types: ["armor"],
   });
   Items.registerSheet("sta-ng", TalentSheetStaNg, {
     types: ["talent"],
