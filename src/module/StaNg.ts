@@ -2,7 +2,7 @@ import { ActorStaNg } from "./actors/Entity.js";
 import * as Apps from "./apps/Index.js";
 import { ResourceTracker } from "./apps/ResourceTracker.js";
 import { ItemStaNg } from "./items/Entity.js";
-import { register_dsn_ufp_themes } from "./third-party/dice-so-nice.js";
+import { registerUfpThemes } from "./third-party/DiceSoNice.js";
 import * as Settings from "./Settings.js";
 import { attachChatListeners } from "./ChatListeners.js";
 import * as Dice from "./dice/Index.js";
@@ -29,10 +29,7 @@ function registerSystemClasses(): void {
     applications: {
       ArmorSheet: Apps.ArmorSheetStaNg,
       CharacterSheet: Apps.CharacterSheetStaNg,
-      CharacterWeaponSheet: Apps.STACharacterWeaponSheet,
       ItemSheet: Apps.GenericItemSheetStaNg,
-      SmallCraftContainerSheet: Apps.STASmallCraftContainerSheet,
-      StarshipWeaponSheet: Apps.STAStarshipWeaponSheet,
       TalentSheet: Apps.TalentSheetStaNg,
     },
     entities: {
@@ -51,20 +48,36 @@ function registerSystemClasses(): void {
 
 async function loadHandlebarsTemplates() {
   const templates = [
-    "systems/sta-ng/templates/apps/parts/tab-effects.hbs",
+    "apps/dialogs/dialog-challenge-roll.hbs",
+    "apps/dialogs/dialog-character-task-roll.hbs",
+    "apps/sheets/parts/tab-effects.hbs",
+    "apps/sheets/armor-sheet.hbs",
+    "apps/sheets/character-sheet.hbs",
+    "apps/sheets/characterweapon-sheet.hbs",
+    "apps/sheets/extendedtask-sheet.hbs",
+    "apps/sheets/generic-item-sheet.hbs",
+    "apps/sheets/limited-sheet.hbs",
+    "apps/sheets/smallcraft-sheet.hbs",
+    "apps/sheets/smallcraftcontainer-sheet.hbs",
+    "apps/sheets/starship-sheet.hbs",
+    "apps/sheets/starshipweapon-sheet.hbs",
+    "apps/sheets/talent-sheet.hbs",
+    "apps/resource-tracker.hbs",
+    "chat/challenge-roll.hbs",
+    "chat/challenge-tooltip.hbs",
+    "chat/item.hbs",
+    "chat/task-roll.hbs",
   ]
-  return loadTemplates(templates);
+  return loadTemplates(templates.map(t => `systems/sta-ng/templates/${t}`));
 }
 
 Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));
 
 Hooks.on("ready", () => {
-  const tracker = new  ResourceTracker();
-  renderTemplate("systems/sta-ng/templates/apps/tracker.html", {}).then(() => {
-    tracker.render(true);
-  });
+  const tracker = new ResourceTracker();
+  tracker.render(true);
 });
 
 Hooks.once("diceSoNiceReady", (dice3d: DiceSoNice.Dice3D) => {
-  register_dsn_ufp_themes(dice3d);
+  registerUfpThemes(dice3d);
 });

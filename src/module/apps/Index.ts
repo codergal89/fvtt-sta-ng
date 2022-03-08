@@ -1,10 +1,7 @@
 import { ArmorSheetStaNg } from "./sheets/ArmorSheet.js";
-import { STACharacterWeaponSheet } from "./sheets/character-weapon-sheet.js";
 import { CharacterSheetStaNg } from "./sheets/CharacterSheet.js";
 import { ExtendedTaskSheetStaNg } from "./sheets/ExtendedTaskSheet.js";
 import { GenericItemSheetStaNg } from "./sheets/GenericItemSheet.js";
-import { STASmallCraftContainerSheet } from "./sheets/smallcraftcontainer-sheet.js";
-import { STAStarshipWeaponSheet } from "./sheets/starship-weapon-sheet.js";
 import { TalentSheetStaNg } from "./sheets/TalentSheet.js";
 
 export {
@@ -12,9 +9,6 @@ export {
   CharacterSheetStaNg,
   ExtendedTaskSheetStaNg,
   GenericItemSheetStaNg,
-  STACharacterWeaponSheet,
-  STASmallCraftContainerSheet,
-  STAStarshipWeaponSheet,
   TalentSheetStaNg
 };
 
@@ -51,16 +45,7 @@ function registerItemSheets(): void {
     types: ["focus", "injury", "item", "milestone", "value"],
     makeDefault: true
   })
-  Items.registerSheet("sta-ng", STACharacterWeaponSheet, {
-    types: ["characterweapon"],
-  });
-  Items.registerSheet("sta-ng", STAStarshipWeaponSheet, {
-    types: ["starshipweapon"],
-  });
   Items.registerSheet("sta-ng", TalentSheetStaNg, {
     types: ["talent"],
-  });
-  Items.registerSheet("sta-ng", STASmallCraftContainerSheet, {
-    types: ["smallcraftcontainer"],
   });
 }

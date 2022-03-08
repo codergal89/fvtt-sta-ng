@@ -1,7 +1,7 @@
 import { ItemStaNg } from "../../items/Entity";
 
 declare global {
-  interface TrackMixIn {
+  interface CharacterTracksMixIn {
     determination: {
       limit: number
       track: {
@@ -28,7 +28,7 @@ declare global {
     }
   }
 
-  interface ItemMixIn {
+  interface CharacterItemsMixIn {
     armor: ItemStaNg[]
     focuses: ItemStaNg[]
     injuries: ItemStaNg[]
@@ -41,5 +41,5 @@ declare global {
     }[]
   }
 
-  type CharacterSheetData = ActorSheet.Data & ItemMixIn & TrackMixIn
+  type CharacterSheetData = ActorSheet.Data & CharacterItemsMixIn & CharacterTracksMixIn
 }

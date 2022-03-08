@@ -1,7 +1,7 @@
 import { ChallengeDie } from "../dice/ChallengeDie.js";
 import { TaskDie } from "../dice/TaskDie.js";
 
-export function register_dsn_ufp_themes(dice3d: DiceSoNice.Dice3D) {
+export function registerUfpThemes(dice3d: DiceSoNice.Dice3D) {
   [
     {
       "background": "#00a3d1",

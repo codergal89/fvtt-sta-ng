@@ -24,4 +24,11 @@ export class ActorSheetStaNg<
     total.val(newValue);
     return this.submit();
   }
+
+  public override get template(): string {
+    if(!game.user?.isGM && this.object.limited) {
+      return "systems/sta-ng/templates/apps/sheets/limited-sheet.hbs";
+    }
+    return `systems/sta-ng/templates/apps/sheets/${this.object.data.type}-sheet.hbs`;
+  }
 }

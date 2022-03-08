@@ -19,10 +19,6 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     });
   }
 
-  public override get template(): string {
-    return "systems/sta-ng/templates/apps/sheets/character-sheet.hbs";
-  }
-
   public override async getData(options?: Partial<ActorSheet.Options>): Promise<CharacterSheetData> {
     const data = await super.getData(options);
     if (this.actor.data.type !== "character") {

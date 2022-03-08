@@ -7,7 +7,7 @@
 	"compatibleCoreVersion": "9",
 	"templateVersion": 1,
 	"author": "Sophia Pearson",
-	"esmodules": ["module/sta-ng.js"],
+	"esmodules": ["module/StaNg.js"],
 	"styles": ["styles/sta-ng.css"],
 	"socket": true,
 	"packs": [],

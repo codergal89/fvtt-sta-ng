@@ -9,10 +9,6 @@ export class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, 
     });
   }
 
-  public override get template() {
-    return "systems/sta-ng/templates/apps/sheets/extended-task-sheet.hbs";
-  }
-
   public override async getData(options: ActorSheet.Options): Promise<ExtendedTaskSheetData> {
     const data = await super.getData(options);
     const actorData = this.object.data;

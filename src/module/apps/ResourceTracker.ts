@@ -245,7 +245,7 @@ export class ResourceTracker extends Application {
    */
   public static override get defaultOptions(): ApplicationOptions {
     const options = super.defaultOptions;
-    options.template = 'systems/sta-ng/templates/apps/tracker.html';
+    options.template = "systems/sta-ng/templates/apps/resource-tracker.hbs";
     options.popOut = false;
     options.resizable = false;
     return options;
