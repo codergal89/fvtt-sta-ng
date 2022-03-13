@@ -51,6 +51,7 @@ async function loadHandlebarsTemplates() {
   const templates = [
     "apps/dialogs/dialog-challenge-roll.hbs",
     "apps/dialogs/dialog-character-task-roll.hbs",
+    "apps/sheets/parts/tab-description.hbs",
     "apps/sheets/parts/tab-effects.hbs",
     "apps/sheets/armor-sheet.hbs",
     "apps/sheets/character-sheet.hbs",

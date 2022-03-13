@@ -41,9 +41,7 @@
   <section class="sheet-spacer"></section>
 
   <section class="sheet-body">
-    <div class="flexrow tab active" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
-    </div>
+    {{> "systems/sta-ng/templates/apps/sheets/parts/tab-description.hbs"}}
     <div class="flexrow tab qualities" data-group="primary" data-tab="qualities">
       <div>
         <label class="label">{{localize 'sta.actor.belonging.weapon.damage'}}</label>
