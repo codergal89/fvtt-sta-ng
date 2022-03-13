@@ -88,7 +88,13 @@
     .tab {
       padding-left: calc($lcarsLeftBorderWidth + 4px);
 
-      background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) $lcarsLeftBorderWidth, $background $lcarsLeftBorderWidth, $background),
+      background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0) $lcarsLeftBorderWidth,
+          $background $lcarsLeftBorderWidth,
+          $background
+        ),
         linear-gradient(
           to bottom,
           map-get($lcarsColors, "red"),
@@ -109,6 +115,18 @@
           $background calc(80% + 4px),
           map-get($lcarsColors, "lightblue") calc(80% + 4px)
         );
+
+      div.qualities {
+        flex: 0 0 100%;
+        padding-left: 4px;
+        flex-basis: fit-content;
+        text-align: center;
+
+        input[type="number"] {
+          text-align: right;
+          width: 30px;
+        }
+      }
     }
   }
 

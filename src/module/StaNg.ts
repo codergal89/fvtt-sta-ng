@@ -29,6 +29,7 @@ function registerSystemClasses(): void {
     applications: {
       ArmorSheet: Apps.ArmorSheetStaNg,
       CharacterSheet: Apps.CharacterSheetStaNg,
+      CharacterWeaponSheet: Apps.CharacterWeaponSheetStaNg,
       ItemSheet: Apps.GenericItemSheetStaNg,
       TalentSheet: Apps.TalentSheetStaNg,
     },
