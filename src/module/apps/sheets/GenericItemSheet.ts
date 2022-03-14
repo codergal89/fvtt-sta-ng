@@ -4,6 +4,7 @@ export class GenericItemSheetStaNg extends ItemSheet {
       classes: ["sta", "sheet", "item"],
       width: 500,
       height: 400,
+      tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }]
     });
   }
 

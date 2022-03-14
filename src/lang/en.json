@@ -25,6 +25,7 @@
 
   "sta.error.actorNotFound": "Could not find the relevant actor!",
 
+  "sta.sheet.tab.craft": "Craft",
   "sta.sheet.tab.description": "Description",
   "sta.sheet.tab.effects": "Effects",
   "sta.sheet.tab.qualities": "Qualities",

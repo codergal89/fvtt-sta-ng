@@ -1,29 +1,39 @@
-<form class="{{cssClass}}" autocomplete="off">
-  <div class="header-fields">
-      <div class="row">
-          <img class="img" src="{{img}}" data-edit="img" title="{{name}}" />
-          <div class="column-x3-img" >
-              <label class="label">{{localize 'sta.item.genericitem.name'}}</label>
-              <input name="name" type="text" value="{{name}}" placeholder="Name" data-dtype="String" />
-          </div>
-          <div class="column-x1" >
-              <label class="label" style="margin-left:10px;">{{localize 'sta.actor.belonging.other.quantity'}}</label>
-              <input type="number" name="data.quantity" style="width: calc(100% - 10px);" value="{{data.quantity}}" data-dtype="Number" />
-          </div>
-          <div class="column-x1" >
-              <label class="label">{{localize 'sta.actor.smallcraft.child'}}</label>
-              <select name="data.child">
-                {{#select data.child}}
-                {{#each availableSmallcrafts as |availableSmallcraft|}}
-                <option value="{{availableSmallcraft.id}}">{{availableSmallcraft.data.name}}</option>
-                {{/each}}
-                {{/select}}
-              </select>
-          </div>
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  <header class="sheet-header flexrow">
+    <div class="header-details flexrow">
+      <img class="profile" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+      <h1 class="item-name">
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'sta.item.genericitem.name'}}" />
+      </h1>
+    </div>
+
+    <div class="summary flexrow">
+      <div>
+        <label class="label" style="margin-left:10px;">{{localize 'sta.actor.belonging.other.quantity'}}</label>
+        <input type="number" name="data.quantity" value="{{data.data.quantity}}" />
       </div>
-  </div>
-  <div class="description">
-    <label class="label">{{localize 'sta.item.genericitem.description'}}</label>
-      {{editor content=data.description target="data.description" button=true owner=owner editable=true}}
-  </div>
+      <div>
+        <label class="label">{{localize 'sta.actor.smallcraft.child'}}</label>
+        <select name="data.child">
+          {{#select data.data.child}}
+          {{#each availableSmallcraft}}
+          <option value="{{this.id}}">{{this.data.name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
+  </nav>
+
+  <section class="sheet-spacer"></section>
+
+  <section class="sheet-body">
+    {{> "systems/sta-ng/templates/apps/sheets/parts/tab-description.hbs"}}
+  </section>
+
 </form>

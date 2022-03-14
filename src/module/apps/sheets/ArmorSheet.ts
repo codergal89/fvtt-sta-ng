@@ -4,6 +4,7 @@ export class ArmorSheetStaNg extends ItemSheet {
       classes: ["sta", "sheet", "item", "armor"],
       width: 500,
       height: 400,
+      tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }]
     });
   }
 

@@ -31,6 +31,7 @@ function registerSystemClasses(): void {
       CharacterSheet: Apps.CharacterSheetStaNg,
       CharacterWeaponSheet: Apps.CharacterWeaponSheetStaNg,
       ItemSheet: Apps.GenericItemSheetStaNg,
+      SmallCraftContainerSheet: Apps.SmallCraftContainerSheetStaNg,
       TalentSheet: Apps.TalentSheetStaNg,
     },
     entities: {

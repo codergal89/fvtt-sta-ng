@@ -7,7 +7,11 @@ interface SmallCraftContainerDataSource {
   data: SmallCraftContainerDataSourceData
 }
 
+interface SmallCraftContainerDataPropertiesData extends SmallCraftContainerDataSourceData {
+  child: string
+}
+
 interface SmallCraftContainerDataProperties {
   type: "smallcraftcontainer"
-  data: SmallCraftContainerDataSourceData
+  data: SmallCraftContainerDataPropertiesData
 }
