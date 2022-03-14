@@ -116,11 +116,18 @@
           map-get($lcarsColors, "lightblue") calc(80% + 4px)
         );
 
-      div.qualities {
-        flex: 0 0 100%;
-        padding-left: 4px;
-        flex-basis: fit-content;
-        text-align: center;
+      &.qualities {
+        flex-wrap: wrap;
+        gap: 4px;
+
+        .linebreak {
+          flex-basis: 100%;
+          height: 12px;
+        }
+
+        &>* {
+          flex-basis: 25%;
+        }
 
         input[type="number"] {
           text-align: right;

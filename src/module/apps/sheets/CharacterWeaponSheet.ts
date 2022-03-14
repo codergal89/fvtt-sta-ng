@@ -4,8 +4,8 @@ export class CharacterWeaponSheetStaNg extends GenericItemSheetStaNg {
   public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['sta', 'sheet', 'item', 'characterweapon'],
-      width: 565,
-      height: 400,
+      width: 560,
+      height: 420,
       tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }]
     });
   }
