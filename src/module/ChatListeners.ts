@@ -1,5 +1,5 @@
 import { ActorStaNg } from "./actors/Entity.js";
-import { CharacterTaskRollDialog } from "./apps/dialogs/CharacterTaskRollDialog.js";
+import { CraftTaskRollDialog, CharacterTaskRollDialog } from "./apps/dialogs/Index.js";
 import { RollDialog } from "./apps/dialogs/RollDialog.js";
 import { challengeRoll, taskRoll } from "./dice/Index.js";
 import { ItemStaNg } from "./items/Entity.js";
@@ -33,6 +33,12 @@ async function onRerollTask(event: JQuery.TriggeredEvent) {
     if (actor.data.type === "character") {
       const data = await CharacterTaskRollDialog.create(actor, config);
       if (!data) {
+        return Promise.reject();
+      }
+      mergeObject(config, data, {overwrite: true});
+    } else if (actor.data.type === "smallcraft" || actor.data.type === "starship") {
+      const data = await CraftTaskRollDialog.create(actor, config);
+      if(!data) {
         return Promise.reject();
       }
       mergeObject(config, data, {overwrite: true});

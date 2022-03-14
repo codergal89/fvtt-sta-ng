@@ -12,9 +12,6 @@ export {
   TaskRoll,
 };
 
-type CharacterActor = ActorStaNg & { data: { type: "character" } };
-type CharacterWeapon = ItemStaNg & { data: { type: "characterweapon" } };
-
 /**
  * Perform a challenge roll (d6).
  * 
@@ -27,8 +24,9 @@ export async function challengeRoll(actor: ActorStaNg, item: ItemStaNg | null, o
   mergeObject(options, { actor: actor.id, item: item?.id }, { overwrite: false });
   if (!item) {
     return genericChallengeRoll(actor, options);
-  } else if (actor.data.type === "character" && item.data.type == "characterweapon") {
-    return characterWeaponChallengeRoll(actor as CharacterActor, item as CharacterWeapon, options)
+  } else if (["character", "smallcraft", "starship"].includes(actor.data.type)
+    && ["characterweapon", "starshipweapon"].includes(item.data.type)) {
+    return weaponChallengeRoll(actor, item, options)
   }
   return Promise.reject();
 }
@@ -68,7 +66,7 @@ function genericChallengeRoll(actor: ActorStaNg, options: ChallengeRoll.Options)
   });
 }
 
-function characterWeaponChallengeRoll(actor: CharacterActor, weapon: CharacterWeapon, options: ChallengeRoll.Options) {
+function weaponChallengeRoll(actor: ActorStaNg, weapon: ItemStaNg, options: ChallengeRoll.Options) {
   const roll = new ChallengeRoll(options.pool, actor.getRollData(), options);
   return roll.toMessage({
     flavor: game.i18n.format("sta.roll.challenge.attack", { weapon: weapon.name }),

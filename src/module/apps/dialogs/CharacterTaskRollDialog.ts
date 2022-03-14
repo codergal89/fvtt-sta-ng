@@ -2,7 +2,7 @@ import { ActorStaNg } from "../../actors/Entity.js";
 import { TaskRoll } from "../../dice/TaskRoll.js";
 
 export class CharacterTaskRollDialog {
-  private static readonly TEMPLATE = "systems/sta-ng/templates/apps/dialog-character-task-roll.hbs";
+  private static readonly TEMPLATE = "systems/sta-ng/templates/apps/dialogs/dialog-character-task-roll.hbs";
 
   public static async create(actor: ActorStaNg, preset?: TaskRoll.Options): Promise<TaskRoll.Options | null> {
     if (actor.data.type !== "character") {

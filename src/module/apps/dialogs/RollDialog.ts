@@ -2,7 +2,7 @@ export class RollDialog {
   static async create(type: RollDialog.Type.Challenge, defaultPool: number): Promise<RollDialog.ChallengeData | null>
   static async create(type: RollDialog.Type.CharacterTask, defaultPool: number): Promise<RollDialog.CharacterTaskData | null>
   static async create(type: RollDialog.Type, defaultPool: number): Promise<RollDialog.ChallengeData | RollDialog.CharacterTaskData | null> {
-    const html = await renderTemplate(`systems/sta-ng/templates/apps/dialog-${type}-roll.hbs`, { defaultPool });
+    const html = await renderTemplate(`systems/sta-ng/templates/apps/dialogs/dialog-${type}-roll.hbs`, { defaultPool });
 
     return Dialog.prompt({
       title: game.i18n.localize('sta.apps.dicepoolwindow'),

@@ -7,6 +7,7 @@ export class ActorStaNg extends Actor {
 
     this.prepareCharacterBaseData();
     this.prepareExtendedTaskBaseData();
+    this.prepareSmallCraftBaseData();
   }
 
   public override prepareDerivedData(): void {
@@ -57,6 +58,21 @@ export class ActorStaNg extends Actor {
     taskData.work = (taskData.work < 0) ? 0 : taskData.work;
     taskData.difficulty = (taskData.difficulty < 0) ? 0 : taskData.difficulty;
     taskData.resistance = (taskData.resistance < 0) ? 0 : taskData.resistance;
+  }
+
+  private prepareSmallCraftBaseData(): void {
+    if (this.data.type !== "smallcraft") {
+      return;
+    }
+
+    const craftData = this.data.data;
+
+    Object.entries(craftData.systems).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 12));
+    Object.entries(craftData.departments).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 2));
+    craftData.shields.max = Math.floor((craftData.systems.structure.value + craftData.departments.security.value) / 2);
+    craftData.power.max = Math.ceil(craftData.systems.engines.value / 2);
+    ActorStaNg.limitValue(craftData.shields, 0, craftData.shields.max);
+    ActorStaNg.limitValue(craftData.power, 0, craftData.power.max);
   }
 
   /**

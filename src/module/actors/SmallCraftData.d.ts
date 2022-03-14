@@ -18,7 +18,18 @@ interface SmallCraftDataSource {
   data: SmallCraftDataSourceData
 }
 
+interface SmallCraftDataPropertiesData extends SmallCraftDataSourceData {
+  shields: {
+    max: number
+    value: number
+  }
+  power: {
+    max: number
+    value: number
+  }
+}
+
 interface SmallCraftDataProperties {
   type: "smallcraft"
-  data: SmallCraftDataSourceData
+  data: SmallCraftDataPropertiesData
 }

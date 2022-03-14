@@ -117,6 +117,7 @@
   "sta.actor.starship.missionprofile": "Mission Profile",
   "sta.actor.starship.refit": "Refit",
   "sta.actor.starship.traits": "Traits",
+  "sta.actor.starship.system.label": "System",
   "sta.actor.starship.system.title": "Systems",
   "sta.actor.starship.system.name": "System Name",
   "sta.actor.starship.system.communications": "Communications",
@@ -126,6 +127,7 @@
   "sta.actor.starship.system.structure": "Structure",
   "sta.actor.starship.system.weapons": "Weapons",
   "sta.actor.starship.system.breaches": "Breach",
+  "sta.actor.starship.department.label": "Department",
   "sta.actor.starship.department.title": "Departments",
   "sta.actor.starship.department.name": "Department Name",
   "sta.actor.starship.department.command": "Command",
@@ -204,6 +206,7 @@
   "sta.roll.effectNone": "There were no effects!",
   "sta.roll.rerollresults": "Reroll results?",
   "sta.roll.task.flavor.character": "Character Task",
+  "sta.roll.task.flavor.smallcraft": "Small Craft Task",
 
   "sta.roll.weapon.damage": "<b>|#|</b> Damage",
   "sta.roll.armor.protect": "<b>|#|</b> Resistance",

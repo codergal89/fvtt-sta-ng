@@ -4,6 +4,7 @@ import { CharacterWeaponSheetStaNg } from "./CharacterWeaponSheet.js";
 import { ExtendedTaskSheetStaNg } from "./ExtendedTaskSheet.js";
 import { GenericItemSheetStaNg } from "./GenericItemSheet.js";
 import { SmallCraftContainerSheetStaNg } from "./SmallCraftContainerSheet.js";
+import { SmallCraftSheetStaNg } from "./SmallCraftSheet.js";
 import { StarshipWeaponSheetStaNg } from "./StarshipWeaponSheet.js";
 import { TalentSheetStaNg } from "./TalentSheet.js";
 
@@ -14,6 +15,7 @@ export {
   ExtendedTaskSheetStaNg,
   GenericItemSheetStaNg,
   SmallCraftContainerSheetStaNg,
+  SmallCraftSheetStaNg,
   StarshipWeaponSheetStaNg,
   TalentSheetStaNg
 };
@@ -35,7 +37,11 @@ function registerActorSheets(): void {
   Actors.registerSheet("sta-ng", ExtendedTaskSheetStaNg, {
     types: ["extendedtask"],
     makeDefault: true,
-  })
+  });
+  Actors.registerSheet("sta-ng", SmallCraftSheetStaNg, {
+    types: ["smallcraft"],
+    makeDefault: true,
+  });
 }
 
 /**
