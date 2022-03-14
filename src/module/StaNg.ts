@@ -2,7 +2,7 @@ import { ActorStaNg } from "./actors/Entity.js";
 import * as Apps from "./apps/Index.js";
 import { ResourceTracker } from "./apps/ResourceTracker.js";
 import { ItemStaNg } from "./items/Entity.js";
-import { registerUfpThemes } from "./third-party/DiceSoNice.js";
+import * as DiceSoNice from "./third-party/DiceSoNice.js";
 import * as Settings from "./Settings.js";
 import { attachChatListeners } from "./ChatListeners.js";
 import * as Dice from "./dice/Index.js";
@@ -16,7 +16,7 @@ Hooks.once("init", () => {
   };
 
   registerSystemClasses();
-  Apps.register();
+  Apps.Sheets.register();
   Settings.register();
   loadHandlebarsTemplates();
 });
@@ -27,13 +27,13 @@ Hooks.once("init", () => {
 function registerSystemClasses(): void {
   game["sta-ng"] = {
     applications: {
-      ArmorSheet: Apps.ArmorSheetStaNg,
-      CharacterSheet: Apps.CharacterSheetStaNg,
-      CharacterWeaponSheet: Apps.CharacterWeaponSheetStaNg,
-      ItemSheet: Apps.GenericItemSheetStaNg,
-      SmallCraftContainerSheet: Apps.SmallCraftContainerSheetStaNg,
-      StarshipWeaponSheet: Apps.StarshipWeaponSheetStaNg,
-      TalentSheet: Apps.TalentSheetStaNg,
+      ArmorSheet: Apps.Sheets.ArmorSheetStaNg,
+      CharacterSheet: Apps.Sheets.CharacterSheetStaNg,
+      CharacterWeaponSheet: Apps.Sheets.CharacterWeaponSheetStaNg,
+      ItemSheet: Apps.Sheets.GenericItemSheetStaNg,
+      SmallCraftContainerSheet: Apps.Sheets.SmallCraftContainerSheetStaNg,
+      StarshipWeaponSheet: Apps.Sheets.StarshipWeaponSheetStaNg,
+      TalentSheet: Apps.Sheets.TalentSheetStaNg,
     },
     entities: {
       ItemStaNg,
@@ -83,5 +83,5 @@ Hooks.on("ready", () => {
 });
 
 Hooks.once("diceSoNiceReady", (dice3d: DiceSoNice.Dice3D) => {
-  registerUfpThemes(dice3d);
+  DiceSoNice.registerUfpThemes(dice3d);
 });
