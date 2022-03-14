@@ -1,4 +1,5 @@
 interface SmallCraftContainerDataSourceData extends ItemCommonDataSourceData {
+  child: string
   quantity: number
 }
 
@@ -7,9 +8,7 @@ interface SmallCraftContainerDataSource {
   data: SmallCraftContainerDataSourceData
 }
 
-interface SmallCraftContainerDataPropertiesData extends SmallCraftContainerDataSourceData {
-  child: string
-}
+type SmallCraftContainerDataPropertiesData = SmallCraftContainerDataSourceData;
 
 interface SmallCraftContainerDataProperties {
   type: "smallcraftcontainer"

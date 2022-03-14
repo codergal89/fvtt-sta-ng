@@ -341,6 +341,7 @@
         },
         "smallcraftcontainer": {
             "templates": ["common"],
+            "child": "",
             "quantity": 1
         }
     }
