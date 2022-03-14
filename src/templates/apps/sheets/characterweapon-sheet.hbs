@@ -10,12 +10,12 @@
 
     <div class="summary flexrow">
       <div>
-        <label class="label">{{localize 'sta.item.genericitem.opportunity'}}</label>
         <input type="number" name="data.opportunity" placeholder="0" value="{{data.data.opportunity}}" />
+        <label class="label">{{localize 'sta.item.genericitem.opportunity'}}</label>
       </div>
       <div>
-        <label class="label">{{localize 'sta.item.genericitem.escalation'}}</label>
         <input type="number" name="data.escalation" placeholder="0" value="{{data.data.escalation}}" />
+        <label class="label">{{localize 'sta.item.genericitem.escalation'}}</label>
       </div>
       <div>
         <label class="label">{{localize 'sta.actor.belonging.weapon.range'}}</label>
@@ -34,7 +34,7 @@
   </header>
 
   <nav class="sheet-navigation tabs" data-group="primary">
-    <a class="item active" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
+    <a class="item" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
     <a class="item" data-tab="qualities">{{localize 'sta.sheet.tab.qualities'}}</a>
   </nav>
 
@@ -44,24 +44,24 @@
     {{> "systems/sta-ng/templates/apps/sheets/parts/tab-description.hbs"}}
     <div class="flexrow tab qualities" data-group="primary" data-tab="qualities">
       <div>
-        <label class="label">{{localize 'sta.actor.belonging.weapon.damage'}}</label>
         <input type="number" name="data.damage" value="{{data.data.damage}}" />
+        <label class="label">{{localize 'sta.actor.belonging.weapon.damage'}}</label>
       </div>
       <div>
-        <label class="label">{{localize 'sta.actor.belonging.weapon.hands'}}</label>
         <input type="number" name="data.hands" value="{{data.data.hands}}" />
+        <label class="label">{{localize 'sta.actor.belonging.weapon.hands'}}</label>
       </div>
       <div>
-        <label class="label">{{localize 'sta.actor.belonging.weapon.hiddenx'}}</label>
         <input type="number" name="data.qualities.hiddenx" value="{{data.data.qualities.hiddenx}}" />
+        <label class="label">{{localize 'sta.actor.belonging.weapon.hiddenx'}}</label>
       </div>
       <div>
-        <label class="label">{{localize 'sta.actor.belonging.weapon.piercingx'}}</label>
         <input type="number" name="data.qualities.piercingx" value="{{data.data.qualities.piercingx}}" />
+        <label class="label">{{localize 'sta.actor.belonging.weapon.piercingx'}}</label>
       </div>
       <div>
-        <label class="label">{{localize 'sta.actor.belonging.weapon.viciousx'}}</label>
         <input type="number" name="data.qualities.viciousx" value="{{data.data.qualities.viciousx}}" />
+        <label class="label">{{localize 'sta.actor.belonging.weapon.viciousx'}}</label>
       </div>
       <div></div>
 
