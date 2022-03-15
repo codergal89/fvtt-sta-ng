@@ -99,6 +99,7 @@ export class ActorStaNg extends Actor {
     craftData.shields.max = craftData.systems.structure.value + craftData.departments.security.value;
     craftData.power.max = craftData.systems.engines.value;
     craftData.crew.max = craftData.scale;
+    craftData.resistance = craftData.scale;
   }
 
   /**
