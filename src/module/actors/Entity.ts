@@ -30,6 +30,19 @@ export class ActorStaNg extends Actor {
     return {accepted: true};
   }
 
+  public isAcceptableItemType(type: keyof ActorStaNg["itemTypes"]): boolean {
+      switch (this.data.type) {
+        case "character":
+          return ["armor", "characterweapon", "focus", "injury", "item", "talent", "value",].includes(type);
+        case "smallcraft":
+          return ["injury", "item", "starshipweapon", "talent", "value",].includes(type);
+        case "starship":
+          return ["injury", "item", "smallcraftcontainer", "starshipweapon", "talent", "value",].includes(type);
+        case "extendedtask":
+          return false;
+      }
+  }
+
   /**
    * Prepare the base data for "character" actors
    */

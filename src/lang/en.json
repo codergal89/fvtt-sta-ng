@@ -62,6 +62,7 @@
   "sta.actor.character.discipline.science": "Science",
   "sta.actor.character.discipline.security": "Security",
   "sta.actor.character.rejectedItem.talent.species": "This talent is only applicable to {species} characters.",
+  "sta.actor.character.rejectedItem.type": "'{name}' does not accept this kind of item.",
   "sta.actor.focus.title": "Focuses",
   "sta.actor.value.title": "Values",
   "sta.actor.value.used": "Chal?",

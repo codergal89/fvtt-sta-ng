@@ -1,3 +1,4 @@
+import { ItemDataSource } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
 import { sendItemToChat } from "../../chat/Item.js";
 import { challengeRoll } from "../../dice/Index.js";
 import { ItemStaNg } from "../../items/Entity.js";
@@ -26,6 +27,20 @@ export class ActorSheetStaNg<
     this.activateTrackControls(html);
   }
 
+  protected override async _onDropItemCreate(itemData: ItemDataSource | ItemDataSource[]): Promise<ItemStaNg[]> {
+    if(Array.isArray(itemData)) {
+      if(itemData.reduce((acc, x) => acc && this.object.isAcceptableItemType(x.type), false)) {
+        return super._onDropItemCreate(itemData);
+      }
+    } else {
+      if(this.object.isAcceptableItemType(itemData.type)) {
+        return super._onDropItemCreate(itemData);
+      }
+    }
+    ui.notifications.error(game.i18n.format("sta.actor.character.rejectedItem.type", {name: this.object.name}))
+    return Promise.resolve([]);
+  }
+
   protected get tracks(): string[] {
     return [];
   }
@@ -50,7 +65,7 @@ export class ActorSheetStaNg<
     })
   }
 
-  protected trackDataFor(resource: {max: number, value: number}) {
+  protected trackDataFor(resource: { max: number, value: number }) {
     return {
       limit: resource.max,
       track: Array.from(Array(resource.max).keys()).map(id => (
