@@ -1,9 +1,9 @@
 import { CharacterTaskRollDialog } from "./CharacterTaskRollDialog.js";
 import { CraftTaskRollDialog } from "./CraftTaskRollDialog.js";
-import { RollDialog } from "./RollDialog.js";
+import { ChallengeRollDialog } from "./ChallengeRollDialog.js";
 
 export {
   CharacterTaskRollDialog,
   CraftTaskRollDialog,
-  RollDialog,
+  ChallengeRollDialog,
 }

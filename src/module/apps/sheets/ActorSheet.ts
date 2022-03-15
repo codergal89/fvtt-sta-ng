@@ -1,7 +1,7 @@
 import { sendItemToChat } from "../../chat/Item.js";
 import { challengeRoll } from "../../dice/Index.js";
 import { ItemStaNg } from "../../items/Entity.js";
-import { RollDialog } from "../dialogs/Index.js";
+import { ChallengeRollDialog } from "../dialogs/Index.js";
 
 export class ActorSheetStaNg<
   Options extends ActorSheet.Options = ActorSheet.Options,
@@ -126,7 +126,7 @@ export class ActorSheetStaNg<
 
   protected async onPerformChallenge(event: JQuery.TriggeredEvent) {
     event.preventDefault();
-    const data = await RollDialog.create(RollDialog.Type.Challenge, 0);
+    const data = await ChallengeRollDialog.create(0);
     if (data) {
       challengeRoll(this.actor, null, data);
     }

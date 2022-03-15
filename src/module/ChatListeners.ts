@@ -1,6 +1,5 @@
 import { ActorStaNg } from "./actors/Entity.js";
-import { CraftTaskRollDialog, CharacterTaskRollDialog } from "./apps/dialogs/Index.js";
-import { RollDialog } from "./apps/dialogs/RollDialog.js";
+import { ChallengeRollDialog, CraftTaskRollDialog, CharacterTaskRollDialog } from "./apps/dialogs/Index.js";
 import { challengeRoll, taskRoll } from "./dice/Index.js";
 import { ItemStaNg } from "./items/Entity.js";
 
@@ -14,7 +13,7 @@ async function onRerollChallenge(event: JQuery.TriggeredEvent) {
   const actor = getActor(event);
   let pool = getPool(event);
   if (!event.shiftKey) {
-    const data = await RollDialog.create(RollDialog.Type.Challenge, pool);
+    const data = await ChallengeRollDialog.create(pool);
     if (!data) {
       return Promise.reject();
     }

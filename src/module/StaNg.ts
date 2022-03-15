@@ -35,6 +35,10 @@ function registerSystemClasses(): void {
       SmallCraftSheet: Apps.Sheets.SmallCraftSheetStaNg,
       StarshipWeaponSheet: Apps.Sheets.StarshipWeaponSheetStaNg,
       TalentSheet: Apps.Sheets.TalentSheetStaNg,
+
+      ChallengeRollDialog: Apps.Dialogs.ChallengeRollDialog,
+      CraftTaskRollDialog: Apps.Dialogs.CraftTaskRollDialog,
+      CharacterTaskRollDialog: Apps.Dialogs.CharacterTaskRollDialog,
     },
     entities: {
       ItemStaNg,
