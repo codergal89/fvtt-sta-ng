@@ -1,4 +1,4 @@
-import { ActorSheetStaNg } from "./ActorSheet.js";
+import { ActorSheetStaNg } from "./ActorSheet";
 
 export class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, ExtendedTaskSheetData> {
   static override get defaultOptions() {

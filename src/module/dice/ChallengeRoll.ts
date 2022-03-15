@@ -1,4 +1,4 @@
-import { ChallengeDie } from "./ChallengeDie.js";
+import { ChallengeDie } from "./ChallengeDie";
 
 export namespace ChallengeRoll {
   export interface Options {

@@ -1,4 +1,4 @@
-import { GenericItemSheetStaNg } from "./GenericItemSheet.js";
+import { GenericItemSheetStaNg } from "./GenericItemSheet";
 
 export class CharacterWeaponSheetStaNg extends GenericItemSheetStaNg {
   public static override get defaultOptions() {

@@ -1,9 +1,9 @@
-import { ActorStaNg } from "../actors/Entity.js";
-import { ItemStaNg } from "../items/Entity.js";
-import { ChallengeDie } from "./ChallengeDie.js";
-import { ChallengeRoll } from "./ChallengeRoll.js";
-import { TaskDie } from "./TaskDie.js";
-import { TaskRoll } from "./TaskRoll.js";
+import { ActorStaNg } from "../actors/Entity";
+import { ItemStaNg } from "../items/Entity";
+import { ChallengeDie } from "./ChallengeDie";
+import { ChallengeRoll } from "./ChallengeRoll";
+import { TaskDie } from "./TaskDie";
+import { TaskRoll } from "./TaskRoll";
 
 export {
   ChallengeDie,

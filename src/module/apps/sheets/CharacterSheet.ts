@@ -1,6 +1,6 @@
-import { taskRoll } from "../../dice/Index.js";
-import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog.js";
-import { ActorSheetStaNg } from "./ActorSheet.js";
+import { taskRoll } from "../../dice/Index";
+import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog";
+import { ActorSheetStaNg } from "./ActorSheet";
 
 export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, CharacterSheetData> {
 

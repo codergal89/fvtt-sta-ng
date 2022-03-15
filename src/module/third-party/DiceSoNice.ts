@@ -1,5 +1,5 @@
-import { ChallengeDie } from "../dice/ChallengeDie.js";
-import { TaskDie } from "../dice/TaskDie.js";
+import { ChallengeDie } from "../dice/ChallengeDie";
+import { TaskDie } from "../dice/TaskDie";
 
 export const enum Material {
   Chrome = "chrome",

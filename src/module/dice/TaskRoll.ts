@@ -1,4 +1,4 @@
-import { TaskDie } from "./TaskDie.js";
+import { TaskDie } from "./TaskDie";
 
 export namespace TaskRoll {
   export interface Options {

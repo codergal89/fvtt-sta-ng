@@ -1,6 +1,6 @@
-import { taskRoll } from "../../dice/Index.js";
-import { CraftTaskRollDialog } from "../dialogs/Index.js";
-import { ActorSheetStaNg } from "./ActorSheet.js";
+import { taskRoll } from "../../dice/Index";
+import { CraftTaskRollDialog } from "../dialogs/Index";
+import { ActorSheetStaNg } from "./ActorSheet";
 
 export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, SmallCraftSheetData> {
 

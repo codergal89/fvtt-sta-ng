@@ -1,11 +1,11 @@
-import { ActorStaNg } from "./actors/Entity.js";
-import * as Apps from "./apps/Index.js";
-import { ResourceTracker } from "./apps/ResourceTracker.js";
-import { ItemStaNg } from "./items/Entity.js";
-import * as DiceSoNice from "./third-party/DiceSoNice.js";
-import * as Settings from "./Settings.js";
-import { attachChatListeners } from "./ChatListeners.js";
-import * as Dice from "./dice/Index.js";
+import { ActorStaNg } from "./actors/Entity";
+import * as Apps from "./apps/Index";
+import { ResourceTracker } from "./apps/ResourceTracker";
+import { ItemStaNg } from "./items/Entity";
+import * as DiceSoNice from "./third-party/DiceSoNice";
+import * as Settings from "./Settings";
+import { attachChatListeners } from "./ChatListeners";
+import * as Dice from "./dice/Index";
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");

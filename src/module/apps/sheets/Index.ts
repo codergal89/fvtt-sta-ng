@@ -1,13 +1,13 @@
-import { ArmorSheetStaNg } from "./ArmorSheet.js";
-import { CharacterSheetStaNg } from "./CharacterSheet.js";
-import { CharacterWeaponSheetStaNg } from "./CharacterWeaponSheet.js";
-import { ExtendedTaskSheetStaNg } from "./ExtendedTaskSheet.js";
-import { GenericItemSheetStaNg } from "./GenericItemSheet.js";
-import { SmallCraftContainerSheetStaNg } from "./SmallCraftContainerSheet.js";
-import { SmallCraftSheetStaNg } from "./SmallCraftSheet.js";
-import { StarshipSheetStaNg } from "./StarshipSheet.js";
-import { StarshipWeaponSheetStaNg } from "./StarshipWeaponSheet.js";
-import { TalentSheetStaNg } from "./TalentSheet.js";
+import { ArmorSheetStaNg } from "./ArmorSheet";
+import { CharacterSheetStaNg } from "./CharacterSheet";
+import { CharacterWeaponSheetStaNg } from "./CharacterWeaponSheet";
+import { ExtendedTaskSheetStaNg } from "./ExtendedTaskSheet";
+import { GenericItemSheetStaNg } from "./GenericItemSheet";
+import { SmallCraftContainerSheetStaNg } from "./SmallCraftContainerSheet";
+import { SmallCraftSheetStaNg } from "./SmallCraftSheet";
+import { StarshipSheetStaNg } from "./StarshipSheet";
+import { StarshipWeaponSheetStaNg } from "./StarshipWeaponSheet";
+import { TalentSheetStaNg } from "./TalentSheet";
 
 export {
   ArmorSheetStaNg,

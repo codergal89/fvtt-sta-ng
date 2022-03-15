@@ -1,8 +1,8 @@
 import { ItemDataSource } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
-import { sendItemToChat } from "../../chat/Item.js";
-import { challengeRoll } from "../../dice/Index.js";
-import { ItemStaNg } from "../../items/Entity.js";
-import { ChallengeRollDialog } from "../dialogs/Index.js";
+import { sendItemToChat } from "../../chat/Item";
+import { challengeRoll } from "../../dice/Index";
+import { ItemStaNg } from "../../items/Entity";
+import { ChallengeRollDialog } from "../dialogs/Index";
 
 export class ActorSheetStaNg<
   Options extends ActorSheet.Options = ActorSheet.Options,

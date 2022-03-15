@@ -1,6 +1,6 @@
-import { taskRoll } from "../../dice/Index.js";
-import { CraftTaskRollDialog } from "../dialogs/Index.js";
-import { ActorSheetStaNg } from "./ActorSheet.js";
+import { taskRoll } from "../../dice/Index";
+import { CraftTaskRollDialog } from "../dialogs/Index";
+import { ActorSheetStaNg } from "./ActorSheet";
 
 export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, StarshipSheetData> {
 
@@ -431,7 +431,7 @@ export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Star
   //     this.submit();
   //   });
 
-  //   // If the check-button is clicked it grabs the selected system and the selected department and fires the method rollSystemTest. See actor.js for further info.
+  //   // If the check-button is clicked it grabs the selected system and the selected department and fires the method rollSystemTest. See actor for further info.
   //   html.find('.check-button.attribute').click((ev) => {
   //     let selectedSystem = '';
   //     let selectedSystemValue = '';
@@ -457,7 +457,7 @@ export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Star
   //       parseInt(selectedDepartmentValue), 2, this.actor);
   //   });
 
-  //   // If the check-button is clicked it fires the method challenge roll method. See actor.js for further info.
+  //   // If the check-button is clicked it fires the method challenge roll method. See actor for further info.
   //   html.find('.check-button.challenge').click((ev) => {
   //     staActor.rollChallengeRoll(ev, null, null, this.actor);
   //   });
