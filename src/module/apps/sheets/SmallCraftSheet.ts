@@ -4,7 +4,7 @@ import { ActorSheetStaNg } from "./ActorSheet.js";
 
 export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, SmallCraftSheetData> {
 
-  static override get defaultOptions() {
+  public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['sta', 'sheet', 'actor', 'smallcraft'],
       width: 900,
@@ -55,21 +55,8 @@ export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Sm
     return data;
   }
 
-  public override activateListeners(html: JQuery<HTMLElement>): void {
-    super.activateListeners(html);
-
-    if ((!game.user?.isGM && !this.actor.isOwner)) {
-      return;
-    }
-
-    this.activateButtons(html);
-    this.activateItemControls(html);
-    this.activateTrackControls(html);
-  }
-
-  private activateTrackControls(html: JQuery<HTMLElement>): void {
-    html.find("[id^='shields-'").on("click", this.onClickTrack.bind(this));
-    html.find("[id^='power-'").on("click", this.onClickTrack.bind(this));
+  protected override get tracks(): string[] {
+    return ["power", "shields"];
   }
 
   protected override async onPerformTask(event: JQuery.TriggeredEvent): Promise<void> {

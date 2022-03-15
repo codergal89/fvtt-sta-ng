@@ -64,16 +64,8 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     return data;
   }
 
-  public override activateListeners(html: JQuery<HTMLElement>): void {
-    super.activateListeners(html);
-
-    if ((!game.user?.isGM && !this.actor.isOwner)) {
-      return;
-    }
-
-    this.activateItemControls(html);
-    this.activateTrackControls(html);
-    this.activateButtons(html);
+  protected override get tracks(): string[] {
+    return ["determination", "reputation", "stress"]
   }
 
   protected override _onDropItemCreate(itemData: ItemDataStaNg | ItemDataStaNg[]): Promise<Item[]> {
@@ -90,12 +82,6 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
   protected override activateItemControls(html: JQuery<HTMLElement>): void {
     super.activateItemControls(html);
     html.find(".value-used.toggle").on("click", this.onToggleValue.bind(this));
-  }
-
-  private activateTrackControls(html: JQuery<HTMLElement>): void {
-    html.find("[id^='reputation-'").on("click", this.onClickTrack.bind(this));
-    html.find("[id^='stress-'").on("click", this.onClickTrack.bind(this));
-    html.find("[id^='determination-'").on("click", this.onClickTrack.bind(this));
   }
 
   private async onToggleValue(event: JQuery.TriggeredEvent): Promise<void> {

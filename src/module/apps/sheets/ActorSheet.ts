@@ -14,6 +14,22 @@ export class ActorSheetStaNg<
     return `systems/sta-ng/templates/apps/sheets/${this.object.data.type}-sheet.hbs`;
   }
 
+  public override activateListeners(html: JQuery<HTMLElement>): void {
+    super.activateListeners(html);
+
+    if ((!game.user?.isGM && !this.actor.isOwner)) {
+      return;
+    }
+
+    this.activateButtons(html);
+    this.activateItemControls(html);
+    this.activateTrackControls(html);
+  }
+
+  protected get tracks(): string[] {
+    return [];
+  }
+
   protected activateButtons(html: JQuery<HTMLElement>): void {
     html.find(".check-button.challenge").on("click", this.onPerformChallenge.bind(this));
     html.find(".check-button.attribute").on("click", this.onPerformTask.bind(this));
@@ -26,6 +42,12 @@ export class ActorSheetStaNg<
     html.find(".rollable").on("click", this.onClickRoll.bind(this));
     html.find(".chat").on("click", this.onClickChat.bind(this));
     html.find(".talent-tooltip-clickable").on("click", this.onClickTalentTooltip.bind(this));
+  }
+
+  protected activateTrackControls(html: JQuery<HTMLElement>): void {
+    this.tracks.forEach(t => {
+      html.find(`[id^='${t}-'`).on("click", this.onClickTrack.bind(this));
+    })
   }
 
   protected onClickTrack(event: JQuery.TriggeredEvent) {
