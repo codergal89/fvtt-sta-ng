@@ -24,22 +24,8 @@ export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Sm
 
     const actorData = this.object.data;
 
-    const maximumPower = actorData.data.power.max;
-    data.power = {
-      limit: maximumPower,
-      track: Array.from(Array(maximumPower).keys()).map(id => (
-        { id: id, label: id + 1, selected: id < actorData.data.power.value }
-      ))
-    }
-
-    const maximumShields = actorData.data.shields.max;
-    data.shields = {
-      limit: maximumShields,
-      track: Array.from(Array(maximumShields).keys()).map(id => (
-        { id: id, label: id + 1, selected: id < actorData.data.shields.value }
-      ))
-    }
-
+    data.power = this.trackDataFor(actorData.data.power);
+    data.shields = this.trackDataFor(actorData.data.shields);
     data.damages = actorData.items.filter(x => x.type === "injury");
     data.other = actorData.items.filter(x => x.type === "item");
     data.talents = actorData.items.filter(x => x.type === "talent");

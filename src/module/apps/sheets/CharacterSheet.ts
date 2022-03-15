@@ -23,30 +23,9 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     }
     const actorData = this.actor.data;
 
-    const maximumDetermination = actorData.data.determination.max;
-    data.determination = {
-      limit: maximumDetermination,
-      track: Array.from(Array(maximumDetermination).keys()).map(id => (
-        { id: id, label: id + 1, selected: id < actorData.data.determination.value }
-      ))
-    }
-
-    const maximumReputation = game.settings.get("sta-ng", "maxNumberOfReputation");
-    data.reputation = {
-      limit: maximumReputation,
-      track: Array.from(Array(maximumReputation).keys()).map(id => (
-        { id: id, label: id + 1, selected: id < actorData.data.reputation }
-      ))
-    }
-
-    const maximumStress = actorData.data.stress.max;
-    data.stress = {
-      limit: maximumStress,
-      track: Array.from(Array(maximumStress).keys()).map(id => (
-        { id: id, label: id + 1, selected: id < actorData.data.stress.value }
-      ))
-    }
-
+    data.determination = this.trackDataFor(actorData.data.determination);
+    data.reputation = this.trackDataFor({max: game.settings.get("sta-ng", "maxNumberOfReputation"), value: actorData.data.reputation});
+    data.stress = this.trackDataFor(actorData.data.stress);
     data.armor = actorData.items.filter(x => x.type === "armor");
     data.focuses = actorData.items.filter(x => x.type === "focus");
     data.injuries = actorData.items.filter(x => x.type === "injury");

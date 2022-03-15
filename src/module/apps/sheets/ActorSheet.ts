@@ -50,6 +50,15 @@ export class ActorSheetStaNg<
     })
   }
 
+  protected trackDataFor(resource: {max: number, value: number}) {
+    return {
+      limit: resource.max,
+      track: Array.from(Array(resource.max).keys()).map(id => (
+        { id: id, label: id + 1, selected: id < resource.value }
+      ))
+    }
+  }
+
   protected onClickTrack(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     const target = $(event.currentTarget);
