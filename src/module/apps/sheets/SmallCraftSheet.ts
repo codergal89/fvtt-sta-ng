@@ -47,7 +47,7 @@ export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Sm
 
   protected override async onPerformTask(event: JQuery.TriggeredEvent): Promise<void> {
     event.preventDefault();
-    if (!["smallcraft", "starship"].includes(this.actor.data.type)) {
+    if (this.actor.data.type !== "smallcraft") {
       return Promise.reject();
     }
     const options = await CraftTaskRollDialog.create(this.actor);
