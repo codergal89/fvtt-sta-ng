@@ -85,8 +85,6 @@ export class ActorStaNg extends Actor {
     Object.entries(craftData.departments).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 2));
     craftData.shields.max = Math.floor((craftData.systems.structure.value + craftData.departments.security.value) / 2);
     craftData.power.max = Math.ceil(craftData.systems.engines.value / 2);
-    ActorStaNg.limitValue(craftData.shields, 0, craftData.shields.max);
-    ActorStaNg.limitValue(craftData.power, 0, craftData.power.max);
   }
 
   private prepareStarshipBaseData(): void {
@@ -101,9 +99,6 @@ export class ActorStaNg extends Actor {
     craftData.shields.max = craftData.systems.structure.value + craftData.departments.security.value;
     craftData.power.max = craftData.systems.engines.value;
     craftData.crew.max = craftData.scale;
-    ActorStaNg.limitValue(craftData.shields, 0, craftData.shields.max);
-    ActorStaNg.limitValue(craftData.power, 0, craftData.power.max);
-    ActorStaNg.limitValue(craftData.crew, 0, craftData.crew.max);
   }
 
   /**
