@@ -23,7 +23,22 @@ interface StarshipDataSource {
   data: StarshipDataSourceData
 }
 
+interface StarshipDataPropertiesData extends StarshipDataSourceData {
+  crew: {
+    max: number,
+    value: number,
+  }
+  power: {
+    max: number,
+    value: number,
+  }
+  shields: {
+    max: number,
+    value: number,
+  }
+}
+
 interface StarshipDataProperties {
   type: "starship"
-  data: StarshipDataSourceData
+  data: StarshipDataPropertiesData
 }

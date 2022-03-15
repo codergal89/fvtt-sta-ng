@@ -8,6 +8,7 @@ export class ActorStaNg extends Actor {
     this.prepareCharacterBaseData();
     this.prepareExtendedTaskBaseData();
     this.prepareSmallCraftBaseData();
+    this.prepareStarshipBaseData();
   }
 
   public override prepareDerivedData(): void {
@@ -73,6 +74,23 @@ export class ActorStaNg extends Actor {
     craftData.power.max = Math.ceil(craftData.systems.engines.value / 2);
     ActorStaNg.limitValue(craftData.shields, 0, craftData.shields.max);
     ActorStaNg.limitValue(craftData.power, 0, craftData.power.max);
+  }
+
+  private prepareStarshipBaseData(): void {
+    if (this.data.type !== "starship") {
+      return;
+    }
+
+    const craftData = this.data.data;
+
+    Object.entries(craftData.systems).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 12));
+    Object.entries(craftData.departments).forEach(([, value]) => ActorStaNg.limitValue(value, 0, 5));
+    craftData.shields.max = craftData.systems.structure.value + craftData.departments.security.value;
+    craftData.power.max = craftData.systems.engines.value;
+    craftData.crew.max = craftData.scale;
+    ActorStaNg.limitValue(craftData.shields, 0, craftData.shields.max);
+    ActorStaNg.limitValue(craftData.power, 0, craftData.power.max);
+    ActorStaNg.limitValue(craftData.crew, 0, craftData.crew.max);
   }
 
   /**

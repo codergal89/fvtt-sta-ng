@@ -207,6 +207,7 @@
   "sta.roll.rerollresults": "Reroll results?",
   "sta.roll.task.flavor.character": "Character Task",
   "sta.roll.task.flavor.smallcraft": "Small Craft Task",
+  "sta.roll.task.flavor.starship": "Starship Task",
 
   "sta.roll.weapon.damage": "<b>|#|</b> Damage",
   "sta.roll.armor.protect": "<b>|#|</b> Resistance",
