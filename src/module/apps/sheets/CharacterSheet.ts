@@ -24,7 +24,7 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     const actorData = this.actor.data;
 
     data.determination = this.trackDataFor(actorData.data.determination);
-    data.reputation = this.trackDataFor({max: game.settings.get("sta-ng", "maxNumberOfReputation"), value: actorData.data.reputation});
+    data.reputation = this.trackDataFor({ max: game.settings.get("sta-ng", "maxNumberOfReputation"), value: actorData.data.reputation });
     data.stress = this.trackDataFor(actorData.data.stress);
     data.armor = actorData.items.filter(x => x.type === "armor");
     data.focuses = actorData.items.filter(x => x.type === "focus");
@@ -32,13 +32,12 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     data.other = actorData.items.filter(x => x.type === "item");
     data.talents = actorData.items.filter(x => x.type === "talent");
     data.values = actorData.items.filter(x => x.type === "value");
-    data.weapons = actorData.items.filter(x => x.type === "characterweapon").map(x => ({
-      weapon: x,
-      // We know that the items a character weapons at this point.
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      calculatedDamage: x.data.data.damage + actorData.data.disciplines.security.value
-    }))
+    data.weapons = actorData.items.filter(x => x.type === "characterweapon")
+      .map(x => x as Item & { data: { type: "characterweapon" } })
+      .map(x => ({
+        weapon: x,
+        calculatedDamage: x.data.data.damage + actorData.data.disciplines.security.value
+      }))
 
     return data;
   }

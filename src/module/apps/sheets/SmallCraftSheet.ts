@@ -30,13 +30,12 @@ export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Sm
     data.other = actorData.items.filter(x => x.type === "item");
     data.talents = actorData.items.filter(x => x.type === "talent");
     data.values = actorData.items.filter(x => x.type === "value");
-    data.weapons = actorData.items.filter(x => x.type === "starshipweapon").map(x => ({
-      weapon: x,
-      // We know that the items are starship weapons at this point.
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      calculatedDamage: x.data.data.damage + actorData.data.departments.security.value,
-    }));
+    data.weapons = actorData.items.filter(x => x.type === "starshipweapon")
+      .map(x => x as Item & { data: { type: "starshipweapon" } })
+      .map(x => ({
+        weapon: x,
+        calculatedDamage: x.data.data.damage + actorData.data.departments.security.value,
+      }));
 
     return data;
   }
