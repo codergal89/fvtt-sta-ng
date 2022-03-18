@@ -63,7 +63,8 @@ declare global {
       "sta-ng.threatPermissionLevel": 0 | 1 | 2 | 3 | 4
       "sta-ng.maxNumberOfReputation": number
       "sta-ng.threat": number
-      "sta-ng.momentum": number
+      "sta-ng.momentum": number,
+      "sta-ng.hideThreatFromPlayers": boolean,
     }
   }
 }

@@ -148,7 +148,12 @@ export class ResourceTracker extends Application {
    */
   private update() {
     this.momentumInputField?.setAttribute("value", ResourceTracker.getValue(Resource.Momentum).toString());
-    this.threatInputField?.setAttribute("value", ResourceTracker.getValue(Resource.Threat).toString());
+    if(ResourceTracker.userHasPermissionFor(Resource.Threat) || !game.settings.get("sta-ng", "hideThreatFromPlayers")) {
+      this.threatInputField?.setAttribute("value", ResourceTracker.getValue(Resource.Threat).toString());
+    } else {
+      this.threatInputField?.setAttribute("type", "text");
+      this.threatInputField?.setAttribute("value", "???");
+    }    
   }
 
   /**

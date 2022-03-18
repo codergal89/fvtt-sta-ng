@@ -50,6 +50,16 @@ export function register(): void {
     config: true
   });
 
+  game.settings.register("sta-ng", "hideThreatFromPlayers", {
+    name: "Hide threat from players:",
+    hint: "Don't show the numerical threat value to non-GM players.",
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true,
+    onChange: () => window.location.reload()
+  })
+
   game.settings.register("sta-ng", "threat", {
     scope: "world",
     type: Number,
