@@ -18,3 +18,10 @@ jobs:
           cache: 'npm'
       - run: npm install
       - run: npm run build
+      - run: |
+          cd dist
+          zip -r -9 sta-ng.zip sta-ng
+      - uses: actions/upload-artifact@v3
+        with:
+          name: sta-ng.zip
+          path: ${{ github.workspace }}/dist/sta-ng.zip
