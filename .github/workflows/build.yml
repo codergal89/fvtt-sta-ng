@@ -1,9 +1,7 @@
-name: Build
+name: Build Prerelease
 
 on:
   push:
-    branches: [ develop ]
-  pull_request:
     branches: [ develop ]
 
 jobs:
@@ -19,9 +17,13 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: |
-          cd dist
+          mv dist sta-ng
           zip -r -9 sta-ng.zip sta-ng
-      - uses: actions/upload-artifact@v3
+      - uses: ncipollo/release-action@v1
         with:
-          name: sta-ng.zip
-          path: ${{ github.workspace }}/dist/sta-ng.zip
+          allowUpdates: true
+          artifacts: sta-ng.zip
+          generateReleaseNotes: true
+          name: develop
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
