@@ -83,7 +83,7 @@ export default function config(_: string[], argv: Record<string, unknown>): Conf
     output: {
       clean: true,
       filename: "[name].bundle.js",
-      path: path.resolve(__dirname, "dist/"),
+      path: path.resolve(__dirname, "dist/sta-ng/"),
     },
   }
 }
