@@ -1,4 +1,4 @@
-name: Build Prerelease
+name: Build Develop
 
 on:
   push:
@@ -17,6 +17,6 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: mv dist sta-ng
-      - run: action/upload-artifact@v3
+      - uses: action/upload-artifact@v3
         with:
           path: sta-ng
