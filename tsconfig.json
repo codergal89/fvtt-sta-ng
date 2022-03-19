@@ -1,21 +1,32 @@
 {
-    "compilerOptions": {
-        "target": "ES2020",
-        "lib": ["ES2020", "DOM"],
-        "outDir": "./dist/",
-        "noEmit": true,
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "types": ["@league-of-foundry-developers/foundry-vtt-types"],
-        "allowJs": true,
-        "strictNullChecks": true,
-        "strictBindCallApply": true,
-        "strictFunctionTypes": true,
-        "strictPropertyInitialization": true,
-        "noUnusedLocals": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitOverride": true,
-    }
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "alwaysStrict": true,
+
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "types": [
+      "@league-of-foundry-developers/foundry-vtt-types"
+    ],
+
+    "allowJs": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "strict": true,
+  }
 }
