@@ -23,6 +23,7 @@ jobs:
         with:
           allowUpdates: true
           artifacts: sta-ng.zip
+          commit: develop
           generateReleaseNotes: true
           name: develop
           prerelease: true
