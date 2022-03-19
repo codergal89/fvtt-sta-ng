@@ -1,8 +1,9 @@
-name: Build Prerelease
+name: Build Release
 
 on:
   push:
-    branches: [ develop ]
+    tags:
+      - "v*"
 
 jobs:
   build:
@@ -21,10 +22,7 @@ jobs:
           zip -r -9 sta-ng.zip sta-ng
       - uses: ncipollo/release-action@v1
         with:
-          allowUpdates: true
+          allowUpdates: false
           artifacts: sta-ng.zip
-          commit: develop
           generateReleaseNotes: true
-          name: develop
-          prerelease: true
           token: ${{ secrets.GITHUB_TOKEN }}
