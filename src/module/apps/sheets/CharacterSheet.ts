@@ -1,4 +1,5 @@
 import { taskRoll } from "../../dice/Index";
+import { ItemStaNg } from "../../items/Entity";
 import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog";
 import { ActorSheetStaNg } from "./ActorSheet";
 
@@ -33,7 +34,7 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     data.talents = actorData.items.filter(x => x.type === "talent");
     data.values = actorData.items.filter(x => x.type === "value");
     data.weapons = actorData.items.filter(x => x.type === "characterweapon")
-      .map(x => x as Item & { data: { type: "characterweapon" } })
+      .map(x => x as ItemStaNg & { data: { type: "characterweapon" } })
       .map(x => ({
         weapon: x,
         calculatedDamage: x.data.data.damage + actorData.data.disciplines.security.value
@@ -46,7 +47,7 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
     return ["determination", "reputation", "stress"]
   }
 
-  protected override _onDropItemCreate(itemData: ItemDataStaNg | ItemDataStaNg[]): Promise<Item[]> {
+  protected override _onDropItemCreate(itemData: ItemDataStaNg | ItemDataStaNg[]): Promise<ItemStaNg[]> {
     if (this.actor.data.type === "character") {
       const { accepted, reason } = this.actor.accept(itemData);
       if (!accepted) {

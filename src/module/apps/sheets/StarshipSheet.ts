@@ -1,4 +1,5 @@
 import { taskRoll } from "../../dice/Index";
+import { ItemStaNg } from "../../items/Entity";
 import { CraftTaskRollDialog } from "../dialogs/Index";
 import { ActorSheetStaNg } from "./ActorSheet";
 
@@ -33,7 +34,7 @@ export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Star
     data.talents = actorData.items.filter(x => x.type === "talent");
     data.values = actorData.items.filter(x => x.type === "value");
     data.weapons = actorData.items.filter(x => x.type === "starshipweapon")
-      .map(x => x as Item & { data: { type: "starshipweapon" } })
+      .map(x => x as ItemStaNg & { data: { type: "starshipweapon" } })
       .map(x => ({
         weapon: x,
         calculatedDamage: x.data.data.damage + actorData.data.departments.security.value,
