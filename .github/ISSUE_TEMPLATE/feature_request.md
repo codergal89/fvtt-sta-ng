@@ -2,19 +2,17 @@
 name: Feature request
 about: Suggest an idea for this project
 title: ''
-labels: ''
+labels: 'enhancement'
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+### Problem
+*Describe which problem your request is trying to solve*
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+### Suggestion
+*Suggest a possible (possibly high-level) solution to the problem your request is trying to solve*
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+### Definition of Done
+*Describe the conditions required for an implementation to be acceptable as a solution*
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
