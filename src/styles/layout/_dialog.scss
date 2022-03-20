@@ -1,0 +1,53 @@
+/* Dialogs */
+.app.dialog .window-content {
+  .dialog-content {
+    color: $labelColor;
+  }
+
+  .form-fields {
+    input,
+    select {
+      color: $inputColor;
+
+      option {
+        background-color: $background;
+      }
+    }
+  }
+
+  .form-group {
+    input,
+    select {
+      color: $inputColor;
+    }
+  }
+}
+.dialog > .window-content {
+  padding: 0px;
+
+  & > .dialog-content {
+    background-color: $background;
+    padding: 8px;
+  }
+
+  .dialog-buttons {
+    background-color: $background;
+  }
+
+  .dialog-button.roll.default,
+  .dialog-button.ok.default,
+  .dialog-button.yes,
+  .dialog-button.no {
+    background-color: $buttonColor;
+    color: $inlaidText;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      box-shadow: none;
+      background-color: $buttonHover;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+// folder
+.folder-edit,
+.folder-create {
+  .window-content {
+    background: $background;
+    color: $labelColor;
+
+    form {
+      background-color: $background;
+
+      input {
+        color: $inputColor;
+      }
+
+      button {
+        background-color: $buttonColor;
+        color: $inlaidText;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          box-shadow: none;
+          background-color: $buttonHover;
+        }
+      }
+    }
+  }
+}

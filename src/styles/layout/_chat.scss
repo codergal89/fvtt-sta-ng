@@ -1,0 +1,102 @@
+/* Chat Log */
+
+.app .chat-message.message {
+  background: $background;
+
+  .message-header,
+  .message-content {
+    color: $chatText;
+  }
+}
+
+.reroll-result {
+  flex: 0 0 100%;
+  position: relative;
+  margin: 0;
+  line-height: 24px;
+  text-align: center;
+  background: $background;
+  border: 1px solid $trackbarBorders;
+  border-radius: 3px;
+  word-break: break-all;
+  margin-top: 5px;
+
+  &:hover {
+    background-color: $buttonHover;
+  }
+}
+
+.chat-message.message .reroll-result {
+  background-color: $buttonColor;
+  color: $inlaidText;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: none;
+    background-color: $buttonHover;
+  }
+}
+
+.sta.chat-card {
+  font-style: normal;
+  font-size: 12px;
+
+  .card-header {
+    padding: 3px 0;
+    border-top: 2px groove map-get($lcarsColors, "lighttan");
+    border-bottom: 2px groove map-get($lcarsColors, "lighttan");
+
+    img {
+      flex: 0 0 36px;
+      margin-right: 5px;
+    }
+
+    h3 {
+      flex: 1;
+      margin: 0;
+      line-height: 36px;
+      font-size: 14pt;
+      font-weight: 700;
+      color: $headerColor;
+      &:hover {
+        color: $chatText;
+        text-shadow: 0 0 10px red;
+      }
+    }
+  }
+
+  .card-content {
+    margin: 5px 0;
+
+    h3 {
+      font-size: 12px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    > * {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  }
+
+  .card-footer {
+    padding: 3px 0 0;
+    border-top: 2px groove groove map-get($lcarsColors, "lighttan");
+
+    span {
+      border-right: 2px groove groove map-get($lcarsColors, "lighttan");
+      padding: 0 3px 0 0;
+      font-size: 10px;
+
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+    }
+  }
+}

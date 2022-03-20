@@ -1,0 +1,18 @@
+/* Forms */
+.sta-form {
+  .label {
+    color: $headerColor;
+  }
+
+  .numeric-entry {
+    color: $inputColor;
+  }
+
+  select {
+    color: $inputColor;
+  }
+
+  select option {
+    background: $background;
+  }
+}
