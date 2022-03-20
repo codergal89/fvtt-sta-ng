@@ -1,0 +1,28 @@
+/* Button Definitions */ 
+.sta {
+  .btn {
+    background-color: $buttonColor;
+    color: $inlaidText;
+    border-radius: 20px;
+    font-weight: bold;
+
+    &:hover {
+      box-shadow: none;
+      background-color: $buttonHover;
+      cursor: pointer;
+    }
+  }
+
+  .btn2 {
+    background-color: $buttonColor2;
+    color: $inlaidText;
+    border-radius: 20px;
+    font-weight: bold;
+
+    &:hover {
+      box-shadow: none;
+      background-color: $buttonHover2;
+      cursor: pointer;
+    }
+  }
+}
