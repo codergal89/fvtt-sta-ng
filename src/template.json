@@ -281,7 +281,8 @@
       "talent",
       "milestone",
       "injury",
-      "smallcraftcontainer"
+      "smallcraftcontainer",
+      "species"
     ],
     "templates": {
       "common": {
@@ -383,6 +384,15 @@
       ],
       "child": "",
       "quantity": 1
+    },
+    "species": {
+      "templates": [
+        "common"
+      ],
+      "eras": [],
+      "exampleValue": "",
+      "talents": [],
+      "traitDescription": ""
     }
   }
 }
