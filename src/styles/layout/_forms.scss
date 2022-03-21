@@ -1,7 +1,15 @@
 /* Forms */
-.sta-form {
+.sta {
   .label {
-    color: $headerColor;
+    color: $labelColor;
+    display: inline-block;
+    width: 140px;
+  }
+
+  .text-feeld {
+    width: calc(100% - 145px);
+    color: $labelColor;
+    border-bottom: 2px solid $borderColor;
   }
 
   .numeric-entry {
