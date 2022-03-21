@@ -2,59 +2,57 @@
   <div class="sheet-character">
     <div class="sheet-topsection">
         <div class="sheet-header">
-          {{localize 'sta.actor.character.personal'}}
+          <h1 class="char-headline">
+            {{localize 'sta.actor.character.personal'}}
+          </h1>
         </div>
-        <div class="name.wp">
-          <label for="char.name">
+        <div class="name-wp">
+          <label class="label" for="char.name">
             {{localize 'sta.actor.character.name'}}
           </label>
-          <input name="name" class="text-entry" id="char.name" type="text" value="{{data.name}}"
+          <input name="name" class="text-feeld" id="char.name" type="text" value="{{data.name}}"
           placeholder="{{localize 'sta.actor.character.name'}}" />
         </div>
-        <div class="flex">
-          <div class="species-wp">
-            <label for="char.species">
-              {{localize 'sta.actor.character.species'}}
-            </label>
-            <input name="data.species" id="char.species" class="text-entry" type="text" value="{{data.data.species}}"
-              placeholder="{{localize 'sta.actor.character.species'}}" />
-          </div>
-          <div class="rank-wp">
-            <label for="char.rank">
-              {{localize 'sta.actor.character.rank'}}
-            </label>
-            <input name="data.rank" class="text-entry" type="text" value="{{data.data.rank}}"
-              placeholder="{{localize 'sta.actor.character.rank'}}" />
-          </div>
+        <div class="species-wp">
+          <label class="label" for="char.species">
+            {{localize 'sta.actor.character.species'}}
+          </label>
+          <input name="data.species" id="char.species" class="text-feeld" type="text" value="{{data.data.species}}"
+            placeholder="{{localize 'sta.actor.character.species'}}" />
         </div>
-        <div class="flex">
-          <div class="enviroment-wp">
-            <label for="char.enviroment">
-              {{localize 'sta.actor.character.environment'}}
-            </label>
-            <input name="data.environment" id="char.enviroment" class="text-entry" type="text" value="{{data.data.environment}}"
-              placeholder="{{localize 'sta.actor.character.environment'}}" />
-          </div>
-          <div class="upbringing-wp">
-            <label for="char.upbringing">
-              {{localize 'sta.actor.character.upbringing'}}
-            </label>
-            <input name="data.upbringing" id="char.upbringing" class="text-entry" type="text" value="{{data.data.upbringing}}"
-              placeholder="{{localize 'sta.actor.character.upbringing'}}" />
-          </div>
+        <div class="rank-wp">
+          <label class="label" for="char.rank">
+            {{localize 'sta.actor.character.rank'}}
+          </label>
+          <input name="data.rank" class="text-feeld" type="text" value="{{data.data.rank}}"
+            placeholder="{{localize 'sta.actor.character.rank'}}" />
         </div>
-        <div class="assignment.wp">
-          <label for="char.assignment">
+        <div class="enviroment-wp">
+          <label class="label" for="char.enviroment">
+            {{localize 'sta.actor.character.environment'}}
+          </label>
+          <input name="data.environment" id="char.enviroment" class="text-feeld" type="text" value="{{data.data.environment}}"
+            placeholder="{{localize 'sta.actor.character.environment'}}" />
+        </div>
+        <div class="upbringing-wp">
+          <label class="label" for="char.upbringing">
+            {{localize 'sta.actor.character.upbringing'}}
+          </label>
+          <input name="data.upbringing" id="char.upbringing" class="text-feeld" type="text" value="{{data.data.upbringing}}"
+            placeholder="{{localize 'sta.actor.character.upbringing'}}" />
+        </div>
+        <div class="assignment-wp">
+          <label class="label" for="char.assignment">
             {{localize 'sta.actor.character.assignment'}}
           </label>
-          <input name="data.assignment" id="char.assignment" class="text-entry" type="text" value="{{data.data.assignment}}"
+          <input name="data.assignment" id="char.assignment" class="text-feeld" type="text" value="{{data.data.assignment}}"
           placeholder="{{localize 'sta.actor.character.assignment'}}" />
         </div>
-        <div class="traits.wp">
-          <label for="char.traits">
+        <div class="traits-wp">
+          <label class="label" for="char.traits">
             {{localize 'sta.actor.character.traits'}}
           </label>
-          <input name="data.traits" id="char.traits" class="text-entry" type="text" value="{{data.data.traits}}"
+          <input name="data.traits" id="char.traits" class="text-feeld" type="text" value="{{data.data.traits}}"
               placeholder="{{localize 'sta.actor.starship.traits'}}" />
         </div>
     </div>
