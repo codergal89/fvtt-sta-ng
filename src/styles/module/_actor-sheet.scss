@@ -1,4 +1,54 @@
 /* Actor Sheet */ /*#region*/
+.sheet-character {
+  padding: 5px;
+
+  .window-app.sta .window-content & {
+    background: #001323;
+  }
+  .sheet-header {
+    grid-area: header;
+
+    .char-headline {
+      color: #ff9900;
+      text-align: right;
+    }
+  }
+  .name-wp {
+    grid-area: name;
+  }
+  .species-wp {
+    grid-area: species;
+  }
+  .rank-wp {
+    grid-area: rank;
+  }
+  .enviroment-wp {
+    grid-area: enviroment;
+  }
+  .upbringing-wp {
+    grid-area: upbringing;
+  }
+  .assignment-wp {
+    grid-area: assignment;
+  }
+  .traits-wp {
+    grid-area: traits;
+  }
+
+  .sheet-topsection {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header header header"
+    "name name name name"
+    "species species rank rank"
+    "enviroment enviroment upbringing upbringing"
+    "assignment assignment assignment assignment"
+    "traits traits traits traits"
+  }
+}
+
 .sta.sheet.actor {
   /* Colors */
   .title {
