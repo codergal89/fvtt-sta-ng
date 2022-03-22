@@ -1,8 +1,13 @@
 <form class="{{cssClass}}" autocomplete="off">
   <div class="sheet-character">
     <div class="sheet-topsection">
+      <div class="startrek-icon">
+        <img src="systems/sta-ng/assets/icons/com.png" alt="communicator icon">
+      </div>
+      <div class="sheet-topsection-inner">
+
         <div class="sheet-header">
-          <h1 class="char-headline">
+          <h1 class="char-headline pr-10">
             {{localize 'sta.actor.character.personal'}}
           </h1>
         </div>
@@ -21,7 +26,7 @@
             placeholder="{{localize 'sta.actor.character.species'}}" />
         </div>
         <div class="rank-wp">
-          <label class="label" for="char.rank">
+          <label class="label pl-10" for="char.rank">
             {{localize 'sta.actor.character.rank'}}
           </label>
           <input name="data.rank" class="text-feeld" type="text" value="{{data.data.rank}}"
@@ -35,7 +40,7 @@
             placeholder="{{localize 'sta.actor.character.environment'}}" />
         </div>
         <div class="upbringing-wp">
-          <label class="label" for="char.upbringing">
+          <label class="label pl-10" for="char.upbringing">
             {{localize 'sta.actor.character.upbringing'}}
           </label>
           <input name="data.upbringing" id="char.upbringing" class="text-feeld" type="text" value="{{data.data.upbringing}}"
@@ -55,6 +60,7 @@
           <input name="data.traits" id="char.traits" class="text-feeld" type="text" value="{{data.data.traits}}"
               placeholder="{{localize 'sta.actor.starship.traits'}}" />
         </div>
+      </div>
     </div>
     <div class="main">
       <div class="row">

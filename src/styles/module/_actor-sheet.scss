@@ -3,42 +3,86 @@
   padding: 5px;
 
   .window-app.sta .window-content & {
-    background: #001323;
+    background: $background;
   }
+
+  .sheet-topsection {
+    position: relative;
+    background-image: linear-gradient(
+      to right, 
+      $linearGradient,
+      $linearGradient 70%,
+      $background 70%,
+      $background 71%,
+      $linearGradient 71%
+    );
+    padding-left: 80px;
+    padding-bottom: 26px;
+    border-bottom-left-radius: 130px;
+  }
+
+  .startrek-icon {
+    position: absolute;
+    left: 0;
+    top: 35px;
+  }
+
+  .label {
+    display: inline-block;
+    width: 135px;
+  }
+
+  .text-feeld {
+    width: calc(100% - 140px);
+    border-bottom: 2px solid $borderColor;
+  }
+
   .sheet-header {
     grid-area: header;
 
-    .char-headline {
-      color: #ff9900;
-      text-align: right;
-    }
   }
+
+  .char-headline {
+    color: #ff9900;
+    text-align: right;
+  }
+
   .name-wp {
     grid-area: name;
   }
+
   .species-wp {
     grid-area: species;
   }
+
   .rank-wp {
     grid-area: rank;
   }
+
   .enviroment-wp {
     grid-area: enviroment;
   }
+
   .upbringing-wp {
     grid-area: upbringing;
   }
+
   .assignment-wp {
     grid-area: assignment;
   }
+
   .traits-wp {
     grid-area: traits;
   }
 
-  .sheet-topsection {
+  .sheet-topsection-inner {
+    background: $background;
+    padding: 0 0 10px 10px;
+    border-bottom-left-radius: 10px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
+    grid-template-rows: 20% 30px 30px 30px 30px 30px;
+    row-gap: 2px;
     grid-template-areas: 
     "header header header header"
     "name name name name"

@@ -2,14 +2,25 @@
 .sta {
   .label {
     color: $labelColor;
-    display: inline-block;
-    width: 140px;
+    font-family: Impact, sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    vertical-align: middle;
   }
 
   .text-feeld {
-    width: calc(100% - 145px);
     color: $labelColor;
-    border-bottom: 2px solid $borderColor;
+    font-family: Impact, sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin-bottom: 0.25em;
+    padding: 4px 4px 4px 10px;
+
+    &:focus-visible {
+      outline-offset: 0px;
+      outline: -webkit-focus-ring-color auto 1px;
+    }
   }
 
   .numeric-entry {
