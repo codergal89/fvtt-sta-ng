@@ -25,7 +25,7 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
 
     data.determination = this.trackDataFor(actorData.data.determination);
     data.reputation = this.trackDataFor({ max: game.settings.get("sta-ng", "maxNumberOfReputation"), value: actorData.data.reputation });
-    data.stress = this.trackDataFor(actorData.data.stress);
+    // data.stress = this.trackDataFor(actorData.data.stress);
     data.armor = actorData.items.filter(x => x.type === "armor");
     data.focuses = actorData.items.filter(x => x.type === "focus");
     data.injuries = actorData.items.filter(x => x.type === "injury");
