@@ -45,6 +45,7 @@
   .char-headline {
     color: #ff9900;
     text-align: right;
+    text-transform: uppercase;
   }
 
   .name-wp {
@@ -90,6 +91,84 @@
     "enviroment enviroment upbringing upbringing"
     "assignment assignment assignment assignment"
     "traits traits traits traits"
+  }
+
+  .sheet {
+    
+    &-bottom {
+      margin-top: 10px;
+    }
+
+    &-bottom-inner {
+      display: flex;
+    }
+
+    &-left-wp {
+      width: calc(60% - 50px);
+    }
+
+    &-section-headline {
+      background: #f59d08;
+      border-radius: 2em;
+      color: #a34071;
+    }
+
+    &-section-h3 {
+      text-transform: uppercase;
+      margin-left: 20px;
+      max-width: 102px;
+      background: $background;
+      padding: 0 5px;
+    }
+
+    &-attribute {
+
+      &-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      &-element {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      &-checkbox {
+        width: 100px;
+        display: inherit;
+      }
+
+      &-label-text {
+        cursor: pointer;
+        color: #fff;
+        background: #9676a9;
+        text-align: right;
+        padding: 5px 4px 4px 5px;
+        margin-right: 4px;
+        border-top-left-radius: 14px;
+        border-bottom-left-radius: 14px;
+        width: 100px;
+      }
+
+      &-input {
+        width: 33px;
+        padding: 0;
+        margin: 0;
+        border: 1px solid;
+        text-align: center;
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 14px;
+
+        &-checkbox {
+          position: absolute;
+          display: none;
+          &:checked + .sheet-attribute-label-text{
+            background: #c3bcde;
+          }
+        }
+      }
+    }
   }
 }
 

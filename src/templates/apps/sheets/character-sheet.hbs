@@ -62,6 +62,35 @@
         </div>
       </div>
     </div>
+    <div class="sheet-bottom">
+      <div class="sheet-bottom-inner">
+        <div class="sheet-left-wp">
+          <div class="sheet-attribute">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3">{{localize 'sta.actor.character.attribute.title'}}</h3>
+            </div>
+            <div class="sheet-attribute-section">
+              {{#each data.data.attributes as |attribute key|}}
+                <div class="sheet-attribute-element">
+                  <label class="sheet-attribute-checkbox">
+                    <input class="sheet-attribute-input-checkbox" type="checkbox">
+                    <span class="sheet-attribute-label-text">{{localize attribute.label}}</span>
+                  </label>
+                  <input class="text-feeld sheet-attribute-input" id="{{key}}" name="data.attributes.{{key}}.value" type="number"
+                    value="{{attribute.value}}" min="0" value="7" data-Dtype="Number" />
+                </div>
+              {{/each}}
+            </div>
+          </div>
+          <div class="sheet-disciplines">
+
+          </div>
+        </div>
+        <div class="sheet-right-wp">
+
+        </div>
+      </div>
+    </div>
     <div class="main">
       <div class="row">
         <div class="lcars-column">
