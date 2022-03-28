@@ -2,4 +2,19 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
+
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/src/template.json"
+      ],
+      "url": "https://json.schemastore.org/foundryvtt-template.json"
+    },
+    {
+      "fileMatch": [
+        "/src/system.json"
+      ],
+      "url": "https://json.schemastore.org/foundryvtt-manifest.json"
+    }
+  ]
 }

@@ -27,6 +27,7 @@ declare global {
     | InjuryDataSource
     | ItemDataSource
     | SmallCraftContainerDataSource
+    | SpeciesDataSource
     | StarshipWeaponDataSource
     | TalentDataSource
     | ValueDataSource
@@ -44,6 +45,7 @@ declare global {
     | InjuryDataProperties
     | ItemDataProperties
     | SmallCraftContainerDataProperties
+    | SpeciesDataProperties
     | StarshipWeaponDataProperties
     | TalentDataProperties
     | ValueDataProperties
