@@ -62,28 +62,42 @@
         </div>
       </div>
     </div>
-    <div class="sheet-bottom">
-      <div class="sheet-bottom-inner">
+    <div class="sheet-ability-wp">
+      <div class="sheet-ability-inner">
         <div class="sheet-left-wp">
-          <div class="sheet-attribute">
+          <div class="sheet-ability">
             <div class="sheet-section-headline">
               <h3 class="sheet-section-h3">{{localize 'sta.actor.character.attribute.title'}}</h3>
             </div>
-            <div class="sheet-attribute-section">
+            <div class="sheet-ability-section">
               {{#each data.data.attributes as |attribute key|}}
-                <div class="sheet-attribute-element">
-                  <label class="sheet-attribute-checkbox">
-                    <input class="sheet-attribute-input-checkbox" type="checkbox">
-                    <span class="sheet-attribute-label-text">{{localize attribute.label}}</span>
+                <div class="sheet-ability-element">
+                  <input class="sheet-ability-input-checkbox" type="checkbox">
+                  <label class="sheet-ability-label-text">
+                    {{localize attribute.label}}
                   </label>
-                  <input class="text-feeld sheet-attribute-input" id="{{key}}" name="data.attributes.{{key}}.value" type="number"
-                    value="{{attribute.value}}" min="0" value="7" data-Dtype="Number" />
+                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
+                    value="{{attribute.value}}" min="0" max="12" data-dtype="Number" />
                 </div>
               {{/each}}
             </div>
           </div>
-          <div class="sheet-disciplines">
-
+          <div class="sheet-ability">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3">{{localize 'sta.actor.character.discipline.title'}}</h3>
+            </div>
+            <div class="sheet-ability-section">
+              {{#each data.data.disciplines as |discipline key|}}
+                <div class="sheet-ability-element">
+                  <input class="sheet-ability-input-checkbox" id="checkbox-{{key}}" type="checkbox">
+                  <label class="sheet-ability-label-text" for="checkbox-{{key}}">
+                    {{localize discipline.label}}
+                  </label>
+                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
+                    value="{{discipline.value}}" min="0" max="5" data-dtype="Number" />
+                </div>
+              {{/each}}
+            </div>
           </div>
         </div>
         <div class="sheet-right-wp">

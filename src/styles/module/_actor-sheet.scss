@@ -6,21 +6,6 @@
     background: $background;
   }
 
-  .sheet-topsection {
-    position: relative;
-    background-image: linear-gradient(
-      to right, 
-      $linearGradient,
-      $linearGradient 70%,
-      $background 70%,
-      $background 71%,
-      $linearGradient 71%
-    );
-    padding-left: 80px;
-    padding-bottom: 26px;
-    border-bottom-left-radius: 130px;
-  }
-
   .startrek-icon {
     position: absolute;
     left: 0;
@@ -76,32 +61,42 @@
     grid-area: traits;
   }
 
-  .sheet-topsection-inner {
-    background: $background;
-    padding: 0 0 10px 10px;
-    border-bottom-left-radius: 10px;
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 20% 30px 30px 30px 30px 30px;
-    row-gap: 2px;
-    grid-template-areas: 
-    "header header header header"
-    "name name name name"
-    "species species rank rank"
-    "enviroment enviroment upbringing upbringing"
-    "assignment assignment assignment assignment"
-    "traits traits traits traits"
-  }
-
+  
   .sheet {
-    
-    &-bottom {
-      margin-top: 10px;
+    &-topsection-inner {
+      background: $background;
+      padding: 0 0 10px 10px;
+      border-bottom-left-radius: 10px;
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      grid-template-rows: 20% 30px 30px 30px 30px 30px;
+      row-gap: 2px;
+      grid-template-areas: 
+      "header header header header"
+      "name name name name"
+      "species species rank rank"
+      "enviroment enviroment upbringing upbringing"
+      "assignment assignment assignment assignment"
+      "traits traits traits traits"
     }
 
-    &-bottom-inner {
-      display: flex;
+    &-topsection {
+      position: relative;
+      background-image: linear-gradient(
+        to right, 
+        $linearGradient,
+        $linearGradient 70%,
+        $background 70%,
+        $background 71%,
+        $linearGradient 71%
+      );
+      padding-left: 80px;
+      padding-bottom: 26px;
+      border-bottom-left-radius: 130px;
+      margin-bottom: 10px
     }
+    
+    
 
     &-left-wp {
       width: calc(60% - 50px);
@@ -121,7 +116,29 @@
       padding: 0 5px;
     }
 
-    &-attribute {
+    &-ability {
+      
+      &-wp {
+        background-image: linear-gradient(
+          to right, 
+          #9999cc,
+          #9999cc 70%,
+          $background 70%,
+          $background 71%,
+          #9999cc 71%
+        );
+        border-top-left-radius: 130px;
+        padding-top: 20px;
+        padding-left: 80px;
+        margin-bottom: 10px;
+      }
+
+      &-inner {
+        display: flex;
+        background: $background;
+        padding: 10px 0 0 10px;
+        border-top-left-radius: 10px;
+      }
 
       &-section {
         display: grid;
