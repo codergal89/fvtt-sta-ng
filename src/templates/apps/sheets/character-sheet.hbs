@@ -72,8 +72,8 @@
             <div class="sheet-ability-section">
               {{#each data.data.attributes as |attribute key|}}
                 <div class="sheet-ability-element">
-                  <input class="sheet-ability-input-checkbox" type="checkbox">
-                  <label class="sheet-ability-label-text">
+                  <input class="sheet-ability-input-checkbox" id="checkbox-{{key}}" type="checkbox">
+                  <label class="sheet-ability-label-text" for="checkbox-{{key}}">
                     {{localize attribute.label}}
                   </label>
                   <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
