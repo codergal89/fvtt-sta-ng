@@ -165,7 +165,7 @@
         margin-right: 4px;
         border-top-left-radius: 14px;
         border-bottom-left-radius: 14px;
-        width: 100px;
+        width: 90px;
       }
 
       &-input {
@@ -180,7 +180,7 @@
         &-checkbox {
           position: absolute;
           display: none;
-          &:checked + .sheet-attribute-label-text{
+          &:checked + .sheet-ability-label-text{
             background: #c3bcde;
           }
         }
