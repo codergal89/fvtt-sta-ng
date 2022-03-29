@@ -101,12 +101,21 @@
           </div>
         </div>
         <div class="sheet-right-wp">
-
+           <div class="sheet-ability">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.apps.task.title'}}</h3>
+            </div>
+            <div>
+              <label class="label">{{localize "sta.apps.focus"}}</label>
+              <input type="radio" id="focus" name="hasFocus" value="No">
+              <input type="radio" id="focus2" name="hasFocus" value="Yes">
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="main">
-      <div class="row">
+      {{!-- <div class="row">
         <div class="lcars-column">
           <div class="lcars-attribute-title-block"></div>
           <div class="lcars-attribute-general-block1"></div>
@@ -192,7 +201,7 @@
             {{/if}}
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="row">
         <div class="lcars-column">
           <div class="lcars-item1-top-block"></div>
