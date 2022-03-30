@@ -69,4 +69,7 @@ declare global {
       "sta-ng.hideThreatFromPlayers": boolean,
     }
   }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type GenericConstructor<T = Record<string, unknown>> = new (...args: any[]) => T;
 }

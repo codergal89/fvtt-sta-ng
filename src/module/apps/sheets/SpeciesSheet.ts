@@ -1,9 +1,11 @@
-export class SpeciesSheetStaNg extends ItemSheet {
+import { EffectsTab } from "./mixins/EffectsTab";
+
+export class SpeciesSheetStaNg extends EffectsTab(ItemSheet) {
   static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["sta", "sheet", "item"],
-      width: 500,
-      height: 400,
+      width: 600,
+      height: 650,
       tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }]
     });
   }
