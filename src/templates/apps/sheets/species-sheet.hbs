@@ -1,0 +1,24 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  <header class="sheet-header flexrow">
+    <div class="header-details flexrow">
+      <img class="profile" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+      <h1 class="item-name">
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'sta.item.genericitem.name'}}" />
+      </h1>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item" data-tab="description">{{localize 'sta.sheet.tab.description'}}</a>
+    <a class="item" data-tab="effects">{{localize 'sta.sheet.tab.effects'}}</a>
+  </nav>
+
+  <section class="sheet-spacer"></section>
+
+  <section class="sheet-body">
+    {{> "systems/sta-ng/templates/apps/sheets/parts/tab-description.hbs"}}
+    {{> "systems/sta-ng/templates/apps/sheets/parts/tab-effects.hbs"}}
+  </section>
+
+</form>

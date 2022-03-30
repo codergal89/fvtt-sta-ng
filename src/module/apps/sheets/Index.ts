@@ -5,6 +5,7 @@ import { ExtendedTaskSheetStaNg } from "./ExtendedTaskSheet";
 import { GenericItemSheetStaNg } from "./GenericItemSheet";
 import { SmallCraftContainerSheetStaNg } from "./SmallCraftContainerSheet";
 import { SmallCraftSheetStaNg } from "./SmallCraftSheet";
+import { SpeciesSheetStaNg } from "./SpeciesSheet";
 import { StarshipSheetStaNg } from "./StarshipSheet";
 import { StarshipWeaponSheetStaNg } from "./StarshipWeaponSheet";
 import { TalentSheetStaNg } from "./TalentSheet";
@@ -17,6 +18,7 @@ export {
   GenericItemSheetStaNg,
   SmallCraftContainerSheetStaNg,
   SmallCraftSheetStaNg,
+  SpeciesSheetStaNg,
   StarshipSheetStaNg,
   StarshipWeaponSheetStaNg,
   TalentSheetStaNg
@@ -69,6 +71,10 @@ function registerItemSheets(): void {
   })
   Items.registerSheet("sta-ng", SmallCraftContainerSheetStaNg, {
     types: ["smallcraftcontainer"],
+    makeDefault: true
+  })
+  Items.registerSheet("sta-ng", SpeciesSheetStaNg, {
+    types: ["species"],
     makeDefault: true
   })
   Items.registerSheet("sta-ng", StarshipWeaponSheetStaNg, {
