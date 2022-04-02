@@ -12,49 +12,49 @@
           </h1>
         </div>
         <div class="name-wp">
-          <label class="label" for="char.name">
+          <label class="label l-w135" for="char.name">
             {{localize 'sta.actor.character.name'}}
           </label>
           <input name="name" class="text-feeld" id="char.name" type="text" value="{{data.name}}"
           placeholder="{{localize 'sta.actor.character.name'}}" />
         </div>
         <div class="species-wp">
-          <label class="label" for="char.species">
+          <label class="label l-w135" for="char.species">
             {{localize 'sta.actor.character.species'}}
           </label>
           <input name="data.species" id="char.species" class="text-feeld" type="text" value="{{data.data.species}}"
             placeholder="{{localize 'sta.actor.character.species'}}" />
         </div>
         <div class="rank-wp">
-          <label class="label pl-10" for="char.rank">
+          <label class="label l-w135 pl-10" for="char.rank">
             {{localize 'sta.actor.character.rank'}}
           </label>
           <input name="data.rank" class="text-feeld" type="text" value="{{data.data.rank}}"
             placeholder="{{localize 'sta.actor.character.rank'}}" />
         </div>
         <div class="enviroment-wp">
-          <label class="label" for="char.enviroment">
+          <label class="label l-w135" for="char.enviroment">
             {{localize 'sta.actor.character.environment'}}
           </label>
           <input name="data.environment" id="char.enviroment" class="text-feeld" type="text" value="{{data.data.environment}}"
             placeholder="{{localize 'sta.actor.character.environment'}}" />
         </div>
         <div class="upbringing-wp">
-          <label class="label pl-10" for="char.upbringing">
+          <label class="label l-w135 pl-10" for="char.upbringing">
             {{localize 'sta.actor.character.upbringing'}}
           </label>
           <input name="data.upbringing" id="char.upbringing" class="text-feeld" type="text" value="{{data.data.upbringing}}"
             placeholder="{{localize 'sta.actor.character.upbringing'}}" />
         </div>
         <div class="assignment-wp">
-          <label class="label" for="char.assignment">
+          <label class="label l-w135" for="char.assignment">
             {{localize 'sta.actor.character.assignment'}}
           </label>
           <input name="data.assignment" id="char.assignment" class="text-feeld" type="text" value="{{data.data.assignment}}"
           placeholder="{{localize 'sta.actor.character.assignment'}}" />
         </div>
         <div class="traits-wp">
-          <label class="label" for="char.traits">
+          <label class="label l-w135" for="char.traits">
             {{localize 'sta.actor.character.traits'}}
           </label>
           <input name="data.traits" id="char.traits" class="text-feeld" type="text" value="{{data.data.traits}}"
@@ -72,8 +72,8 @@
             <div class="sheet-ability-section">
               {{#each data.data.attributes as |attribute key|}}
                 <div class="sheet-ability-element">
-                  <input class="sheet-ability-input-checkbox" id="checkbox-{{key}}" type="checkbox">
-                  <label class="sheet-ability-label-text" for="checkbox-{{key}}">
+                  <input class="sheet-ability-input-checkbox" name="attributes" id="radio-{{key}}" type="radio">
+                  <label class="sheet-ability-label-text" for="radio-{{key}}">
                     {{localize attribute.label}}
                   </label>
                   <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
@@ -105,10 +105,16 @@
             <div class="sheet-section-headline">
               <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.apps.task.title'}}</h3>
             </div>
-            <div>
-              <label class="label">{{localize "sta.apps.focus"}}</label>
-              <input type="radio" id="focus" name="hasFocus" value="No">
-              <input type="radio" id="focus2" name="hasFocus" value="Yes">
+            <div class="sheet-ability-focus-area">
+              <div class="sheet-ability-area-label">
+                <label class="label">{{localize "sta.apps.focus"}}</label>
+              </div>
+              <div class="sheet-ability-focus-inner">
+                <input type="radio" class="sheet-ability-focus-radio" id="focus-no" name="use-focus" value="No">
+                <label class="label sheet-ability-focus-label" for="focus-no">No</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="focus-yes" name="use-focus" value="Yes">
+                <label class="label sheet-ability-focus-label" for="focus-yes">Yes</label>
+              </div>
             </div>
           </div>
         </div>
