@@ -202,6 +202,8 @@
   "sta.roll.challenge.attack": "{weapon} Attack",
   "sta.roll.challenge.generic": "Challenge",
   "sta.roll.complicationRange": "Complication range",
+  "sta.roll.taskRoll": "Task Roll",
+  "sta.roll.challangeDice": "Challenge Dice",
   "sta.roll.complication": "There was a complication!",
   "sta.roll.complicationPlural": "There were {count} complications!",
   "sta.roll.effect": "There was an effect!",
