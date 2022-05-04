@@ -25,4 +25,12 @@
       cursor: pointer;
     }
   }
+
+  .dice {
+    border: 0;
+    padding: 2px;
+    max-width: 22px;
+    max-height: 22px;
+    background: $labelColor;
+  }
 }
