@@ -77,7 +77,7 @@
                     {{localize attribute.label}}
                   </label>
                   <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
-                    value="{{attribute.value}}" min="0" max="12" data-dtype="Number" />
+                    value="{{attribute.value}}" min="7" max="12" data-dtype="Number" />
                 </div>
               {{/each}}
             </div>
@@ -89,8 +89,8 @@
             <div class="sheet-ability-section">
               {{#each data.data.disciplines as |discipline key|}}
                 <div class="sheet-ability-element">
-                  <input class="sheet-ability-input-checkbox" id="checkbox-{{key}}" type="checkbox">
-                  <label class="sheet-ability-label-text" for="checkbox-{{key}}">
+                  <input class="sheet-ability-input-checkbox" id="radio-{{key}}" type="radio">
+                  <label class="sheet-ability-label-text" for="radio-{{key}}">
                     {{localize discipline.label}}
                   </label>
                   <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.disciplines.{{key}}.value" type="number"
@@ -164,6 +164,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="sheet-char-info">
+      
     </div>
     <div class="main">
       {{!-- <div class="row">
