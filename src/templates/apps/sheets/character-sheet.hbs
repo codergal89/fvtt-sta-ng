@@ -151,15 +151,42 @@
                 <label class="label sheet-ability-focus-label" for="complicationrange-5">5</label>
               </div>
             </div>
-             <div class="sheet-ability-focus-area">
-               <div class="sheet-ability-area-label">
-                <label class="label">{{localize "sta.roll.challangeDice"}}</label>
+            <div class="sheet-ability-focus-area">
+              <div class="sheet-ability-area-label">
+              <label class="label">{{localize "sta.roll.challangeDice"}}</label>
               </div>
               <div class="sheet-ability-focus-inner is-start">
                 <button class="dice"><img src="systems/sta-ng/assets/icons/com.png" alt="communicator icon"></button>
                 <input class="text-feeld sheet-ability-input" id="input-dices" type="number"
                     min="0" max="12" data-dtype="Number" />
               </div>
+            </div>
+          </div>
+          <div class="sheet-char-focus">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.focus.title'}}</h3>
+            </div>
+            <div class="sheet-char-focuses">
+              {{#each focuses }}
+                <li class="flex align-center" data-item-id="{{this.id}}" data-item-type="{{this.type}}"
+                  data-item-value="{{this.name}}">
+                  <div class="icon-wp pr-5">
+                    <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{this.name}}" />
+                  </div>
+                  <div class="flex-1 list-entry">{{this.name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-focus-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="focus"><i class="fas fa-plus"></i></button>
+              {{/if}}
             </div>
           </div>
         </div>

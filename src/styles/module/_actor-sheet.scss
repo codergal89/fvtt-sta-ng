@@ -61,8 +61,24 @@
   .traits-wp {
     grid-area: traits;
   }
-  
+ 
   .sheet {
+
+    &-char {
+      &-focus {
+        margin-top: 10px;
+        &-add {
+          margin-top: 2px;
+        }
+      }
+
+      &-focuses {
+        max-height: 300px;
+        overflow: auto;
+        padding: 4px 0;
+      }
+    }
+
     &-topsection-inner {
       background: $background;
       padding: 0 0 10px 10px;
