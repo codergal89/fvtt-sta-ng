@@ -21,6 +21,17 @@
       border-radius: 50%;
       padding-left: 10px;
     }
+
+    &-chat {
+      background-color: transparent;
+      color: transparent;
+      border: 0;
+      &:hover {
+        box-shadow: none;
+        background-color: $borderColor;
+        cursor: pointer;
+      }
+    }
   }
 
   .btn2 {
@@ -43,5 +54,10 @@
     max-width: 22px;
     max-height: 22px;
     background: $labelColor;
+    &:hover {
+      box-shadow: none;
+      background-color: $borderColor;
+      cursor: pointer;
+    }
   }
 }
