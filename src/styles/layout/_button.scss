@@ -32,6 +32,17 @@
         cursor: pointer;
       }
     }
+
+    &-toggle {
+      background-color: transparent;
+      border: 0;
+      color: #fc3;
+      &:hover {
+        box-shadow: none;
+        background-color: $borderColor;
+        cursor: pointer;
+      }
+    }
   }
 
   .btn2 {

@@ -99,11 +99,11 @@
               {{/each}}
             </div>
           </div>
-          <div class="sheet-char-values">
+          <div class="sheet-char-value">
             <div class="sheet-section-headline">
               <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.value.title'}}</h3>
             </div>
-            <div class="sheet-char-focuses">
+            <div class="sheet-char-values">
               {{#each values }}
                 <li class="flex align-center" data-item-id="{{this.id}}" data-item-type="value" data-item-value="{{this.name}}">
                   <div class="flex icon-wp pr-5">
@@ -111,7 +111,7 @@
                       <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{this.name}}" />
                     </button>
                     {{#if ../options.editable}}
-                    <button>
+                    <button class="value-used toggle btn-toggle">
                       <i class="fas fa-toggle-{{#if (eq this.data.data.used true)}}on{{else}}off{{/if}}"></i>  
                     </button>
                     {{/if}}
@@ -126,7 +126,7 @@
                 </li>
               {{/each}}
             </div>
-            <div class="sheet-char-focus-add">
+            <div class="sheet-char-add">
               {{#if  options.editable}}
                 <button class="btn control create" title="Create item" data-type="value"><i class="fas fa-plus"></i></button>
               {{/if}}
@@ -229,7 +229,42 @@
       </div>
     </div>
     <div class="sheet-char-info">
-      
+      <div class="sheet-ability-inner">
+        <div class="sheet-left-wp">
+          <div class="sheet-char-talent">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.item.talent.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents">
+              {{#each talents}}
+                <li class="flex align-center" data-item-id="{{id}}" data-item-type="{{type}}" data-item-value="{{name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 list-entry">{{name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="value"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
+
+          </div>
+        </div>
+        <div class="sheet-right-wp">
+
+        </div>
+      </div>
     </div>
     <div class="main">
       {{!-- <div class="row">

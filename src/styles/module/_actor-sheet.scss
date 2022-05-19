@@ -65,15 +65,41 @@
   .sheet {
 
     &-char {
+
+      &-add {
+        margin-top: 2px;
+      }
+
       &-focus {
         margin-top: 10px;
-        &-add {
-          margin-top: 2px;
-        }
       }
 
       &-focuses {
-        max-height: 300px;
+        height: 284px;
+        max-height: 284px;
+        overflow: auto;
+        padding: 4px 0;
+      }
+
+      &-info {
+        background-image: linear-gradient(
+          to bottom, 
+          #9676a9,
+          #9676a9 30%,
+          $background 30%,
+          $background 33%,
+          #9999cc 33%
+        );
+        padding-left: 80px;
+
+        .sheet-ability-inner {
+          border-top-left-radius: 0;
+        }
+      }
+
+      &-values {
+        height: 145px;
+        max-height: 145px;
         overflow: auto;
         padding: 4px 0;
       }
