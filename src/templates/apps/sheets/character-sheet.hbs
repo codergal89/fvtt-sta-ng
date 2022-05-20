@@ -255,14 +255,42 @@
             </div>
             <div class="sheet-char-add">
               {{#if  options.editable}}
-                <button class="btn control create" title="Create item" data-type="value"><i class="fas fa-plus"></i></button>
+                <button class="btn control create" title="Create item" data-type="talent"><i class="fas fa-plus"></i></button>
               {{/if}}
             </div>
 
           </div>
         </div>
         <div class="sheet-right-wp">
+           <div class="sheet-char-injury">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.injury.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents">
+              {{#each injuries}}
+                <li class="flex align-center" data-item-id="{{this.id}}" data-item-type="{{this.type}}" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 list-entry">{{this.name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="injury"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
 
+          </div>
         </div>
       </div>
     </div>
