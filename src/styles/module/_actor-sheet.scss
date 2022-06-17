@@ -64,107 +64,6 @@
  
   .sheet {
 
-    &-char {
-
-      &-add {
-        margin-top: 2px;
-      }
-
-      &-focus {
-        margin-top: 10px;
-      }
-
-      &-focuses {
-        height: 284px;
-        max-height: 284px;
-        overflow: auto;
-        padding: 4px 0;
-      }
-
-      &-info {
-        background-image: linear-gradient(
-          to bottom, 
-          #9676a9,
-          #9676a9 30%,
-          $background 30%,
-          $background 33%,
-          #9999cc 33%
-        );
-        padding-left: 80px;
-
-        .sheet-ability-inner {
-          border-top-left-radius: 0;
-        }
-      }
-
-      &-values {
-        height: 145px;
-        max-height: 145px;
-        overflow: auto;
-        padding: 4px 0;
-      }
-    }
-
-    &-topsection-inner {
-      background: $background;
-      padding: 0 0 10px 10px;
-      border-bottom-left-radius: 10px;
-      display: grid;
-      grid-template-columns: 25% 25% 25% 25%;
-      grid-template-rows: 20% 30px 30px 30px 30px 30px;
-      row-gap: 2px;
-      grid-template-areas: 
-      "header header header header"
-      "name name name name"
-      "species species rank rank"
-      "enviroment enviroment upbringing upbringing"
-      "assignment assignment assignment assignment"
-      "traits traits traits traits"
-    }
-
-    &-topsection {
-      position: relative;
-      background-image: linear-gradient(
-        to right, 
-        $linearGradient,
-        $linearGradient 70%,
-        $background 70%,
-        $background 71%,
-        $linearGradient 71%
-      );
-      padding-left: 80px;
-      padding-bottom: 26px;
-      border-bottom-left-radius: 130px;
-      margin-bottom: 10px
-    }
-    
-    
-
-    &-left-wp {
-      width: calc(60% - 50px);
-    }
-
-    &-right-wp {
-      flex: 1;
-      margin-left: 30px;
-    }
-
-    &-section-headline {
-      background: #f59d08;
-      border-radius: 2em;
-      color: #a34071;
-    }
-
-    &-section {
-      &-h3 {
-        text-transform: uppercase;
-        margin-left: 20px;
-        max-width: fit-content;
-        background: $background;
-        padding: 0 5px;
-      }
-    }
-
     &-ability {
 
       &-area-label {
@@ -272,6 +171,121 @@
           }
         }
       }
+    }
+
+    &-char {
+
+      &-add {
+        margin-top: 2px;
+      }
+
+      &-focus {
+        margin-top: 10px;
+      }
+
+      &-focuses {
+        height: 284px;
+        max-height: 284px;
+        overflow: auto;
+        padding: 4px 0;
+      }
+
+      &-info {
+        background-image: linear-gradient(
+          to bottom, 
+          #9676a9,
+          #9676a9 30%,
+          $background 30%,
+          $background 33%,
+          #9999cc 33%
+        );
+        padding-left: 80px;
+
+        .sheet-ability-inner {
+          border-top-left-radius: 0;
+        }
+      }
+
+      &-values {
+        height: 145px;
+        max-height: 145px;
+        overflow: auto;
+        padding: 4px 0;
+      }
+    }
+
+    &-determinations {
+      justify-content: space-around;
+      margin-bottom: 10px;
+      &-checkbox {
+        display: none;
+
+        &-label {
+          cursor: pointer;
+          border: 1px solid $inputColor;
+          border-radius: 2em;
+          width: 115px;
+          height: 25px;
+        }
+      }
+    }
+
+    &-left-wp {
+      width: calc(60% - 50px);
+    }
+
+    &-right-wp {
+      flex: 1;
+      margin-left: 30px;
+    }
+
+    &-section-headline {
+      background: #f59d08;
+      border-radius: 2em;
+      color: #a34071;
+    }
+
+    &-section {
+      &-h3 {
+        text-transform: uppercase;
+        margin-left: 20px;
+        max-width: fit-content;
+        background: $background;
+        padding: 0 5px;
+      }
+    }
+
+    &-topsection-inner {
+      background: $background;
+      padding: 0 0 10px 10px;
+      border-bottom-left-radius: 10px;
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      grid-template-rows: 20% 30px 30px 30px 30px 30px;
+      row-gap: 2px;
+      grid-template-areas: 
+      "header header header header"
+      "name name name name"
+      "species species rank rank"
+      "enviroment enviroment upbringing upbringing"
+      "assignment assignment assignment assignment"
+      "traits traits traits traits"
+    }
+
+    &-topsection {
+      position: relative;
+      background-image: linear-gradient(
+        to right, 
+        $linearGradient,
+        $linearGradient 70%,
+        $background 70%,
+        $background 71%,
+        $linearGradient 71%
+      );
+      padding-left: 80px;
+      padding-bottom: 26px;
+      border-bottom-left-radius: 130px;
+      margin-bottom: 10px
     }
   }
 }
