@@ -41,6 +41,13 @@ export class ActorSheetStaNg<
     return Promise.resolve([]);
   }
 
+  protected override _onChangeInput(event: JQuery.ChangeEvent<unknown, unknown, unknown, HTMLInputElement>): void | Promise<unknown> {
+    if(event.target.type == "radio") {
+      return;
+    }
+    return super._onChangeInput(event);
+  }
+
   protected get tracks(): string[] {
     return [];
   }
