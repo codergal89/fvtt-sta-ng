@@ -51,8 +51,6 @@ export class ActorSheetStaNg<
   }
 
   protected activateItemControls(html: JQuery<HTMLElement>): void {
-    html.find(".control .edit").on("click", this.onEditItem.bind(this));
-    html.find(".control .delete").on("click", this.onDeleteItem.bind(this));
     html.find(".btn.btn-editors.edit").on("click", this.onEditItem.bind(this));
     html.find(".btn2.btn-editors.delete").on("click", this.onDeleteItem.bind(this));
     html.find(".control.create").on("click", this.onCreateItem.bind(this));
@@ -187,7 +185,7 @@ export class ActorSheetStaNg<
   }
 
   protected getEventItem(event: JQuery.TriggeredEvent): [JQuery<HTMLElement>, ItemStaNg | undefined] {
-    const entry = $(event.currentTarget).parents(".entry");
+    const entry = $(event.currentTarget).parents("li");
     return [entry, this.actor.items.get(entry.data("itemId"))];
   }
 
