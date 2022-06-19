@@ -220,12 +220,23 @@
       &-checkbox {
         display: none;
 
+        &:checked {
+          +.sheet-determinations-checkbox-label {
+            background-color: $inputColor;
+          }
+        }
+
         &-label {
           cursor: pointer;
           border: 1px solid $inputColor;
           border-radius: 2em;
           width: 115px;
           height: 25px;
+          &:hover {
+            box-shadow: none;
+            background-color: #c3bcde;
+            cursor: pointer;
+          }
         }
       }
     }
