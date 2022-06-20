@@ -220,7 +220,8 @@
       }
     }
 
-    &-determinations {
+    &-determinations,
+    &-efforts {
       justify-content: space-around;
       margin-bottom: 10px;
       &-checkbox {
@@ -240,15 +241,19 @@
           cursor: pointer;
           border: 1px solid $inputColor;
           border-radius: 2em;
-          width: 115px;
+          max-width: 115px;
+          width: 100%;
           height: 25px;
           &:hover {
-            box-shadow: none;
+            box-shadow: 2px 2px #888888;
             background-color: #c3bcde;
             cursor: pointer;
           }
         }
       }
+    }
+    &-efforts-checkbox-label {
+      max-width: 25px;
     }
 
     &-left-wp {
