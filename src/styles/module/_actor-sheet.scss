@@ -118,6 +118,10 @@
         border-top-left-radius: 14px;
         border-bottom-left-radius: 14px;
         width: 90px;
+        &:hover {
+          box-shadow: 2px 2px #888888;
+          background-color: #c3bcde;
+        }
       }
 
       &-input {
@@ -160,6 +164,8 @@
           text-align: center;
           &:hover {
             color: $chatText;
+            box-shadow: 2px 2px #888888;
+            background-color: #c3bcde;
           }
         }
 
@@ -223,6 +229,10 @@
         &:checked {
           +.sheet-determinations-checkbox-label {
             background-color: $inputColor;
+            &:hover {
+              background-color: #c3bcde;
+              box-shadow: 2px 2px #888888;
+            }
           }
         }
 
