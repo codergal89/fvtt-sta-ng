@@ -272,6 +272,39 @@
                 <button class="btn control create" title="Create item" data-type="talent"><i class="fas fa-plus"></i></button>
               {{/if}}
             </div>
+          </div>
+          <div class="sheet-char-weapon mt-10">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.belonging.weapon.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents">
+              {{#each weapons}}
+                <li class="flex align-center" id="weapon-{{weapon.id}}" data-item-id="{{weapon.id}}" data-item-type="{{weapon.type}}"
+              data-item-value="{{weapon.name}}" data-item-damage="{{weapon.data.data.damage}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="{{weapon.img}}" title="{{weapon.name}}"
+                  data-item-name="{{weapon.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 flex">
+                    <div class="flex-1 list-entry">{{weapon.name}}</div>
+                    <div class="list-entry pr-10">{{calculatedDamage}}</div>
+                  </div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="characterweapon"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
 
           </div>
         </div>
@@ -305,7 +338,7 @@
               <label class="sheet-efforts-checkbox-label" for="e-11"></label>
             </div>
           </div>
-           <div class="sheet-char-injury">
+          <div class="sheet-char-injury">
             <div class="sheet-section-headline">
               <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.injury.title'}}</h3>
             </div>
