@@ -305,7 +305,6 @@
                 <button class="btn control create" title="Create item" data-type="characterweapon"><i class="fas fa-plus"></i></button>
               {{/if}}
             </div>
-
           </div>
         </div>
         <div class="sheet-right-wp">
@@ -365,9 +364,70 @@
                 <button class="btn control create" title="Create item" data-type="injury"><i class="fas fa-plus"></i></button>
               {{/if}}
             </div>
-
           </div>
+          <div class="sheet-char-amor mt-10">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.belonging.armor.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents">
+              {{#each armor}}
+                <li class="flex align-center" id="armor-{{this.id}}" data-item-id="{{this.id}}" data-item-type="{{this.type}}" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="{{this.img}}" title="{{this.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 flex">
+                    <div class="flex-1 list-entry">{{this.name}}</div>
+                    <div class="list-entry pr-10">{{this.data.data.protection}}</div>
+                  </div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="armor"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
+          </div>
+          <div class="sheet-char-item mt-10">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.belonging.other.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents">
+              {{#each other}}
+                <li class="flex align-center" id="other-{{this.id}}" data-item-id="{{this.id}}" data-item-type="{{this.type}}" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="{{this.img}}" title="{{this.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 flex">
+                    <div class="flex-1 list-entry">{{this.name}}</div>
+                    <div class="list-entry pr-10">{{this.data.data.quantity}}</div>
+                  </div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="item"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
         </div>
+      </div>
       </div>
     </div>
     <div class="main">
