@@ -1,17 +1,20 @@
-import { ActorStaNg } from "./actors/Entity"
+import { ActorStaNg } from "./actors/Index"
 import { ItemStaNg } from "./items/Entity";
 import { ItemDataSource as ItemDataSourceFoundry } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
 
 declare global {
+
   interface LenientGlobalVariableTypes {
     game: never;
     ui: never;
   }
 
   interface Game {
-    "sta-ng": {
+    StaNg: {
       applications: Record<string, unknown>
-      entities: Record<string, unknown>
+      actors: {
+        classes: Record<string, typeof ActorStaNg>
+      }
     }
   }
 
@@ -53,6 +56,13 @@ declare global {
 
   type ItemDataStaNg = ItemDataSourceFoundry
 
+  type ActorConstructorData = ConstructorParameters<typeof Actor>[0]
+  type ActorConstructorContext = ConstructorParameters<typeof Actor>[1] & {
+    StaNg?: {
+      constructorResolved: boolean
+    }
+  }
+
   interface DocumentClassConfig {
     Actor: typeof ActorStaNg
     Item: typeof ItemStaNg
@@ -69,4 +79,5 @@ declare global {
       "sta-ng.hideThreatFromPlayers": boolean,
     }
   }
+
 }
