@@ -2,23 +2,19 @@ import { ActorStaNg } from "./Actor";
 
 class CharacterStaNg extends ActorStaNg {
 
-  public accept(itemData: ItemDataStaNg | ItemDataStaNg[]): {accepted: boolean, reason?: string} {
-    if(Array.isArray(itemData)) {
+  public accept(itemData: ItemDataStaNg | ItemDataStaNg[]): { accepted: boolean, reason?: string } {
+    if (Array.isArray(itemData)) {
       return itemData.reduce((acc, i) => {
         const itemResult = this.accept(i);
         return itemResult.accepted ? acc : itemResult;
-      }, {accepted: true} as {accepted: boolean, reason?: string});
+      }, { accepted: true } as { accepted: boolean, reason?: string });
     }
-    if(itemData.type === "talent" && itemData.data.talenttype.typeenum === "species") {
+    if (itemData.type === "talent" && itemData.data.talenttype.typeenum === "species") {
       const species = itemData.data.talenttype.description
       const isSameSpecies = species === this.data.data.species;
-      return {accepted: isSameSpecies, reason: isSameSpecies ? undefined : game.i18n.format("sta.actor.character.rejectedItem.talent.species", {species})};
+      return { accepted: isSameSpecies, reason: isSameSpecies ? undefined : game.i18n.format("sta.actor.character.rejectedItem.talent.species", { species }) };
     }
-    return {accepted: true};
-  }
-
-  public override isAcceptableItemType(type: keyof ActorStaNg["itemTypes"]): boolean {
-    return ["armor", "characterweapon", "focus", "injury", "item", "talent", "value",].includes(type);
+    return { accepted: true };
   }
 
   public override prepareBaseData(): void {
@@ -39,6 +35,18 @@ class CharacterStaNg extends ActorStaNg {
     super.prepareDerivedData();
 
     this.data.data.focuses = this.data.items.filter(x => x.type === "focus");
+  }
+
+  protected override get acceptableItemTypes(): ActorStaNg["acceptableItemTypes"] {
+    return [
+      "armor",
+      "characterweapon",
+      "focus",
+      "injury",
+      "item",
+      "talent",
+      "value",
+    ]
   }
 
 }

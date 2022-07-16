@@ -1,8 +1,6 @@
 export class ActorStaNg extends Actor {
 
   constructor(data: ActorConstructorData, context?: ActorConstructorContext) {
-    console.log(data)
-
     if (context?.StaNg?.constructorResolved) {
       super(data, context);
     } else {
@@ -18,14 +16,12 @@ export class ActorStaNg extends Actor {
     }
   }
 
-  /**
-   * Check if a given item type can be accepted by this actor.
-   * 
-   * @param _type - The type of item to check for acceptability.
-   * @returns `true` iff. this actor can accept the given item, `false` otherwise.
-   */
-  public isAcceptableItemType(_type: keyof ActorStaNg["itemTypes"]): boolean {
-    return false;
+  public isAcceptableItemType(type: keyof ActorStaNg["itemTypes"]): boolean {
+    return this.acceptableItemTypes.includes(type);
+  }
+
+  protected get acceptableItemTypes(): (keyof ActorStaNg["itemTypes"])[] {
+    return [];
   }
 
   protected static limitValue(value: { value: number }, min: number, max: number): void {

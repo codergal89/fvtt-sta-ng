@@ -2,14 +2,6 @@ import { ActorStaNg } from "./Actor";
 
 class StarshipStaNg extends ActorStaNg {
 
-  constructor(data: ActorConstructorData, context: ActorConstructorContext) {
-    super(data, context)
-  }
-
-  public override isAcceptableItemType(type: keyof ActorStaNg["itemTypes"]): boolean {
-      return ["injury", "item", "smallcraftcontainer", "starshipweapon", "talent", "value",].includes(type);
-  }
-
   public override prepareBaseData(): void {
     super.prepareBaseData();
 
@@ -21,6 +13,17 @@ class StarshipStaNg extends ActorStaNg {
     craftData.power.max = craftData.systems.engines.value;
     craftData.crew.max = craftData.scale;
     craftData.resistance = craftData.scale;
+  }
+
+  protected override get acceptableItemTypes(): ActorStaNg["acceptableItemTypes"] {
+    return [
+      "injury",
+      "item",
+      "smallcraftcontainer",
+      "starshipweapon",
+      "talent",
+      "value",
+    ];
   }
 
 }

@@ -2,10 +2,6 @@ import { ActorStaNg } from "./Actor";
 
 class ExtendedTaskStaNg extends ActorStaNg {
 
-  constructor(data: ActorConstructorData, context: ActorConstructorContext) {
-    super(data, context)
-  }
-
   public override prepareBaseData(): void {
     super.prepareBaseData();
 
