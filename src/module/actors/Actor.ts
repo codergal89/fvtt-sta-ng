@@ -5,7 +5,7 @@ export class ActorStaNg extends Actor {
       super(data, context);
     } else {
       context = mergeObject(context || {}, { StaNg: { constructorResolved: true } });
-      const selectedConstructor = game.StaNg.actors.classes[data!.type] ?? ActorStaNg;
+      const selectedConstructor = game.StaNg.documents.actors.classes[data!.type] ?? ActorStaNg;
       return new selectedConstructor(data, context);
     }
   }

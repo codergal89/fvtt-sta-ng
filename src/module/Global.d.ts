@@ -1,6 +1,7 @@
 import { ActorStaNg } from "./actors/Index"
 import { ItemStaNg } from "./items/Entity";
 import { ItemDataSource as ItemDataSourceFoundry } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
+import { ActorSheetStaNg } from "./apps/sheets/ActorSheet";
 
 declare global {
 
@@ -11,9 +12,20 @@ declare global {
 
   interface Game {
     StaNg: {
-      applications: Record<string, unknown>
-      actors: {
-        classes: Record<string, typeof ActorStaNg>
+      applications: {
+        sheets: {
+          actors: {
+            classes: Record<string, typeof ActorSheetStaNg>
+          }
+          items: {
+            classes: Record<string, typeof ItemSheet>
+          }
+        }
+      }
+      documents: {
+        actors: {
+          classes: Record<string, typeof ActorStaNg>
+        }
       }
     }
   }

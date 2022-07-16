@@ -27,26 +27,36 @@ Hooks.once("init", () => {
 function registerSystemClasses(): void {
   game.StaNg = {
     applications: {
-      ArmorSheet: Apps.Sheets.ArmorSheetStaNg,
-      CharacterSheet: Apps.Sheets.CharacterSheetStaNg,
-      CharacterWeaponSheet: Apps.Sheets.CharacterWeaponSheetStaNg,
-      ItemSheet: Apps.Sheets.GenericItemSheetStaNg,
-      SmallCraftContainerSheet: Apps.Sheets.SmallCraftContainerSheetStaNg,
-      SmallCraftSheet: Apps.Sheets.SmallCraftSheetStaNg,
-      StarshipWeaponSheet: Apps.Sheets.StarshipWeaponSheetStaNg,
-      TalentSheet: Apps.Sheets.TalentSheetStaNg,
-
-      ChallengeRollDialog: Apps.Dialogs.ChallengeRollDialog,
-      CraftTaskRollDialog: Apps.Dialogs.CraftTaskRollDialog,
-      CharacterTaskRollDialog: Apps.Dialogs.CharacterTaskRollDialog,
+      sheets: {
+        actors: {
+          classes: {
+            character: Apps.Sheets.CharacterSheetStaNg,
+            extendedtask: Apps.Sheets.ExtendedTaskSheetStaNg,
+            smallcraft: Apps.Sheets.SmallCraftSheetStaNg,
+            starship: Apps.Sheets.StarshipSheetStaNg,
+          }
+        },
+        items: {
+          classes: {
+            armor: Apps.Sheets.ArmorSheetStaNg,
+            characterweapon: Apps.Sheets.CharacterWeaponSheetStaNg,
+            genericitem: Apps.Sheets.GenericItemSheetStaNg,
+            smallcraftcontainer: Apps.Sheets.SmallCraftContainerSheetStaNg,
+            starshipweapon: Apps.Sheets.StarshipWeaponSheetStaNg,
+            talent: Apps.Sheets.TalentSheetStaNg,
+          }
+        }
+      }
     },
 
-    actors: {
-      classes: {
-        character: Actors.CharacterStaNg,
-        extendedtask: Actors.ExtendedTaskStaNg,
-        smallcraft: Actors.SmallCraftStaNg,
-        starship: Actors.StarshipStaNg,
+    documents: {
+      actors: {
+        classes: {
+          character: Actors.CharacterStaNg,
+          extendedtask: Actors.ExtendedTaskStaNg,
+          smallcraft: Actors.SmallCraftStaNg,
+          starship: Actors.StarshipStaNg,
+        }
       }
     }
   };
