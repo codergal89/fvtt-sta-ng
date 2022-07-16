@@ -1,9 +1,10 @@
+import { StarshipStaNg } from "../../actors/Index";
 import { taskRoll } from "../../dice/Index";
 import { ItemStaNg } from "../../items/Entity";
 import { CraftTaskRollDialog } from "../dialogs/Index";
 import { ActorSheetStaNg } from "./ActorSheet";
 
-export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, StarshipSheetData> {
+class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, StarshipSheetData> {
 
   public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -19,11 +20,7 @@ export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Star
 
   public override async getData(options?: Partial<ActorSheet.Options>): Promise<StarshipSheetData> {
     const data = await super.getData(options);
-    if (this.object.data.type !== "starship") {
-      return data;
-    }
-
-    const actorData = this.object.data;
+    const actorData = this.actor.data;
 
     data.crew = this.trackDataFor(actorData.data.crew);
     data.power = this.trackDataFor(actorData.data.power);
@@ -59,4 +56,12 @@ export class StarshipSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Star
 
   }
 
+}
+
+interface StarshipSheetStaNg {
+  get actor(): StarshipStaNg
+}
+
+export {
+  StarshipSheetStaNg
 }

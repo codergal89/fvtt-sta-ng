@@ -1,6 +1,7 @@
+import { ExtendedTaskStaNg } from "../../actors/Index";
 import { ActorSheetStaNg } from "./ActorSheet";
 
-export class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, ExtendedTaskSheetData> {
+class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, ExtendedTaskSheetData> {
   static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['sta', 'sheet', 'actor', 'extendedtask'],
@@ -11,10 +12,7 @@ export class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, 
 
   public override async getData(options: ActorSheet.Options): Promise<ExtendedTaskSheetData> {
     const data = await super.getData(options);
-    const actorData = this.object.data;
-    if (actorData.type !== "extendedtask") {
-      return data;
-    }
+    const actorData = this.actor.data;
 
     data.progress = {
       limit: actorData.data.work,
@@ -36,4 +34,12 @@ export class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, 
     html.find("[id^='progress-'").on("click", this.onClickTrack.bind(this));
   }
 
+}
+
+interface ExtendedTaskSheetStaNg {
+  get actor(): ExtendedTaskStaNg
+}
+
+export {
+  ExtendedTaskSheetStaNg
 }
