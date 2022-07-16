@@ -1,4 +1,4 @@
-import { ActorStaNg } from "../../actors/Entity";
+import { ActorStaNg } from "../../actors/Index";
 import { TaskRoll } from "../../dice/TaskRoll";
 
 export class CraftTaskRollDialog {

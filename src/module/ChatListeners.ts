@@ -1,4 +1,4 @@
-import { ActorStaNg } from "./actors/Entity";
+import { ActorStaNg } from "./actors/Index";
 import { ChallengeRollDialog, CraftTaskRollDialog, CharacterTaskRollDialog } from "./apps/dialogs/Index";
 import { challengeRoll, taskRoll } from "./dice/Index";
 import { ItemStaNg } from "./items/Entity";

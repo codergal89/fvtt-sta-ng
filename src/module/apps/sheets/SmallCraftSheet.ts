@@ -1,9 +1,10 @@
+import { SmallCraftStaNg } from "../../actors/Index";
 import { taskRoll } from "../../dice/Index";
 import { ItemStaNg } from "../../items/Entity";
 import { CraftTaskRollDialog } from "../dialogs/Index";
 import { ActorSheetStaNg } from "./ActorSheet";
 
-export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, SmallCraftSheetData> {
+class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, SmallCraftSheetData> {
 
   public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -19,11 +20,7 @@ export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Sm
 
   public override async getData(options?: Partial<ActorSheet.Options>): Promise<SmallCraftSheetData> {
     const data = await super.getData(options);
-    if (this.object.data.type !== "smallcraft") {
-      return data;
-    }
-
-    const actorData = this.object.data;
+    const actorData = this.actor.data;
 
     data.power = this.trackDataFor(actorData.data.power);
     data.shields = this.trackDataFor(actorData.data.shields);
@@ -56,4 +53,12 @@ export class SmallCraftSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Sm
     }
   }
 
+}
+
+interface SmallCraftSheetStaNg {
+  get actor(): SmallCraftStaNg
+}
+
+export {
+  SmallCraftSheetStaNg
 }

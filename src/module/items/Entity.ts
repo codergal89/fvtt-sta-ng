@@ -13,6 +13,24 @@ export class ItemStaNg extends Item {
     }
   }
 
+  public async sendToChat(speaker?: InstanceType<DocumentClassConfig["Actor"]>) {
+    if(!speaker && this.isEmbedded) {
+      speaker = this.parent!
+    }
+
+    const content = await renderTemplate("systems/sta-ng/templates/chat/item.hbs", {
+      actor: speaker,
+      item: this,
+      type: game.i18n.localize(`sta.item.type.${this.data.type}`)
+    });
+
+    return ChatMessage.create({
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({actor: speaker}),
+      content: content
+    });
+  }
+
   private prepareSpeciesBaseData(): void {
     if (this.data.type !== "species") {
       return;

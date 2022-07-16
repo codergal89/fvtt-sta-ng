@@ -1,9 +1,10 @@
+import { CharacterStaNg } from "../../actors/Character";
 import { taskRoll } from "../../dice/Index";
 import { ItemStaNg } from "../../items/Entity";
 import { CharacterTaskRollDialog } from "../dialogs/CharacterTaskRollDialog";
 import { ActorSheetStaNg } from "./ActorSheet";
 
-export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, CharacterSheetData> {
+class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, CharacterSheetData> {
 
   public static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -19,9 +20,6 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
 
   public override async getData(options?: Partial<ActorSheet.Options>): Promise<CharacterSheetData> {
     const data = await super.getData(options);
-    if (this.actor.data.type !== "character") {
-      return data;
-    }
     const actorData = this.actor.data;
 
     data.determination = this.trackDataFor(actorData.data.determination);
@@ -48,12 +46,10 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
   }
 
   protected override _onDropItemCreate(itemData: ItemDataStaNg | ItemDataStaNg[]): Promise<ItemStaNg[]> {
-    if (this.actor.data.type === "character") {
-      const { accepted, reason } = this.actor.accept(itemData);
-      if (!accepted) {
-        ui.notifications.error(reason ?? "");
-        return Promise.resolve([]);
-      }
+    const { accepted, reason } = this.actor.accept(itemData);
+    if (!accepted) {
+      ui.notifications.error(reason ?? "");
+      return Promise.resolve([]);
     }
     return super._onDropItemCreate(itemData);
   }
@@ -81,13 +77,18 @@ export class CharacterSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Cha
 
   protected override async onPerformTask(event: JQuery.TriggeredEvent): Promise<void> {
     event.preventDefault();
-    if (this.actor.data.type !== "character") {
-      return Promise.reject();
-    }
     const options = await CharacterTaskRollDialog.create(this.actor);
     if (options) {
       taskRoll(this.actor, options)
     }
   }
 
+}
+
+interface CharacterSheetStaNg {
+  get actor(): CharacterStaNg
+}
+
+export {
+  CharacterSheetStaNg
 }

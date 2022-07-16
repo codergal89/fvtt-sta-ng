@@ -1,4 +1,4 @@
-import { ActorStaNg } from "../actors/Entity";
+import { ActorStaNg } from "../actors/Index";
 import { ItemStaNg } from "../items/Entity";
 import { ChallengeDie } from "./ChallengeDie";
 import { ChallengeRoll } from "./ChallengeRoll";

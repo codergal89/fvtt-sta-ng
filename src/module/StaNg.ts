@@ -1,4 +1,3 @@
-import { ActorStaNg } from "./actors/Entity";
 import * as Apps from "./apps/Index";
 import { ResourceTracker } from "./apps/ResourceTracker";
 import { ItemStaNg } from "./items/Entity";
@@ -6,6 +5,7 @@ import * as DiceSoNice from "./third-party/DiceSoNice";
 import * as Settings from "./Settings";
 import { attachChatListeners } from "./ChatListeners";
 import * as Dice from "./dice/Index";
+import * as Actors from "./actors/Index";
 
 Hooks.once("init", () => {
   console.log("sta-ng | Initializing the sta-ng Game System");
@@ -25,7 +25,7 @@ Hooks.once("init", () => {
  * Register our system's classes with the Foundry infrastructure.
  */
 function registerSystemClasses(): void {
-  game["sta-ng"] = {
+  game.StaNg = {
     applications: {
       ArmorSheet: Apps.Sheets.ArmorSheetStaNg,
       CharacterSheet: Apps.Sheets.CharacterSheetStaNg,
@@ -40,13 +40,18 @@ function registerSystemClasses(): void {
       CraftTaskRollDialog: Apps.Dialogs.CraftTaskRollDialog,
       CharacterTaskRollDialog: Apps.Dialogs.CharacterTaskRollDialog,
     },
-    entities: {
-      ItemStaNg,
-      ActorStaNg,
+
+    actors: {
+      classes: {
+        character: Actors.CharacterStaNg,
+        extendedtask: Actors.ExtendedTaskStaNg,
+        smallcraft: Actors.SmallCraftStaNg,
+        starship: Actors.StarshipStaNg,
+      }
     }
   };
 
-  CONFIG.Actor.documentClass = ActorStaNg;
+  CONFIG.Actor.documentClass = Actors.ActorStaNg;
   CONFIG.Item.documentClass = ItemStaNg;
   CONFIG.Dice.rolls.push(Dice.ChallengeRoll);
   CONFIG.Dice.rolls.push(Dice.TaskRoll)

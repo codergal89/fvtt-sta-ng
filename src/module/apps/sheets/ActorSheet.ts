@@ -1,5 +1,4 @@
 import { ItemDataSource } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/itemData";
-import { sendItemToChat } from "../../chat/Item";
 import { challengeRoll } from "../../dice/Index";
 import { ItemStaNg } from "../../items/Entity";
 import { ChallengeRollDialog } from "../dialogs/Index";
@@ -62,7 +61,6 @@ export class ActorSheetStaNg<
     html.find(".btn2.btn-editors.delete").on("click", this.onDeleteItem.bind(this));
     html.find(".control.create").on("click", this.onCreateItem.bind(this));
     html.find(".rollable").on("click", this.onClickRoll.bind(this));
-    html.find(".chat").on("click", this.onClickChat.bind(this));
     html.find(".icon-wp .btn-chat.chat").on("click", this.onClickChat.bind(this));
     html.find(".talent-tooltip-clickable").on("click", this.onClickTalentTooltip.bind(this));
   }
@@ -154,9 +152,7 @@ export class ActorSheetStaNg<
   protected async onClickChat(event: JQuery.TriggeredEvent) {
     event.preventDefault();
     const [, item] = this.getEventItem(event);
-    if (item) {
-      sendItemToChat(item, this.actor);
-    }
+    item?.sendToChat(this.actor);
   }
 
   protected onClickTalentTooltip(event: JQuery.TriggeredEvent) {
