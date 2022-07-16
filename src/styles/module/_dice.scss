@@ -1,0 +1,123 @@
+/* Dice Pools Dialog and Chat Messages */
+.dice-pool .flexrow {
+  padding: 4px 5px;
+}
+
+.sta.roll {
+  .dice-roll .dice-result {
+    display: block;
+  }
+
+  &.attribute {
+    .dice-roll {
+      .dice-result {
+        .dice-formula .aim {
+          margin: 0;
+          background: unset;
+          border: 0;
+        }
+
+        .dice-tooltip .dice .dice-rolls {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+
+      .dice-total.effect {
+        color: $labelColor;
+      }
+    }
+  }
+
+  &.task {
+    .dice-roll {
+      .dice-result {
+        .dice-formula .aim {
+          margin: 0;
+          background: unset;
+          border: 0;
+        }
+
+        .dice-formula table td.aim-label {
+          text-align: start;
+          padding-inline-start: 5px;
+        }
+
+        table td.aim-value {
+          text-align: end;
+          padding-inline-end: 5px;
+        }
+
+        .dice-tooltip .dice .dice-rolls {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+
+      .dice-total.effect {
+        color: $labelColor;
+      }
+    }
+  }
+
+  &.generic {
+    .dice-roll {
+      .dice-result {
+        .dice-formula {
+          box-shadow: none;
+          line-height: normal;
+          cursor: pointer;
+          word-break: normal;
+
+          &.title {
+            display: flex;
+            flex-direction: row;
+            background: none;
+            border: none;
+            text-align: left;
+          }
+
+          .img {
+            height: 45px;
+          }
+        }
+
+        .tags {
+          display: flex;
+          flex-direction: row;
+          text-align: center;
+          flex-wrap: wrap;
+
+          .tag {
+            width: calc(100% / 3);
+            font-size: 12px;
+            flex-grow: 1;
+            border: 0.5px solid $background;
+            border-radius: 3px;
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+        }
+      }
+
+      .dice-total.effect {
+        color: $labelColor;
+      }
+    }
+  }
+}
+
+.message-content {
+  .table-draw {
+    img.result-image {
+      background: $backgroundGray;
+    }
+
+    .result-text {
+      a.entity-link {
+        background: $background;
+      }
+    }
+  }
+}

@@ -1,400 +1,433 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <div class="main-content">
-    <div class="header">
-      <div class="lcars-column">
-        <div class="lcars-header-block1"></div>
-        <div class="lcars-header-block2"></div>
+  <div class="sheet-character">
+    <div class="sheet-topsection">
+      <div class="startrek-icon">
+        <img src="systems/sta-ng/assets/icons/com.png" alt="communicator icon">
       </div>
-      <div class="header-fields">
-        <div class="section reputation">
-          <div class="title">
-            {{localize 'sta.actor.character.reputation'}}
-          </div>
-          <div class="track">
-            <div id="bar-reputation-renderer" class="bar">
-              <input type="hidden" class="total" name="data.reputation" value="{{data.data.reputation}}"
-                data-dtype="Number" />
-              {{#each reputation.track}}
-              <div class="box rep {{#if selected}}selected{{/if}}" id="reputation-{{id}}" data-id="{{id}}"
-                style="width: calc(100% / {{../reputation.limit}});">{{label}}</div>
+      <div class="sheet-topsection-inner">
+
+        <div class="sheet-header">
+          <h1 class="char-headline pr-10">
+            {{localize 'sta.actor.character.personal'}}
+          </h1>
+        </div>
+        <div class="name-wp">
+          <label class="label l-w135" for="char.name">
+            {{localize 'sta.actor.character.name'}}
+          </label>
+          <input name="name" class="text-feeld" id="char.name" type="text" value="{{data.name}}"
+          placeholder="{{localize 'sta.actor.character.name'}}" />
+        </div>
+        <div class="species-wp">
+          <label class="label l-w135" for="char.species">
+            {{localize 'sta.actor.character.species'}}
+          </label>
+          <input name="data.species" id="char.species" class="text-feeld" type="text" value="{{data.data.species}}"
+            placeholder="{{localize 'sta.actor.character.species'}}" />
+        </div>
+        <div class="rank-wp">
+          <label class="label l-w135 pl-10" for="char.rank">
+            {{localize 'sta.actor.character.rank'}}
+          </label>
+          <input name="data.rank" class="text-feeld" type="text" value="{{data.data.rank}}"
+            placeholder="{{localize 'sta.actor.character.rank'}}" />
+        </div>
+        <div class="enviroment-wp">
+          <label class="label l-w135" for="char.enviroment">
+            {{localize 'sta.actor.character.environment'}}
+          </label>
+          <input name="data.environment" id="char.enviroment" class="text-feeld" type="text" value="{{data.data.environment}}"
+            placeholder="{{localize 'sta.actor.character.environment'}}" />
+        </div>
+        <div class="upbringing-wp">
+          <label class="label l-w135 pl-10" for="char.upbringing">
+            {{localize 'sta.actor.character.upbringing'}}
+          </label>
+          <input name="data.upbringing" id="char.upbringing" class="text-feeld" type="text" value="{{data.data.upbringing}}"
+            placeholder="{{localize 'sta.actor.character.upbringing'}}" />
+        </div>
+        <div class="assignment-wp">
+          <label class="label l-w135" for="char.assignment">
+            {{localize 'sta.actor.character.assignment'}}
+          </label>
+          <input name="data.assignment" id="char.assignment" class="text-feeld" type="text" value="{{data.data.assignment}}"
+          placeholder="{{localize 'sta.actor.character.assignment'}}" />
+        </div>
+        <div class="traits-wp">
+          <label class="label l-w135" for="char.traits">
+            {{localize 'sta.actor.character.traits'}}
+          </label>
+          <input name="data.traits" id="char.traits" class="text-feeld" type="text" value="{{data.data.traits}}"
+              placeholder="{{localize 'sta.actor.starship.traits'}}" />
+        </div>
+      </div>
+    </div>
+    <div class="sheet-ability-wp">
+      <div class="sheet-ability-inner">
+        <div class="sheet-left-wp">
+          <div class="sheet-ability">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3">{{localize 'sta.actor.character.attribute.title'}}</h3>
+            </div>
+            <div class="sheet-ability-section">
+              {{#each data.data.attributes as |attribute key|}}
+                <div class="sheet-ability-element">
+                  <input class="sheet-ability-input-checkbox" name="attributes" id="radio-{{key}}" type="radio">
+                  <label class="sheet-ability-label-text" for="radio-{{key}}">
+                    {{localize attribute.label}}
+                  </label>
+                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
+                    value="{{attribute.value}}" min="7" max="12" data-dtype="Number" />
+                </div>
               {{/each}}
             </div>
           </div>
+          <div class="sheet-ability">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3">{{localize 'sta.actor.character.discipline.title'}}</h3>
+            </div>
+            <div class="sheet-ability-section">
+              {{#each data.data.disciplines as |discipline key|}}
+                <div class="sheet-ability-element">
+                  <input class="sheet-ability-input-checkbox" id="radio-{{key}}" type="radio">
+                  <label class="sheet-ability-label-text" for="radio-{{key}}">
+                    {{localize discipline.label}}
+                  </label>
+                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.disciplines.{{key}}.value" type="number"
+                    value="{{discipline.value}}" min="0" max="5" data-dtype="Number" />
+                </div>
+              {{/each}}
+            </div>
+          </div>
+          <div class="sheet-char-value">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.value.title'}}</h3>
+            </div>
+            <div class="sheet-char-values">
+              {{#each values }}
+                <li class="flex align-center" data-item-id="{{this.id}}" data-item-type="value" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{this.name}}" />
+                    </button>
+                    {{#if ../options.editable}}
+                    <button class="value-used toggle btn-toggle">
+                      <i class="fas fa-toggle-{{#if (eq this.data.data.used true)}}on{{else}}off{{/if}}"></i>  
+                    </button>
+                    {{/if}}
+                  </div>
+                  <div class="flex-1 list-entry {{#if (eq this.data.data.used true)}}strike-through{{/if}}">{{name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="value"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
+
+          </div>
         </div>
-        <div class="row">
-          <div class="column title" style="width:30%">
-            {{localize 'sta.actor.character.name'}}
+        <div class="sheet-right-wp">
+           <div class="sheet-ability">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.apps.task.title'}}</h3>
+            </div>
+            <div class="sheet-ability-focus-area">
+              <div class="sheet-ability-area-label">
+                <label class="label">{{localize "sta.apps.focus"}}</label>
+              </div>
+              <div class="sheet-ability-focus-inner">
+                <input type="radio" class="sheet-ability-focus-radio" id="focus-no" name="use-focus" value="No">
+                <label class="label sheet-ability-focus-label" for="focus-no">No</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="focus-yes" name="use-focus" value="Yes">
+                <label class="label sheet-ability-focus-label" for="focus-yes">Yes</label>
+              </div>
+            </div>
+             <div class="sheet-ability-focus-area">
+               <div class="sheet-ability-area-label">
+                <label class="label">{{localize "sta.roll.complicationRange"}}</label>
+              </div>
+              <div class="sheet-ability-focus-inner">
+                <input type="radio" class="sheet-ability-focus-radio" id="complicationrange-1" name="complicationrange" value="1">
+                <label class="label sheet-ability-focus-label" for="complicationrange-1">1</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="complicationrange-2" name="complicationrange" value="2">
+                <label class="label sheet-ability-focus-label" for="complicationrange-2">2</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="complicationrange-3" name="complicationrange" value="3">
+                <label class="label sheet-ability-focus-label" for="complicationrange-3">3</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="complicationrange-4" name="complicationrange" value="4">
+                <label class="label sheet-ability-focus-label" for="complicationrange-4">4</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="complicationrange-5" name="complicationrange" value="5">
+                <label class="label sheet-ability-focus-label" for="complicationrange-5">5</label>
+              </div>
+            </div>
+            <div class="sheet-ability-focus-area">
+               <div class="sheet-ability-area-label">
+                <label class="label">{{localize "sta.roll.taskRoll"}}</label>
+              </div>
+              <div class="sheet-ability-focus-inner is-start">
+                <button class="dice"><img src="systems/sta-ng/assets/icons/com.png" alt="communicator icon"></button>
+                <input type="radio" class="sheet-ability-focus-radio" id="taskdice-1" name="taskdice" value="1">
+                <label class="label sheet-ability-focus-label" for="taskdice-1">1</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="taskdice-2" name="taskdice" value="2">
+                <label class="label sheet-ability-focus-label" for="taskdice-2">2</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="taskdice-3" name="taskdice" value="3">
+                <label class="label sheet-ability-focus-label" for="taskdice-3">3</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="taskdice-4" name="taskdice" value="4">
+                <label class="label sheet-ability-focus-label" for="taskdice-4">4</label>
+                <input type="radio" class="sheet-ability-focus-radio"id="taskdice-5" name="taskdice" value="5">
+                <label class="label sheet-ability-focus-label" for="taskdice-5">5</label>
+              </div>
+            </div>
+            <div class="sheet-ability-focus-area">
+              <div class="sheet-ability-area-label">
+              <label class="label">{{localize "sta.roll.challangeDice"}}</label>
+              </div>
+              <div class="sheet-ability-focus-inner is-start">
+                <button class="dice"><img src="systems/sta-ng/assets/icons/com.png" alt="communicator icon"></button>
+                <input class="text-feeld sheet-ability-input" id="input-dices" type="number"
+                    min="0" max="12" data-dtype="Number" />
+              </div>
+            </div>
           </div>
-          <div class="column title" style="width:20%">
-            {{localize 'sta.actor.character.species'}}
-          </div>
-          <div class="column title" style="width:15%">
-            {{localize 'sta.actor.character.rank'}}
-          </div>
-          <div class="column title" style="width:35%">
-            {{localize 'sta.actor.character.assignment'}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="column" style="width:30%">
-            <input name="name" class="text-entry" type="text" value="{{data.name}}"
-              placeholder="{{localize 'sta.actor.character.name'}}" />
-          </div>
-          <div class="column" style="width:20%">
-            <input name="data.species" class="text-entry" type="text" value="{{data.data.species}}"
-              placeholder="{{localize 'sta.actor.character.species'}}" />
-          </div>
-          <div class="column" style="width:15%">
-            <input name="data.rank" class="text-entry" type="text" value="{{data.data.rank}}"
-              placeholder="{{localize 'sta.actor.character.rank'}}" />
-          </div>
-          <div class="column" style="width:35%">
-            <input name="data.assignment" class="text-entry" type="text" value="{{data.data.assignment}}"
-              placeholder="{{localize 'sta.actor.character.assignment'}}" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="column title">
-            <div> {{localize 'sta.actor.character.environment'}} </div>
-          </div>
-          <div class="column title">
-            <div> {{localize 'sta.actor.character.upbringing'}} </div>
-          </div>
-          <div class="column title">
-            <div> {{localize 'sta.actor.character.traits'}} </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <input name="data.environment" class="text-entry" type="text" value="{{data.data.environment}}"
-              placeholder="{{localize 'sta.actor.character.environment'}}" />
-          </div>
-          <div class="column">
-            <input name="data.upbringing" class="text-entry" type="text" value="{{data.data.upbringing}}"
-              placeholder="{{localize 'sta.actor.character.upbringing'}}" />
-          </div>
-          <div class="column">
-            <input name="data.traits" class="text-entry" type="text" value="{{data.data.traits}}"
-              placeholder="{{localize 'sta.actor.starship.traits'}}" />
+          <div class="sheet-char-focus">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.focus.title'}}</h3>
+            </div>
+            <div class="sheet-char-focuses">
+              {{#each focuses }}
+                <li class="flex align-center" data-item-id="{{this.id}}" data-item-type="{{this.type}}"
+                  data-item-value="{{this.name}}">
+                  <div class="icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{this.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 list-entry">{{this.name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-focus-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="focus"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="main">
-      <div class="row">
-        <div class="lcars-column">
-          <div class="lcars-attribute-title-block"></div>
-          <div class="lcars-attribute-general-block1"></div>
-          <div class="lcars-attribute-general-block2"></div>
-          <div class="lcars-attribute-general-block3"></div>
-        </div>
-        <div class="column left-column">
-          <div class="section attribute">
-            <div class="title">
-              {{localize 'sta.actor.character.attribute.title'}}
+    <div class="sheet-char-info">
+      <div class="sheet-ability-inner">
+        <div class="sheet-left-wp">
+          <div class="sheet-determination">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.character.determination'}}</h3>
             </div>
-            <div class="stat header row">
-              <div class="text secondary-title">{{localize 'sta.actor.character.attribute.name'}}</div>
-              <div class="field secondary-title">{{localize 'sta.actor.attdis.mod'}}</div>
-            </div>
-            {{#each data.data.attributes as |attribute key|}}
-            <div class="stat row">
-              <div class="text list-entry"> {{localize attribute.label}} </div>
-              <input class="field numeric-entry" id="{{key}}" name="data.attributes.{{key}}.value" type="number"
-                value="{{attribute.value}}" placeholder="7" data-dtype="Number" />
-            </div>
-            {{/each}}
-            {{#if options.editable}}
-            <div class="check-button btn2 challenge">{{localize 'sta.actor.challenge.roll'}}</div>
-            {{/if}}
-          </div>
-        </div>
-        <div class="column center-column">
-          <div class="section stress">
-            <div class="title">
-              {{localize 'sta.actor.character.stress'}}
-            </div>
-            <div class="track">
-              <div id="bar-stress-renderer" class="bar">
-                <input type="hidden" class="total" name="data.stress.value" value="{{data.data.stress.value}}"
-                  data-dtype="Number" />
-                {{#each stress.track}}
-                <div class="box stress {{#if selected}}selected{{/if}}" id="stress-{{id}}" data-id="{{id}}"
-                  style="width: calc(100% / {{../stress.limit}});">{{label}}</div>
-                {{/each}}
-              </div>
+            <div class="sheet-determinations flex" data-type="determinations">
+              <input class="sheet-determinations-checkbox" type="checkbox" name="determination" id="d-1" />
+              <label class="sheet-determinations-checkbox-label" for="d-1"></label>
+              <input class="sheet-determinations-checkbox" type="checkbox" name="determination" id="d-2" />
+              <label class="sheet-determinations-checkbox-label" for="d-2"></label>
+              <input class="sheet-determinations-checkbox" type="checkbox" name="determination" id="d-3" />
+              <label class="sheet-determinations-checkbox-label" for="d-3"></label>
+
             </div>
           </div>
-          <div class="section img">
-            <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" />
-          </div>
-          <div class="section determination">
-            <div class="title">
-              {{localize 'sta.actor.character.determination'}}
+          <div class="sheet-char-talent">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.item.talent.title'}}</h3>
             </div>
-            <div class="track">
-              <div class="bar">
-                <div id="bar-determination-renderer" class="bar">
-                  <input type="hidden" class="total" name="data.determination.value"
-                    value="{{data.data.determination.value}}" data-dtype="Number" />
-                  {{#each determination.track}}
-                  <div class="box determination {{#if selected}}selected{{/if}}" id="determination-{{id}}"
-                    data-id="{{id}}" style="width: calc(100% / {{../determination.limit}});">{{label}}</div>
-                  {{/each}}
-                </div>
-              </div>
+            <div class="sheet-char-talents">
+              {{#each talents}}
+                <li class="flex align-center" data-item-id="{{id}}" data-item-type="{{type}}" data-item-value="{{name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 list-entry">{{name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
             </div>
-          </div>
-        </div>
-        <div class="column right-column">
-          <div class="section discipline">
-            <div class="title">
-              {{localize 'sta.actor.character.discipline.title'}}
-            </div>
-            <div class="stat header row">
-              <div class="field secondary-title">{{localize 'sta.actor.attdis.mod'}}</div>
-              <div class="text secondary-title">{{localize 'sta.actor.character.discipline.name'}}</div>
-            </div>
-            {{#each data.data.disciplines as |discipline key|}}
-            <div class="stat row">
-              <input class="field numeric-entry" id="{{key}}" name="data.disciplines.{{key}}.value" type="number"
-                value="{{discipline.value}}" placeholder="0" data-dtype="Number" />
-              <div class="text list-entry"> {{localize discipline.label}} </div>
-            </div>
-            {{/each}}
-            {{#if options.editable}}
-            <div class="check-button btn attribute">{{localize 'sta.actor.attdis.task'}}</div>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="lcars-column">
-          <div class="lcars-item1-top-block"></div>
-          <div class="lcars-item1-connect-block"></div>
-          <div class="lcars-item1-general-block"></div>
-        </div>
-        {{! Section: Talents }}
-        <div class="column left-column">
-          <div class="section talents">
-            <div class="title">
-              {{localize 'sta.item.talent.title'}}
-            </div>
-            <div class="header row item">
-              <div class="image"></div>
-              <div class="one-column-with-roll secondary-title">{{localize 'sta.item.genericitem.name'}}</div>
+            <div class="sheet-char-add">
               {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="talent"><i class="fas fa-plus"></i></a>
+                <button class="btn control create" title="Create item" data-type="talent"><i class="fas fa-plus"></i></button>
               {{/if}}
-            </div>
-            {{#each talents}}
-            <li class="row entry" data-item-id="{{id}}" data-item-type="{{type}}"
-              data-item-value="{{name}}">
-              <div class="image"><img class="chat" src="{{img}}" title="{{name}}" /></div>
-              <div class="one-column-no-roll list-entry talent-tooltip-clickable"
-                id="talent-tooltip-clickable-{{id}}" data-talent-name="{{name}}">{{name}}</div>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            <li class="row entry talent-tooltip-container hide" id="talent-tooltip-container-{{id}}">
-              <div class="list-entry talent-tooltip-text" id="talent-tooltip-text-{{id}}">
-                {{{data.data.description}}}</div>
-            </li>
-            {{/each}}
-          </div>
-        </div>
-        {{! Section: Values }}
-        <div class="column center-column">
-          <div class="section values">
-            <div class="title">
-              {{localize 'sta.actor.value.title'}}
-            </div>
-            <div class="header row item">
-              <div class="image"></div>
-              <div class="value-used">{{localize 'sta.actor.value.used'}}</div>
-              <div class="one-column-with-roll">{{localize 'sta.item.genericitem.name'}}</div>
-              {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="value"><i class="fas fa-plus"></i></a>
-              {{/if}}
-            </div>
-            {{#each values}}
-            <li class="row entry" data-item-id="{{this.id}}" data-item-type="value" data-item-value="{{this.name}}">
-              <div class="image"><img class="chat" src="{{this.img}}" title="{{this.name}}" /></div>
-              {{#if ../options.editable}}
-              <a class="value-used control toggle"><i
-                  class="fas fa-toggle-{{#if (eq this.data.data.used true)}}on{{else}}off{{/if}}"></i></a>
-              {{/if}}
-              <h4 class="one-column-with-roll list-entry {{#if (eq this.data.data.used true)}}strike-through{{/if}}">
-                {{name}}</h4>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            {{/each}}
-          </div>
-        </div>
-        {{! Section: Focuses }}
-        <div class="column right-column">
-          <div class="section focuses">
-            <div class="title">
-              {{localize 'sta.actor.focus.title'}}
-            </div>
-            <div class="header row item">
-              <div class="image"></div>
-              <div class="one-column-with-roll">{{localize 'sta.item.genericitem.name'}}</div>
-              {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="focus"><i class="fas fa-plus"></i></a>
-              {{/if}}
-            </div>
-            {{#each focuses }}
-            <li class="row entry" data-item-id="{{this.id}}" data-item-type="{{this.type}}"
-              data-item-value="{{this.name}}">
-              <div class="image"><img class="chat" src="{{this.img}}" title="{{this.name}}" /></div>
-              <h4 class="one-column-with-roll list-entry">{{this.name}}</h4>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-      {{! Section: Notes }}
-      <div class="row">
-        <div class="lcars-column">
-          <div class="lcars-item2-top-block"></div>
-          <div class="lcars-item2-connect-block"></div>
-          <div class="lcars-item2-general-block1"></div>
-          <div class="lcars-item2-general-block2"></div>
-        </div>
-        <div class="column left-column">
-          <div class="section note">
-            <div class="title">
-              {{localize 'sta.actor.note.title'}}
-            </div>
-            <div class="header row item">
-              <div class="one-column-no-roll" style="height:17px;"></div>
-            </div>
-            <div class="note">
-              {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=options.editable}}
             </div>
           </div>
-        </div>
-        {{! Section: Injuries }}
-        <div class="column center-column">
-          <div class="section injuries">
-            <div class="title">
-              {{localize 'sta.actor.injury.title'}}
+          <div class="sheet-char-weapon mt-10">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.belonging.weapon.title'}}</h3>
             </div>
-            <div class="header row item">
-              <div class="one-column-no-roll">{{localize 'sta.item.genericitem.name'}}</div>
-              {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="injury"><i class="fas fa-plus"></i></a>
-              {{/if}}
-            </div>
-            {{#each injuries}}
-            <li class="row entry" data-item-id="{{this.id}}" data-item-type="{{this.type}}"
-              data-item-value="{{this.name}}">
-              <h4 class="one-column-no-roll list-entry">{{this.name}}</h4>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            {{/each}}
-          </div>
-        </div>
-        {{! Section: Belongings }}
-        <div class="column right-column">
-          <div class="section belongings">
-            <div class="title">
-              {{localize 'sta.actor.belonging.title'}}
-            </div>
-            {{! Sub-Section: Weapons }}
-            <div class="header row item">
-              <div class="image"></div>
-              <div class="two-column-with-roll-primary">{{localize 'sta.actor.belonging.weapon.title'}}</div>
-              <div class="two-column-with-roll-secondary">{{localize 'sta.actor.belonging.weapon.dmg'}}</div>
-              {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="characterweapon"><i class="fas fa-plus"></i></a>
-              {{/if}}
-            </div>
-            {{#each weapons}}
-            <li class="row entry" id="weapon-{{weapon.id}}" data-item-id="{{weapon.id}}" data-item-type="{{weapon.type}}"
+            <div class="sheet-char-talents">
+              {{#each weapons}}
+                <li class="flex align-center" id="weapon-{{weapon.id}}" data-item-id="{{weapon.id}}" data-item-type="{{weapon.type}}"
               data-item-value="{{weapon.name}}" data-item-damage="{{weapon.data.data.damage}}">
-              <div class="image"><img class="rollable challenge" src="{{weapon.img}}" title="{{weapon.name}}"
-                  data-item-name="{{weapon.name}}" /></div>
-              <h4 class="two-column-with-roll-primary list-entry">{{weapon.name}}</h4>
-              <h4 class="two-column-with-roll-secondary list-entry damage">{{calculatedDamage}}</h4>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            {{/each}}
-            {{! Sub-Section: Armor }}
-            <div class="header row item">
-              <div class="image"></div>
-              <div class="two-column-with-roll-primary">{{localize 'sta.actor.belonging.armor.title'}}</div>
-              <div class="two-column-with-roll-secondary">{{localize 'sta.actor.belonging.armor.protect'}}</div>
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="{{weapon.img}}" title="{{weapon.name}}"
+                  data-item-name="{{weapon.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 flex">
+                    <div class="flex-1 list-entry">{{weapon.name}}</div>
+                    <div class="list-entry pr-10">{{calculatedDamage}}</div>
+                  </div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
               {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="armor"><i class="fas fa-plus"></i></a>
+                <button class="btn control create" title="Create item" data-type="characterweapon"><i class="fas fa-plus"></i></button>
               {{/if}}
             </div>
-            {{#each armor}}
-            <li class="row entry" id="armor-{{this.id}}" data-item-id="{{this.id}}" data-item-type="{{this.type}}"
-              data-item-value="{{this.name}}">
-              <div class="image"><img class="chat" src="{{this.img}}" title="{{this.name}}" /></div>
-              <h4 class="two-column-with-roll-primary list-entry">{{this.name}}</h4>
-              <h4 id="protectval-armor-{{this.id}}" class="two-column-with-roll-secondary list-entry">
-                {{this.data.data.protection}}</h4>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            {{/each}}
-            {{! Sub-Section: Other }}
-            <div class="header row item">
-              <div class="image"></div>
-              <div class="two-column-with-roll-primary">{{localize 'sta.actor.belonging.other.title'}}</div>
-              <div class="two-column-with-roll-secondary">{{localize 'sta.actor.belonging.other.qty'}}</div>
-              {{#if  options.editable}}
-              <a class="control create" title="Create item" data-type="item"><i class="fas fa-plus"></i></a>
-              {{/if}}
-            </div>
-            {{#each other}}
-            <li class="row entry" id="other-{{this.id}}" data-item-id="{{this.id}}" data-item-type="{{this.type}}"
-              data-item-value="{{this.name}}">
-              <div class="image"><img class="chat" src="{{this.img}}" title="{{this.name}}" /></div>
-              <h4 class="two-column-with-roll-primary list-entry">{{this.name}}</h4>
-              <h4 class="two-column-with-roll-secondary list-entry">{{this.data.data.quantity}}</h4>
-              {{#if ../options.editable}}
-              <div class="control">
-                <a class="edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-            </li>
-            {{/each}}
           </div>
         </div>
+        <div class="sheet-right-wp">
+          <div class="sheet-effort">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.character.effort'}}</h3>
+            </div>
+            <div class="sheet-efforts flex" data-type="efforts">
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-1" />
+              <label class="sheet-efforts-checkbox-label" for="e-1"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-2" />
+              <label class="sheet-efforts-checkbox-label" for="e-2"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-3" />
+              <label class="sheet-efforts-checkbox-label" for="e-3"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-4" />
+              <label class="sheet-efforts-checkbox-label" for="e-4"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-5" />
+              <label class="sheet-efforts-checkbox-label" for="e-5"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-6" />
+              <label class="sheet-efforts-checkbox-label" for="e-6"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-7" />
+              <label class="sheet-efforts-checkbox-label" for="e-7"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-8" />
+              <label class="sheet-efforts-checkbox-label" for="e-8"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-9" />
+              <label class="sheet-efforts-checkbox-label" for="e-9"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-10" />
+              <label class="sheet-efforts-checkbox-label" for="e-10"></label>
+              <input class="sheet-efforts-checkbox" type="checkbox" name="effort" id="e-11" />
+              <label class="sheet-efforts-checkbox-label" for="e-11"></label>
+            </div>
+          </div>
+          <div class="sheet-char-injury">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.injury.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents" data-type="injury">
+              {{#each injuries}}
+                <li class="flex align-center" data-item-id="{{this.id}}" data-item-type="{{this.type}}" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="systems/sta-ng/assets/icons/com.png" title="{{name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 list-entry">{{this.name}}</div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="injury"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
+          </div>
+          <div class="sheet-char-amor mt-10">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.belonging.armor.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents" data-type="amor">
+              {{#each armor}}
+                <li class="flex align-center" id="armor-{{this.id}}" data-item-id="{{this.id}}" data-item-type="{{this.type}}" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="{{this.img}}" title="{{this.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 flex">
+                    <div class="flex-1 list-entry">{{this.name}}</div>
+                    <div class="list-entry pr-10">{{this.data.data.protection}}</div>
+                  </div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="armor"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
+          </div>
+          <div class="sheet-char-item mt-10">
+            <div class="sheet-section-headline">
+              <h3 class="sheet-section-h3 sheet-section-long-h3">{{localize 'sta.actor.belonging.other.title'}}</h3>
+            </div>
+            <div class="sheet-char-talents" data-type="item">
+              {{#each other}}
+                <li class="flex align-center" id="other-{{this.id}}" data-item-id="{{this.id}}" data-item-type="{{this.type}}" data-item-value="{{this.name}}">
+                  <div class="flex icon-wp pr-5">
+                    <button class="btn-chat chat">
+                      <img class="list-icon" src="{{this.img}}" title="{{this.name}}" />
+                    </button>
+                  </div>
+                  <div class="flex-1 flex">
+                    <div class="flex-1 list-entry">{{this.name}}</div>
+                    <div class="list-entry pr-10">{{this.data.data.quantity}}</div>
+                  </div>
+                  {{#if ../options.editable}}
+                  <div class="flex control">
+                    <button class="btn btn-editors edit" title="Edit Item"><i class="fas fa-edit"></i></button>
+                    <button class="btn2 btn-editors delete" title="Delete Item"><i class="fas fa-trash"></i></button>
+                  </div>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </div>
+            <div class="sheet-char-add">
+              {{#if  options.editable}}
+                <button class="btn control create" title="Create item" data-type="item"><i class="fas fa-plus"></i></button>
+              {{/if}}
+            </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>

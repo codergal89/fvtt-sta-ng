@@ -32,6 +32,7 @@
   "sta.sheet.tab.qualities": "Qualities",
 
   "sta.actor.character.reputation": "Reputation Track",
+  "sta.actor.character.personal": "Starfleet Personnel File",
   "sta.actor.character.name": "Name",
   "sta.actor.character.rank": "Rank",
   "sta.actor.character.stress": "Stress Track",
@@ -41,6 +42,7 @@
   "sta.actor.character.assignment": "Assignment",
   "sta.actor.character.traits": "Traits",
   "sta.actor.character.determination": "Determination",
+  "sta.actor.character.effort": "Effort",
   "sta.actor.attdis.mod": "Mod",
   "sta.actor.attdis.task": "Perform Task",
   "sta.actor.challenge.roll": "Perform Challenge",
@@ -186,7 +188,7 @@
   "sta.item.house.legacy.scientists": "Scientists",
   "sta.item.house.legacy.physicians": "Physicians",
 
-  "sta.apps.task.title": "Task Roll",
+  "sta.apps.task.title": "Dice Roller",
   "sta.apps.dicepoolwindow": "Dice Pool",
   "sta.apps.focus": "Using focus?",
   "sta.apps.determination": "Using determination?",
@@ -201,6 +203,8 @@
   "sta.roll.challenge.attack": "{weapon} Attack",
   "sta.roll.challenge.generic": "Challenge",
   "sta.roll.complicationRange": "Complication range",
+  "sta.roll.taskRoll": "Task Roll",
+  "sta.roll.challangeDice": "Challenge Dice",
   "sta.roll.complication": "There was a complication!",
   "sta.roll.complicationPlural": "There were {count} complications!",
   "sta.roll.effect": "There was an effect!",

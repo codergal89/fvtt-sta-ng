@@ -1,0 +1,30 @@
+.window-app .window-content {
+  display: block;
+  flex-direction: inherit;
+  flex-wrap: inherit;
+  justify-content: inherit;
+  background: #fff;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: inherit;
+
+}
+
+input[type="text"] {
+  width: auto;
+  min-width: auto;
+  height: inherit;
+  background: inherit;
+  padding: 0;
+  color: inherit;
+  border: inherit;
+  border-radius: 0;  
+  &:focus {
+    box-shadow: none;
+  }
+} 
+
+img {
+  border: inherit;
+  border-radius: inherit;
+}

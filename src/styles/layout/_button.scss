@@ -1,0 +1,74 @@
+/* Button Definitions */ 
+.sta {
+  .btn {
+    background-color: $buttonColor;
+    color: $inlaidText;
+    border-radius: 20px;
+    font-weight: bold;
+
+    &:hover {
+      box-shadow: none;
+      background-color: $buttonHover;
+      cursor: pointer;
+    }
+    &-editors {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid;
+      border-radius: 50%;
+      padding-left: 10px;
+    }
+
+    &-chat {
+      background-color: transparent;
+      color: transparent;
+      border: 0;
+      &:hover {
+        box-shadow: none;
+        background-color: $borderColor;
+        cursor: pointer;
+      }
+    }
+
+    &-toggle {
+      background-color: transparent;
+      border: 0;
+      color: #fc3;
+      &:hover {
+        box-shadow: none;
+        background-color: $borderColor;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .btn2 {
+    background-color: $buttonColor2;
+    color: $inlaidText;
+    border-radius: 20px;
+    font-weight: bold;
+
+    &:hover {
+      box-shadow: none;
+      background-color: $buttonHover2;
+      cursor: pointer;
+    }
+  }
+
+
+  .dice {
+    border: 0;
+    padding: 2px;
+    max-width: 22px;
+    max-height: 22px;
+    background: $labelColor;
+    &:hover {
+      box-shadow: none;
+      background-color: $borderColor;
+      cursor: pointer;
+    }
+  }
+}

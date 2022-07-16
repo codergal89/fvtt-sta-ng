@@ -1,0 +1,23 @@
+/* Globals */ 
+.sta .title {
+  text-align: center;
+  font-size: 14pt;
+}
+
+.sta {
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+}
+
+.sta .unset-clickables:hover {
+  box-shadow: unset !important;
+  text-shadow: unset !important;
+  cursor: unset !important;
+  content: unset !important;
+}

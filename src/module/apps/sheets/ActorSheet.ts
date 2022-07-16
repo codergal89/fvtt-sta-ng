@@ -41,6 +41,13 @@ export class ActorSheetStaNg<
     return Promise.resolve([]);
   }
 
+  protected override _onChangeInput(event: JQuery.ChangeEvent<unknown, unknown, unknown, HTMLInputElement>): void | Promise<unknown> {
+    if(event.target.type == "radio") {
+      return;
+    }
+    return super._onChangeInput(event);
+  }
+
   protected get tracks(): string[] {
     return [];
   }
@@ -51,11 +58,12 @@ export class ActorSheetStaNg<
   }
 
   protected activateItemControls(html: JQuery<HTMLElement>): void {
-    html.find(".control .edit").on("click", this.onEditItem.bind(this));
-    html.find(".control .delete").on("click", this.onDeleteItem.bind(this));
+    html.find(".btn.btn-editors.edit").on("click", this.onEditItem.bind(this));
+    html.find(".btn2.btn-editors.delete").on("click", this.onDeleteItem.bind(this));
     html.find(".control.create").on("click", this.onCreateItem.bind(this));
     html.find(".rollable").on("click", this.onClickRoll.bind(this));
     html.find(".chat").on("click", this.onClickChat.bind(this));
+    html.find(".icon-wp .btn-chat.chat").on("click", this.onClickChat.bind(this));
     html.find(".talent-tooltip-clickable").on("click", this.onClickTalentTooltip.bind(this));
   }
 
@@ -184,7 +192,7 @@ export class ActorSheetStaNg<
   }
 
   protected getEventItem(event: JQuery.TriggeredEvent): [JQuery<HTMLElement>, ItemStaNg | undefined] {
-    const entry = $(event.currentTarget).parents(".entry");
+    const entry = $(event.currentTarget).parents("li");
     return [entry, this.actor.items.get(entry.data("itemId"))];
   }
 

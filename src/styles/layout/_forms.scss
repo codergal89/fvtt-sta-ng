@@ -1,0 +1,38 @@
+/* Forms */
+.sta {
+  .label {
+    display: inline-block;
+    color: $labelColor;
+    font-family: Impact, sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    vertical-align: middle;
+  }
+
+  .text-feeld {
+    color: $labelColor;
+    font-family: Impact, sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin-bottom: 0.25em;
+    padding: 4px 4px 4px 10px;
+
+    &:focus-visible {
+      outline-offset: 0px;
+      outline: -webkit-focus-ring-color auto 1px;
+    }
+  }
+
+  .numeric-entry {
+    color: $inputColor;
+  }
+
+  select {
+    color: $inputColor;
+  }
+
+  select option {
+    background: $background;
+  }
+}

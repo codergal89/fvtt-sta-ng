@@ -1,0 +1,126 @@
+/* LCARS Layout */ /*#region*/
+.sta.sheet.actor {
+ 
+
+  .lcars-column {
+    flex: 10%;
+    display: flex;
+    flex-flow: column;
+
+    .lcars-header-block1 {
+      flex: 3;
+      background-color: map-get($lcarsColors, "purple");
+      border-bottom: 4px solid $background;
+    }
+
+    .lcars-header-block2 {
+      flex: 7;
+      background-color: map-get($lcarsColors, "blue");
+      border-bottom: 4px solid $background;
+    }
+
+    .lcars-attribute-title-block {
+      background-color: map-get($lcarsColors, "lcarsheader");
+      border-bottom-left-radius: 40px;
+      flex: 0 1 47px;
+    }
+
+    .lcars-item1-connect-block,
+    .lcars-item2-connect-block {
+      flex: 0 1 40px;
+      background-color: map-get($lcarsColors, "lcarsheader");
+      border-top-left-radius: 40px;
+    }
+
+    .lcars-item1-top-block {
+      flex: 0 1 30px;
+      background-color: transparent;
+      border-bottom: 5px solid $background;
+    }
+
+    .lcars-item2-top-block {
+      flex: 0 1 30px;
+      background-color: map-get($lcarsColors, "bluepurple");
+      border-bottom: 5px solid $background;
+    }
+
+    .lcars-attribute-general-block1 {
+      background-color: map-get($lcarsColors, "brightpurple");
+      flex: 1;
+      border-top-left-radius: 40px;
+      border-top: 5px solid $background;
+    }
+
+    .lcars-attribute-general-block2 {
+      background-color: map-get($lcarsColors, "orange");
+      flex: 2;
+      border-top: 5px solid $background;
+    }
+
+    .lcars-attribute-general-block3 {
+      background-color: map-get($lcarsColors, "purple");
+      flex: 1;
+      border-top: 5px solid $background;
+      border-bottom-left-radius: 40px;
+    }
+
+    .lcars-item1-general-block {
+      background-color: map-get($lcarsColors, "bluepurple");
+      flex: 1;
+      border-top: 5px solid $background;
+    }
+
+    .lcars-item2-general-block1 {
+      background-color: map-get($lcarsColors, "brightred");
+      flex: 1;
+      border-top: 5px solid $background;
+    }
+
+    .lcars-item2-general-block2 {
+      background-color: map-get($lcarsColors, "gold");
+      flex: 2;
+      border-top: 5px solid $background;
+    }
+
+    .lcars-header-extendedtask1 {
+      background-color: map-get($lcarsColors, "brightpurple");
+      border-bottom: 5px solid $background;
+      flex: 1;
+      width: 100%;
+    }
+
+    .lcars-header-extendedtask2 {
+      background-color: map-get($lcarsColors, "gold");
+      border-bottom: 5px solid $background;
+      flex: 1;
+      width: 100%;
+    }
+
+    .lcars-header-extendedtask3 {
+      background-color: map-get($lcarsColors, "lcarsheader");
+      flex: 1;
+      width: 100%;
+    }
+
+    .lcars-header-extendedtask4 {
+      background-color: map-get($lcarsColors, "lcarsheader");
+      flex: 0 1 27px;
+      width: 100%;
+      border-bottom: 5px solid $background;
+      border-bottom-left-radius: 40px;
+    }
+
+    .lcars-body-extendedtask1 {
+      background-color: $background;
+      flex: 0 1 33px;
+      width: 100%;
+    }
+
+    .lcars-body-extendedtask2 {
+      background-color: map-get($lcarsColors, "lcarsheader");
+      flex: 1 1 auto;
+      width: 100%;
+      border-top-left-radius: 40px;
+    }
+  }
+}

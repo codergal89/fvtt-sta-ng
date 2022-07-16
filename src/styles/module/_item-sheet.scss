@@ -1,0 +1,76 @@
+/* Item Sheet  */ /*#region*/
+.sta.sheet.item {
+  .label {
+    color: $labelColor;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  .text,
+  .entry,
+  .editor {
+    color: $inputColor;
+  }
+
+  option {
+    background-color: $background;
+  }
+
+  .editor-edit {
+    display: block;
+    color: $editorText;
+  }
+
+  .editor-content {
+    padding-right: 25px;
+  }
+
+  .tox.tox-tinymce .tox-edit-area__iframe {
+    background-color: $editorBackground;
+  }
+
+  .description,
+  .note {
+    height: calc(100% - 100px);
+    padding-top: 10px;
+
+    .editor {
+      height: 90%;
+    }
+  }
+
+  &.characterweapon,
+  &.starshipweapon {
+    .header-fields .row {
+      font-size: 14px;
+
+      .column-x4 {
+        width: 25%;
+        display: flex;
+        text-align: left;
+
+        .label {
+          line-height: 26px;
+        }
+      }
+
+      .label-top {
+        width: 25%;
+        flex-direction: column;
+        text-align: center;
+
+        input {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    .description {
+      height: calc(100% - 128px);
+    }
+  }
+  /* Items - Weapon Specific */
+}
+/*#endregion*/
