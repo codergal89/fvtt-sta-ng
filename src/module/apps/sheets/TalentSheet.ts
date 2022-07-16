@@ -35,7 +35,7 @@ export class TalentSheetStaNg extends ItemSheet<ItemSheet.Options, TalentSheetDa
           disabled: false,
         }]);
       case "edit":
-        return effect?.sheet.render(true);
+        return effect?.sheet?.render(true);
       case "delete":
         return effect?.delete();
     }
