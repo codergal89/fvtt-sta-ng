@@ -1,4 +1,4 @@
-import { ItemStaNg } from "../../items/Entity";
+import { ItemStaNg } from '../../items/Entity'
 
 declare global {
   interface SmallCraftTracksMixIn {
@@ -26,7 +26,7 @@ declare global {
     talents: ItemStaNg[]
     values: ItemStaNg[]
     weapons: {
-      weapon: ItemStaNg,
+      weapon: ItemStaNg
       calculatedDamage: number
     }[]
   }

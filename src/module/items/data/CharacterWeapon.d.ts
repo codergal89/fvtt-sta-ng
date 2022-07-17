@@ -1,7 +1,7 @@
 interface CharacterWeaponDataSourceData extends ItemCommonDataSourceData {
-  damage: 0,
-  range: string,
-  hands: number,
+  damage: 0
+  range: string
+  hands: number
   qualities: {
     accurate: boolean
     area: boolean
@@ -23,11 +23,11 @@ interface CharacterWeaponDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface CharacterWeaponDataSource {
-  type: "characterweapon"
+  type: 'characterweapon'
   data: CharacterWeaponDataSourceData
 }
 
 interface CharacterWeaponDataProperties {
-  type: "characterweapon"
+  type: 'characterweapon'
   data: CharacterWeaponDataSourceData
 }

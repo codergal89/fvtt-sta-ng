@@ -19,26 +19,26 @@ interface StarshipDataSourceData extends ActorCommonDataSourceData, CommonCraftD
 }
 
 interface StarshipDataSource {
-  type: "starship"
+  type: 'starship'
   data: StarshipDataSourceData
 }
 
 interface StarshipDataPropertiesData extends StarshipDataSourceData {
   crew: {
-    max: number,
-    value: number,
+    max: number
+    value: number
   }
   power: {
-    max: number,
-    value: number,
+    max: number
+    value: number
   }
   shields: {
-    max: number,
-    value: number,
+    max: number
+    value: number
   }
 }
 
 interface StarshipDataProperties {
-  type: "starship"
+  type: 'starship'
   data: StarshipDataPropertiesData
 }

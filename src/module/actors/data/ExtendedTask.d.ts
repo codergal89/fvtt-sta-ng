@@ -8,11 +8,11 @@ interface ExtendedTaskDataSourceData extends ActorCommonDataSourceData {
 }
 
 interface ExtendedTaskDataSource {
-  type: "extendedtask"
+  type: 'extendedtask'
   data: ExtendedTaskDataSourceData
 }
 
 interface ExtendedTaskDataProperties {
-  type: "extendedtask"
+  type: 'extendedtask'
   data: ExtendedTaskDataSourceData
 }

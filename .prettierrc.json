@@ -1,23 +1,32 @@
 {
   "trailingComma": "es5",
   "singleQuote": true,
-  "requirePragma": true,
-    "overrides": [
-        {
-            "files": ["*.scss", "*.css"],
-            "options": {
-                "requirePragma": false,
-                "parser": "scss"
-            }
-        },
-        {
-            "files": "*.html",
-            "options": {
-                "requirePragma": false,
-                "parser": "html",
-                "htmlWhitespaceSensitivity": "ignore"
-            }
-        }
-    ]
-
+  "requirePragma": false,
+  "useTabs": false,
+  "printWidth": 120,
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": ["*.scss", "*.css"],
+      "options": {
+        "requirePragma": false,
+        "parser": "scss"
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "requirePragma": false,
+        "parser": "html",
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    },
+    {
+      "files": "*.d.ts",
+      "options": {
+        "parser": "typescript",
+        "semi": false
+      }
+    }
+  ]
 }

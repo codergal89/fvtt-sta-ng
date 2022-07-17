@@ -1,20 +1,13 @@
 {
   "Actor": {
-    "types": [
-      "character",
-      "starship",
-      "extendedtask",
-      "smallcraft"
-    ],
+    "types": ["character", "starship", "extendedtask", "smallcraft"],
     "templates": {
       "common": {
         "notes": ""
       }
     },
     "character": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "assignment": "",
       "attributes": {
         "control": {
@@ -83,9 +76,7 @@
       "upbringing": ""
     },
     "starship": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "crew": {
         "value": 0
       },
@@ -175,9 +166,7 @@
       "traits": ""
     },
     "extendedtask": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "magnitude": 1,
       "difficulty": 0,
       "work": 1,
@@ -290,28 +279,20 @@
       }
     },
     "item": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "quantity": 1,
       "opportunity": 0,
       "escalation": 0
     },
     "focus": {
-      "templates": [
-        "common"
-      ]
+      "templates": ["common"]
     },
     "value": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "used": false
     },
     "characterweapon": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "damage": 0,
       "range": "",
       "hands": 1,
@@ -335,9 +316,7 @@
       }
     },
     "starshipweapon": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "damage": 0,
       "range": "",
       "qualities": {
@@ -355,18 +334,14 @@
       }
     },
     "armor": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "protection": 0,
       "equipped": true,
       "opportunity": 0,
       "escalation": 0
     },
     "talent": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "talenttype": {
         "typeenum": "",
         "description": "",
@@ -374,21 +349,15 @@
       }
     },
     "injury": {
-      "templates": [
-        "common"
-      ]
+      "templates": ["common"]
     },
     "smallcraftcontainer": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "child": "",
       "quantity": 1
     },
     "species": {
-      "templates": [
-        "common"
-      ],
+      "templates": ["common"],
       "eras": [],
       "exampleValue": "",
       "traitDescription": ""

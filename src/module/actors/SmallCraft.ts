@@ -1,7 +1,6 @@
-import { ActorStaNg } from "./Actor";
+import { ActorStaNg } from './Actor';
 
 class SmallCraftStaNg extends ActorStaNg {
-
   public override prepareBaseData(): void {
     super.prepareBaseData();
 
@@ -13,22 +12,13 @@ class SmallCraftStaNg extends ActorStaNg {
     craftData.power.max = Math.ceil(craftData.systems.engines.value / 2);
   }
 
-  protected override get acceptableItemTypes(): ActorStaNg["acceptableItemTypes"] {
-    return [
-      "injury",
-      "item",
-      "starshipweapon",
-      "talent",
-      "value",
-    ];
+  protected override get acceptableItemTypes(): ActorStaNg['acceptableItemTypes'] {
+    return ['injury', 'item', 'starshipweapon', 'talent', 'value'];
   }
-
 }
 
 interface SmallCraftStaNg {
-  data: ActorStaNg["data"] & { type: "smallcraft" }
+  data: ActorStaNg['data'] & { type: 'smallcraft' };
 }
 
-export {
-  SmallCraftStaNg
-}
+export { SmallCraftStaNg };

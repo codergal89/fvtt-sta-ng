@@ -4,13 +4,13 @@ interface SmallCraftContainerDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface SmallCraftContainerDataSource {
-  type: "smallcraftcontainer"
+  type: 'smallcraftcontainer'
   data: SmallCraftContainerDataSourceData
 }
 
-type SmallCraftContainerDataPropertiesData = SmallCraftContainerDataSourceData;
+type SmallCraftContainerDataPropertiesData = SmallCraftContainerDataSourceData
 
 interface SmallCraftContainerDataProperties {
-  type: "smallcraftcontainer"
+  type: 'smallcraftcontainer'
   data: SmallCraftContainerDataPropertiesData
 }

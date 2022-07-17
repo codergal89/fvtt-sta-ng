@@ -14,7 +14,7 @@ interface SmallCraftDataSourceData extends ActorCommonDataSourceData, CommonCraf
 }
 
 interface SmallCraftDataSource {
-  type: "smallcraft"
+  type: 'smallcraft'
   data: SmallCraftDataSourceData
 }
 
@@ -30,6 +30,6 @@ interface SmallCraftDataPropertiesData extends SmallCraftDataSourceData {
 }
 
 interface SmallCraftDataProperties {
-  type: "smallcraft"
+  type: 'smallcraft'
   data: SmallCraftDataPropertiesData
 }

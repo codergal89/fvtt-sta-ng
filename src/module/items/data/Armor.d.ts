@@ -6,11 +6,11 @@ interface ArmorDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface ArmorDataSource {
-  type: "armor"
+  type: 'armor'
   data: ArmorDataSourceData
 }
 
 interface ArmorDataProperties {
-  type: "armor"
+  type: 'armor'
   data: ArmorDataSourceData
 }

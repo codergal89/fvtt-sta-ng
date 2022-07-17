@@ -1,9 +1,9 @@
 interface InjuryDataSource {
-  type: "injury"
+  type: 'injury'
   data: ItemCommonDataSourceData
 }
 
 interface InjuryDataProperties {
-  type: "injury"
+  type: 'injury'
   data: ItemCommonDataSourceData
 }

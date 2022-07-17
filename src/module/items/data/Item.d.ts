@@ -5,11 +5,11 @@ interface ItemDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface ItemDataSource {
-  type: "item"
+  type: 'item'
   data: ItemDataSourceData
 }
 
 interface ItemDataProperties {
-  type: "item"
+  type: 'item'
   data: ItemDataSourceData
 }

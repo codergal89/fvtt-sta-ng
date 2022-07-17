@@ -3,11 +3,11 @@ interface ValueDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface ValueDataSource {
-  type: "value"
+  type: 'value'
   data: ValueDataSourceData
 }
 
 interface ValueDataProperties {
-  type: "value"
+  type: 'value'
   data: ValueDataSourceData
 }
