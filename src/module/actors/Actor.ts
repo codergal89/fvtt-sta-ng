@@ -1,11 +1,11 @@
 export class ActorStaNg extends Actor {
 
-  constructor(data: ActorConstructorData, context?: ActorConstructorContext) {
-    if (context?.StaNg?.constructorResolved) {
+  constructor(data: NonNullable<ActorConstructorData>, context: ActorConstructorContext = {}) {
+    if (context.StaNg?.constructorResolved) {
       super(data, context);
     } else {
-      context = mergeObject(context || {}, { StaNg: { constructorResolved: true } });
-      const selectedConstructor = game.StaNg.documents.actors.classes[data!.type] ?? ActorStaNg;
+      mergeObject(context, { StaNg: { constructorResolved: true } });
+      const selectedConstructor = game.StaNg.documents.actors.classes[data.type] ?? ActorStaNg;
       return new selectedConstructor(data, context);
     }
   }
