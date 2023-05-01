@@ -1,8 +1,8 @@
-import { ItemStaNg } from '../../items/Entity'
+import { ItemStaNg } from '../../../items/Entity'
 
 declare global {
-  interface StarshipTracksMixIn {
-    crew: {
+  interface SmallCraftTracksMixIn {
+    shields: {
       limit: number
       track: {
         id: number
@@ -18,20 +18,11 @@ declare global {
         selected: boolean
       }[]
     }
-    shields: {
-      limit: number
-      track: {
-        id: number
-        label: number
-        selected: boolean
-      }[]
-    }
   }
 
-  interface StarshipItemsMixIn {
+  interface SmallCraftItemsMixIn {
     damages: ItemStaNg[]
     other: ItemStaNg[]
-    smallCraft: ItemStaNg[]
     talents: ItemStaNg[]
     values: ItemStaNg[]
     weapons: {
@@ -40,5 +31,5 @@ declare global {
     }[]
   }
 
-  type StarshipSheetData = ActorSheet.Data & StarshipItemsMixIn & StarshipTracksMixIn
+  type SmallCraftSheetData = ActorSheet.Data & SmallCraftItemsMixIn & SmallCraftTracksMixIn
 }

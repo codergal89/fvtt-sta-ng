@@ -1,4 +1,4 @@
-import { ItemStaNg } from '../../items/Entity'
+import { ItemStaNg } from '../../../items/Entity'
 
 declare global {
   interface CharacterTracksMixIn {
