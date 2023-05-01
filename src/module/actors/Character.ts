@@ -2,26 +2,16 @@ import { ActorStaNg } from './Actor';
 
 class CharacterStaNg extends ActorStaNg {
   public accept(itemData: ItemDataStaNg | ItemDataStaNg[]): { accepted: boolean; reason?: string } {
-    if (Array.isArray(itemData)) {
-      return itemData.reduce(
-        (acc, i) => {
-          const itemResult = this.accept(i);
-          return itemResult.accepted ? acc : itemResult;
-        },
-        { accepted: true } as { accepted: boolean; reason?: string }
-      );
+    if (!Array.isArray(itemData)) {
+      return this.acceptSingleItem(itemData);
     }
-    if (itemData.type === 'talent' && itemData.data.talenttype.typeenum === 'species') {
-      const species = itemData.data.talenttype.description;
-      const isSameSpecies = species === this.data.data.species;
-      return {
-        accepted: isSameSpecies,
-        reason: isSameSpecies
-          ? undefined
-          : game.i18n.format('sta.actor.character.rejectedItem.talent.species', { species }),
-      };
-    }
-    return { accepted: true };
+    return itemData.reduce(
+      (acc, i) => {
+        const result = this.acceptSingleItem(i);
+        return result.accepted ? acc : result;
+      },
+      { accepted: true } as { accepted: boolean, reason?: string }
+    );
   }
 
   public override prepareBaseData(): void {
@@ -50,6 +40,26 @@ class CharacterStaNg extends ActorStaNg {
   protected override get acceptableItemTypes(): ActorStaNg['acceptableItemTypes'] {
     return ['armor', 'characterweapon', 'focus', 'injury', 'item', 'talent', 'value'];
   }
+
+  /**
+   * Accept a single item or reject it if it is not applicable to this actor.
+   * 
+   * @param item An item to accept.
+   */
+  protected acceptSingleItem(item: ItemDataStaNg): { accepted: boolean, reason?: string } {
+    if (item.type === 'talent' && item.data.talenttype.typeenum === 'species') {
+      const species = item.data.talenttype.description;
+      const isSameSpecies = species === this.data.data.species;
+      return {
+        accepted: isSameSpecies,
+        reason: isSameSpecies
+          ? undefined
+          : game.i18n.format('sta.actor.character.rejectedItem.talent.species', { species }),
+      };
+    }
+    return { accepted: true };
+  }
+
 }
 
 interface CharacterStaNg {
