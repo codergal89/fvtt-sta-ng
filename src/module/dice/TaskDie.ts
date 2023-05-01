@@ -4,7 +4,7 @@ export class TaskDie extends Die {
     super(termData);
   }
 
-  public static override DENOMINATION = "t";
+  public static override DENOMINATION = 't';
 
   public override getResultLabel(result: DiceTerm.Result): string {
     return result.result.toString();

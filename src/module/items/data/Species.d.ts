@@ -5,13 +5,13 @@ interface SpeciesDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface SpeciesDataSource {
-  type: "species"
+  type: 'species'
   data: SpeciesDataSourceData
 }
 
-type SpeciesDataPropertiesData = SpeciesDataSourceData;
+type SpeciesDataPropertiesData = SpeciesDataSourceData
 
 interface SpeciesDataProperties {
-  type: "species"
+  type: 'species'
   data: SpeciesDataPropertiesData
 }

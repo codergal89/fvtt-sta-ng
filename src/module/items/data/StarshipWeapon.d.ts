@@ -1,6 +1,6 @@
 interface StarshipWeaponDataSourceData extends ItemCommonDataSourceData {
-  damage: 0,
-  range: string,
+  damage: 0
+  range: string
   qualities: {
     area: boolean
     calibration: boolean
@@ -17,11 +17,11 @@ interface StarshipWeaponDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface StarshipWeaponDataSource {
-  type: "starshipweapon"
+  type: 'starshipweapon'
   data: StarshipWeaponDataSourceData
 }
 
 interface StarshipWeaponDataProperties {
-  type: "starshipweapon"
+  type: 'starshipweapon'
   data: StarshipWeaponDataSourceData
 }

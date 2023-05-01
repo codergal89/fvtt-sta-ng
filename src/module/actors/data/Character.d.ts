@@ -27,7 +27,7 @@ interface CharacterDataSourceData extends ActorCommonDataSourceData {
     }
   }
   determination: {
-    value: number,
+    value: number
     max: number
   }
   disciplines: {
@@ -55,7 +55,7 @@ interface CharacterDataSourceData extends ActorCommonDataSourceData {
       label: string
       value: number
     }
-  },
+  }
   environment: string
   milestones: string
   rank: string
@@ -68,7 +68,7 @@ interface CharacterDataSourceData extends ActorCommonDataSourceData {
 }
 
 interface CharacterDataSource {
-  type: "character",
+  type: 'character'
   data: CharacterDataSourceData
 }
 
@@ -81,6 +81,6 @@ interface CharacterDataPropertiesData extends CharacterDataSourceData {
 }
 
 interface CharacterDataProperties {
-  type: "character"
+  type: 'character'
   data: CharacterDataPropertiesData
 }

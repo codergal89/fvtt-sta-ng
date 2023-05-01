@@ -1,12 +1,12 @@
-import { ExtendedTaskStaNg } from "../../actors/Index";
-import { ActorSheetStaNg } from "./ActorSheet";
+import { ExtendedTaskStaNg } from '../../actors/Index';
+import { ActorSheetStaNg } from './ActorSheet';
 
 class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, ExtendedTaskSheetData> {
   static override get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['sta', 'sheet', 'actor', 'extendedtask'],
       width: 500,
-      height: 600
+      height: 600,
     });
   }
 
@@ -21,9 +21,9 @@ class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Extende
         return Array.from(Array(cellsInRow).keys()).map(cell => ({
           id: 5 * row + cell,
           label: 5 * row + cell + 1,
-          selected: (5 * row + cell) < actorData.data.workprogress
+          selected: 5 * row + cell < actorData.data.workprogress,
         }));
-      })
+      }),
     };
 
     return data;
@@ -31,15 +31,12 @@ class ExtendedTaskSheetStaNg extends ActorSheetStaNg<ActorSheet.Options, Extende
 
   override activateListeners(html: JQuery<HTMLFormElement>) {
     super.activateListeners(html);
-    html.find("[id^='progress-'").on("click", this.onClickTrack.bind(this));
+    html.find("[id^='progress-'").on('click', this.onClickTrack.bind(this));
   }
-
 }
 
 interface ExtendedTaskSheetStaNg {
-  get actor(): ExtendedTaskStaNg
+  get actor(): ExtendedTaskStaNg;
 }
 
-export {
-  ExtendedTaskSheetStaNg
-}
+export { ExtendedTaskSheetStaNg };

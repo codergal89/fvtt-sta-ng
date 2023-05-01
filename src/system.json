@@ -1,28 +1,28 @@
 {
-	"name": "sta-ng",
-	"title": "Star Trek Adventures Roleplaying Game (Next Generation Implementation)",
-	"description": "Next-generation implementation of the \"Star Trek Adventures\" system for FoundryVTT",
-	"version": "1.0.0",
-	"minimumCoreVersion": "9",
-	"compatibleCoreVersion": "9",
-	"templateVersion": 1,
-	"author": "Sophia Pearson",
-	"esmodules": ["main.bundle.js"],
-	"styles": ["styles/sta-ng.css"],
-	"socket": true,
-	"packs": [],
-	"languages": [
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json"
-		}
-	],
-	"gridDistance": 5,
-	"gridUnits": "ft",
-	"primaryTokenAttribute": "stress",
-	"secondaryTokenAttribute": "determination",
-	"url": "https://github.com/codergal89/fvtt-sta-ng.git",
-	"manifest": "https://raw.githubusercontent.com/codergal89/fvtt-sta-ng/main/src/system.json",
-	"download": "https://github.com/codergal89/fvtt-sta-ng/releases/download/v1.0.0/sta-ng.zip"
+  "name": "sta-ng",
+  "title": "Star Trek Adventures Roleplaying Game (Next Generation Implementation)",
+  "description": "Next-generation implementation of the \"Star Trek Adventures\" system for FoundryVTT",
+  "version": "1.0.0",
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9",
+  "templateVersion": 1,
+  "author": "Sophia Pearson",
+  "esmodules": ["main.bundle.js"],
+  "styles": ["styles/sta-ng.css"],
+  "socket": true,
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "stress",
+  "secondaryTokenAttribute": "determination",
+  "url": "https://github.com/codergal89/fvtt-sta-ng.git",
+  "manifest": "https://raw.githubusercontent.com/codergal89/fvtt-sta-ng/main/src/system.json",
+  "download": "https://github.com/codergal89/fvtt-sta-ng/releases/download/v1.0.0/sta-ng.zip"
 }

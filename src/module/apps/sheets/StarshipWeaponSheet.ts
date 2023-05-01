@@ -4,11 +4,11 @@ export class StarshipWeaponSheetStaNg extends ItemSheet {
       classes: ['sta', 'sheet', 'item', 'starshipweapon'],
       width: 560,
       height: 420,
-      tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }]
+      tabs: [{ navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description' }],
     });
   }
 
   public override get template(): string {
-    return "systems/sta-ng/templates/apps/sheets/starshipweapon-sheet.hbs";
+    return 'systems/sta-ng/templates/apps/sheets/starshipweapon-sheet.hbs';
   }
 }

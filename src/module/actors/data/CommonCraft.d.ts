@@ -34,38 +34,38 @@ interface CommonCraftDataSourceData {
   systems: {
     communications: {
       label: string
-      value: number,
-      selected: boolean,
+      value: number
+      selected: boolean
       breaches: number
-    },
+    }
     computers: {
       label: string
-      value: number,
-      selected: boolean,
+      value: number
+      selected: boolean
       breaches: number
-    },
+    }
     engines: {
       label: string
-      value: number,
-      selected: boolean,
+      value: number
+      selected: boolean
       breaches: number
-    },
+    }
     sensors: {
       label: string
-      value: number,
-      selected: boolean,
+      value: number
+      selected: boolean
       breaches: number
-    },
+    }
     structure: {
       label: string
-      value: number,
-      selected: boolean,
+      value: number
+      selected: boolean
       breaches: number
-    },
+    }
     weapons: {
       label: string
-      value: number,
-      selected: boolean,
+      value: number
+      selected: boolean
       breaches: number
     }
   }

@@ -1,9 +1,9 @@
 interface FocusDataSource {
-  type: "focus"
+  type: 'focus'
   data: ItemCommonDataSourceData
 }
 
 interface FocusDataProperties {
-  type: "focus"
+  type: 'focus'
   data: ItemCommonDataSourceData
 }

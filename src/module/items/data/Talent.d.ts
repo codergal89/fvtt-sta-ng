@@ -7,11 +7,11 @@ interface TalentDataSourceData extends ItemCommonDataSourceData {
 }
 
 interface TalentDataSource {
-  type: "talent"
+  type: 'talent'
   data: TalentDataSourceData
 }
 
 interface TalentDataProperties {
-  type: "talent"
+  type: 'talent'
   data: TalentDataSourceData
 }

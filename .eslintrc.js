@@ -1,20 +1,15 @@
 module.exports = {
   root: true,
-  parser: "@typescript-eslint/parser",
-  plugins: [
-    "@typescript-eslint",
-  ],
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   env: {
-    "browser": true,
-    "es2020": true,
-    "jquery": true,
+    browser: true,
+    es2020: true,
+    jquery: true,
   },
   rules: {
-    "no-undef": "off",
-    "@typescript-eslint/no-namespace": "off",
+    'no-undef': 'off',
+    '@typescript-eslint/no-namespace': 'off',
   },
 };

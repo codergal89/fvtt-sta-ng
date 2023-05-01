@@ -1,18 +1,18 @@
-import * as Apps from "./apps/Index";
-import { ResourceTracker } from "./apps/ResourceTracker";
-import { ItemStaNg } from "./items/Entity";
-import * as DiceSoNice from "./third-party/DiceSoNice";
-import * as Settings from "./Settings";
-import { attachChatListeners } from "./ChatListeners";
-import * as Dice from "./dice/Index";
-import * as Actors from "./actors/Index";
+import * as Apps from './apps/Index';
+import { ResourceTracker } from './apps/ResourceTracker';
+import { ItemStaNg } from './items/Entity';
+import * as DiceSoNice from './third-party/DiceSoNice';
+import * as Settings from './Settings';
+import { attachChatListeners } from './ChatListeners';
+import * as Dice from './dice/Index';
+import * as Actors from './actors/Index';
 
-Hooks.once("init", () => {
-  console.log("sta-ng | Initializing the sta-ng Game System");
+Hooks.once('init', () => {
+  console.log('sta-ng | Initializing the sta-ng Game System');
 
   CONFIG.Combat.initiative = {
     decimals: 0,
-    formula: "@disciplines.security.value"
+    formula: '@disciplines.security.value',
   };
 
   registerSystemClasses();
@@ -34,7 +34,7 @@ function registerSystemClasses(): void {
             extendedtask: Apps.Sheets.ExtendedTaskSheetStaNg,
             smallcraft: Apps.Sheets.SmallCraftSheetStaNg,
             starship: Apps.Sheets.StarshipSheetStaNg,
-          }
+          },
         },
         items: {
           classes: {
@@ -44,9 +44,9 @@ function registerSystemClasses(): void {
             smallcraftcontainer: Apps.Sheets.SmallCraftContainerSheetStaNg,
             starshipweapon: Apps.Sheets.StarshipWeaponSheetStaNg,
             talent: Apps.Sheets.TalentSheetStaNg,
-          }
-        }
-      }
+          },
+        },
+      },
     },
 
     documents: {
@@ -56,52 +56,52 @@ function registerSystemClasses(): void {
           extendedtask: Actors.ExtendedTaskStaNg,
           smallcraft: Actors.SmallCraftStaNg,
           starship: Actors.StarshipStaNg,
-        }
-      }
-    }
+        },
+      },
+    },
   };
 
   CONFIG.Actor.documentClass = Actors.ActorStaNg;
   CONFIG.Item.documentClass = ItemStaNg;
   CONFIG.Dice.rolls.push(Dice.ChallengeRoll);
-  CONFIG.Dice.rolls.push(Dice.TaskRoll)
+  CONFIG.Dice.rolls.push(Dice.TaskRoll);
   CONFIG.Dice.terms[Dice.ChallengeDie.DENOMINATION] = Dice.ChallengeDie;
   CONFIG.Dice.terms[Dice.TaskDie.DENOMINATION] = Dice.TaskDie;
 }
 
 async function loadHandlebarsTemplates() {
   const templates = [
-    "apps/dialogs/dialog-challenge-roll.hbs",
-    "apps/dialogs/dialog-character-task-roll.hbs",
-    "apps/sheets/parts/tab-description.hbs",
-    "apps/sheets/parts/tab-effects.hbs",
-    "apps/sheets/armor-sheet.hbs",
-    "apps/sheets/character-sheet.hbs",
-    "apps/sheets/characterweapon-sheet.hbs",
-    "apps/sheets/extendedtask-sheet.hbs",
-    "apps/sheets/generic-item-sheet.hbs",
-    "apps/sheets/limited-sheet.hbs",
-    "apps/sheets/smallcraft-sheet.hbs",
-    "apps/sheets/smallcraftcontainer-sheet.hbs",
-    "apps/sheets/starship-sheet.hbs",
-    "apps/sheets/starshipweapon-sheet.hbs",
-    "apps/sheets/talent-sheet.hbs",
-    "apps/resource-tracker.hbs",
-    "chat/challenge-roll.hbs",
-    "chat/challenge-tooltip.hbs",
-    "chat/item.hbs",
-    "chat/task-roll.hbs",
-  ]
+    'apps/dialogs/dialog-challenge-roll.hbs',
+    'apps/dialogs/dialog-character-task-roll.hbs',
+    'apps/sheets/parts/tab-description.hbs',
+    'apps/sheets/parts/tab-effects.hbs',
+    'apps/sheets/armor-sheet.hbs',
+    'apps/sheets/character-sheet.hbs',
+    'apps/sheets/characterweapon-sheet.hbs',
+    'apps/sheets/extendedtask-sheet.hbs',
+    'apps/sheets/generic-item-sheet.hbs',
+    'apps/sheets/limited-sheet.hbs',
+    'apps/sheets/smallcraft-sheet.hbs',
+    'apps/sheets/smallcraftcontainer-sheet.hbs',
+    'apps/sheets/starship-sheet.hbs',
+    'apps/sheets/starshipweapon-sheet.hbs',
+    'apps/sheets/talent-sheet.hbs',
+    'apps/resource-tracker.hbs',
+    'chat/challenge-roll.hbs',
+    'chat/challenge-tooltip.hbs',
+    'chat/item.hbs',
+    'chat/task-roll.hbs',
+  ];
   return loadTemplates(templates.map(t => `systems/sta-ng/templates/${t}`));
 }
 
-Hooks.on("renderChatLog", (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));
+Hooks.on('renderChatLog', (_app: ChatLog, html: JQuery<HTMLElement>) => attachChatListeners(html));
 
-Hooks.on("ready", () => {
+Hooks.on('ready', () => {
   const tracker = new ResourceTracker();
   tracker.render(true);
 });
 
-Hooks.once("diceSoNiceReady", (dice3d: DiceSoNice.Dice3D) => {
+Hooks.once('diceSoNiceReady', (dice3d: DiceSoNice.Dice3D) => {
   DiceSoNice.registerUfpThemes(dice3d);
 });
