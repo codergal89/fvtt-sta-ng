@@ -1,3 +1,0 @@
-interface ItemCommonDataSourceData {
-  description: string
-}

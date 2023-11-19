@@ -15,49 +15,49 @@
           <label class="label l-w135" for="char.name">
             {{localize 'sta.actor.character.name'}}
           </label>
-          <input name="name" class="text-feeld" id="char.name" type="text" value="{{data.name}}"
+          <input name="name" class="text-feeld" id="char.name" type="text" value="{{actor.name}}"
           placeholder="{{localize 'sta.actor.character.name'}}" />
         </div>
         <div class="species-wp">
           <label class="label l-w135" for="char.species">
             {{localize 'sta.actor.character.species'}}
           </label>
-          <input name="data.species" id="char.species" class="text-feeld" type="text" value="{{data.data.species}}"
+          <input name="system.species" id="char.species" class="text-feeld" type="text" value="{{actor.system.species}}"
             placeholder="{{localize 'sta.actor.character.species'}}" />
         </div>
         <div class="rank-wp">
           <label class="label l-w135 pl-10" for="char.rank">
             {{localize 'sta.actor.character.rank'}}
           </label>
-          <input name="data.rank" class="text-feeld" type="text" value="{{data.data.rank}}"
+          <input name="system.rank" class="text-feeld" type="text" value="{{actor.system.rank}}"
             placeholder="{{localize 'sta.actor.character.rank'}}" />
         </div>
         <div class="enviroment-wp">
           <label class="label l-w135" for="char.enviroment">
             {{localize 'sta.actor.character.environment'}}
           </label>
-          <input name="data.environment" id="char.enviroment" class="text-feeld" type="text" value="{{data.data.environment}}"
+          <input name="system.environment" id="char.enviroment" class="text-feeld" type="text" value="{{actor.system.environment}}"
             placeholder="{{localize 'sta.actor.character.environment'}}" />
         </div>
         <div class="upbringing-wp">
           <label class="label l-w135 pl-10" for="char.upbringing">
             {{localize 'sta.actor.character.upbringing'}}
           </label>
-          <input name="data.upbringing" id="char.upbringing" class="text-feeld" type="text" value="{{data.data.upbringing}}"
+          <input name="system.upbringing" id="char.upbringing" class="text-feeld" type="text" value="{{actor.system.upbringing}}"
             placeholder="{{localize 'sta.actor.character.upbringing'}}" />
         </div>
         <div class="assignment-wp">
           <label class="label l-w135" for="char.assignment">
             {{localize 'sta.actor.character.assignment'}}
           </label>
-          <input name="data.assignment" id="char.assignment" class="text-feeld" type="text" value="{{data.data.assignment}}"
+          <input name="system.assignment" id="char.assignment" class="text-feeld" type="text" value="{{actor.system.assignment}}"
           placeholder="{{localize 'sta.actor.character.assignment'}}" />
         </div>
         <div class="traits-wp">
           <label class="label l-w135" for="char.traits">
             {{localize 'sta.actor.character.traits'}}
           </label>
-          <input name="data.traits" id="char.traits" class="text-feeld" type="text" value="{{data.data.traits}}"
+          <input name="system.traits" id="char.traits" class="text-feeld" type="text" value="{{actor.system.traits}}"
               placeholder="{{localize 'sta.actor.starship.traits'}}" />
         </div>
       </div>
@@ -70,14 +70,14 @@
               <h3 class="sheet-section-h3">{{localize 'sta.actor.character.attribute.title'}}</h3>
             </div>
             <div class="sheet-ability-section">
-              {{#each data.data.attributes as |attribute key|}}
+              {{#each actor.system.attributes as |attribute key|}}
                 <div class="sheet-ability-element">
                   <input class="sheet-ability-input-checkbox" name="attributes" id="radio-{{key}}" type="radio">
                   <label class="sheet-ability-label-text" for="radio-{{key}}">
-                    {{localize attribute.label}}
+                    {{localize (concat 'sta.actor.character.attribute' '.' key)}}
                   </label>
-                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.attributes.{{key}}.value" type="number"
-                    value="{{attribute.value}}" min="7" max="12" data-dtype="Number" />
+                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="system.attributes.{{key}}" type="number"
+                    value="{{attribute}}" min="7" max="12" data-dtype="Number" />
                 </div>
               {{/each}}
             </div>
@@ -87,14 +87,14 @@
               <h3 class="sheet-section-h3">{{localize 'sta.actor.character.discipline.title'}}</h3>
             </div>
             <div class="sheet-ability-section">
-              {{#each data.data.disciplines as |discipline key|}}
+              {{#each actor.system.disciplines as |discipline key|}}
                 <div class="sheet-ability-element">
-                  <input class="sheet-ability-input-checkbox" id="radio-{{key}}" type="radio">
+                  <input class="sheet-ability-input-checkbox" name="disciplines" id="radio-{{key}}" type="radio">
                   <label class="sheet-ability-label-text" for="radio-{{key}}">
-                    {{localize discipline.label}}
+                    {{localize (concat 'sta.actor.character.discipline' '.' key)}}
                   </label>
-                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="data.disciplines.{{key}}.value" type="number"
-                    value="{{discipline.value}}" min="0" max="5" data-dtype="Number" />
+                  <input class="text-feeld sheet-ability-input" id="input-{{key}}" name="system.disciplines.{{key}}" type="number"
+                    value="{{discipline}}" min="0" max="5" data-dtype="Number" />
                 </div>
               {{/each}}
             </div>
