@@ -1,3 +1,8 @@
+/**
+ * The base for all actor documents.
+ *
+ * @property {ActorDataStaNg} system -
+ */
 export class ActorStaNg extends Actor {
   constructor(data, context = {}) {
     if (context.StaNg?.constructorResolved) {

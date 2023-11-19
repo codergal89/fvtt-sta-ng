@@ -1,10 +1,39 @@
 import ActorDataStaNg from "./common.mjs";
 
+/**
+ * Data definition for Character actors.
+ *
+ * @property {string} assignment
+ * @property {object} attributes
+ * @property {number} attributes.control
+ * @property {number} attributes.daring
+ * @property {number} attributes.fitness
+ * @property {number} attributes.insight
+ * @property {number} attributes.presence
+ * @property {number} attributes.reason
+ * @property {number} determination
+ * @property {object} disciplines
+ * @property {number} disciplines.command
+ * @property {number} disciplines.conn
+ * @property {number} disciplines.engineering
+ * @property {number} disciplines.medicine
+ * @property {number} disciplines.science
+ * @property {number} disciplines.security
+ * @property {string} environment
+ * @property {string} milestones
+ * @property {string} rank
+ * @property {number} reputation
+ * @property {string} species
+ * @property {object} stress
+ * @property {number} stress.max
+ * @property {number} stress.value
+ * @property {string} upbringing
+ */
 export default class CharacterDataStaNg extends ActorDataStaNg {
   static defineSchema() {
     const fields = foundry.data.fields;
 
-    return this.mergeSchema(super.defineSchema(), {
+    return foundry.utils.mergeObject(super.defineSchema(), {
       assignment: new fields.StringField({ label: "sta.actor.character.assignment", required: true, trim: true }),
 
       attributes: new fields.SchemaField({

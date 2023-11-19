@@ -1,13 +1,13 @@
 /**
- * The base type for all actors in the system.
+ * Data definition common for all actors.
  *
- * This class defines fields shared by all actors.
+ * @property {string} notes General notes relating to the actor.
  */
 export default class ActorDataStaNg extends foundry.abstract.DataModel {
   type = "actor";
 
   /**
-   * @override
+   * @inheritdoc
    */
   static defineSchema() {
     const fields = foundry.data.fields;
@@ -15,11 +15,6 @@ export default class ActorDataStaNg extends foundry.abstract.DataModel {
     return {
       notes: new fields.HTMLField()
     };
-  }
-
-  static mergeSchema(target, source) {
-    Object.assign(target, source);
-    return target;
   }
 
 }

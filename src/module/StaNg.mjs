@@ -1,4 +1,4 @@
-import { CharacterSheetStaNg } from "./applications/sheets/actor/character.mjs";
+import { registerActorSheets } from "./applications/actor/_module.mjs";
 import * as dataModels from "./data/_module.mjs";
 import * as documents from "./documents/_module.mjs";
 
@@ -14,10 +14,5 @@ Hooks.once("init", async () => {
   CONFIG.Actor.documentClass = documents.ActorStaNg;
   CONFIG.Actor.dataModels = dataModels.actor.config;
 
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("sta-ng", CharacterSheetStaNg, {
-    types: ["character"],
-    makeDefault: true
-  });
-
+  registerActorSheets();
 });

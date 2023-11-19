@@ -79,7 +79,7 @@
           $background 71%,
           #9999cc 71%
         );
-        border-top-left-radius: 130px;
+        border-top-left-radius: 60px;
         padding-top: 20px;
         padding-left: 80px;
         margin-bottom: 10px;
@@ -310,7 +310,7 @@
       );
       padding-left: 80px;
       padding-bottom: 26px;
-      border-bottom-left-radius: 130px;
+      border-bottom-left-radius: 60px;
       margin-bottom: 10px
     }
   }
@@ -324,7 +324,7 @@
   }
 
   .list-entry,
-  .editor, {
+  .editor {
     color: $labelColor;
   }
 
