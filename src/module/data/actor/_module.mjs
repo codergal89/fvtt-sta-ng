@@ -1,11 +1,13 @@
 import CharacterDataStaNg from "./character.mjs";
+import ExtendedTaskDataStaNg from "./extended-task.mjs";
+import SmallCraftDataStaNg from "./small-craft.mjs";
+import StarshipDataStaNg from "./starship.mjs";
 
-export {
-  CharacterDataStaNg
-};
-
-export {default as ActorDataStaNg} from "./common.mjs";
+export { CharacterDataStaNg, ExtendedTaskDataStaNg, SmallCraftDataStaNg, StarshipDataStaNg };
 
 export const config = {
-  character: CharacterDataStaNg
+  character: CharacterDataStaNg,
+  extendedtask: ExtendedTaskDataStaNg,
+  smallcraft: SmallCraftDataStaNg,
+  starship: StarshipDataStaNg
 };

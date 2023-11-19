@@ -15,10 +15,9 @@ export class ActorStaNg extends Actor {
     }
   }
 
-  prepareBaseData() {
-    if (!this.img || this.img === "icons/svg/mystery-man.svg") {
-      this.img = "systems/sta-ng/assets/icons/svg/combadge_voyager.svg";
-    }
+  static getDefaultArtwork(actorData) {
+    const combadgeIcon = "systems/sta-ng/assets/icons/svg/combadge_voyager.svg";
+    return { img: combadgeIcon, texture: { src: combadgeIcon } };
   }
 
   isAcceptableItemType(type) {

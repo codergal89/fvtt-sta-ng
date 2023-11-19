@@ -122,7 +122,7 @@
     "key-spacing": "warn",
     "keyword-spacing": ["warn", {"overrides": {"catch": {"before": true, "after": false}}}],
     "max-len": ["warn", {
-      "code": 120,
+      "code": 128,
       "ignoreTrailingComments": true,
       "ignoreUrls": true,
       "ignoreStrings": true,

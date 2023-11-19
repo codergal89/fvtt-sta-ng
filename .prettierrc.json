@@ -3,7 +3,7 @@
   "singleQuote": false,
   "requirePragma": false,
   "useTabs": false,
-  "printWidth": 120,
+  "printWidth": 128,
   "arrowParens": "avoid",
   "overrides": [
     {

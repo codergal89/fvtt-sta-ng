@@ -1,11 +1,7 @@
 {
   "Actor": {
-    "types": [
-      "character"
-    ],
-    "htmlFields": [
-      "notes"
-    ],
+    "types": ["character", "extendedtask", "smallcraft", "starship"],
+    "htmlFields": ["notes"],
     "character": {}
   }
 }

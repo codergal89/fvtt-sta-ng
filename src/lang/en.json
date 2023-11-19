@@ -1,8 +1,9 @@
 {
-  "ACTOR.TypeCharacter": "Character",
-  "ACTOR.TypeExtendedtask": "Extended Task",
-  "ACTOR.TypeSmallcraft": "Small Craft",
-  "ACTOR.TypeStarship": "Starship",
+  "TYPES.Actor.character": "Character",
+  "TYPES.Actor.extendedtask": "Extended Task",
+  "TYPES.Actor.smallcraft": "Small Craft",
+  "TYPES.Actor.starship": "Starship",
+
   "ITEM.TypeArmor": "Armor",
   "ITEM.TypeCharacterweapon": "Character Weapon",
   "ITEM.TypeFocus": "Focus",
