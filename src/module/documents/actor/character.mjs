@@ -24,6 +24,6 @@ export class CharacterStaNg extends ActorStaNg {
   }
 
   get _acceptableItemTypes() {
-    return ['armor', 'characterWeapon', 'focus', 'injury', 'item', 'talent', 'value'];
+    return ["armor", "characterWeapon", "focus", "injury", "item", "talent", "value"];
   }
 }

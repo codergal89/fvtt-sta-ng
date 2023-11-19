@@ -5,13 +5,14 @@ export class ActorStaNg extends Actor {
     } else {
       Object.assign(context, { StaNg: { constructorResolved: true } });
       const selectedConstructor = game.StaNg.documents.actors.classes[data.type] ?? ActorStaNg;
+      // eslint-disable-next-line no-constructor-return
       return new selectedConstructor(data, context);
     }
   }
 
   prepareBaseData() {
-    if (!this.img || this.img === 'icons/svg/mystery-man.svg') {
-      this.img = 'systems/sta-ng/assets/icons/svg/combadge_voyager.svg';
+    if (!this.img || this.img === "icons/svg/mystery-man.svg") {
+      this.img = "systems/sta-ng/assets/icons/svg/combadge_voyager.svg";
     }
   }
 

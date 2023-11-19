@@ -1,11 +1,11 @@
-import CharacterDataStaNg from "./character.mjs"
+import CharacterDataStaNg from "./character.mjs";
 
 export {
-  CharacterDataStaNg,
-}
+  CharacterDataStaNg
+};
 
-export {default as ActorDataStaNg} from "./common.mjs"
+export {default as ActorDataStaNg} from "./common.mjs";
 
 export const config = {
   character: CharacterDataStaNg
-}
+};
