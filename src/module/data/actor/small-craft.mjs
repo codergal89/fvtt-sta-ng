@@ -1,7 +1,7 @@
 import { StarshipStaNg } from "../../documents/actor/starship.mjs";
-import CraftDataStaNg from "./common-craft.mjs";
+import CommonCraftDataStaNg from "./common-craft.mjs";
 
-export default class SmallCraftDataStaNg extends CraftDataStaNg {
+export default class SmallCraftDataStaNg extends CommonCraftDataStaNg {
   static get _departmentLimit() {
     return 2;
   }

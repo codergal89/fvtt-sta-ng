@@ -1,11 +1,11 @@
-import { ActorStaNg } from "./actor.mjs";
+import { BaseActorStaNg } from "./base-actor.mjs";
 
 /**
  * The Character document.
  *
  * @property {CharacterDataStaNg} system
  */
-export class CharacterStaNg extends ActorStaNg {
+export class CharacterStaNg extends BaseActorStaNg {
   async _preUpdate(changed, options, user) {
     if ((await super._preUpdate(changed, options, user)) === false) {
       return false;

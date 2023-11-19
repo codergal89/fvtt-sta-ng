@@ -1,6 +1,6 @@
-import CraftDataStaNg from "./common-craft.mjs";
+import CommonCraftDataStaNg from "./common-craft.mjs";
 
-export default class StarshipDataStaNg extends CraftDataStaNg {
+export default class StarshipDataStaNg extends CommonCraftDataStaNg {
   static defineSchema() {
     const fields = foundry.data.fields;
 

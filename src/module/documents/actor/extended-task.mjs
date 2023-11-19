@@ -1,11 +1,11 @@
-import { ActorStaNg } from "./actor.mjs";
+import { BaseActorStaNg } from "./base-actor.mjs";
 
 /**
  * The Extended Task document.
  *
  * @property {CharacterDataStaNg} system
  */
-export class ExtendedTaskStaNg extends ActorStaNg {
+export class ExtendedTaskStaNg extends BaseActorStaNg {
   get _acceptableItemTypes() {
     return [];
   }

@@ -2,6 +2,26 @@
   "Actor": {
     "types": ["character", "extendedtask", "smallcraft", "starship"],
     "htmlFields": ["notes"],
-    "character": {}
+    "character": {},
+    "extendedtask": {},
+    "smallcraft": {},
+    "starship": {}
+  },
+  "Item": {
+    "types": [
+      "armor",
+      "characterweapon",
+      "focus",
+      "injury",
+      "item",
+      "milestone",
+      "smallcraftcontainer",
+      "species",
+      "starshipweapon",
+      "talent",
+      "value"
+    ],
+    "htmlFields": ["description"],
+    "item": {}
   }
 }

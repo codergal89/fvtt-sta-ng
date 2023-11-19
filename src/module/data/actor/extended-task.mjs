@@ -1,4 +1,4 @@
-import ActorDataStaNg from "./common-actor.mjs";
+import CommonActorDataStaNg from "./common-actor.mjs";
 
 /**
  * Data definition for Extended Task actors.
@@ -10,7 +10,7 @@ import ActorDataStaNg from "./common-actor.mjs";
  * @property {number} resistance - The resistance of the task.
  * @property {number} work - The size of the work track.
  */
-export default class ExtendedTaskDataStaNg extends ActorDataStaNg {
+export default class ExtendedTaskDataStaNg extends CommonActorDataStaNg {
   static defineSchema() {
     const fields = foundry.data.fields;
 

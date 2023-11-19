@@ -1,4 +1,4 @@
-import ActorDataStaNg from "./common-actor.mjs";
+import CommonActorDataStaNg from "./common-actor.mjs";
 
 /**
  * Data definition for Character actors.
@@ -29,7 +29,7 @@ import ActorDataStaNg from "./common-actor.mjs";
  * @property {number} stress.value
  * @property {string} upbringing
  */
-export default class CharacterDataStaNg extends ActorDataStaNg {
+export default class CharacterDataStaNg extends CommonActorDataStaNg {
   static defineSchema() {
     const fields = foundry.data.fields;
 

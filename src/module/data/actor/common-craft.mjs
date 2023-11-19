@@ -1,13 +1,11 @@
-import ActorDataStaNg from "./common-actor.mjs";
+import CommonActorDataStaNg from "./common-actor.mjs";
 
 /**
  * Data definition common for all craft actors.
  *
  * @property {string} notes General notes relating to the actor.
  */
-export default class CraftDataStaNg extends ActorDataStaNg {
-  type = "actor";
-
+export default class CommonCraftDataStaNg extends CommonActorDataStaNg {
   static get _departmentLimit() {
     return 5;
   }

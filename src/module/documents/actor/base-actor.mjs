@@ -3,13 +3,13 @@
  *
  * @property {ActorDataStaNg} system -
  */
-export class ActorStaNg extends Actor {
+export class BaseActorStaNg extends Actor {
   constructor(data, context = {}) {
     if (context.StaNg?.constructorResolved) {
       super(data, context);
     } else {
       Object.assign(context, { StaNg: { constructorResolved: true } });
-      const selectedConstructor = game.StaNg.documents.actors.classes[data.type] ?? ActorStaNg;
+      const selectedConstructor = game.StaNg.documents.actors.classes[data.type] ?? BaseActorStaNg;
       // eslint-disable-next-line no-constructor-return
       return new selectedConstructor(data, context);
     }

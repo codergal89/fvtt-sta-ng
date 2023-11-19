@@ -8,11 +8,16 @@ globalThis.StaNg = {
 
 Hooks.once("init", async () => {
   game.StaNg = {
-    documents: documents.documents
+    documents: documents.config
   };
 
-  CONFIG.Actor.documentClass = documents.ActorStaNg;
+  CONFIG.Actor.documentClass = documents.BaseActorStaNg;
   CONFIG.Actor.dataModels = dataModels.actor.config;
+
+  CONFIG.Item.documentClass = documents.BaseItemStaNg;
+  CONFIG.Actor.dataModels = dataModels.item.config;
 
   registerActorSheets();
 });
+
+export { dataModels };

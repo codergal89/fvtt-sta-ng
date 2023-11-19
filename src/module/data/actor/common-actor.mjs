@@ -3,9 +3,7 @@
  *
  * @property {string} notes General notes relating to the actor.
  */
-export default class ActorDataStaNg extends foundry.abstract.TypeDataModel {
-  type = "actor";
-
+export default class CommonActorDataStaNg extends foundry.abstract.TypeDataModel {
   /**
    * @inheritdoc
    */
