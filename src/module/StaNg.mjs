@@ -15,7 +15,7 @@ Hooks.once("init", async () => {
   CONFIG.Actor.dataModels = dataModels.actor.config;
 
   CONFIG.Item.documentClass = documents.BaseItemStaNg;
-  CONFIG.Actor.dataModels = dataModels.item.config;
+  CONFIG.Item.dataModels = dataModels.item.config;
 
   registerActorSheets();
 });
